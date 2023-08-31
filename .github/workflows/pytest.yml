@@ -2,7 +2,9 @@ name: Unit tests
 on:
   pull_request:
     paths: ['src/**']
-  push: { branches: main }
+  push:
+    branches: 'main'
+    paths: ['src/**']
 
 jobs:
   unittests:
