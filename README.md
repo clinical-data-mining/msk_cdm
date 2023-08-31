@@ -35,3 +35,7 @@ hooks is the Black linter, which modifies the source file, so you need to try to
 `git commit` twice if it does).
 
 You can run unit tests by issuing `make test` from the root dir.
+
+If you're updating this repo, please make a Pull Request via a git branch. If the change
+is to the core functionality (i.e. modifies the core code in this repo possibly used
+by other projects/peple) please request a code review.
