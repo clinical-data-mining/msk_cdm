@@ -3,7 +3,7 @@ from datetime import date
 from pydantic import ValidationError
 import pytest
 
-from cdm.data.metadata import DatasetMetadata
+from msk_cdm.data.metadata import DatasetMetadata
 
 
 def test_fields_persisted_across_serialization(fs):

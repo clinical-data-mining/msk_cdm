@@ -15,6 +15,17 @@ or
 pip install .
 ```
 
+For now the library requires python version at least `3.9`. If your install gives an
+error about not being able to find compatible version of a library, check
+```
+python --version
+```
+If you're using an older python version, you'll need to upgrade.
+
+(If this too much of a headache to be compatible with other libraries you are using, we
+can likely relax this requirement).
+
+
 ## Contributing to this repo
 
 If you're contributing to the code please run `make install_precommit_hooks` from the

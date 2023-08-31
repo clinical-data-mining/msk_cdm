@@ -3,10 +3,10 @@ from setuptools import setup, find_packages
 long_description = ""
 
 setup(
-    name="cdm",
+    name="msk_cdm",
     version="0.1.0",
     description="Core MSK Clinical Data Mining group code.",
-    url="https://github.com/clinical-data-mining/cdm",
+    url="https://github.com/clinical-data-mining/cdm-v2",
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",

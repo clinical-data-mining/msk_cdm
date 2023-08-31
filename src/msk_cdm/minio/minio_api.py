@@ -43,7 +43,7 @@ class MinioAPI(object):
         SECRET_KEY=None,
         ca_certs=None,
         url_port="tllihpcmind6:9000",
-        fname_minio_env=None
+        fname_minio_env=None,
     ):
         self._ACCESS_KEY = ACCESS_KEY
         self._SECRET_KEY = SECRET_KEY

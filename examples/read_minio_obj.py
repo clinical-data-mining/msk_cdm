@@ -12,7 +12,7 @@ from io import BytesIO
 import pandas as pd
 import urllib3
 
-from cdm.minio import MinioAPI
+from msk_cdm.minio import MinioAPI
 
 
 def read_minio_obj(minio_env_fname, input_obj):
