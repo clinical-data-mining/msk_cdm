@@ -29,5 +29,7 @@ setup(
     extras_require={
         "dev": ["check-manifest"],
         "test": ["pyfakefs", "pytest", "tox"],
+        # 7.2.5 currently broken https://github.com/sphinx-doc/sphinx/issues/11662
+        "docs": ["sphinx==7.2.4"],
     },
 )
