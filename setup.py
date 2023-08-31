@@ -22,7 +22,9 @@ setup(
     },
     python_requires=">=3.9, <4",
     install_requires=[
+        "minio>=7.1,<8",
         "pydantic>=2.3,<3",
+        "python-dotenv>=1.0,<2",
     ],
     extras_require={
         "dev": ["check-manifest"],

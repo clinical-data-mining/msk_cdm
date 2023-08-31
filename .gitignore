@@ -1,8 +1,13 @@
+# project-specific
+.env
+
+# python build
 .idea
 build
 dist
 *.egg-info
 
+# python runtime
 __pycache__/
 *.py[cod]
 
