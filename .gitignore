@@ -1,0 +1,16 @@
+.idea
+build
+dist
+*.egg-info
+
+__pycache__/
+*.py[cod]
+
+# Vim temporary files
+*~
+*.swp
+*.swo
+
+# OSX finder files
+.DS_Store
+.DS_store
