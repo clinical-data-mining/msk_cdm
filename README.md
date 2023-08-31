@@ -1,5 +1,8 @@
 # Core MSK Clinical Data Mining group code.
 
+Possible new home for cdm-utilities with more flexible package layout/structure
+
+
 ## Using/installing this repo.
 
 The simplest way to use this repo is to set up a conda env or environment of your choice
