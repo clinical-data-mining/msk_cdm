@@ -1,5 +1,7 @@
 # project-specific
 .env
+docs/source/modules.rst
+docs/source/msk_cdm*.rst
 
 # python build
 .idea
