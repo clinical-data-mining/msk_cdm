@@ -21,6 +21,14 @@ release = "0.1.0"
 
 extensions = ["sphinx.ext.autodoc", "sphinx.ext.napoleon"]
 
+autodoc_default_options = {
+    "members": True,
+    "member-order": "bysource",
+    "special-members": "__init__",
+    "undoc-members": True,
+    "exclude-members": "__weakref__",
+}
+
 templates_path = ["_templates"]
 exclude_patterns = []
 
