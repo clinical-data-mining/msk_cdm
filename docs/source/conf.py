@@ -40,3 +40,13 @@ sys.path.append(Path(__file__).parents[2].resolve())
 
 html_theme = "alabaster"
 html_static_path = ["_static"]
+
+
+# alabaster customizations
+
+html_theme_options = {
+    "github_repo": "clinical-data-mining/msk_cdm",
+    "description": "Core MSK CDM code",
+    "page_width": "1200px",  # default 940px
+    "sidebar_width": "300px",  # default 220px
+}
