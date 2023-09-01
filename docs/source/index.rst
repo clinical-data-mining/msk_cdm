@@ -10,7 +10,7 @@ Welcome to msk_cdm's documentation!
    :maxdepth: 6
    :caption: Contents:
 
-   modules
+   msk_cdm
 
 
 Indices and tables
