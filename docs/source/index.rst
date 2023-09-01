@@ -7,7 +7,7 @@ Welcome to msk_cdm's documentation!
 ===================================
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 6
    :caption: Contents:
 
    modules

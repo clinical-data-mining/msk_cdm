@@ -7,10 +7,11 @@ test:
 	pip install .[test]
 	pytest .
 
+DOCS_EXCLUDE = */test_*.py
 .PHONY: docs
 docs:
 	pip install .[docs]
-	sphinx-apidoc -f -o docs/source src/msk_cdm
+	sphinx-apidoc -f -e -d 6 -o docs/source src/msk_cdm $(DOCS_EXCLUDE)
 	sphinx-build -b html docs/source docs/build
 
 .PHONY: install_precommit_hooks
