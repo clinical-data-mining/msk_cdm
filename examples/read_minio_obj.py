@@ -18,18 +18,15 @@ from msk_cdm.minio import MinioAPI
 def read_minio_obj(minio_env_fname, input_obj):
     minio_api = MinioAPI(fname_minio_env=minio_env_fname)
 
-    try:
-        # urllib3.response.HTTPResponse
-        response = minio_api.load_obj(input_obj)
-    except urllib3.exceptions.HTTPError as e:
-        raise RuntimeError(f"Request failed:, {e.reason}")
+    # urllib3.response.HTTPResponse
+    response = minio_api.load_obj(input_obj)
 
     if not response.status == 200:
         raise RuntimeError(f"Got response code {response.status}")
 
     # type "bytes"
     txt = response.read()
-    print(f"Read {len(txt)}-byte object from Minio.")
+    print(f"Read {len(txt):,}-byte object from Minio.")
 
     # Parse as a TSV. Obviously depending on the object you load, it might not be a TSV.
     df = pd.read_csv(BytesIO(txt), sep="\t")

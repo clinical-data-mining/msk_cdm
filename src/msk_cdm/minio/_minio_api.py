@@ -1,6 +1,9 @@
 from io import BytesIO
+import logging
 import os
+from pathlib import Path
 import sys
+from typing import Optional, Union
 import urllib3
 
 from dotenv import load_dotenv, find_dotenv, dotenv_values
@@ -8,84 +11,44 @@ from minio import Minio
 from minio.commonconfig import CopySource
 
 
-def _read_minio_api_config(fname_env):
-    """Requires a .env file be populated with"""
-    config = dotenv_values(fname_env)
-    dict_config = dict(config)
-
-    load_dotenv(dict_config["MINIO_ENV"])
-
-    ACCESS_KEY = os.getenv("ACCESS_KEY")
-    SECRET_KEY = os.getenv("SECRET_KEY")
-
-    if not ACCESS_KEY or not SECRET_KEY:
-        raise RuntimeError(
-            "Can't find ACCESS_KEY or SECRET_KEY environment variables. Perhaps you're "
-            "missing a .env file with them?"
-        )
-
-    # Add Minio access and secret key to the configure json
-    dict_config["ACCESS_KEY"] = ACCESS_KEY
-    dict_config["SECRET_KEY"] = SECRET_KEY
-
-    return dict_config
+logger = logging.getLogger()
 
 
 class MinioAPI(object):
-    """ "
-    Interface to read/write to Minio
-    """
+    """Object to simplify reading/writing to/from Minio."""
 
     def __init__(
         self,
         *,
-        ACCESS_KEY=None,
-        SECRET_KEY=None,
-        ca_certs=None,
-        url_port="tllihpcmind6:9000",
-        fname_minio_env=None,
+        ACCESS_KEY: Optional[str] = None,
+        SECRET_KEY: Optional[str] = None,
+        ca_certs: Optional[str] = None,
+        url_port: Optional[str] = "tllihpcmind6:9000",
+        fname_minio_env: Optional[Union[Path, str]] = None,
     ):
+        """Constructor.
+
+        Args:
+            - ACCESS_KEY: Minio access key. Optional if `fname_minio_env` is passed, in
+              which case it may be present in the env file picked up by .env
+            - SECRET_KEY: Minio access key. Optional if `fname_minio_env` is passed, in
+              which case it may be present in the env file picked up by .env
+            - ca_certs: optional filename pointer to ca_cert bundle for `urllib3`. Only
+              specify if not passing `fname_minio_env`.
+            - fname_minio_env: A filename with KEY=value lines with values for keys
+              `CA_CERTS`, `URL_PORT`, `BUCKET`.
+        """
         self._ACCESS_KEY = ACCESS_KEY
         self._SECRET_KEY = SECRET_KEY
         self._ca_certs = ca_certs
         self._url_port = url_port
-        self._fname_minio_env = fname_minio_env
 
         self._bucket = None
         self._client = None
 
-        if self._fname_minio_env is not None:
-            self._process_env()
-
+        if fname_minio_env is not None:
+            self._process_env(fname_minio_env)
         self._connect()
-
-    def _process_env(self):
-        # Setup Minio configuration
-        minio_config = _read_minio_api_config(fname_env=self._fname_minio_env)
-        self._ACCESS_KEY = minio_config["ACCESS_KEY"]
-        self._SECRET_KEY = minio_config["SECRET_KEY"]
-        self._ca_certs = minio_config["CA_CERTS"]
-        self._url_port = minio_config["URL_PORT"]
-        self._bucket = minio_config["BUCKET"]
-
-        return None
-
-    def _connect(self):
-        # required for self-signed certs
-        httpClient = urllib3.PoolManager(
-            cert_reqs="CERT_REQUIRED", ca_certs=self._ca_certs
-        )
-
-        # Create secure client with access key and secret key
-        client = Minio(
-            endpoint=self._url_port,
-            access_key=self._ACCESS_KEY,
-            secret_key=self._SECRET_KEY,
-            secure=True,
-            http_client=httpClient,
-        )
-
-        self._client = client
 
     def print_list_objects(self, bucket_name=None, prefix=None, recursive=True):
         if self._bucket is not None:
@@ -100,10 +63,16 @@ class MinioAPI(object):
 
         return obj_list
 
-    def load_obj(self, path_object, bucket_name=None):
+    def load_obj(
+        self, path_object: str, bucket_name: Optional[str] = None
+    ) -> urllib3.response.HTTPResponse:
         """Read an object from minio.
-        Raises urllib3.exceptions.HTTPError if request is unsuccessful.
+        Raises `urllib3.exceptions.HTTPError` if request is unsuccessful.
 
+        Args:
+            - path_object: Object file to read from minio
+            - bucket_name: Optional bucket name, otherwise defaults to  BUCKET passed
+              via minio env fniame to constructor
         Returns:
             - urllib3.response.HTTPResponse
         """
@@ -155,3 +124,38 @@ class MinioAPI(object):
         output = [result.object_name, result.version_id]
 
         return output
+
+    def _process_env(self, fname_minio_env):
+        dict_config = dict(dotenv_values(fname_minio_env))
+        load_dotenv(dict_config["MINIO_ENV"])
+
+        env_access_key = os.getenv("ACCESS_KEY")
+        if env_access_key:
+            dict_config["ACCESS_KEY"] = env_access_key
+
+        env_secret_key = os.getenv("SECRET_KEY")
+        if env_secret_key:
+            dict_config["SECRET_KEY"] = env_secret_key
+
+        self._ACCESS_KEY = dict_config["ACCESS_KEY"]
+        self._SECRET_KEY = dict_config["SECRET_KEY"]
+        self._ca_certs = dict_config["CA_CERTS"]
+        self._url_port = dict_config["URL_PORT"]
+        self._bucket = dict_config["BUCKET"]
+
+    def _connect(self):
+        # required for self-signed certs
+        httpClient = urllib3.PoolManager(
+            cert_reqs="CERT_REQUIRED", ca_certs=self._ca_certs
+        )
+
+        # Create secure client with access key and secret key
+        client = Minio(
+            endpoint=self._url_port,
+            access_key=self._ACCESS_KEY,
+            secret_key=self._SECRET_KEY,
+            secure=True,
+            http_client=httpClient,
+        )
+
+        self._client = client
