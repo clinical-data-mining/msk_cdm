@@ -1,1 +1,3 @@
-from .minio_api import MinioAPI
+from ._minio_api import MinioAPI
+
+__all__ = ["MinioAPI"]
