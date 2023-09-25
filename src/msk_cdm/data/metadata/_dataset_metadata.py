@@ -2,7 +2,7 @@ from datetime import date
 from pathlib import Path
 from typing import Optional
 
-from pydantic import BaseModel, ConfigDict, model_validator
+from pydantic import BaseModel, ConfigDict, field_validator, model_validator
 
 
 SAVE_FNAME = "cdm_metadata.json"
@@ -67,3 +67,10 @@ class DatasetMetadata(BaseModel):
                     f"({self.oldest_train_record_date})"
                 )
         return self
+
+    @field_validator("dataset_size", mode="after")
+    @classmethod
+    def check_dataset_size_positive(cls, v) -> int:
+        if v <= 0:
+            raise ValueError(f"got negative dataset_size {v}")
+        return v

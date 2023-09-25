@@ -75,3 +75,11 @@ def test_either_newest_or_oldest_date_none_does_not_raise_error():
         dataset_size=10,
         oldest_train_record_date="2023-02-23",
     )
+
+
+def test_dataset_size_must_be_positive():
+    with pytest.raises(ValidationError, match=r"negative"):
+        DatasetMetadata(
+            cdm_project_id="projid",
+            dataset_size=-10,
+        )
