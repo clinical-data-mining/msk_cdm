@@ -1,10 +1,32 @@
 [build-system]
-requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2"]
+requires = ["setuptools>=69", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["msk_cdm*"]
 
 [project]
 name = "msk_cdm"
-dynamic = ["version"]
-requires-python = ">3.9"
+version = "0.1.0"
+requires-python = ">=3.9, <4"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3 :: Only",
+]
+
+dependencies = [
+    "minio>=7.1, <8",
+    "pydantic>=2.3, <3",
+    "python-dotenv>=1.0, <2",
+]
+
+[project.optional-dependencies]
+dev = ["check-manifest"]
+test =["pyfakefs", "pytest", "tox"]
+# 7.2.5 currently broken https://github.com/sphinx-doc/sphinx/issues/11662
+docs = ["sphinx==7.2.4"]
 
 [tool.setuptools_scm]
 root = "."
