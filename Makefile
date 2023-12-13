@@ -7,6 +7,11 @@ test:
 	pip install .[test]
 	pytest .
 
+.PHONY: clean
+clean:
+	rm -r ./build/
+	find src/ -name "__pycache__" | xargs rm -r
+
 DOCS_EXCLUDE = */test_*.py
 .PHONY: docs
 docs:
