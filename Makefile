@@ -9,8 +9,8 @@ test:
 
 .PHONY: clean
 clean:
-	find src/ -name "__pycache__" | xargs rm -r
 	rm -r ./build/
+	find src/ -name "__pycache__" | xargs rm -r
 
 DOCS_EXCLUDE = */test_*.py
 .PHONY: docs
