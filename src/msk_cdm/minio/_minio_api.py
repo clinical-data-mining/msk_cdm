@@ -50,16 +50,16 @@ class MinioAPI(object):
         self._connect()
 
     def print_list_objects(
-        self, 
-        bucket_name: Optional[str]=None, 
-        prefix: Optional[str]=None, 
-        recursive: Optional[bool]=True
+        self,
+        bucket_name: Optional[str] = None,
+        prefix: Optional[str] = None,
+        recursive: Optional[bool] = True,
     ):
         """Create a Python list of objects in a specified minio bucket.
         Args:
             - bucket_name: Optional bucket name, otherwise defaults to  BUCKET passed
               via minio env fniame to constructor
-            - prefix: 
+            - prefix:
         Returns:
             - obj_list: List of strings containing path locations in minio bucket.
         """
@@ -76,9 +76,7 @@ class MinioAPI(object):
         return obj_list
 
     def load_obj(
-        self, 
-        path_object: str, 
-        bucket_name: Optional[str] = None
+        self, path_object: str, bucket_name: Optional[str] = None
     ) -> urllib3.response.HTTPResponse:
         """Read an object from minio.
         Raises `urllib3.exceptions.HTTPError` if request is unsuccessful.
@@ -99,17 +97,17 @@ class MinioAPI(object):
         return obj
 
     def save_obj(
-        self, 
-        df, 
-        path_object: str, 
-        sep: Optional[str]=",", 
-        bucket_name: Optional[str]=None
+        self,
+        df,
+        path_object: str,
+        sep: Optional[str] = ",",
+        bucket_name: Optional[str] = None,
     ):
         """Save an object to minio.
         Args:
             - df: Pandas dataframe to be saved to Minio
             - path_object: Object filename for `df`
-            - sep: Separator when saving the Pandas dataframe 
+            - sep: Separator when saving the Pandas dataframe
             - bucket_name: Optional bucket name, otherwise defaults to BUCKET passed
               via minio env fniame to constructor
         Returns:
@@ -131,11 +129,7 @@ class MinioAPI(object):
 
         return None
 
-    def remove_obj(
-        self, 
-        path_object: str, 
-        bucket_name: Optional[str]=None
-    ):
+    def remove_obj(self, path_object: str, bucket_name: Optional[str] = None):
         """Remove an object from minio.
         Args:
             - path_object: Object file to be removed from minio
@@ -151,11 +145,11 @@ class MinioAPI(object):
         return None
 
     def copy_obj(
-        self, 
-        source_path_object: str, 
-        dest_path_object: str, 
-        source_bucket: Optional[str]=None, 
-        dest_bucket: Optional[str]=None
+        self,
+        source_path_object: str,
+        dest_path_object: str,
+        source_bucket: Optional[str] = None,
+        dest_bucket: Optional[str] = None,
     ):
         """Copy an object in minio. Objects can be copied across different BUCKETS. Warning: objects with greater than 1GB may fail using this. Instead, use `load_obj` and `save_obj` in combination.
         Args:

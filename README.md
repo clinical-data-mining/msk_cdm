@@ -40,6 +40,7 @@ dependencies:
    - minio
    - requests
    - ipykernel
+   - conda-build
    - pip
    - pip: 
        - git+https://github.com/clinical-data-mining/msk_cdm.git

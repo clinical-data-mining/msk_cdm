@@ -1,7 +1,3 @@
-from ._constants import (
-    ConstantsPathologySegmentation
-)
+from ._constants import ConstantsPathologySegmentation
 
-__all__ = [
-    "ConstantsPathologySegmentation"
-]
+__all__ = ["ConstantsPathologySegmentation"]
