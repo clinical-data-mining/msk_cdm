@@ -26,8 +26,7 @@ class MinioAPI(object):
         url_port: Optional[str] = "tllihpcmind6:9000",
         fname_minio_env: Optional[Union[Path, str]] = None,
     ):
-        """Constructor.
-
+        """
         Args:
             - ACCESS_KEY: Minio access key. Optional if `fname_minio_env` is passed, in
               which case it may be present in the env file picked up by .env
@@ -50,7 +49,20 @@ class MinioAPI(object):
             self._process_env(fname_minio_env)
         self._connect()
 
-    def print_list_objects(self, bucket_name=None, prefix=None, recursive=True):
+    def print_list_objects(
+        self,
+        bucket_name: Optional[str] = None,
+        prefix: Optional[str] = None,
+        recursive: Optional[bool] = True,
+    ):
+        """Create a Python list of objects in a specified minio bucket.
+        Args:
+            - bucket_name: Optional bucket name, otherwise defaults to  BUCKET passed
+              via minio env fniame to constructor
+            - prefix:
+        Returns:
+            - obj_list: List of strings containing path locations in minio bucket.
+        """
         if self._bucket is not None:
             bucket_name = self._bucket
 
@@ -84,7 +96,23 @@ class MinioAPI(object):
 
         return obj
 
-    def save_obj(self, df, path_object, sep=",", bucket_name=None):
+    def save_obj(
+        self,
+        df,
+        path_object: str,
+        sep: Optional[str] = ",",
+        bucket_name: Optional[str] = None,
+    ):
+        """Save an object to minio.
+        Args:
+            - df: Pandas dataframe to be saved to Minio
+            - path_object: Object filename for `df`
+            - sep: Separator when saving the Pandas dataframe
+            - bucket_name: Optional bucket name, otherwise defaults to BUCKET passed
+              via minio env fniame to constructor
+        Returns:
+            - None
+        """
         if self._bucket is not None:
             bucket_name = self._bucket
 
@@ -101,7 +129,15 @@ class MinioAPI(object):
 
         return None
 
-    def remove_obj(self, path_object, bucket_name=None):
+    def remove_obj(self, path_object: str, bucket_name: Optional[str] = None):
+        """Remove an object from minio.
+        Args:
+            - path_object: Object file to be removed from minio
+            - bucket_name: Optional bucket name, otherwise defaults to  BUCKET passed
+              via minio env fname to constructor
+        Returns:
+            - None
+        """
         # Remove list of objects.
         self._client.remove_object(bucket_name=bucket_name, object_name=path_object)
         print("Object removed. Bucket: %s, Object: %s" % (bucket_name, path_object))
@@ -109,8 +145,21 @@ class MinioAPI(object):
         return None
 
     def copy_obj(
-        self, source_path_object, dest_path_object, source_bucket=None, dest_bucket=None
+        self,
+        source_path_object: str,
+        dest_path_object: str,
+        source_bucket: Optional[str] = None,
+        dest_bucket: Optional[str] = None,
     ):
+        """Copy an object in minio. Objects can be copied across different BUCKETS. Warning: objects with greater than 1GB may fail using this. Instead, use `load_obj` and `save_obj` in combination.
+        Args:
+            - source_path_object: Object file to be copied
+            - dest_path_object: Object filename that `source_path_object` will be copied to
+            - bucket_name: Optional bucket name, otherwise defaults to  BUCKET passed
+              via minio env fniame to constructor
+        Returns:
+            - output: Object name and version ID of object
+        """
         if self._bucket is not None:
             source_bucket = self._bucket
             dest_bucket = self._bucket
