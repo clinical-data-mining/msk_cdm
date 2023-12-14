@@ -63,7 +63,7 @@ class MinioAPI(object):
             - prefix:
         Returns:
             - obj_list: List of strings containing path locations in minio bucket.
-            
+
         """
         if self._bucket is not None:
             bucket_name = self._bucket
@@ -115,9 +115,7 @@ class MinioAPI(object):
               via minio env fniame to constructor
         Returns:
             - None
-            
-        """
-        
+
         if self._bucket is not None:
             bucket_name = self._bucket
 
@@ -142,7 +140,7 @@ class MinioAPI(object):
               via minio env fname to constructor
         Returns:
             - None
-            
+
         """
         # Remove list of objects.
         self._client.remove_object(bucket_name=bucket_name, object_name=path_object)
@@ -157,11 +155,10 @@ class MinioAPI(object):
         source_bucket: Optional[str] = None,
         dest_bucket: Optional[str] = None,
     ):
-        """
-        Copy an object in minio. Objects can be copied across different BUCKETS. 
+        """Copy an object in minio. Objects can be copied across different BUCKETS. 
         Warning: objects with greater than 1GB may fail using this. 
         Instead, use `load_obj` and `save_obj` in combination.
-        
+
         Args:
             - source_path_object: Object file to be copied
             - dest_path_object: Object filename that `source_path_object` will be copied to
