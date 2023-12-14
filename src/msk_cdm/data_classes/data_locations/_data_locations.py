@@ -14,10 +14,7 @@ class DataLocationsPathologySegmentation:
     ##############################################################################
     # Pathnames 
     ##############################################################################
-    root_path_pathology: str = os.path.join(root_path, 'pathology_report_segmentation')
-     """
-     Root path location for the pathology segmentation repository: https://github.com/clinical-data-mining/pathology_report_segmentation
-     """
+    root_path_pathology: str = os.path.join(root_path, 'pathology_report_segmentation')    
     
     ##############################################################################
     # PATHOLOGY REPORT derived files

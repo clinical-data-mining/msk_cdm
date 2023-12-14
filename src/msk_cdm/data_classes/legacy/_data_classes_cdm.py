@@ -17,7 +17,7 @@ class CDMProcessingVariables:
 
     root_path_cdm_utils: str = os.path.join(root_path, "cdm-utilities")
     root_path_treatments: str = os.path.join(root_path, "cdm-treatments")
-    root_path_pathology: str = os.path.join(root_path, "pathology_report_segmentation") 
+    root_path_pathology: str = os.path.join(root_path, "pathology_report_segmentation")
     root_path_diagnosis: str = os.path.join(
         root_path, "diagnosis_event_abstraction_icd"
     )
