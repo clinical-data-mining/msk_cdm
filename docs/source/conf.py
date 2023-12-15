@@ -5,7 +5,7 @@
 
 from pathlib import Path
 import sys
-import sphinx_rtd_theme
+# import sphinx_rtd_theme
 
 
 # -- Project information -----------------------------------------------------
@@ -22,8 +22,7 @@ release = "0.1.0"
 
 extensions = [
     "sphinx.ext.autodoc", 
-    "sphinx.ext.napoleon",
-    "sphinx_rtd_theme"
+    "sphinx.ext.napoleon"
 ]
 
 autodoc_default_options = {
@@ -43,6 +42,12 @@ sys.path.append(Path(__file__).parents[2].resolve())
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = "sphinx_rtd_theme"
+html_theme = "nature"
 html_static_path = ["_static"]
+
+html_theme_options = {
+    "sidebarwidth": "300px"
+}
+
+
 
