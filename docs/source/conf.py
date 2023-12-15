@@ -5,6 +5,7 @@
 
 from pathlib import Path
 import sys
+import sphinx_rtd_theme
 
 
 # -- Project information -----------------------------------------------------
