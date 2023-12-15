@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to msk_cdm's documentation!
+[msk_cdm]: Available Documentation
 ===================================
 
 .. toctree::
@@ -13,9 +13,3 @@ Welcome to msk_cdm's documentation!
    msk_cdm
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
