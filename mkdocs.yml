@@ -35,7 +35,6 @@ theme:
     - navigation.sections
     - navigation.indexes
     - navigation.top
-    - toc.follow
     - search.suggestions
     - search.highlight
     - search.share
