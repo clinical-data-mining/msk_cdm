@@ -6,4 +6,4 @@
 set -e
 
 cd build/
-python -m http.server 2222
+python -m http.server 2223
