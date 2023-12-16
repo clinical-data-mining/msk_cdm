@@ -22,7 +22,7 @@
     
     
       
-        <title>Index - Clinical Data Mining @ MSKCC</title>
+        <title>MinIO API for Object Loading and Saving - Clinical Data Mining @ MSKCC</title>
       
     
     
@@ -77,6 +77,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#minio_api_for_object_loading_and_saving" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -85,9 +90,7 @@
     
       
 
-  
-
-<header class="md-header md-header--shadow" data-md-component="header">
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Clinical Data Mining @ MSKCC" class="md-header__button md-logo" aria-label="Clinical Data Mining @ MSKCC" data-md-component="logo">
       
@@ -109,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index
+              MinIO API for Object Loading and Saving
             
           </span>
         </div>
@@ -211,6 +214,57 @@
       
         
           
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href=".." class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -224,8 +278,10 @@
                     
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Clinical Data Mining @ MSKCC" class="md-nav__button md-logo" aria-label="Clinical Data Mining @ MSKCC" data-md-component="logo">
       
@@ -385,6 +441,94 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#msk_cdm.minio._minio_api" class="md-nav__link">
+    <span class="md-ellipsis">
+      _minio_api
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msk_cdm.minio._minio_api.MinioAPI" class="md-nav__link">
+    <span class="md-ellipsis">
+      MinioAPI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MinioAPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#msk_cdm.minio._minio_api.MinioAPI.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#msk_cdm.minio._minio_api.MinioAPI.copy_obj" class="md-nav__link">
+    <span class="md-ellipsis">
+      copy_obj()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#msk_cdm.minio._minio_api.MinioAPI.load_obj" class="md-nav__link">
+    <span class="md-ellipsis">
+      load_obj()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#msk_cdm.minio._minio_api.MinioAPI.print_list_objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      print_list_objects()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#msk_cdm.minio._minio_api.MinioAPI.remove_obj" class="md-nav__link">
+    <span class="md-ellipsis">
+      remove_obj()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#msk_cdm.minio._minio_api.MinioAPI.save_obj" class="md-nav__link">
+    <span class="md-ellipsis">
+      save_obj()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -402,7 +546,8 @@
   
 
 
-  <h1>Index</h1>
+<h1 id="minio_api_for_object_loading_and_saving">MinIO API for Object Loading and Saving<a class="headerlink" href="#minio_api_for_object_loading_and_saving" title="Permanent link">#</a></h1>
+
 
 <div class="doc doc-object doc-module">
 
@@ -1799,7 +1944,7 @@ Instead, use <code>load_obj</code> and <code>save_obj</code> in combination.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.sections", "navigation.indexes", "navigation.top", "search.suggestions", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.sections", "navigation.indexes", "navigation.tabs", "navigation.path", "navigation.top", "navigation.prune", "toc.follow", "search.suggestions", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
