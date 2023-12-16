@@ -62,12 +62,6 @@ nav:
         - 'reference/index.md'
 
 
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.mskcc.org/cdsi/docs
-      name: CDSi on GitHub
-
 extra_css:
   - stylesheets/extra.css
 
@@ -81,9 +75,6 @@ markdown_extensions:
       separator: "_"
       toc_depth: "1-1"
   - pymdownx.details
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.highlight:
       linenums: true
   - pymdownx.inlinehilite
@@ -97,8 +88,9 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
+          setup_commands:
+            - import sys
+            - sys.path.append("src/msk_cdm")
           rendering:
             show_root_heading: True
             show_root_full_path: False
-  - git-revision-date
-  - section-index

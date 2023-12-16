@@ -1,3 +1,3 @@
 # Minio API
 
-:::msk_cdm.minio.minio_api
+:::msk_cdm.minio._minio_api
