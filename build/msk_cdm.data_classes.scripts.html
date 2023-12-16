@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#3f51b5">
+  <script src="_static/javascripts/modernizr.js"></script>
+  
+  
+  
+    <title>msk_cdm.data_classes.scripts package &#8212; msk_cdm</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=e7352e39" />
+    <link rel="stylesheet" type="text/css" href="_static/material.css?v=79c92029" />
+    <script src="_static/documentation_options.js?v=01f34227"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="msk_cdm.data_processing package" href="msk_cdm.data_processing.html" />
+    <link rel="prev" title="msk_cdm.data_classes.legacy package" href="msk_cdm.data_classes.legacy.html" />
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=blue data-md-color-accent=light-blue>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#msk_cdm.data_classes.scripts" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="index.html" title="msk_cdm"
+           class="md-header-nav__button md-logo">
+          
+            &nbsp;
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">msk_cdm</span>
+          <span class="md-header-nav__topic"> msk_cdm.data_classes.scripts package </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            <a href="https://github.com/clinical-data-mining/msk_cdm" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    msk_cdm
+  </div>
+</a>
+          </div>
+        </div>
+      
+      
+  
+  <script src="_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = ""versions.json"",
+        target_loc = "../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">msk_cdm</a></li>
+          <li class="md-tabs__item"><a href="msk_cdm.html" class="md-tabs__link">msk_cdm package</a></li>
+          <li class="md-tabs__item"><a href="msk_cdm.data_classes.html" class="md-tabs__link">msk_cdm.data_classes package</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="index.html" title="msk_cdm" class="md-nav__button md-logo">
+      
+        <img src="_static/" alt=" logo" width="48" height="48">
+      
+    </a>
+    <a href="index.html"
+       title="msk_cdm">msk_cdm</a>
+  </label>
+    <div class="md-nav__source">
+      <a href="https://github.com/clinical-data-mining/msk_cdm" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    msk_cdm
+  </div>
+</a>
+    </div>
+  
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#msk-cdm-data-classes-scripts--page-root" class="md-nav__link">msk_cdm.data_classes.scripts package</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#module-msk_cdm.data_classes.scripts" class="md-nav__link">Module contents</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsCbioportalFormatting</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.root_path_cbio_etl" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsCbioportalFormatting.root_path_cbio_etl</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_timeline_deid_files" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsCbioportalFormatting.script_cbio_timeline_deid_files</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_timeline_seq_spec" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsCbioportalFormatting.script_cbio_timeline_seq_spec</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_timeline_disease_status" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsCbioportalFormatting.script_cbio_timeline_disease_status</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_timeline_follow_up" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsCbioportalFormatting.script_timeline_follow_up</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_summary_overall_survival" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsCbioportalFormatting.script_summary_overall_survival</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_create_summary_templates" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsCbioportalFormatting.script_create_summary_templates</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_summary_formatting" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsCbioportalFormatting.script_summary_formatting</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_copy_to_minio" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsCbioportalFormatting.script_copy_to_minio</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_copy_to_cdsi_repo" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsCbioportalFormatting.script_copy_to_cdsi_repo</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_etl_git_fetch" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsCbioportalFormatting.script_cbio_etl_git_fetch</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_etl_git_fetch_cdsi_copy" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsCbioportalFormatting.script_cbio_etl_git_fetch_cdsi_copy</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_etl_git_push" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsCbioportalFormatting.script_cbio_etl_git_push</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_etl_git_push_cdsi_copy" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsCbioportalFormatting.script_cbio_etl_git_push_cdsi_copy</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_etl_git_fetch_impact" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsCbioportalFormatting.script_cbio_etl_git_fetch_impact</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsCbioportalFormatting.__init__()</span></code></a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsComborbiditesDisparities</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities.root_path_disparities" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsComborbiditesDisparities.root_path_disparities</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities.script_comorbidities_index" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsComborbiditesDisparities.script_comorbidities_index</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities.script_smoking_status" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsComborbiditesDisparities.script_smoking_status</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities.script_insurance" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsComborbiditesDisparities.script_insurance</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities.script_yost" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsComborbiditesDisparities.script_yost</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsComborbiditesDisparities.__init__()</span></code></a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.root_path_pathology" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.root_path_pathology</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_clean_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_clean_path</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_path_id_mapping" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_path_id_mapping</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_seg_path_surg" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_seg_path_surg</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_seg_path_mole" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_seg_path_mole</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_seg_path_heme" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_seg_path_heme</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_heme_sections" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_pathology_heme_sections</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_heme_sections_periph_blood" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_pathology_heme_sections_periph_blood</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_seg_path_spec_sub" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_seg_path_spec_sub</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_seg_path_surg_spec" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_seg_path_surg_spec</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_path_accessions" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_path_accessions</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_path_dop" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_path_dop</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_path_synoptic" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_path_synoptic</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_combine_accession_dop" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_combine_accession_dop</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_summary" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_pathology_summary</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_pdl1" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_pathology_pdl1</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_gleason" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_pathology_gleason</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_mmr" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_pathology_mmr</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_sequencing_timeline" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_pathology_sequencing_timeline</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_specimen_timeline" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_pathology_specimen_timeline</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_pdl1_timeline" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_pathology_pdl1_timeline</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_gleason_timeline" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_pathology_gleason_timeline</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_gleason_summary" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.script_pathology_gleason_summary</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ScriptsPathologySegmentation.__init__()</span></code></a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/msk_cdm.data_classes.scripts.rst.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="msk-cdm-data-classes-scripts-package">
+<h1 id="msk-cdm-data-classes-scripts--page-root">msk_cdm.data_classes.scripts package<a class="headerlink" href="#msk-cdm-data-classes-scripts--page-root" title="Link to this heading">¶</a></h1>
+<section id="module-msk_cdm.data_classes.scripts">
+<span id="module-contents"></span><h2 id="module-msk_cdm.data_classes.scripts">Module contents<a class="headerlink" href="#module-msk_cdm.data_classes.scripts" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">msk_cdm.data_classes.scripts.</span></span><span class="sig-name descname"><span class="pre">ScriptsCbioportalFormatting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_path_cbio_etl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_cbio_timeline_deid_files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/timeline/cbioportal_timeline_deid_files.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_cbio_timeline_seq_spec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/timeline/cbioportal_timeline_specimen.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_cbio_timeline_disease_status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/timeline/disease_status_cbioportal_timeline.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_timeline_follow_up</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/timeline/cbioportal_timeline_follow_up.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_summary_overall_survival</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/summary/cbioportal_overall_survival.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_create_summary_templates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/summary/cbioportal_template_generator.py</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_summary_formatting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/summary/wrapper_cbioportal_summary_creator.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_copy_to_minio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/utils/wrapper_cbioportal_copy_to_minio.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_copy_to_cdsi_repo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/utils/copy_cbio_files_to_automation_folder.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_cbio_etl_git_fetch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/git-tasks/git_fetch.sh</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_cbio_etl_git_fetch_cdsi_copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/git-tasks/git_fetch_impact_pipeline.sh</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_cbio_etl_git_push</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/git-tasks/git_push.sh</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_cbio_etl_git_push_cdsi_copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/git-tasks/git_push_impact_pipeline.sh</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_cbio_etl_git_fetch_impact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/git-tasks/git_fetch_impact_ids.sh</span> <span class="pre">'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.root_path_cbio_etl">
+<span class="sig-name descname"><span class="pre">root_path_cbio_etl</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.root_path_cbio_etl" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_timeline_deid_files">
+<span class="sig-name descname"><span class="pre">script_cbio_timeline_deid_files</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/timeline/cbioportal_timeline_deid_files.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_timeline_deid_files" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_timeline_seq_spec">
+<span class="sig-name descname"><span class="pre">script_cbio_timeline_seq_spec</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/timeline/cbioportal_timeline_specimen.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_timeline_seq_spec" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_timeline_disease_status">
+<span class="sig-name descname"><span class="pre">script_cbio_timeline_disease_status</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/timeline/disease_status_cbioportal_timeline.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_timeline_disease_status" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_timeline_follow_up">
+<span class="sig-name descname"><span class="pre">script_timeline_follow_up</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/timeline/cbioportal_timeline_follow_up.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_timeline_follow_up" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_summary_overall_survival">
+<span class="sig-name descname"><span class="pre">script_summary_overall_survival</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/summary/cbioportal_overall_survival.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_summary_overall_survival" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_create_summary_templates">
+<span class="sig-name descname"><span class="pre">script_create_summary_templates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/summary/cbioportal_template_generator.py</span> <span class="pre">'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_create_summary_templates" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_summary_formatting">
+<span class="sig-name descname"><span class="pre">script_summary_formatting</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/summary/wrapper_cbioportal_summary_creator.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_summary_formatting" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_copy_to_minio">
+<span class="sig-name descname"><span class="pre">script_copy_to_minio</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/utils/wrapper_cbioportal_copy_to_minio.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_copy_to_minio" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_copy_to_cdsi_repo">
+<span class="sig-name descname"><span class="pre">script_copy_to_cdsi_repo</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/utils/copy_cbio_files_to_automation_folder.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_copy_to_cdsi_repo" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_etl_git_fetch">
+<span class="sig-name descname"><span class="pre">script_cbio_etl_git_fetch</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/git-tasks/git_fetch.sh</span> <span class="pre">'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_etl_git_fetch" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_etl_git_fetch_cdsi_copy">
+<span class="sig-name descname"><span class="pre">script_cbio_etl_git_fetch_cdsi_copy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/git-tasks/git_fetch_impact_pipeline.sh</span> <span class="pre">'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_etl_git_fetch_cdsi_copy" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_etl_git_push">
+<span class="sig-name descname"><span class="pre">script_cbio_etl_git_push</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/git-tasks/git_push.sh</span> <span class="pre">'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_etl_git_push" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_etl_git_push_cdsi_copy">
+<span class="sig-name descname"><span class="pre">script_cbio_etl_git_push_cdsi_copy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/git-tasks/git_push_impact_pipeline.sh</span> <span class="pre">'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_etl_git_push_cdsi_copy" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_etl_git_fetch_impact">
+<span class="sig-name descname"><span class="pre">script_cbio_etl_git_fetch_impact</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/git-tasks/git_fetch_impact_ids.sh</span> <span class="pre">'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.script_cbio_etl_git_fetch_impact" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_path_cbio_etl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_cbio_timeline_deid_files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/timeline/cbioportal_timeline_deid_files.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_cbio_timeline_seq_spec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/timeline/cbioportal_timeline_specimen.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_cbio_timeline_disease_status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/timeline/disease_status_cbioportal_timeline.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_timeline_follow_up</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/timeline/cbioportal_timeline_follow_up.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_summary_overall_survival</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/summary/cbioportal_overall_survival.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_create_summary_templates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/summary/cbioportal_template_generator.py</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_summary_formatting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/summary/wrapper_cbioportal_summary_creator.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_copy_to_minio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/utils/wrapper_cbioportal_copy_to_minio.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_copy_to_cdsi_repo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/utils/copy_cbio_files_to_automation_folder.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_cbio_etl_git_fetch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/git-tasks/git_fetch.sh</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_cbio_etl_git_fetch_cdsi_copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/git-tasks/git_fetch_impact_pipeline.sh</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_cbio_etl_git_push</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/git-tasks/git_push.sh</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_cbio_etl_git_push_cdsi_copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/git-tasks/git_push_impact_pipeline.sh</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_cbio_etl_git_fetch_impact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-cbioportal-etl/git-tasks/git_fetch_impact_ids.sh</span> <span class="pre">'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsCbioportalFormatting.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">msk_cdm.data_classes.scripts.</span></span><span class="sig-name descname"><span class="pre">ScriptsComborbiditesDisparities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_path_disparities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-disparities'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_comorbidities_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-disparities/processing/process_cci.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_smoking_status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-disparities/processing/process_smoking_history.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_insurance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-disparities/processing/process_insurance.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_yost</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-disparities/processing/process_yost.py'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities.root_path_disparities">
+<span class="sig-name descname"><span class="pre">root_path_disparities</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-disparities'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities.root_path_disparities" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities.script_comorbidities_index">
+<span class="sig-name descname"><span class="pre">script_comorbidities_index</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-disparities/processing/process_cci.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities.script_comorbidities_index" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities.script_smoking_status">
+<span class="sig-name descname"><span class="pre">script_smoking_status</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-disparities/processing/process_smoking_history.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities.script_smoking_status" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities.script_insurance">
+<span class="sig-name descname"><span class="pre">script_insurance</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-disparities/processing/process_insurance.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities.script_insurance" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities.script_yost">
+<span class="sig-name descname"><span class="pre">script_yost</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/cdm-disparities/processing/process_yost.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities.script_yost" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_path_disparities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-disparities'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_comorbidities_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-disparities/processing/process_cci.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_smoking_status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-disparities/processing/process_smoking_history.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_insurance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-disparities/processing/process_insurance.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_yost</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/cdm-disparities/processing/process_yost.py'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsComborbiditesDisparities.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">msk_cdm.data_classes.scripts.</span></span><span class="sig-name descname"><span class="pre">ScriptsPathologySegmentation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_path_pathology</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_clean_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/darwin_pathology.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_path_id_mapping</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_id_mapping.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_seg_path_surg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/segmentation/pathology_parse_surgical.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_seg_path_mole</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/segmentation/pathology_parse_molecular.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_seg_path_heme</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/segmentation/pathology_parse_heme.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_heme_sections</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_parse_heme_section_bm_biopsy.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_heme_sections_periph_blood</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_parse_heme_section_periph_blood.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_seg_path_spec_sub</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/segmentation/pathology_parse_specimen_submitted.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_seg_path_surg_spec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/segmentation/pathology_parsing_surgical_specimens.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_path_accessions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_extract_accession.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_path_dop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_extract_dop.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_path_synoptic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_synoptic_logistic_model.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_combine_accession_dop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_extract_dop_impact_wrapper.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_summary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_impact_summary_dop_annotator.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_pdl1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_extract_pdl1.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_gleason</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_extract_gleason.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_mmr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_extract_mmr.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_sequencing_timeline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/pipeline/cbio_timeline_sequencing.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_specimen_timeline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/pipeline/cbio_timeline_specimen.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_pdl1_timeline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/pipeline/cbio_timeline_pdl1.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_gleason_timeline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/pipeline/cbio_timeline_gleason.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_gleason_summary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/pipeline/cbio_gleason_summary.py'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.root_path_pathology">
+<span class="sig-name descname"><span class="pre">root_path_pathology</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.root_path_pathology" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_clean_path">
+<span class="sig-name descname"><span class="pre">script_clean_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/darwin_pathology.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_clean_path" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_path_id_mapping">
+<span class="sig-name descname"><span class="pre">script_path_id_mapping</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_id_mapping.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_path_id_mapping" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_seg_path_surg">
+<span class="sig-name descname"><span class="pre">script_seg_path_surg</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/segmentation/pathology_parse_surgical.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_seg_path_surg" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_seg_path_mole">
+<span class="sig-name descname"><span class="pre">script_seg_path_mole</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/segmentation/pathology_parse_molecular.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_seg_path_mole" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_seg_path_heme">
+<span class="sig-name descname"><span class="pre">script_seg_path_heme</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/segmentation/pathology_parse_heme.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_seg_path_heme" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_heme_sections">
+<span class="sig-name descname"><span class="pre">script_pathology_heme_sections</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_parse_heme_section_bm_biopsy.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_heme_sections" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_heme_sections_periph_blood">
+<span class="sig-name descname"><span class="pre">script_pathology_heme_sections_periph_blood</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_parse_heme_section_periph_blood.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_heme_sections_periph_blood" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_seg_path_spec_sub">
+<span class="sig-name descname"><span class="pre">script_seg_path_spec_sub</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/segmentation/pathology_parse_specimen_submitted.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_seg_path_spec_sub" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_seg_path_surg_spec">
+<span class="sig-name descname"><span class="pre">script_seg_path_surg_spec</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/segmentation/pathology_parsing_surgical_specimens.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_seg_path_surg_spec" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_path_accessions">
+<span class="sig-name descname"><span class="pre">script_path_accessions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_extract_accession.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_path_accessions" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_path_dop">
+<span class="sig-name descname"><span class="pre">script_path_dop</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_extract_dop.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_path_dop" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_path_synoptic">
+<span class="sig-name descname"><span class="pre">script_path_synoptic</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_synoptic_logistic_model.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_path_synoptic" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_combine_accession_dop">
+<span class="sig-name descname"><span class="pre">script_combine_accession_dop</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_extract_dop_impact_wrapper.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_combine_accession_dop" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_summary">
+<span class="sig-name descname"><span class="pre">script_pathology_summary</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_impact_summary_dop_annotator.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_summary" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_pdl1">
+<span class="sig-name descname"><span class="pre">script_pathology_pdl1</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_extract_pdl1.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_pdl1" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_gleason">
+<span class="sig-name descname"><span class="pre">script_pathology_gleason</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_extract_gleason.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_gleason" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_mmr">
+<span class="sig-name descname"><span class="pre">script_pathology_mmr</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_extract_mmr.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_mmr" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_sequencing_timeline">
+<span class="sig-name descname"><span class="pre">script_pathology_sequencing_timeline</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/pipeline/cbio_timeline_sequencing.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_sequencing_timeline" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_specimen_timeline">
+<span class="sig-name descname"><span class="pre">script_pathology_specimen_timeline</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/pipeline/cbio_timeline_specimen.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_specimen_timeline" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_pdl1_timeline">
+<span class="sig-name descname"><span class="pre">script_pathology_pdl1_timeline</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/pipeline/cbio_timeline_pdl1.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_pdl1_timeline" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_gleason_timeline">
+<span class="sig-name descname"><span class="pre">script_pathology_gleason_timeline</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/pipeline/cbio_timeline_gleason.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_gleason_timeline" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_gleason_summary">
+<span class="sig-name descname"><span class="pre">script_pathology_gleason_summary</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/pipeline/cbio_gleason_summary.py'</span></em><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.script_pathology_gleason_summary" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_path_pathology</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_clean_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/darwin_pathology.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_path_id_mapping</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_id_mapping.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_seg_path_surg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/segmentation/pathology_parse_surgical.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_seg_path_mole</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/segmentation/pathology_parse_molecular.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_seg_path_heme</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/segmentation/pathology_parse_heme.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_heme_sections</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_parse_heme_section_bm_biopsy.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_heme_sections_periph_blood</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_parse_heme_section_periph_blood.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_seg_path_spec_sub</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/segmentation/pathology_parse_specimen_submitted.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_seg_path_surg_spec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/segmentation/pathology_parsing_surgical_specimens.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_path_accessions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_extract_accession.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_path_dop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_extract_dop.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_path_synoptic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_synoptic_logistic_model.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_combine_accession_dop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_extract_dop_impact_wrapper.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_summary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_impact_summary_dop_annotator.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_pdl1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_extract_pdl1.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_gleason</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_extract_gleason.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_mmr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/annotations/pathology_extract_mmr.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_sequencing_timeline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/pipeline/cbio_timeline_sequencing.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_specimen_timeline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/pipeline/cbio_timeline_specimen.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_pdl1_timeline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/pipeline/cbio_timeline_pdl1.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_gleason_timeline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/pipeline/cbio_timeline_gleason.py'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_pathology_gleason_summary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/mind_data/cdm_repos/pathology_report_segmentation/pipeline/cbio_gleason_summary.py'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#msk_cdm.data_classes.scripts.ScriptsPathologySegmentation.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+</dd></dl>
+</section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="msk_cdm.data_classes.legacy.html" title="msk_cdm.data_classes.legacy package"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> "Previous" </span> msk_cdm.data_classes.legacy package </span>
+              </div>
+            </a>
+          
+          
+            <a href="msk_cdm.data_processing.html" title="msk_cdm.data_processing package"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> "Next" </span> msk_cdm.data_processing package </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2023, MSK Clinical Data Mining Group.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>
