@@ -1,10 +1,3 @@
-"""
-_dremio_connection.py
-
-
-This code will allow a user to instantiate an object that can access the Dremio API via SQL queries
-
-"""
 import os
 from pyarrow import flight
 from dotenv import load_dotenv
