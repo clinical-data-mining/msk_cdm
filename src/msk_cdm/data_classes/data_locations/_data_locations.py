@@ -232,15 +232,15 @@ class DataLocationsCbioportalFormatting:
 
 @dataclass
 class DataLocationsRedcapLabels:
-    ##############################################################################
-    # Filenames
-    ##############################################################################
+    """
+    Configuration files used for pulling data from the Redcap API
+    """
     # Redcap: AI/ML IMPACT Curation Efforts
     fname_api_keys_ai_ml_impact: str = "config/redcap_report_api_map_ai_ml_impact.csv"
     path_vars_file_ai_ml_impact: str = "config/redcap_variables_ai_ml_impact.csv"
 
     ##############################################################################
-    # GENIE Redcap Reports
+    # GENIE BPC Redcap Reports - Tumor Sites
     ##############################################################################
     fname_genie_rc_met_sites_breast: str = "redcap_exports/genie_bpc_breast/19-368__GENIE_BPC_-_BREAST_Cohort_Imaging_Metastatic_Events.tsv"
     fname_genie_rc_met_sites_crc: str = "redcap_exports/genie_bpc_crc/19-368__GENIE_BPC_-_CRC_Production_Cohort_Imaging_Metastatic_Events.tsv"
@@ -248,3 +248,8 @@ class DataLocationsRedcapLabels:
     fname_genie_rc_met_sites_lung2: str = "redcap_exports/genie_bpc_lung_additional/19-368__Genie_BPC_Lung_Cohort_Additional_Data_Imaging_Metastatic_Events.tsv"
     fname_genie_rc_met_sites_pancreas: str = "redcap_exports/genie_bpc_pancreas/19-368__GENIE_BPC_-_Pancreas_Cohort_Imaging_Metastatic_Events.tsv"
     fname_genie_rc_met_sites_prostate: str = "redcap_exports/genie_bpc_prostate/19-368__GENIE_BPC_-_Prostate_Cohort_Imaging_Metastatic_Events.tsv"
+    
+    ##############################################################################
+    # AI/ML Curation Efforts
+    ##############################################################################
+    fname_ai_ml_curation_toxicities: str = "redcap_exports/ai_ml_impact/AI_ML_IMPACT_Curation_Efforts_Treatments_and_toxicities.tsv"
