@@ -58,7 +58,8 @@ nav:
     - 'Home':
         - 'index.md'
     - 'API Reference': 
-        - 'Reference': 'reference/index.md'
+        - 'Minio': 'reference/index.md'
+        # - 'Dremio': 'reference/dremio.md'
 
 
 extra_css:
@@ -89,8 +90,12 @@ plugins:
         python:
           setup_commands:
             - import sys
+            - sys.path.append("src")
             - sys.path.append("src/msk_cdm")
+            - sys.path.append("src/msk_cdm/dremio")
           rendering:
             show_root_heading: True
             show_root_full_path: False
+          selection:
+            new_path_syntax: True
             
