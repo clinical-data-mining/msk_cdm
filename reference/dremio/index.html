@@ -400,7 +400,833 @@
 
   <h1>Dremio</h1>
 
-<!-- :::msk_cdm.dremio._dremio_api -->
+<div class="doc doc-object doc-module">
+
+
+
+<a id="msk_cdm.dremio._dremio_api"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="msk_cdm.dremio._dremio_api.DremioAPI" class="doc doc-heading">
+          <code>DremioAPI</code>
+
+
+<a href="#msk_cdm.dremio._dremio_api.DremioAPI" class="headerlink" title="Permanent link">#</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code>object</code></p>
+
+  
+      <p>Object to simplify reading from Dremio (CDSI's SQL engine).</p>
+
+            <details class="quote">
+              <summary>Source code in <code>msk_cdm/dremio/_dremio_api.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DremioAPI</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Object to simplify reading from Dremio (CDSI&#39;s SQL engine).&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">fname_env</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+        <span class="n">env_key_user</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;USER&#39;</span><span class="p">,</span> 
+        <span class="n">env_key_pw</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;PW&#39;</span><span class="p">,</span>
+        <span class="n">scheme</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;grpc+tcp&quot;</span><span class="p">,</span>
+        <span class="n">hostname</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;tlvidreamcord1&quot;</span><span class="p">,</span>
+        <span class="n">flightport</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">32010</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialization</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            fname_env: Environment file with username and pw</span>
+<span class="sd">            env_key_user: Key term to identify the username in fname_env</span>
+<span class="sd">            env_key_pw: Key term to identify the password in fname_env</span>
+<span class="sd">            scheme: The connection scheme used</span>
+<span class="sd">            hostname: Server hostname</span>
+<span class="sd">            flightport: Port number</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_df</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_scheme</span> <span class="o">=</span> <span class="n">scheme</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hostname</span> <span class="o">=</span> <span class="n">hostname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_flightport</span> <span class="o">=</span> <span class="n">flightport</span>
+
+        <span class="n">load_dotenv</span><span class="p">(</span><span class="n">fname_env</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_authenticate</span><span class="p">(</span>
+            <span class="n">user</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="n">env_key_user</span><span class="p">),</span> 
+            <span class="n">pw</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="n">env_key_pw</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">return_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return data queried from Dremio in a Pandas dataframe</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            df</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_df</span>
+
+        <span class="k">return</span> <span class="n">df</span>
+
+    <span class="k">def</span> <span class="nf">_authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">pw</span><span class="p">):</span>
+        <span class="n">scheme</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scheme</span>
+        <span class="n">hostname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hostname</span>
+        <span class="n">flightport</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flightport</span>
+        <span class="n">connection_args</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># Two WLM settings can be provided upon initial authentication </span>
+        <span class="c1"># with the Dremio Server Flight Endpoint:</span>
+        <span class="c1"># - routing-tag</span>
+        <span class="c1"># - routing queue</span>
+        <span class="n">initial_options</span> <span class="o">=</span> <span class="n">flight</span><span class="o">.</span><span class="n">FlightCallOptions</span><span class="p">(</span><span class="n">headers</span><span class="o">=</span><span class="p">[</span>
+            <span class="p">(</span><span class="sa">b</span><span class="s1">&#39;routing-tag&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;test-routing-tag&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">b</span><span class="s1">&#39;routing-queue&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;Low Cost User Queries&#39;</span><span class="p">)</span>
+        <span class="p">])</span>
+        <span class="n">client_auth_middleware</span> <span class="o">=</span> <span class="n">DremioClientAuthMiddlewareFactory</span><span class="p">()</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">flight</span><span class="o">.</span><span class="n">FlightClient</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">scheme</span><span class="si">}</span><span class="s2">://</span><span class="si">{</span><span class="n">hostname</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">flightport</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">middleware</span><span class="o">=</span><span class="p">[</span><span class="n">client_auth_middleware</span><span class="p">],</span> <span class="o">**</span><span class="n">connection_args</span><span class="p">)</span>
+        <span class="n">bearer_token</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">authenticate_basic_token</span><span class="p">(</span>
+            <span class="n">user</span><span class="p">,</span> 
+            <span class="n">pw</span><span class="p">,</span> 
+            <span class="n">initial_options</span>
+        <span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[INFO] Authentication was successful&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">client</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_bearer_token</span> <span class="o">=</span> <span class="n">bearer_token</span>
+
+    <span class="k">def</span> <span class="nf">query_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sql</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Query Dremio with SQL string</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            sql: SQL string used to query Dremio</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            df_output</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span>
+        <span class="n">bearer_token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bearer_token</span>
+        <span class="c1"># Get table from our dicom segments</span>
+        <span class="n">flight_desc</span> <span class="o">=</span> <span class="n">flight</span><span class="o">.</span><span class="n">FlightDescriptor</span><span class="o">.</span><span class="n">for_command</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+        <span class="n">options</span> <span class="o">=</span> <span class="n">flight</span><span class="o">.</span><span class="n">FlightCallOptions</span><span class="p">(</span><span class="n">headers</span><span class="o">=</span><span class="p">[</span><span class="n">bearer_token</span><span class="p">])</span>
+        <span class="n">schema</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_schema</span><span class="p">(</span><span class="n">flight_desc</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+
+        <span class="n">flight_info</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_flight_info</span><span class="p">(</span>
+            <span class="n">flight</span><span class="o">.</span><span class="n">FlightDescriptor</span><span class="o">.</span><span class="n">for_command</span><span class="p">(</span><span class="n">sql</span><span class="p">),</span>
+            <span class="n">options</span>
+        <span class="p">)</span>
+        <span class="n">reader</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">do_get</span><span class="p">(</span>
+            <span class="n">flight_info</span><span class="o">.</span><span class="n">endpoints</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ticket</span><span class="p">,</span> 
+            <span class="n">options</span>
+        <span class="p">)</span>
+
+        <span class="n">df_output</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read_pandas</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_df</span> <span class="o">=</span> <span class="n">df_output</span>
+
+        <span class="k">return</span> <span class="n">df_output</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="msk_cdm.dremio._dremio_api.DremioAPI.__init__" class="doc doc-heading">
+          <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fname_env</span><span class="p">,</span> <span class="n">env_key_user</span><span class="o">=</span><span class="s1">&#39;USER&#39;</span><span class="p">,</span> <span class="n">env_key_pw</span><span class="o">=</span><span class="s1">&#39;PW&#39;</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;grpc+tcp&#39;</span><span class="p">,</span> <span class="n">hostname</span><span class="o">=</span><span class="s1">&#39;tlvidreamcord1&#39;</span><span class="p">,</span> <span class="n">flightport</span><span class="o">=</span><span class="mi">32010</span><span class="p">)</span></code>
+
+<a href="#msk_cdm.dremio._dremio_api.DremioAPI.__init__" class="headerlink" title="Permanent link">#</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Initialization</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>fname_env</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Environment file with username and pw</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>env_key_user</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Key term to identify the username in fname_env</p>
+            </div>
+          </td>
+          <td>
+                <code>&#39;USER&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>env_key_pw</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Key term to identify the password in fname_env</p>
+            </div>
+          </td>
+          <td>
+                <code>&#39;PW&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>scheme</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The connection scheme used</p>
+            </div>
+          </td>
+          <td>
+                <code>&#39;grpc+tcp&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>hostname</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Server hostname</p>
+            </div>
+          </td>
+          <td>
+                <code>&#39;tlvidreamcord1&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>flightport</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[int]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Port number</p>
+            </div>
+          </td>
+          <td>
+                <code>32010</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>msk_cdm/dremio/_dremio_api.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> 
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">fname_env</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+    <span class="n">env_key_user</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;USER&#39;</span><span class="p">,</span> 
+    <span class="n">env_key_pw</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;PW&#39;</span><span class="p">,</span>
+    <span class="n">scheme</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;grpc+tcp&quot;</span><span class="p">,</span>
+    <span class="n">hostname</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;tlvidreamcord1&quot;</span><span class="p">,</span>
+    <span class="n">flightport</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">32010</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Initialization</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fname_env: Environment file with username and pw</span>
+<span class="sd">        env_key_user: Key term to identify the username in fname_env</span>
+<span class="sd">        env_key_pw: Key term to identify the password in fname_env</span>
+<span class="sd">        scheme: The connection scheme used</span>
+<span class="sd">        hostname: Server hostname</span>
+<span class="sd">        flightport: Port number</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_df</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_scheme</span> <span class="o">=</span> <span class="n">scheme</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_hostname</span> <span class="o">=</span> <span class="n">hostname</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_flightport</span> <span class="o">=</span> <span class="n">flightport</span>
+
+    <span class="n">load_dotenv</span><span class="p">(</span><span class="n">fname_env</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_authenticate</span><span class="p">(</span>
+        <span class="n">user</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="n">env_key_user</span><span class="p">),</span> 
+        <span class="n">pw</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="n">env_key_pw</span><span class="p">)</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="msk_cdm.dremio._dremio_api.DremioAPI.query_data" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">query_data</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span></code>
+
+<a href="#msk_cdm.dremio._dremio_api.DremioAPI.query_data" class="headerlink" title="Permanent link">#</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Query Dremio with SQL string</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>sql</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>SQL string used to query Dremio</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>df_output</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>msk_cdm/dremio/_dremio_api.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">query_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sql</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Query Dremio with SQL string</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sql: SQL string used to query Dremio</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        df_output</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span>
+    <span class="n">bearer_token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bearer_token</span>
+    <span class="c1"># Get table from our dicom segments</span>
+    <span class="n">flight_desc</span> <span class="o">=</span> <span class="n">flight</span><span class="o">.</span><span class="n">FlightDescriptor</span><span class="o">.</span><span class="n">for_command</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+    <span class="n">options</span> <span class="o">=</span> <span class="n">flight</span><span class="o">.</span><span class="n">FlightCallOptions</span><span class="p">(</span><span class="n">headers</span><span class="o">=</span><span class="p">[</span><span class="n">bearer_token</span><span class="p">])</span>
+    <span class="n">schema</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_schema</span><span class="p">(</span><span class="n">flight_desc</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+
+    <span class="n">flight_info</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_flight_info</span><span class="p">(</span>
+        <span class="n">flight</span><span class="o">.</span><span class="n">FlightDescriptor</span><span class="o">.</span><span class="n">for_command</span><span class="p">(</span><span class="n">sql</span><span class="p">),</span>
+        <span class="n">options</span>
+    <span class="p">)</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">do_get</span><span class="p">(</span>
+        <span class="n">flight_info</span><span class="o">.</span><span class="n">endpoints</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ticket</span><span class="p">,</span> 
+        <span class="n">options</span>
+    <span class="p">)</span>
+
+    <span class="n">df_output</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read_pandas</span><span class="p">()</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_df</span> <span class="o">=</span> <span class="n">df_output</span>
+
+    <span class="k">return</span> <span class="n">df_output</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="msk_cdm.dremio._dremio_api.DremioAPI.return_data" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">return_data</span><span class="p">()</span></code>
+
+<a href="#msk_cdm.dremio._dremio_api.DremioAPI.return_data" class="headerlink" title="Permanent link">#</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return data queried from Dremio in a Pandas dataframe</p>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>df</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>msk_cdm/dremio/_dremio_api.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">return_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return data queried from Dremio in a Pandas dataframe</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        df</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_df</span>
+
+    <span class="k">return</span> <span class="n">df</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="msk_cdm.dremio._dremio_api.DremioClientAuthMiddleware" class="doc doc-heading">
+          <code>DremioClientAuthMiddleware</code>
+
+
+<a href="#msk_cdm.dremio._dremio_api.DremioClientAuthMiddleware" class="headerlink" title="Permanent link">#</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="pyarrow.flight.ClientMiddleware">ClientMiddleware</span></code></p>
+
+  
+      <p>A ClientMiddleware that extracts the bearer token from 
+the authorization header returned by the Dremio 
+Flight Server Endpoint.
+Parameters</p>
+<hr />
+<p>factory : ClientHeaderAuthMiddlewareFactory
+    The factory to set call credentials if an
+    authorization header with bearer token is
+    returned by the Dremio server.</p>
+
+            <details class="quote">
+              <summary>Source code in <code>msk_cdm/dremio/_dremio_api.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DremioClientAuthMiddleware</span><span class="p">(</span><span class="n">flight</span><span class="o">.</span><span class="n">ClientMiddleware</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A ClientMiddleware that extracts the bearer token from </span>
+<span class="sd">    the authorization header returned by the Dremio </span>
+<span class="sd">    Flight Server Endpoint.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    factory : ClientHeaderAuthMiddlewareFactory</span>
+<span class="sd">        The factory to set call credentials if an</span>
+<span class="sd">        authorization header with bearer token is</span>
+<span class="sd">        returned by the Dremio server.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">factory</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">factory</span> <span class="o">=</span> <span class="n">factory</span>
+
+    <span class="k">def</span> <span class="nf">received_headers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headers</span><span class="p">):</span>
+        <span class="n">auth_header_key</span> <span class="o">=</span> <span class="s1">&#39;authorization&#39;</span>
+        <span class="n">authorization_header</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">headers</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">auth_header_key</span><span class="p">:</span> <span class="n">authorization_header</span> <span class="o">=</span> <span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">auth_header_key</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">set_call_credential</span><span class="p">([</span>
+            <span class="sa">b</span><span class="s1">&#39;authorization&#39;</span><span class="p">,</span> <span class="n">authorization_header</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)])</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="msk_cdm.dremio._dremio_api.DremioClientAuthMiddlewareFactory" class="doc doc-heading">
+          <code>DremioClientAuthMiddlewareFactory</code>
+
+
+<a href="#msk_cdm.dremio._dremio_api.DremioClientAuthMiddlewareFactory" class="headerlink" title="Permanent link">#</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="pyarrow.flight.ClientMiddlewareFactory">ClientMiddlewareFactory</span></code></p>
+
+  
+      <p>A factory that creates DremioClientAuthMiddleware(s).</p>
+
+            <details class="quote">
+              <summary>Source code in <code>msk_cdm/dremio/_dremio_api.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DremioClientAuthMiddlewareFactory</span><span class="p">(</span><span class="n">flight</span><span class="o">.</span><span class="n">ClientMiddlewareFactory</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A factory that creates DremioClientAuthMiddleware(s).&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">call_credential</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">start_call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">DremioClientAuthMiddleware</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">set_call_credential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">call_credential</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">call_credential</span> <span class="o">=</span> <span class="n">call_credential</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
 
 
 
