@@ -33,8 +33,8 @@ theme:
   features:
     - navigation.instant
     - navigation.sections
-    - navigation.indexes
     - navigation.top
+    - toc.follow
     - search.suggestions
     - search.highlight
     - search.share
@@ -58,8 +58,23 @@ nav:
     - 'Home':
         - 'index.md'
     - 'API Reference': 
-        - 'Minio': 'reference/index.md'
-        # - 'Dremio': 'reference/dremio.md'
+        - 'Directory': 'reference/index.md'
+        - 'Minio API': 'reference/minio.md'
+        - 'Dremio API': 'reference/dremio.md'
+    - 'Developer Guide':
+        - 'Required Training': 'reference/user-guide/training.md'
+        - 'Python Environments': 'reference/user-guide/python-environment.md'
+        - 'R Users': 'reference/user-guide/r-guide.md'
+        - 'JupyterHub Setup': 'reference/user-guide/jupyterhub.md'
+        - 'Minio': 'reference/user-guide/minio.md'
+        - 'Running GPU Jobs via HTCondor': 'reference/user-guide/htcondor.md'
+        - 'Data Querying Through Dremio': 'reference/user-guide/data-query-quick-start.md'
+        - 'Airflow': 'reference/user-guide/airflow.md'
+        - 'Conda Cheatsheet': 'reference/user-guide/conda-cheatsheet.md'
+        - 'Git Cheatsheet': 'reference/user-guide/git-branch-management.md'
+        - 'REDCap ETL': 'reference/user-guide/redcap_etl.md'
+    - 'About Us': 
+        - 'reference/About-Us.md'
 
 
 extra_css:
@@ -71,9 +86,8 @@ markdown_extensions:
   - attr_list
   - codehilite
   - toc:
-      permalink: "#"
-      separator: "_"
-      toc_depth: "1-1"
+      permalink: true
+      toc_depth: 3
   - pymdownx.details
   - pymdownx.highlight:
       linenums: true

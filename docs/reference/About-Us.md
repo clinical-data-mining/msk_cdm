@@ -1,0 +1,5 @@
+# About Us
+
+The Clinical Data Mining (CDM) team extracts notes, treatment records, and health measurements from the electronic health record generated during the process of cancer care and transforms it into usable, real-world data that can fuel scientific insights.
+
+Retrieval of clinical annotation of tumor samples and patients presents a major challenge for data integration, as the current approach of manual abstraction from largely unstructured electronic medical records (EMR) is difficult to scale. However, the use of clinical text classification by means of natural language processing (NLP) and advanced machine learning methods has the potential to unlock information embedded in clinical narratives. The CDM team is creating a hybrid NLP system to leverage against structured and unstructured EMR to identify patient and sample-specific attributes. The development of this system will lead to a robust, large-scale system for enhanced clinical integration with genomic databases that can be used to predict outcomes and treatment responses of individual cancer patients.
