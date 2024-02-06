@@ -62,3 +62,23 @@ You can run unit tests by issuing `make test` from the root dir.
 If you're updating this repo, please make a Pull Request via a git branch. If the change
 is to the core functionality (i.e. modifies the core code in this repo possibly used
 by other projects/peple) please request a code review.
+
+
+## How to run the documentation page
+This repo uses mkdocs. One can install all dependencies using pip:
+
+```
+pip install -r requirements.txt
+```
+
+Then to run locally:
+```
+mkdocs serve --dev-addr <Default 127.0.0.1:8000>
+```
+
+## How to deploy the documentation
+Run:
+
+```
+mkdocs gh-deploy
+```
