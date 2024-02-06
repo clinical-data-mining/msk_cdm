@@ -13,21 +13,25 @@
       
       
       
+        <link rel="prev" href="../data-query-quick-start/">
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+        <link rel="next" href="../conda-cheatsheet/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
     
     
       
-        <title>Clinical Data Mining @ MSKCC</title>
+        <title>Airflow - Clinical Data Mining @ MSKCC</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,11 +50,11 @@
       
     
     
-      <link rel="stylesheet" href="/assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -75,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#airflow" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -87,7 +96,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Clinical Data Mining @ MSKCC" class="md-header__button md-logo" aria-label="Clinical Data Mining @ MSKCC" data-md-component="logo">
+    <a href="../../.." title="Clinical Data Mining @ MSKCC" class="md-header__button md-logo" aria-label="Clinical Data Mining @ MSKCC" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -107,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Airflow
             
           </span>
         </div>
@@ -225,7 +234,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Clinical Data Mining @ MSKCC" class="md-nav__button md-logo" aria-label="Clinical Data Mining @ MSKCC" data-md-component="logo">
+    <a href="../../.." title="Clinical Data Mining @ MSKCC" class="md-nav__button md-logo" aria-label="Clinical Data Mining @ MSKCC" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -295,7 +304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -363,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -384,7 +393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/minio/" class="md-nav__link">
+      <a href="../../minio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -405,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/dremio/" class="md-nav__link">
+      <a href="../../dremio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -430,8 +439,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -440,12 +451,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -459,7 +470,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Developer Guide
@@ -473,7 +484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/training/" class="md-nav__link">
+      <a href="../training/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -494,7 +505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/python-environment/" class="md-nav__link">
+      <a href="../python-environment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -515,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/r-guide/" class="md-nav__link">
+      <a href="../r-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -536,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/jupyterhub/" class="md-nav__link">
+      <a href="../jupyterhub/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -557,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/minio/" class="md-nav__link">
+      <a href="../minio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -578,7 +589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/htcondor/" class="md-nav__link">
+      <a href="../htcondor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -599,7 +610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/data-query-quick-start/" class="md-nav__link">
+      <a href="../data-query-quick-start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -617,10 +628,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/reference/user-guide/airflow/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Airflow
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -629,6 +660,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#steps-to-running-a-dag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps to Running a DAG
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -641,7 +701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/conda-cheatsheet/" class="md-nav__link">
+      <a href="../conda-cheatsheet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -662,7 +722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/git-branch-management/" class="md-nav__link">
+      <a href="../git-branch-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -683,7 +743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/redcap_etl/" class="md-nav__link">
+      <a href="../redcap_etl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -751,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/About-Us/" class="md-nav__link">
+      <a href="../../About-Us/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -789,6 +849,25 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#steps-to-running-a-dag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps to Running a DAG
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -800,8 +879,41 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+  
+  
+
+
+<h1 id="airflow">Airflow<a class="headerlink" href="#airflow" title="Permanent link">&para;</a></h1>
+<p>A DAG (Directed Acyclic Graph) is the core concept of Airflow, collecting Tasks together, organized with dependencies and relationships to say how they should run.
+Airflow DAGs can be deployed on tllihpcmind6 and other MSK-MIND servers.</p>
+<h2 id="steps-to-running-a-dag">Steps to Running a DAG<a class="headerlink" href="#steps-to-running-a-dag" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Clone the DAG repo from <a href="https://github.com/clinical-data-mining/dags">cdm-dags</a> and create a new branch.</li>
+<li>Duplicate the DAG template file <code>cdm_TEMPLATE.py</code> and change the filename (no spaces)</li>
+<li>Within your new DAG file, change <code>&lt;&lt;&lt;&lt;&lt;CREATE DAG ID&gt;&gt;&gt;&gt;&gt;</code> to the exact filename, minus .py</li>
+<li>Change <code>&lt;&lt;&lt;&lt;&lt;YOUR EMAIL&gt;&gt;&gt;&gt;&gt;</code> to your email to receive updates on errors</li>
+<li>Write your DAG</li>
+<li>From the command line, perform chmod 777 on your DAG file <code>chmod 777 /mind_data/&lt;my_workspace&gt;/cdm-dags/my_dag.py</code></li>
+<li>Copy the DAG you created in your workspace, and paste into the shared Airflow folders (ex. <code>cp /mind_data/&lt;my_workspace&gt;/cdm-dags/my_dag.py /mind_data/airflow/dags/curation/my_dag.py</code>) </li>
+<li>AVOID MODIFYING FILES WITHIN THE SHARED AIRFLOW FOLDER. THIS CAN RESULT IN WORK STOPPAGE FOR ALL USERS.</li>
+<li>After a few moments, the DAG should appear in the <a href="https://tllihpcmind6/airflow/home">Airflow UI</a></li>
+<li>Once you have a functioning dag, commit the dag changes back to the cdm-dag repo. Merge your branch if needed.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -845,10 +957,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/", "features": ["navigation.instant", "navigation.sections", "navigation.top", "toc.follow", "search.suggestions", "search.highlight", "search.share"], "search": "/assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.sections", "navigation.top", "toc.follow", "search.suggestions", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.d7c377c4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7c377c4.min.js"></script>
       
     
   </body>

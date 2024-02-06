@@ -1,0 +1,1461 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Welcome to the documentation for Clinical Data Mining @ MSKCC!">
+      
+      
+        <meta name="author" content="Cancer Data Science Initiative">
+      
+      
+      
+        <link rel="prev" href="../r-guide/">
+      
+      
+        <link rel="next" href="../minio/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>JupyterHub Setup - Clinical Data Mining @ MSKCC</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#jupyterhub" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Clinical Data Mining @ MSKCC" class="md-header__button md-logo" aria-label="Clinical Data Mining @ MSKCC" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Clinical Data Mining @ MSKCC
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              JupyterHub Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/clinical-data-mining/msk_cdm/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Clinical Data Mining @ MSKCC" class="md-nav__button md-logo" aria-label="Clinical Data Mining @ MSKCC" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Clinical Data Mining @ MSKCC
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/clinical-data-mining/msk_cdm/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to the documentation for Clinical Data Mining @ MSKCC!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Directory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../minio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Minio API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dremio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dremio API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Developer Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Developer Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Required Training
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python-environment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python Environments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../r-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    R Users
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    JupyterHub Setup
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    JupyterHub Setup
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#location" class="md-nav__link">
+    <span class="md-ellipsis">
+      Location
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-python-virtual-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Python Virtual Environments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating Python Virtual Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teardown" class="md-nav__link">
+    <span class="md-ellipsis">
+      Teardown
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-r-virtual-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating R Virtual Environments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating R Virtual Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teardown_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Teardown
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-installed-r-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-installed R Packages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../minio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Minio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../htcondor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running GPU Jobs via HTCondor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-query-quick-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Querying Through Dremio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../airflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Airflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conda-cheatsheet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conda Cheatsheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git-branch-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Cheatsheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redcap_etl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    REDCap ETL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    About Us
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            About Us
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../About-Us/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About Us
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#location" class="md-nav__link">
+    <span class="md-ellipsis">
+      Location
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-python-virtual-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Python Virtual Environments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating Python Virtual Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teardown" class="md-nav__link">
+    <span class="md-ellipsis">
+      Teardown
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-r-virtual-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating R Virtual Environments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating R Virtual Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teardown_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Teardown
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-installed-r-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-installed R Packages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="jupyterhub">JupyterHub<a class="headerlink" href="#jupyterhub" title="Permanent link">&para;</a></h1>
+<h2 id="location">Location<a class="headerlink" href="#location" title="Permanent link">&para;</a></h2>
+<p><a href="https://tllihpcmind6/jupyter">JupyterHub URL for CDM Development</a></p>
+<p><strong>Login</strong>: MSK credentials. If you are unable to log in, please contact one of the MIND engineers to have you added as a linux user of the pllimsksparky2 machine and you must log into this machine once using the terminal in order to set up your home directory. The first time you log in, jupyterhub may take a minute or so to spawn the user server and jupyter lab environment. Since an MSK self-signed certificate is being used, your browser may warn you that the connection is insecure, but the connection is secure (https encrpyted) and only lacks trust verification with a third-party certificate authority which is not needed for security in the internal MSK network. On Chrome click on the 'Advanced' button to continue to proceed to using the web application. </p>
+<p><strong>Base Directory</strong>: The directory under which jupyterhub's file view launches is <code>/mind_data/shared_data_folder</code>. You may choose to create a sub-directory under this directory with your username and store your notebooks in there. You may control access to your notebooks via linux file permissions. Please contact one of the MIND engineers to set up the sub-directory for you.</p>
+<h2 id="creating-python-virtual-environments">Creating Python Virtual Environments<a class="headerlink" href="#creating-python-virtual-environments" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Note: These instructures are for creating virtual environments in Jupyterhub only. For Python environments on the terminal, please see Python.</p>
+</blockquote>
+<p>Virtual environments [ref1] help you to isolate your execution environment from other notebooks and other users. You may use virtual environment to select specific version of python and its of libraries without having to worry about collisions. Follow these instructions below to setup, test and teardown your virtual environments for notebooks on Jupyterhub.</p>
+<h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h3>
+<p>Open a terminal in your Jupyter environment by selecting File -&gt; New -&gt; Terminal and execute the following commands. </p>
+<p>$ cd [LOCATION-WHERE-YOU-WANT-TO-CREATE-THE-VIRTUAL-ENV]</p>
+<h4 id="creating-a-virtual-environment">Creating a Virtual Environment<a class="headerlink" href="#creating-a-virtual-environment" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code># create the virtual environment
+python3 -m venv my-test-venv
+
+# activate the virtual environment
+$ source my-test-venv/bin/activate
+
+# upgrade pip
+$ python3 -m pip install --upgrade pip
+
+# install ipykernel
+$ pip install ipykernel
+
+# Register this env with jupyter lab. It will now show up in the
+# launcher &amp; kernels list once you refresh the page
+$ python3 -m ipykernel install --user --name my-test-venv --display-name &quot;my test virtual env&quot;
+
+# List kernels to ensure it was created successfully
+$ jupyter kernelspec list
+
+my-test-venv    /home/pashaa/.local/share/jupyter/kernels/my-test-venv
+python3      /gpfs/mskmindhdp_emc/sw/env/share/jupyter/kernels/python3
+
+# for testing purposes, install a specific package into this environment
+$ pip install fire
+
+# ensure the package installed successfully
+$ pip list | grep fire
+
+fire                0.4.0
+
+# deactivate the virtual environment in the terminal
+$ deactivate
+</code></pre></div></td></tr></table></div>
+<h3 id="test">Test<a class="headerlink" href="#test" title="Permanent link">&para;</a></h3>
+<p>Now, apply the new kernel to your notebook by first selecting the default kernel (which is typically "Python 3") from the top right corner of your notebook and then selecting your new kernel "my test virtual env". NOTE: It may take a minute for the drop-down list to update. </p>
+<p>Test your new environment by running the following commands in your notebook code cells. </p>
+<p>Verify that you are using python from your virtual env
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>import sys
+print(sys.executable)
+
+/gpfs/mskmindhdp_emc/user/pashaa/my-test-venv/bin/python
+</code></pre></div></td></tr></table></div>
+Verify you are able to import the test package and that it belongs to your virtual env
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>import fire
+print(fire.__file__)
+print(fire.__version__)
+
+&#39;/gpfs/mskmindhdp_emc/user/pashaa/my-test-venv/lib64/python3.6/site-packages/fire/__init__.py&#39;
+ 0.4.0
+</code></pre></div></td></tr></table></div>
+Alternatively, you can check your dependencies by listing the installed libraries, or checking the details of a specific library.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>%pip list
+or
+%pip show pip
+</code></pre></div></td></tr></table></div>
+You can install libraries in your virtual env within your notebook by using the % operator.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>%pip install &lt;new-lib&gt;
+</code></pre></div></td></tr></table></div></p>
+<h3 id="teardown">Teardown<a class="headerlink" href="#teardown" title="Permanent link">&para;</a></h3>
+<p>Execute the following commands in your jupyter terminal.</p>
+<h4 id="uninstall-virtual-environment">Uninstall Virtual Environment<a class="headerlink" href="#uninstall-virtual-environment" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$ jupyter kernelspec uninstall my-test-venv
+$ rm -rf my-test-venv
+</code></pre></div></td></tr></table></div>
+<h2 id="creating-r-virtual-environments">Creating R Virtual Environments<a class="headerlink" href="#creating-r-virtual-environments" title="Permanent link">&para;</a></h2>
+<h3 id="setup_1">Setup<a class="headerlink" href="#setup_1" title="Permanent link">&para;</a></h3>
+<p>R packages are installed into libraries, which are directories in the file system containing a subdirectory for each package installed there [ref 2]. Users can have one or more libraries, normally specified by the environment variable R_LIBS_USER, if the corresponding directory actually exists (which by default it will not).</p>
+<p>Users may set up separate directories for these libraries for separate projects and install project specific libraries into these directories as shown below. </p>
+<p>First, use a terminal to create a project directory in your user space.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ mkdir /gpfs/mskmind_ess/pashaa/my_R_libs_prj1
+</code></pre></div></td></tr></table></div>
+Next, open a Jupyter notebook in Jupyterhub, select the system-wide R kernel and configure R to use this directory as a user libs directory.  </p>
+<h4 id="r-script-in-jupyter-irkernel">R Script in Jupyter IRKernel<a class="headerlink" href="#r-script-in-jupyter-irkernel" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>[1] Sys.getenv(&#39;R_LIBS_USER&#39;)
+
+     &#39;~/R/x86_64-pc-linux-gnu-library/4.0&#39;
+
+[2] .libPaths()
+
+     &#39;/opt/R/4.0.5/lib/R/library&#39;
+
+[3] Sys.setenv(R_LIBS_USER=&quot;/gpfs/mskmind_ess/pashaa/my_R_libs_prj1&quot;)
+[4] .libPaths(c( Sys.getenv(&#39;R_LIBS_USER&#39;), .libPaths()  ))
+</code></pre></div></td></tr></table></div>
+<h3 id="test_1">Test<a class="headerlink" href="#test_1" title="Permanent link">&para;</a></h3>
+<p>Test your IRKernel environment. </p>
+<blockquote>
+<p>NOTE: You may change the order of the paths to make R pick libraries from the system-wide project directory first by changing the order of the libraries in the .libPaths() setup call above. But, in general you may find it beneficial to give precedence to the libraries that you have installed for your project. 
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>[5] Sys.getenv(&#39;R_LIBS_USER&#39;)
+
+&#39;/gpfs/mskmind_ess/pashaa/my_R_libs_prj1&#39;
+
+[6] .libPaths()
+
+     &#39;/gpfs/mskmind_ess/pashaa/my_R_libs_prj1&#39;&#39;/opt/R/4.0.5/lib/R/library&#39;
+</code></pre></div></td></tr></table></div>
+List the current set of packages, then install a package and list packages again to check if the package has been installed. Note when loading the packages, you must specify the "lib.loc" library location to ensure you are loading from your library. 
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code>[7] my_packages &lt;- library()$results[,1]
+[8] print(my_packages)
+
+        [1] &quot;bslib&quot;         &quot;cachem&quot;        &quot;commonmark&quot;    &quot;httpuv&quot;       
+        [5] &quot;jquerylib&quot;     &quot;later&quot;         &quot;promises&quot;      &quot;sass&quot;         
+        [9] &quot;sourcetools&quot;   &quot;xtable&quot;        &quot;askpass&quot;       &quot;assertthat&quot;   
+        ...
+        [125] &quot;utf8&quot;          &quot;utils&quot;         &quot;uuid&quot;          &quot;vctrs&quot;        
+        [129] &quot;viridisLite&quot;   &quot;vroom&quot;         &quot;withr&quot;         &quot;xfun&quot;         
+        [133] &quot;yaml&quot;
+
+[9] install.packages(&#39;shiny&#39;, lib=&quot;/gpfs/mskmind_ess/pashaa/my_R_libs_prj1&quot;)
+
+        Installing package into ‘/gpfs/mskmind_ess/pashaa/my_R_libs_prj1’
+        (as ‘lib’ is unspecified)
+
+[10] my_packages &lt;- library()$results[,1]
+[11] print(my_packages)
+
+        [1] &quot;bslib&quot;         &quot;cachem&quot;        &quot;commonmark&quot;    &quot;httpuv&quot;       
+        [5] &quot;jquerylib&quot;     &quot;later&quot;         &quot;promises&quot;      &quot;sass&quot;         
+        [9] &quot;sourcetools&quot;   &quot;xtable&quot;        &quot;askpass&quot;       &quot;assertthat&quot;   
+        ...
+        [125] &quot;utf8&quot;          &quot;utils&quot;         &quot;uuid&quot;          &quot;vctrs&quot;        
+        [129] &quot;viridisLite&quot;   &quot;vroom&quot;         &quot;withr&quot;         &quot;xfun&quot;         
+        [133] &quot;yaml&quot;          &quot;shiny&quot;
+
+[12] library(&quot;shiny&quot;, lib.loc=&quot;/gpfs/mskmind_ess/pashaa/my_R_libs_prj1&quot;)
+</code></pre></div></td></tr></table></div>
+On the terminal, you may check to see if the package and its dependencies have been installed in your project location. </p>
+</blockquote>
+<h4 id="terminal">Terminal<a class="headerlink" href="#terminal" title="Permanent link">&para;</a></h4>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$ ls /gpfs/mskmind_ess/pashaa/my_R_libs_prj1
+bslib  cachem  commonmark  httpuv  jquerylib  later  promises  sass  shiny  sourcetools  xtable
+</code></pre></div></td></tr></table></div>
+More than 1 project directory may be set up in this manner. However, it is advisable to configure R to use one user lib directory at a time so there is no confusion as to where libraries are being installed or uninstalled from. </p>
+<h3 id="teardown_1">Teardown<a class="headerlink" href="#teardown_1" title="Permanent link">&para;</a></h3>
+<p>You may uninstall a package as follows.</p>
+<h4 id="r-script-in-jupyter-irkernel_1">R Script in Jupyter IRKernel<a class="headerlink" href="#r-script-in-jupyter-irkernel_1" title="Permanent link">&para;</a></h4>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[12] remove.packages(&#39;shiny&#39;)
+</code></pre></div></td></tr></table></div>
+For a full teardown, reset the R configuration and remove the project directory. 
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>[13] Sys.setenv(R_LIBS_USER=&quot;~/R/x86_64-pc-linux-gnu-library/4.0&quot;)
+[14] .libPaths(.libPaths()[2])
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ rm -rf /gpfs/mskmind_ess/pashaa/my_R_libs_prj1
+</code></pre></div></td></tr></table></div></p>
+<h2 id="pre-installed-r-packages">Pre-installed R Packages<a class="headerlink" href="#pre-installed-r-packages" title="Permanent link">&para;</a></h2>
+<p>For ease of use there is already a set of commonly used packages installed in the base R installation on pllimsksparky2. In addition to the libraries that come with R, we have explicitly installed the following:</p>
+<ul>
+<li>tidyverse</li>
+<li>tidyr</li>
+<li>ggplot2</li>
+<li>tidymodels</li>
+<li>mgcv</li>
+<li>nlme</li>
+<li>car</li>
+<li>randomForest</li>
+<li>multcomp</li>
+<li>glmnet</li>
+<li>survival</li>
+<li>caret</li>
+<li>shiny</li>
+<li>rmarkdown</li>
+<li>BiocManager</li>
+<li>flowCore</li>
+</ul>
+<p>Chances are that even if the package you're looking for isn't on the above list, it was probably installed as a dependency. To see a complete list of all installed libraries, open an R terminal and run the following:</p>
+<h4 id="r-script-in-jupyter-irkernel_2">R script in Jupyter IRKernel<a class="headerlink" href="#r-script-in-jupyter-irkernel_2" title="Permanent link">&para;</a></h4>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt; print(library()$results[,1])
+</code></pre></div></td></tr></table></div>
+If you're interested in using a package and can't install it in a virtual environment due to core system dependencies or any other issues, let the MIND Engineering team know.</p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Notebook cells are not executing or are hanging</strong>: Simply restart the kernel by selecting menu item Kernel → Restart Kernel</li>
+<li><strong>Notbook and terminal not working in Safari</strong>: Make sure you have Safari version 15.4 or higher, and add untrusted cert to keychain to make it trusted (https://github.com/jupyterhub/jupyterhub/issues/292)</li>
+<li><strong>"Unexpected error while saving file: <notebook_name>.ipynb attempt to write a readonly database"</strong>: Restart your server by going to File→Hub Control Panel. </li>
+<li><strong>Trouble initiating Jupyterhub in Safari</strong>: Try Google Chrome</li>
+<li><strong>Trouble loading, saving, or creating new jupyter notebooks</strong>: Try restarting the Jupyterhub service by:
+Going to File -&gt; Hub Control Panel
+Click Start My Server</li>
+</ul>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="https://ipython.readthedocs.io/en/stable/install/kernel_install.html">Creating a kernel for virtual environments</a></li>
+<li><a href="https://cran.r-project.org/doc/manuals/r-release/R-admin.html">R Admin - Managing Libraries</a></li>
+<li><a href="https://rpubs.com/Mentors_Ubiqum/list_packages">List R packages</a></li>
+<li><a href="https://janakiev.com/blog/jupyter-virtual-envs/">Using Virtual Environments in Jupyter Notebook and Python</a></li>
+</ol>
+<hr />
+<p><a href="https://mskconfluence.mskcc.org/display/MM/JupyterHub">Documentation adapted from MSK-MIND</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Memorial Sloan Kettering Cancer Center
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.sections", "navigation.top", "toc.follow", "search.suggestions", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

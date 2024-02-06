@@ -13,21 +13,25 @@
       
       
       
+        <link rel="prev" href="../minio/">
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+        <link rel="next" href="../data-query-quick-start/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
     
     
       
-        <title>Clinical Data Mining @ MSKCC</title>
+        <title>Running GPU Jobs via HTCondor - Clinical Data Mining @ MSKCC</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,11 +50,11 @@
       
     
     
-      <link rel="stylesheet" href="/assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -75,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#submitting-jobs-htcondor" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -87,7 +96,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Clinical Data Mining @ MSKCC" class="md-header__button md-logo" aria-label="Clinical Data Mining @ MSKCC" data-md-component="logo">
+    <a href="../../.." title="Clinical Data Mining @ MSKCC" class="md-header__button md-logo" aria-label="Clinical Data Mining @ MSKCC" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -107,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Running GPU Jobs via HTCondor
             
           </span>
         </div>
@@ -225,7 +234,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Clinical Data Mining @ MSKCC" class="md-nav__button md-logo" aria-label="Clinical Data Mining @ MSKCC" data-md-component="logo">
+    <a href="../../.." title="Clinical Data Mining @ MSKCC" class="md-nav__button md-logo" aria-label="Clinical Data Mining @ MSKCC" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -295,7 +304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -363,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -384,7 +393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/minio/" class="md-nav__link">
+      <a href="../../minio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -405,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/dremio/" class="md-nav__link">
+      <a href="../../dremio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -430,8 +439,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -440,12 +451,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -459,7 +470,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Developer Guide
@@ -473,7 +484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/training/" class="md-nav__link">
+      <a href="../training/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -494,7 +505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/python-environment/" class="md-nav__link">
+      <a href="../python-environment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -515,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/r-guide/" class="md-nav__link">
+      <a href="../r-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -536,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/jupyterhub/" class="md-nav__link">
+      <a href="../jupyterhub/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -557,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/minio/" class="md-nav__link">
+      <a href="../minio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -575,10 +586,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/reference/user-guide/htcondor/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Running GPU Jobs via HTCondor
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -587,6 +618,188 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cluster-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cluster Setup
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cluster Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pool-1-research" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pool 1 - Research
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pool-2-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pool 2 - Engineering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-node-phi-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single node - PHI machine
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful Guides
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Useful Guides">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#htcondor-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTCondor Docs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-faqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful FAQs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-job-submission-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example job submission templates
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Flow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Useful Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-jobs-in-the-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check jobs in the queue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-jobs-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check jobs history
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-details-of-your-submitted-job-for-debugging-purposes-with-jobcluster-id-from-previous-condor_q-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check details of your submitted job for debugging purposes with JOB/CLUSTER ID from previous condor_q command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-conda-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use conda environment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -599,7 +812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/data-query-quick-start/" class="md-nav__link">
+      <a href="../data-query-quick-start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -620,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/airflow/" class="md-nav__link">
+      <a href="../airflow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -641,7 +854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/conda-cheatsheet/" class="md-nav__link">
+      <a href="../conda-cheatsheet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -662,7 +875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/git-branch-management/" class="md-nav__link">
+      <a href="../git-branch-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -683,7 +896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/user-guide/redcap_etl/" class="md-nav__link">
+      <a href="../redcap_etl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -751,7 +964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/About-Us/" class="md-nav__link">
+      <a href="../../About-Us/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -789,6 +1002,178 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cluster-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cluster Setup
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cluster Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pool-1-research" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pool 1 - Research
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pool-2-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pool 2 - Engineering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-node-phi-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single node - PHI machine
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful Guides
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Useful Guides">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#htcondor-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTCondor Docs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-faqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful FAQs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-job-submission-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example job submission templates
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Flow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Useful Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-jobs-in-the-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check jobs in the queue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-jobs-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check jobs history
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-details-of-your-submitted-job-for-debugging-purposes-with-jobcluster-id-from-previous-condor_q-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check details of your submitted job for debugging purposes with JOB/CLUSTER ID from previous condor_q command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-conda-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use conda environment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -800,8 +1185,136 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+  
+  
+
+
+<h1 id="submitting-jobs-htcondor">Submitting Jobs (HTCondor)<a class="headerlink" href="#submitting-jobs-htcondor" title="Permanent link">&para;</a></h1>
+<h2 id="cluster-setup">Cluster Setup<a class="headerlink" href="#cluster-setup" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../images/condor-cluster-setup.png" /></p>
+<h3 id="pool-1-research">Pool 1 - Research<a class="headerlink" href="#pool-1-research" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Central manager node</strong>: pllimskhpc1</li>
+<li><strong>Submit and Execute nodes</strong>: pllimskhpc123
+<img alt="" src="../images/condor-pool-1.png" /></li>
+</ul>
+<h3 id="pool-2-engineering">Pool 2 - Engineering<a class="headerlink" href="#pool-2-engineering" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Central manager node</strong>: pllimsksparky1</li>
+<li><strong>Submit and Execute nodes</strong>: pllimsksparky1234</li>
+</ul>
+<h3 id="single-node-phi-machine">Single node - PHI machine<a class="headerlink" href="#single-node-phi-machine" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="../images/condor-single-node.png" /></p>
+<h4 id="notes">Notes:<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>pllimskhpc1</strong> and <strong>pllimskspakry1</strong> are main nodes in the hpc, sparky cluster. To not overload the main nodes, less resources are made available on these nodes.</li>
+<li><strong>pllimskhpc1/2 pllimskspakry1/2</strong> have one large partitionable slot to accommodate larger jobs. Be sure to specify your GPU/CPU/Memory requirements when submitting to these machines.</li>
+<li>Pool configs can be updated by MIND engineers. Please reach out to the engineering team if these configurations don't fit your analysis.</li>
+<li>If you want to submit lots of jobs, please set <code>max_idle</code> and <code>max_materialize</code> in your condor submit file in order to not run the cluster at max load. Think of max_materialize as the maximum number of jobs you want running at any given time, and max_idle as the maximum number of jobs you want to move into the running state at any given time as running jobs complete.</li>
+<li>In order to distribute the jobs across all nodes within a pool, please add the following property to your submit file. This ensures that all nodes run jobs as your user, and read/write files from the shared filesystem (gpfs in our case). See <a href="https://github.com/msk-mind/condor/tree/main/test-multinode-shared-filesystem">example code</a>.</li>
+</ul>
+<h5 id="submit-file">Submit File<a class="headerlink" href="#submit-file" title="Permanent link">&para;</a></h5>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Requirements = TARGET.UidDomain == &quot;mskcc.org&quot; &amp;&amp; \
+TARGET.FileSystemDomain == &quot;mskcc.org
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>Occasionally, one or more of our nodes lose storage mounts and this may cause failures in your jobs that were executed on those nodes. If you notice this, you can disable certain nodes using the following directive in your submit file. </li>
+</ul>
+<h5 id="disable-node">Disable Node<a class="headerlink" href="#disable-node" title="Permanent link">&para;</a></h5>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&quot;Requirements = (Machine != &quot;pllimsksparky2.mskcc.org&quot;)&quot;
+</code></pre></div></td></tr></table></div>
+<h2 id="useful-guides">Useful Guides<a class="headerlink" href="#useful-guides" title="Permanent link">&para;</a></h2>
+<h3 id="htcondor-docs">HTCondor Docs<a class="headerlink" href="#htcondor-docs" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://htcondor.readthedocs.io/en/v8_8/">Full manual</a></li>
+<li><a href="https://en.wikitolearn.org/Course:HTCondor/Exercises">Fun tutorial/exercises</a></li>
+<li><a href="https://htcondor.readthedocs.io/en/v8_8/users-manual/running-a-job-steps.html">More reading on running jobs</a></li>
+</ul>
+<h3 id="useful-faqs">Useful FAQs<a class="headerlink" href="#useful-faqs" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://chtc.cs.wisc.edu/uw-research-computing/multiple-jobs">Submitting Multiple Jobs to Condor from input file</a></li>
+<li><a href="https://chtc.cs.wisc.edu/gpu-jobs.shtml">GPU jobs</a></li>
+<li><a href="https://research.iac.es/sieinvens/siepedia/pmwiki.php?n=HOWTOs.CondorHowTo">Submit examples</a></li>
+<li><a href="https://chtc.cs.wisc.edu/uw-research-computing/docker-jobs">Docker with Condor</a></li>
+<li><a href="https://htcondor.readthedocs.io/en/v8_8/users-manual/submitting-a-job.html#submitting-jobs-using-a-shared-file-system">Using a shared filesystem</a></li>
+</ul>
+<h3 id="example-job-submission-templates">Example job submission templates<a class="headerlink" href="#example-job-submission-templates" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/msk-mind/condor">MSK-MIND examples</a></li>
+<li>https://github.com/CHTC/templates-GPUs</li>
+<li>https://github.com/CHTC/example-multiple-jobs</li>
+<li>https://github.com/CHTC/example-python-pandas</li>
+</ul>
+<h2 id="example-flow">Example Flow<a class="headerlink" href="#example-flow" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Prepare an executable <strong>job</strong> (shell, python script or docker), and a submit.sub</li>
+<li>Submit your job! <code>condor_submit submit.sub</code></li>
+<li>Check you job status in the queue <code>condor_q</code></li>
+<li>Or check the details of one job with: <code>condor_q -better-analyze &lt;job_id&gt;</code></li>
+<li>Check machine availability: <code>condor_status -claimed</code></li>
+<li>Check output and logs, as specified in the <code>submit.sub</code></li>
+<li>kill a job <code>condor_rm &lt;job_id&gt;</code></li>
+</ol>
+<blockquote>
+<p><strong><em>Caution!:</em></strong> Before submitting your real jobs, perform always some simple tests in order to make sure that both your submit file and program will work in a proper way: if you are going to submit hundreds of jobs and each job takes several hours to finish, before doing that try with just a few jobs and change the input data in order to let them finish in minutes. Then check the results to see if everything went fine before submitting the real jobs. Also we recommend you use condor_submit -dry-run to debug your jobs and make sure they will work as expected). Bear in mind that submitting untested files and/or jobs may cause a waste of time and resources if they fail, and also your priority will be lower in following submissions.</p>
+</blockquote>
+<h2 id="useful-commands">Useful Commands<a class="headerlink" href="#useful-commands" title="Permanent link">&para;</a></h2>
+<h3 id="check-nodes">Check nodes<a class="headerlink" href="#check-nodes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>condor_status</li>
+<li>condor_status -compact</li>
+<li>condor_status -compact -constraint 'TotalSlotGpus &gt; 0'</li>
+<li>condor_status -claimed</li>
+<li>condor_status <machine_name></li>
+</ul>
+<h3 id="check-jobs-in-the-queue">Check jobs in the queue<a class="headerlink" href="#check-jobs-in-the-queue" title="Permanent link">&para;</a></h3>
+<ul>
+<li>condor_q</li>
+<li>condor_q -all</li>
+<li>(devops) to check jobs submitted by all users</li>
+</ul>
+<h3 id="check-jobs-history">Check jobs history<a class="headerlink" href="#check-jobs-history" title="Permanent link">&para;</a></h3>
+<ul>
+<li>condor_history</li>
+</ul>
+<h3 id="check-details-of-your-submitted-job-for-debugging-purposes-with-jobcluster-id-from-previous-condor_q-command">Check details of your submitted job for debugging purposes with JOB/CLUSTER ID from previous <code>condor_q</code> command<a class="headerlink" href="#check-details-of-your-submitted-job-for-debugging-purposes-with-jobcluster-id-from-previous-condor_q-command" title="Permanent link">&para;</a></h3>
+<ul>
+<li>condor_q -better-analyze <job_id or cluster_id></li>
+</ul>
+<h3 id="use-conda-environment">Use conda environment<a class="headerlink" href="#use-conda-environment" title="Permanent link">&para;</a></h3>
+<p>Include the following lines in the executable script that condor submit file calls
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>source /&lt;path-to-your-anaconda3&gt;/etc/profile.d/conda.sh
+conda activate &lt;your-env&gt;
+</code></pre></div></td></tr></table></div></p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<ul>
+<li>When specifying the target Machine, be sure to match the full Machine Name. For example, <strong>pllimskhpc2</strong> will not match to a slot if <strong>pllimskhpc2.mskcc.org</strong> is the Machine name that you see when running condor_status -compact
+Ex) requirements = (Machine == "<a href="http://pllimskhpc2.mskcc.org/">pllimskhpc2.mskcc.org</a>")</li>
+<li>Exec format error - Make sure the first line of your script has the proper shebang.
+e.g. bash scripts should start with <code>#!/bin/bash</code></li>
+<li>MemoryError - could be resolved by increasing the memory requirement in the submit file e.g. request_memory = 16GB 
+note: resource specification in the submit file is per job, not per cluster if you are submitting more than one job.</li>
+<li>If your job is stuck in hold, use 'condor_q -l' to view the long view of the queue and find the 'HoldReason' key for details about why the job is stuck in the hold state. </li>
+</ul>
+<hr />
+<p><a href="https://mskconfluence.mskcc.org/display/MM/HTCondor">Documentation adapted from MSK-MIND</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -845,10 +1358,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/", "features": ["navigation.instant", "navigation.sections", "navigation.top", "toc.follow", "search.suggestions", "search.highlight", "search.share"], "search": "/assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.sections", "navigation.top", "toc.follow", "search.suggestions", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.d7c377c4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7c377c4.min.js"></script>
       
     
   </body>
