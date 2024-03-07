@@ -41,7 +41,7 @@ if __name__ == "__main__":
         "--minio_env_fname",
         action="store",
         dest="minio_env_fname",
-        default="/mind_data/cdm_repos/cdm-utilities/minio_env.txt",
+        default="/gpfs/mindphidata/cdm_repos/cdm-utilities/minio_env.txt",
         help="file with env vars pointing to minio certs",
     )
     parser.add_argument(
@@ -49,8 +49,7 @@ if __name__ == "__main__":
         action="store",
         dest="input_obj",
         default=(
-            "labels/progression/genie_lung_crc_breast_prostate_pancreas_progression_"
-            "labels_20230609.tsv"
+            "demographics/ddp_demographics.tsv"
         ),
         help="Input file to read from Minio",
     )
