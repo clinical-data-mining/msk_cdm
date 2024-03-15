@@ -88,29 +88,29 @@ class CDMProcessingVariables:
     bash_script_query_rrpts = f""" {venv} {script_query_rrpts} --user {{{{ params.user }}}} --pw {{{{ params.pw }}}}"""
 
     ## SQL files
-    sql_demo: str = os.path.join(root_path_sql, "demographics.sql")
+    sql_demo: str = os.path.join(root_path_sql, "demographics", "demographics.sql")
     sql_surg: str = os.path.join(root_path_sql, "treatments/surgery.sql")
     sql_ir: str = os.path.join(root_path_sql, "treatments/ir.sql")
-    sql_pathology: str = os.path.join(root_path_sql, "pathology_report.sql")
+    sql_pathology: str = os.path.join(root_path_sql, "pathology_reports/pathology_report.sql")
     sql_pathology_accessions: str = os.path.join(
-        root_path_sql, "pathology_report_accessions.sql"
+        root_path_sql, "pathology_reports/pathology_report_accessions.sql"
     )
-    sql_radiology: str = os.path.join(root_path_sql, "radiology_report.sql")
+    sql_radiology: str = os.path.join(root_path_sql, "radiology_reports/radiology_report.sql")
     sql_radiology_accessions: str = os.path.join(
-        root_path_sql, "radiology_report_accessions.sql"
+        root_path_sql, "radiology_reports/radiology_report_accessions.sql"
     )
-    sql_dx: str = os.path.join(root_path_sql, "diagnosis_codes.sql")
+    sql_dx: str = os.path.join(root_path_sql, "diagnosis/diagnosis_codes.sql")
     sql_chemo: str = os.path.join(root_path_sql, "treatments/med_chemo.sql")
     sql_radonc: str = os.path.join(root_path_sql, "treatments/radiation.sql")
     sql_clindoc_fu_initial: str = os.path.join(
-        root_path_sql, "clindoc_initial_and_fu_notes.sql"
+        root_path_sql, "clindoc/clindoc_initial_and_fu_notes.sql"
     )
     sql_comorbidities: str = os.path.join(
         root_path_sql, "comorbidities/comorbidities.sql"
     )
     sql_bmi: str = os.path.join(root_path_sql, "comorbidities/comorbidities_bmi.sql")
-    sql_insurance: str = os.path.join(root_path_sql, "insurance.sql")
-    sql_addresses: str = os.path.join(root_path_sql, "patient_addresses.sql")
+    sql_insurance: str = os.path.join(root_path_sql, "insurance/insurance.sql")
+    sql_addresses: str = os.path.join(root_path_sql, "demographics/patient_addresses.sql")
     # sql_labs_myeloid: str = os.path.join(root_path_sql, 'labs/labs_myeloid.sql')
     sql_labs_antigen: str = os.path.join(
         root_path_sql, "labs/cancer_antigen_lab_results.sql"
