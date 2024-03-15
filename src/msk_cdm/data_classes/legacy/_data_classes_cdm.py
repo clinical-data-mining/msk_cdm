@@ -13,7 +13,6 @@ class CDMProcessingVariables:
     ##############################################################################
     # Pathnames
     ##############################################################################
-
     root_path_cdm_utils: str = os.path.join(root_path, "msk_cdm")
     root_path_treatments: str = os.path.join(root_path, "cdm-treatments")
     root_path_pathology: str = os.path.join(root_path, "pathology_report_segmentation")
@@ -22,7 +21,7 @@ class CDMProcessingVariables:
     )
     root_path_radiology: str = os.path.join(root_path, "radiology_met_prediction")
     root_path_progression: str = os.path.join(root_path, "progression-predict")
-    root_path_sql: str = os.path.join(root_path, "idb_queries")
+    root_path_sql: str = os.path.join(root_path, "cdm-idb-queries")
     root_path_disparities: str = os.path.join(root_path, "cdm-disparities")
     root_path_prior_meds: str = os.path.join(root_path, "prior-tx-identification")
 
@@ -56,7 +55,7 @@ class CDMProcessingVariables:
     # Queried data from the cBioPortal API
     ##############################################################################
     fname_cbio_sid_api: str = "cbioportal/mskimpact_ids.tsv"
-    fname_cbio_sid: str = "/mind_data/cdm_repos/datahubs/msk-impact/msk_solid_heme/data_clinical_sample.txt"
+    fname_cbio_sid: str = "/gpfs/mindphidata/cdm_repos/datahub/msk-impact/msk_solid_heme/data_clinical_sample.txt"
     study_id: str = "mskimpact"
     script_cbio_ids: str = os.path.join(
         root_path_cdm_utils, "cbioportal/cbioportal_api_pull_ids.py "
@@ -391,10 +390,10 @@ class CDMProcessingVariables:
     fname_radiology_headers = "/radiology/radiology_report_segmentation/impact/intermediate_files_for_qc/radiology_parse_headers.tsv"
     fname_radiology_full_parsed: str = "/radiology/radiology_report_segmentation/impact/ddp_radiology_reports_full_parsed.tsv"
 
-    # Generated feature data
-    fname_rad_embedding: str = (
-        "/mind_data/fongc2/radiology_met_prediction/assets/clinicalbert_w2v.txt"
-    )
+    # # Generated feature data
+    # fname_rad_embedding: str = (
+    #     "/mind_data/fongc2/radiology_met_prediction/assets/clinicalbert_w2v.txt"
+    # )
 
     ## Word embeddings method
     fname_rad_met_feature_impressions: str = (
@@ -417,7 +416,7 @@ class CDMProcessingVariables:
     fname_radiology_tumor_site_pred_combined: str = "/radiology/tumor_sites/impact/intermediate_files/radiology_tumor_site_predictions_combined.tsv"
     fname_rad_rpts_for_prediction_tumor_sites: str = "/radiology/tumor_sites/impact/intermediate_files/ddp_radiology_reports_for_prediction.tsv"
     log_fname_template_tumor_sites: str = (
-        "/mind_data/cdm_repos/radiology_met_prediction/condor/logs/log_infer.txt"
+        "/gpfs/mindphidata/fongc2/github/radiology_met_prediction/condor/logs/log_infer.txt"
     )
     fname_tumor_sites_timeline_cbio: str = (
         "/radiology/tumor_sites/impact/table_timeline_tumor_sites.tsv"
@@ -433,7 +432,7 @@ class CDMProcessingVariables:
     fname_rad_prog_prediction_combined: str = "/radiology/progression/impact/intermediate_files/radiology_cancer_progression_predictions_combined.tsv"
     fname_rad_rpts_for_prediction_progression: str = "/radiology/progression/impact/intermediate_files/ddp_radiology_reports_for_prediction_progression.tsv"
     log_fname_template_progression: str = (
-        "/mind_data/cdm_repos/progression-predict/condor/logs/log_infer.txt"
+        "/gpfs/mindphidata/fongc2/github/progression-predict/condor/logs/log_infer.txt"
     )
 
     ## Training Labels
@@ -599,7 +598,7 @@ class CDMProcessingVariablesCbioportal:
     # fname_s_sum_template: str = os.path.join(path_datahub, template_summary_s)
 
     # For IMPACT transition with cbioportal backend team
-    path_datahub: str = "/mind_data/cdm_repos/datahubs/cdm/msk-chord/"
+    path_datahub: str = "/gpfs/mindphidata/fongc2/datahubs/cdm/msk-chord/"
     fname_cbio_header_template_p: str = (
         "cbioportal/cbioportal_summary_header_patient.tsv"
     )
