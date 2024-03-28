@@ -76,7 +76,7 @@ class CDMProcessingVariables:
     # idb_config = 'darwin_prod_legacy'     ## Use this for data dojo based IDB query scripts
     idb_config: str = os.path.join(root_path_sql, "config_ddp_query.txt")
     script_query_to_minio: str = os.path.join(root_path_sql, "run_query_to_minio.py")
-    script_query_rrpts: str = os.path.join(root_path_sql, "query_radiology_reports.py")
+    script_query_rrpts: str = os.path.join(root_path_sql, "radiology_reports/query_radiology_reports.py")
 
     ## General bash script
     bash_script_template = f""" {venv} {script_query_to_minio} --user {{{{ params.user }}}} --pw {{{{ params.pw }}}} --db2c {{{{ params.dbconfig }}}} --minio {{{{ params.minio }}}} --sql {{{{ params.sql }}}} --fsave {{{{ params.fsave }}}}  --fbkup {{{{ params.fbkup }}}} """
