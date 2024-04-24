@@ -6,7 +6,7 @@ import os
 from dataclasses import dataclass
 
 
-root_path: str = "/gpfs/mindphidata/fongc2/github"
+root_path: str = "/gpfs/mindphidata/cdm_repos/github"
 
 @dataclass
 class CDMProcessingVariables:
