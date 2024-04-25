@@ -1,13 +1,15 @@
 """
-data_classes_cdm.py 
+data_classes_cdm.py
 
 """
+
 import os
 from dataclasses import dataclass
 
 
 root_path: str = "/gpfs/mindphidata/fongc2/github"
 minio_env: str = "/gpfs/mindphidata/fongc2/minio_env.txt"
+
 
 @dataclass
 class CDMProcessingVariables:
@@ -33,7 +35,6 @@ class CDMProcessingVariables:
     script_redcap_pull: str = os.path.join(
         root_path_cdm_utils, "redcap/redcap_api_report_pull.py "
     )
-
 
     venv: str = "/mind_data/cdm_repos/env_cdm/bin/python "
 
