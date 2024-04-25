@@ -6,7 +6,7 @@ import sys
 from typing import Optional, Union
 import urllib3
 
-from dotenv import load_dotenv, find_dotenv, dotenv_values
+from dotenv import dotenv_values
 from minio import Minio
 from minio.commonconfig import CopySource
 
@@ -27,13 +27,13 @@ class MinioAPI(object):
         fname_minio_env: Optional[Union[Path, str]] = None,
     ):
         """Initialization
-        
+
         Args:
             - ACCESS_KEY: Minio access key. Optional if `fname_minio_env` is passed, in which case it may be present in the env file picked up by .env
             - SECRET_KEY: Minio secret key. Optional if `fname_minio_env` is passed, in which case it may be present in the env file picked up by .env
             - ca_certs: optional filename pointer to ca_cert bundle for `urllib3`. Only specify if not passing `fname_minio_env`.
             - fname_minio_env: A filename with KEY=value lines with values for keys `CA_CERTS`, `URL_PORT`, `BUCKET`.
-              
+
         """
         self._ACCESS_KEY = ACCESS_KEY
         self._SECRET_KEY = SECRET_KEY
@@ -51,17 +51,17 @@ class MinioAPI(object):
         self, path_object: str, bucket_name: Optional[str] = None
     ) -> urllib3.response.HTTPResponse:
         """Read an object from minio
-        
+
         Raises `urllib3.exceptions.HTTPError` if request is unsuccessful.
 
         Args:
             path_object: Object file to read from minio.
             bucket_name: Optional bucket name, otherwise defaults to BUCKET passed
             via minio env fniame to constructor
-            
+
         Returns:
             urllib3.response.HTTPResponse
-            
+
         """
         if self._bucket is not None:
             bucket_name = self._bucket
@@ -79,16 +79,16 @@ class MinioAPI(object):
         bucket_name: Optional[str] = None,
     ):
         """Save an object to minio
-        
+
         Args:
             df: Pandas dataframe to be saved to Minio
             path_object: Object filename for `df`
             sep: Separator when saving the Pandas dataframe
             bucket_name: Optional bucket name, otherwise defaults to BUCKET passed
             via minio env fniame to constructor
-            
+
         """
-        
+
         if self._bucket is not None:
             bucket_name = self._bucket
 
@@ -104,7 +104,7 @@ class MinioAPI(object):
         )
 
         return None
-    
+
     def print_list_objects(
         self,
         bucket_name: Optional[str] = None,
@@ -112,14 +112,14 @@ class MinioAPI(object):
         recursive: Optional[bool] = True,
     ):
         """Create a Python list of objects in a specified minio bucket
-        
+
         Args:
             - bucket_name: Optional bucket name, otherwise defaults to  BUCKET passed via minio env fname to constructor
             - prefix: Optional string used to find an object starting with <prefix>
-            
+
         Returns:
             obj_list: List of strings containing path locations in minio bucket.
-            
+
         """
         if self._bucket is not None:
             bucket_name = self._bucket
@@ -135,11 +135,11 @@ class MinioAPI(object):
 
     def remove_obj(self, path_object: str, bucket_name: Optional[str] = None):
         """Remove an object from minio
-        
+
         Args:
             path_object: Object file to be removed from minio
             bucket_name: Optional bucket name, otherwise defaults to  BUCKET passed via minio env fname to constructor
-            
+
         """
         # Remove list of objects.
         self._client.remove_object(bucket_name=bucket_name, object_name=path_object)
@@ -154,18 +154,18 @@ class MinioAPI(object):
         source_bucket: Optional[str] = None,
         dest_bucket: Optional[str] = None,
     ):
-        """Copy an object in minio. 
-        
-        Objects can be copied across different BUCKETS. 
-        Warning: objects with greater than 1GB may fail using this. 
+        """Copy an object in minio.
+
+        Objects can be copied across different BUCKETS.
+        Warning: objects with greater than 1GB may fail using this.
         Instead, use `load_obj` and `save_obj` in combination.
-        
+
         Args:
             source_path_object: Object file to be copied
             dest_path_object: Object filename that `source_path_object` will be copied to
             bucket_name: Optional bucket name, otherwise defaults to  BUCKET passed
             via minio env fniame to constructor
-            
+
         Returns:
             output: Object name and version ID of object
         """
@@ -184,8 +184,7 @@ class MinioAPI(object):
         return output
 
     def _process_env(self, fname_minio_env):
-        dict_config = dict(dotenv_values(fname_minio_env))
-        load_dotenv(dict_config["MINIO_ENV"])
+        dict_config = dotenv_values(fname_minio_env)
 
         env_access_key = os.getenv("ACCESS_KEY")
         if env_access_key:
@@ -195,11 +194,16 @@ class MinioAPI(object):
         if env_secret_key:
             dict_config["SECRET_KEY"] = env_secret_key
 
-        self._ACCESS_KEY = dict_config["ACCESS_KEY"]
-        self._SECRET_KEY = dict_config["SECRET_KEY"]
-        self._ca_certs = dict_config["CA_CERTS"]
-        self._url_port = dict_config["URL_PORT"]
-        self._bucket = dict_config["BUCKET"]
+        if not self._ACCESS_KEY:
+            self._ACCESS_KEY = dict_config.get("ACCESS_KEY", None)
+        if not self._SECRET_KEY:
+            self._SECRET_KEY = dict_config.get("SECRET_KEY", None)
+        if not self._ca_certs:
+            self._ca_certs = dict_config.get("CA_CERTS", None)
+        if not self._url_port:
+            self._url_port = dict_config.get("URL_PORT", None)
+        if not self._bucket:
+            self._bucket = dict_config.get("BUCKET", None)
 
     def _connect(self):
         # required for self-signed certs
