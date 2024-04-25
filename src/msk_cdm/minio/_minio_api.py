@@ -25,22 +25,27 @@ class MinioAPI(object):
         ca_certs: Optional[str] = None,
         url_port: Optional[str] = "tllihpcmind6:9000",
         fname_minio_env: Optional[Union[Path, str]] = None,
+        bucket: Optional[str] = None,
     ):
         """Initialization
 
-        Args:
-            - ACCESS_KEY: Minio access key. Optional if `fname_minio_env` is passed, in which case it may be present in the env file picked up by .env
-            - SECRET_KEY: Minio secret key. Optional if `fname_minio_env` is passed, in which case it may be present in the env file picked up by .env
-            - ca_certs: optional filename pointer to ca_cert bundle for `urllib3`. Only specify if not passing `fname_minio_env`.
-            - fname_minio_env: A filename with KEY=value lines with values for keys `CA_CERTS`, `URL_PORT`, `BUCKET`.
+                Args:
+                    - ACCESS_KEY: Minio access key. Optional if `fname_minio_env` is passed, in which case it may be present in the env file picked up by .env
+                    - SECRET_KEY: Minio secret key. Optional if `fname_minio_env` is passed, in which case it may be present in the env file picked up by .env
+                    - ca_certs: optional filename pointer to ca_cert bundle for `urllib3`. Only specify if not passing `fname_minio_env`.
+                    - fname_minio_env: A filename with KEY=value lines with values for keys `CA_CERTS`, `URL_PORT`, `BUCKET`.
+        <<<<<<< HEAD
 
+        =======
+                    - bucket: optional default minio bucket to use for operations. Can also be specified as environment variable $BUCKET.
+        >>>>>>> 3ec82dfbcd3c73bea271fd6a2daedb4520763b9a
         """
         self._ACCESS_KEY = ACCESS_KEY
         self._SECRET_KEY = SECRET_KEY
         self._ca_certs = ca_certs
         self._url_port = url_port
 
-        self._bucket = None
+        self._bucket = bucket
         self._client = None
 
         if fname_minio_env is not None:
