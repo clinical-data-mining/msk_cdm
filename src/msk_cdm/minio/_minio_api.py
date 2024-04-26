@@ -116,7 +116,7 @@ class MinioAPI(object):
                 sep: Optional[str] = "\t",
                 dtype: Optional[str] = object
                ):
-      obj = obj_minio.load_obj(fname) 
+      obj = self.load_obj(fname) 
       df= pd.read_csv(obj, dtype=dtype, sep=sep)
       return df
 
