@@ -110,9 +110,6 @@ class MinioAPI(object):
         )
 
         return None
-<<<<<<< Updated upstream
-
-=======
         
     def load_df(self, 
                 fname, 
@@ -131,7 +128,6 @@ class MinioAPI(object):
       obj = obj_minio.save_obj(df, fname, sep=sep)
       print(f'Saved data to: {fname}')
     
->>>>>>> Stashed changes
     def print_list_objects(
         self,
         bucket_name: Optional[str] = None,
