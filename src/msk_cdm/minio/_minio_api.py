@@ -9,6 +9,7 @@ import urllib3
 from dotenv import dotenv_values
 from minio import Minio
 from minio.commonconfig import CopySource
+import pandas as pd
 
 
 logger = logging.getLogger()
@@ -23,7 +24,7 @@ class MinioAPI(object):
         ACCESS_KEY: Optional[str] = None,
         SECRET_KEY: Optional[str] = None,
         ca_certs: Optional[str] = None,
-        url_port: Optional[str] = "tllihpcmind6:9000",
+        url_port: Optional[str] = "pllimsksparky3:9000", 
         fname_minio_env: Optional[Union[Path, str]] = None,
         bucket: Optional[str] = None,
     ):
@@ -109,7 +110,28 @@ class MinioAPI(object):
         )
 
         return None
+<<<<<<< Updated upstream
 
+=======
+        
+    def load_df(self, 
+                fname, 
+                sep: Optional[str] = "\t",
+                dtype: Optional[str] = object
+               ):
+      obj = obj_minio.load_obj(fname) 
+      df= pd.read_csv(obj, dtype=dtype, sep=sep)
+      return df
+
+    def save_df(self, 
+                df, 
+                fname, 
+                sep: Optional[str] = "\t"
+               ):
+      obj = obj_minio.save_obj(df, fname, sep=sep)
+      print(f'Saved data to: {fname}')
+    
+>>>>>>> Stashed changes
     def print_list_objects(
         self,
         bucket_name: Optional[str] = None,
