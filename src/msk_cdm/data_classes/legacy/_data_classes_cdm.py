@@ -7,8 +7,7 @@ import os
 from dataclasses import dataclass
 
 
-root_path: str = "/gpfs/mindphidata/fongc2/github"
-minio_env: str = "/gpfs/mindphidata/fongc2/minio_env.txt"
+root_path: str = "/gpfs/mindphidata/cdm_repos/github"
 
 
 @dataclass
@@ -16,7 +15,6 @@ class CDMProcessingVariables:
     ##############################################################################
     # Pathnames
     ##############################################################################
-
     root_path_cdm_utils: str = os.path.join(root_path, "msk_cdm")
     root_path_treatments: str = os.path.join(root_path, "cdm-treatments")
     root_path_pathology: str = os.path.join(root_path, "pathology_report_segmentation")
@@ -25,7 +23,7 @@ class CDMProcessingVariables:
     )
     root_path_radiology: str = os.path.join(root_path, "radiology_met_prediction")
     root_path_progression: str = os.path.join(root_path, "progression-predict")
-    root_path_sql: str = os.path.join(root_path, "idb_queries")
+    root_path_sql: str = os.path.join(root_path, "cdm-idb-queries")
     root_path_disparities: str = os.path.join(root_path, "cdm-disparities")
     root_path_prior_meds: str = os.path.join(root_path, "prior-tx-identification")
 
@@ -36,6 +34,7 @@ class CDMProcessingVariables:
         root_path_cdm_utils, "redcap/redcap_api_report_pull.py "
     )
 
+    minio_env: str = "/gpfs/mindphidata/fongc2/minio_env.txt"
     venv: str = "/mind_data/cdm_repos/env_cdm/bin/python "
 
     xmap_met_sites_icd: str = os.path.join(
@@ -58,7 +57,7 @@ class CDMProcessingVariables:
     # Queried data from the cBioPortal API
     ##############################################################################
     fname_cbio_sid_api: str = "cbioportal/mskimpact_ids.tsv"
-    fname_cbio_sid: str = "/mind_data/cdm_repos/datahubs/msk-impact/msk_solid_heme/data_clinical_sample.txt"
+    fname_cbio_sid: str = "/gpfs/mindphidata/cdm_repos/datahub/msk-impact/msk_solid_heme/data_clinical_sample.txt"
     study_id: str = "mskimpact"
     script_cbio_ids: str = os.path.join(
         root_path_cdm_utils, "cbioportal/cbioportal_api_pull_ids.py "
@@ -79,7 +78,7 @@ class CDMProcessingVariables:
     # idb_config = 'darwin_prod_legacy'     ## Use this for data dojo based IDB query scripts
     idb_config: str = os.path.join(root_path_sql, "config_ddp_query.txt")
     script_query_to_minio: str = os.path.join(root_path_sql, "run_query_to_minio.py")
-    script_query_rrpts: str = os.path.join(root_path_sql, "query_radiology_reports.py")
+    script_query_rrpts: str = os.path.join(root_path_sql, "radiology_reports/query_radiology_reports.py")
 
     ## General bash script
     bash_script_template = f""" {venv} {script_query_to_minio} --user {{{{ params.user }}}} --pw {{{{ params.pw }}}} --db2c {{{{ params.dbconfig }}}} --minio {{{{ params.minio }}}} --sql {{{{ params.sql }}}} --fsave {{{{ params.fsave }}}}  --fbkup {{{{ params.fbkup }}}} """
@@ -91,29 +90,29 @@ class CDMProcessingVariables:
     bash_script_query_rrpts = f""" {venv} {script_query_rrpts} --user {{{{ params.user }}}} --pw {{{{ params.pw }}}}"""
 
     ## SQL files
-    sql_demo: str = os.path.join(root_path_sql, "demographics.sql")
+    sql_demo: str = os.path.join(root_path_sql, "demographics", "demographics.sql")
     sql_surg: str = os.path.join(root_path_sql, "treatments/surgery.sql")
     sql_ir: str = os.path.join(root_path_sql, "treatments/ir.sql")
-    sql_pathology: str = os.path.join(root_path_sql, "pathology_report.sql")
+    sql_pathology: str = os.path.join(root_path_sql, "pathology_reports/pathology_report.sql")
     sql_pathology_accessions: str = os.path.join(
-        root_path_sql, "pathology_report_accessions.sql"
+        root_path_sql, "pathology_reports/pathology_report_accessions.sql"
     )
-    sql_radiology: str = os.path.join(root_path_sql, "radiology_report.sql")
+    sql_radiology: str = os.path.join(root_path_sql, "radiology_reports/radiology_report.sql")
     sql_radiology_accessions: str = os.path.join(
-        root_path_sql, "radiology_report_accessions.sql"
+        root_path_sql, "radiology_reports/radiology_report_accessions.sql"
     )
-    sql_dx: str = os.path.join(root_path_sql, "diagnosis_codes.sql")
+    sql_dx: str = os.path.join(root_path_sql, "diagnosis/diagnosis_codes.sql")
     sql_chemo: str = os.path.join(root_path_sql, "treatments/med_chemo.sql")
     sql_radonc: str = os.path.join(root_path_sql, "treatments/radiation.sql")
     sql_clindoc_fu_initial: str = os.path.join(
-        root_path_sql, "clindoc_initial_and_fu_notes.sql"
+        root_path_sql, "clindoc/clindoc_initial_and_fu_notes.sql"
     )
     sql_comorbidities: str = os.path.join(
         root_path_sql, "comorbidities/comorbidities.sql"
     )
     sql_bmi: str = os.path.join(root_path_sql, "comorbidities/comorbidities_bmi.sql")
-    sql_insurance: str = os.path.join(root_path_sql, "insurance.sql")
-    sql_addresses: str = os.path.join(root_path_sql, "patient_addresses.sql")
+    sql_insurance: str = os.path.join(root_path_sql, "insurance/insurance.sql")
+    sql_addresses: str = os.path.join(root_path_sql, "demographics/patient_addresses.sql")
     # sql_labs_myeloid: str = os.path.join(root_path_sql, 'labs/labs_myeloid.sql')
     sql_labs_antigen: str = os.path.join(
         root_path_sql, "labs/cancer_antigen_lab_results.sql"
@@ -393,10 +392,10 @@ class CDMProcessingVariables:
     fname_radiology_headers = "/radiology/radiology_report_segmentation/impact/intermediate_files_for_qc/radiology_parse_headers.tsv"
     fname_radiology_full_parsed: str = "/radiology/radiology_report_segmentation/impact/ddp_radiology_reports_full_parsed.tsv"
 
-    # Generated feature data
-    fname_rad_embedding: str = (
-        "/mind_data/fongc2/radiology_met_prediction/assets/clinicalbert_w2v.txt"
-    )
+    # # Generated feature data
+    # fname_rad_embedding: str = (
+    #     "/mind_data/fongc2/radiology_met_prediction/assets/clinicalbert_w2v.txt"
+    # )
 
     ## Word embeddings method
     fname_rad_met_feature_impressions: str = (
@@ -419,7 +418,7 @@ class CDMProcessingVariables:
     fname_radiology_tumor_site_pred_combined: str = "/radiology/tumor_sites/impact/intermediate_files/radiology_tumor_site_predictions_combined.tsv"
     fname_rad_rpts_for_prediction_tumor_sites: str = "/radiology/tumor_sites/impact/intermediate_files/ddp_radiology_reports_for_prediction.tsv"
     log_fname_template_tumor_sites: str = (
-        "/mind_data/cdm_repos/radiology_met_prediction/condor/logs/log_infer.txt"
+        "/gpfs/mindphidata/fongc2/github/radiology_met_prediction/condor/logs/log_infer.txt"
     )
     fname_tumor_sites_timeline_cbio: str = (
         "/radiology/tumor_sites/impact/table_timeline_tumor_sites.tsv"
@@ -435,7 +434,7 @@ class CDMProcessingVariables:
     fname_rad_prog_prediction_combined: str = "/radiology/progression/impact/intermediate_files/radiology_cancer_progression_predictions_combined.tsv"
     fname_rad_rpts_for_prediction_progression: str = "/radiology/progression/impact/intermediate_files/ddp_radiology_reports_for_prediction_progression.tsv"
     log_fname_template_progression: str = (
-        "/mind_data/cdm_repos/progression-predict/condor/logs/log_infer.txt"
+        "/gpfs/mindphidata/fongc2/github/progression-predict/condor/logs/log_infer.txt"
     )
 
     ## Training Labels
@@ -529,173 +528,6 @@ class CDMProcessingVariables:
 
     script_yost: str = os.path.join(root_path_disparities, "processing/process_yost.py")
     fname_yost: str = "comorbidities/yost_index_results.tsv"
-
-
-@dataclass
-class CDMProcessingVariablesCbioportal:
-    root_path_cbio_etl: str = os.path.join(root_path, "cdm-cbioportal-etl")
-
-    ##############################################################################
-    # cBioPortal summary and timeline scripts
-    ##############################################################################
-    path_map: str = "/config/redcap_report_api_map_cdm.csv"
-    path_vars: str = "/config/redcap_variables_cdm.csv"
-    redcap_rpt_map: str = "redcap_exports/cdm_cbioportal_codebook/Extraction_of_Clinical_Data_for_MSK-IMPACT_patients__MSK-MIND__redcap_report_mapping.tsv"
-    path_redcap_dest: str = "redcap_exports/cdm_cbioportal_codebook"
-    config_redcap: str = "-t {{ params.TOKEN }} -u {{ params.URL }} -map {{ params.ID }} -vars {{params.VARS}} -dest {{ params.PATH }}  -minio {{ params.MINIO }}"
-
-    script_cbio_timeline_deid_files: str = os.path.join(
-        root_path_cbio_etl, "timeline/cbioportal_timeline_deid_files.py"
-    )
-    script_cbio_timeline_seq_spec: str = os.path.join(
-        root_path_cbio_etl, "timeline/cbioportal_timeline_specimen.py"
-    )
-    # script_cbio_timeline_progression: str = os.path.join(root_path_cbio_etl, 'timeline/cbioportal_timeline_progression.py')    # 2023/10/18 Turned off
-    script_cbio_timeline_disease_status: str = os.path.join(
-        root_path_cbio_etl, "timeline/disease_status_cbioportal_timeline.py"
-    )
-    # script_cbio_timeline_cea_labs: str = os.path.join(root_path_cbio_etl, 'timeline/cbioportal_timeline_cea_labs.py')          # 2023/10/18 Turned off
-    script_timeline_follow_up: str = os.path.join(
-        root_path_cbio_etl, "timeline/cbioportal_timeline_follow_up.py"
-    )
-    script_summary_overall_survival: str = os.path.join(
-        root_path_cbio_etl, "summary/cbioportal_overall_survival.py"
-    )
-
-    script_create_summary_templates: str = os.path.join(
-        root_path_cbio_etl, "summary/cbioportal_template_generator.py "
-    )
-    script_summary_formatting: str = os.path.join(
-        root_path_cbio_etl, "summary/wrapper_cbioportal_summary_creator.py"
-    )
-    script_copy_to_minio: str = os.path.join(
-        root_path_cbio_etl, "utils/wrapper_cbioportal_copy_to_minio.py"
-    )
-    script_copy_to_cdsi_repo: str = os.path.join(
-        root_path_cbio_etl, "utils/copy_cbio_files_to_automation_folder.py"
-    )
-
-    script_cbio_etl_git_fetch: str = os.path.join(
-        root_path_cbio_etl, "git-tasks/git_fetch.sh "
-    )
-    script_cbio_etl_git_fetch_cdsi_copy: str = os.path.join(
-        root_path_cbio_etl, "git-tasks/git_fetch_impact_pipeline.sh "
-    )
-    script_cbio_etl_git_push: str = os.path.join(
-        root_path_cbio_etl, "git-tasks/git_push.sh "
-    )
-    script_cbio_etl_git_push_cdsi_copy: str = os.path.join(
-        root_path_cbio_etl, "git-tasks/git_push_impact_pipeline.sh "
-    )
-    script_cbio_etl_git_fetch_impact: str = os.path.join(
-        root_path_cbio_etl, "git-tasks/git_fetch_impact_ids.sh "
-    )
-
-    ##############################################################################
-    # cBioPortal setup files
-    ##############################################################################
-    # path_datahub_testing: str = '/mind_data/cdm_repos/datahubs/cdm/msk-chord/'
-    # template_summary_p: str = 'template/data_clinical_patient_template_cdsi.txt'
-    # template_summary_s: str = 'template/data_clinical_sample_template_cdsi.txt'
-    # fname_p_sum_template: str = os.path.join(path_datahub, template_summary_p)
-    # fname_s_sum_template: str = os.path.join(path_datahub, template_summary_s)
-
-    # For IMPACT transition with cbioportal backend team
-    path_datahub: str = "/mind_data/cdm_repos/datahubs/cdm/msk-chord/"
-    fname_cbio_header_template_p: str = (
-        "cbioportal/cbioportal_summary_header_patient.tsv"
-    )
-    fname_cbio_header_template_s: str = (
-        "cbioportal/cbioportal_summary_header_sample.tsv"
-    )
-    fname_p_sum_template_cdsi: str = (
-        "cbioportal/intermediate_files/data_clinical_patient_template_cdsi.txt"
-    )
-    fname_s_sum_template_cdsi: str = (
-        "cbioportal/intermediate_files/data_clinical_sample_template_cdsi.txt"
-    )
-
-    ##############################################################################
-    # Generated data files for cbioportal (Datahub)
-    ##############################################################################
-    summary_p = "data_clinical_patient.txt"
-    summary_s = "data_clinical_sample.txt"
-    timeline_surg = "data_timeline_surgery.txt"
-    timeline_rt = "data_timeline_radiation.txt"
-    timeline_meds = "data_timeline_treatment.txt"
-    timeline_disease_status = "data_timeline_disease_status.txt"
-    timeline_dx_primary = "data_timeline_diagnosis.txt"
-    # timeline_dx_met = 'data_timeline_indication_of_mets.txt'         # 2023/10/18 Turned off
-    # timeline_dx_ln = 'data_timeline_ln.txt'         # 2023/10/18 Turned off
-    timeline_spec = "data_timeline_specimen.txt"
-    timeline_spec_surg = "data_timeline_specimen_surgery.txt"
-    # timeline_progression = 'data_timeline_progression.txt'         # 2023/10/18 Turned off
-    # timeline_cea = 'data_timeline_cea.txt'         # 2023/10/18 Turned off
-    timeline_gleason = "data_timeline_gleason.txt"
-    timeline_pdl1 = "data_timeline_pdl1.txt"
-    timeline_prior_meds = "data_timeline_prior_meds.txt"
-    timeline_tumor_sites = "data_timeline_tumor_sites.txt"
-
-    fname_timeline_fu: str = "demographics/table_timeline_follow_up.tsv"
-    timeline_follow_up: str = "data_timeline_timeline_follow_up.txt"
-
-    fname_summary_patient: str = os.path.join(path_datahub, summary_p)
-    fname_summary_sample: str = os.path.join(path_datahub, summary_s)
-    fname_save_surg_timeline: str = os.path.join(path_datahub, timeline_surg)
-    fname_save_rt_timeline: str = os.path.join(path_datahub, timeline_rt)
-    fname_save_meds_timeline: str = os.path.join(path_datahub, timeline_meds)
-    # fname_save_disease_status_timeline: str = os.path.join(path_datahub, timeline_disease_status)         # 2023/10/18 Turned off
-    fname_save_dx_prim_timeline: str = os.path.join(path_datahub, timeline_dx_primary)
-    # fname_save_dx_met_timeline: str = os.path.join(path_datahub, timeline_dx_met)         # 2023/10/18 Turned off
-    # fname_save_dx_ln_timeline: str = os.path.join(path_datahub, timeline_dx_ln)         # 2023/10/18 Turned off
-    fname_save_spec_timeline: str = os.path.join(path_datahub, timeline_spec)
-    fname_save_spec_surg_timeline: str = os.path.join(path_datahub, timeline_spec_surg)
-    # fname_save_progression: str = os.path.join(path_datahub, timeline_progression)         # 2023/10/18 Turned off
-    # fname_save_labs_cea: str = os.path.join(path_datahub, timeline_cea)         # 2023/10/18 Turned off
-    fname_save_timeline_gleason: str = os.path.join(path_datahub, timeline_gleason)
-    fname_save_timeline_pdl1: str = os.path.join(path_datahub, timeline_pdl1)
-    fname_save_timeline_prior_meds: str = os.path.join(
-        path_datahub, timeline_prior_meds
-    )
-    fname_save_timeline_tumor_sites: str = os.path.join(
-        path_datahub, timeline_tumor_sites
-    )
-    fname_save_timeline_follow_up: str = os.path.join(path_datahub, timeline_follow_up)
-
-    ##############################################################################
-    # Generated data files for cbioportal (MinIO)
-    ##############################################################################
-    path_minio_cbio = "cbioportal"
-    fname_summary_patient_minio: str = os.path.join(path_minio_cbio, summary_p)
-    fname_summary_sample_minio: str = os.path.join(path_minio_cbio, summary_s)
-    fname_save_surg_timeline_minio: str = os.path.join(path_minio_cbio, timeline_surg)
-    fname_save_rt_timeline_minio: str = os.path.join(path_minio_cbio, timeline_rt)
-    fname_save_meds_timeline_minio: str = os.path.join(path_minio_cbio, timeline_meds)
-    # fname_save_disease_status_timeline_minio: str = os.path.join(path_minio_cbio, timeline_disease_status)         # 2023/10/18 Turned off
-    fname_save_dx_prim_timeline_minio: str = os.path.join(
-        path_minio_cbio, timeline_dx_primary
-    )
-    # fname_save_dx_met_timeline_minio: str = os.path.join(path_minio_cbio, timeline_dx_met)         # 2023/10/18 Turned off
-    # fname_save_dx_ln_timeline_minio: str = os.path.join(path_minio_cbio, timeline_dx_ln)         # 2023/10/18 Turned off
-    fname_save_spec_timeline_minio: str = os.path.join(path_minio_cbio, timeline_spec)
-    fname_save_spec_surg_timeline_minio: str = os.path.join(
-        path_minio_cbio, timeline_spec_surg
-    )
-    # fname_save_progression_minio: str = os.path.join(path_minio_cbio, timeline_progression)         # 2023/10/18 Turned off
-    # fname_save_labs_cea_minio: str = os.path.join(path_minio_cbio, timeline_cea)         # 2023/10/18 Turned off
-    fname_save_timeline_gleason_minio: str = os.path.join(
-        path_minio_cbio, timeline_gleason
-    )
-    fname_save_timeline_pdl1_minio: str = os.path.join(path_minio_cbio, timeline_pdl1)
-    fname_save_timeline_prior_meds_minio: str = os.path.join(
-        path_minio_cbio, timeline_prior_meds
-    )
-    fname_save_timeline_tumor_sites_minio: str = os.path.join(
-        path_minio_cbio, timeline_tumor_sites
-    )
-    fname_save_timeline_follow_up_minio: str = os.path.join(
-        path_minio_cbio, timeline_follow_up
-    )
 
 
 @dataclass
