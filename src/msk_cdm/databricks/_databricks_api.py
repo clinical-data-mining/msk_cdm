@@ -88,8 +88,13 @@ class DatabricksAPI(object):
     def query_from_file(
             self,
             *,
-            sqlFile
+            fname_sql
     ):
+        # open SQL file
+        fd = open(fname_sql, 'r')
+        sqlFile = fd.read()
+        fd.close()
+
         cursor = self._client.cursor()
         for i,query in enumerate(sqlFile.split(';')):
             print(query[:50])
