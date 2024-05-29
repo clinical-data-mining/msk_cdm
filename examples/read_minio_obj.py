@@ -48,9 +48,7 @@ if __name__ == "__main__":
         "--input_obj",
         action="store",
         dest="input_obj",
-        default=(
-            "demographics/ddp_demographics.tsv"
-        ),
+        default=("demographics/ddp_demographics.tsv"),
         help="Input file to read from Minio",
     )
 

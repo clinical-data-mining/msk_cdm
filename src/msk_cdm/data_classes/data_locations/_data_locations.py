@@ -1,7 +1,8 @@
 """
-_data_locations.py 
+_data_locations.py
 
 """
+
 import os
 from dataclasses import dataclass
 
@@ -235,6 +236,7 @@ class DataLocationsRedcapLabels:
     """
     Configuration files used for pulling data from the Redcap API
     """
+
     # Redcap: AI/ML IMPACT Curation Efforts
     fname_api_keys_ai_ml_impact: str = "config/redcap_report_api_map_ai_ml_impact.csv"
     path_vars_file_ai_ml_impact: str = "config/redcap_variables_ai_ml_impact.csv"
@@ -248,7 +250,7 @@ class DataLocationsRedcapLabels:
     fname_genie_rc_met_sites_lung2: str = "redcap_exports/genie_bpc_lung_additional/19-368__Genie_BPC_Lung_Cohort_Additional_Data_Imaging_Metastatic_Events.tsv"
     fname_genie_rc_met_sites_pancreas: str = "redcap_exports/genie_bpc_pancreas/19-368__GENIE_BPC_-_Pancreas_Cohort_Imaging_Metastatic_Events.tsv"
     fname_genie_rc_met_sites_prostate: str = "redcap_exports/genie_bpc_prostate/19-368__GENIE_BPC_-_Prostate_Cohort_Imaging_Metastatic_Events.tsv"
-    
+
     ##############################################################################
     # AI/ML Curation Efforts
     ##############################################################################

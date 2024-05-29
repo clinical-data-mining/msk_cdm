@@ -1,12 +1,14 @@
 """
-data_classes_cdm.py 
+data_classes_cdm.py
 
 """
+
 import os
 from dataclasses import dataclass
 
 
 root_path: str = "/gpfs/mindphidata/cdm_repos/github"
+
 
 @dataclass
 class CDMProcessingVariables:
