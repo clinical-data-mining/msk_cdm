@@ -26,8 +26,8 @@ class DatabricksAPI(object):
         """Initialization to connect with Databricks
 
                 Args:
-                    - TOKEN: Minio access key. Optional if `fname_databricks_env` is passed, in which case it may be present in the env file picked up by .env
-                    - HOSTNAME: Minio secret key. Optional if `fname_databricks_env` is passed, in which case it may be present in the env file picked up by .env
+                    - TOKEN: Databricks user token. Optional if `fname_databricks_env` is passed, in which case it may be present in the env file picked up by .env
+                    - HOSTNAME: Databricks hostname. Optional if `fname_databricks_env` is passed, in which case it may be present in the env file picked up by .env
                     - URL: optional filename pointer to ca_cert bundle for `urllib3`. Only specify if not passing `fname_databricks_env`.
                     - HTTP_PATH:
                     - fname_databricks_env: A filename with KEY=value lines with values for keys `CA_CERTS`, `URL_PORT`, `BUCKET`.
@@ -67,9 +67,13 @@ class DatabricksAPI(object):
 
         self._client = client
 
-    def create_workspace_client(
-            self,
-    ):
+    def create_workspace_client(self):
+        """Create a workspace client to explore the databricks dbfs and clusters
+
+        Returns:
+            w: A Databricks workspace client object
+
+        """
         w = WorkspaceClient(
             host=self._URL,
             token=self._TOKEN
@@ -90,14 +94,44 @@ class DatabricksAPI(object):
             *,
             fname_sql
     ):
+        """Query Databricks from a file containing Spark SQL
+
+        Args:
+            fname_sql: The file name of the SQL
+
+        Returns:
+            df: Pandas dataframe containing the results of the query
+
+        """
         # open SQL file
         fd = open(fname_sql, 'r')
         sqlFile = fd.read()
         fd.close()
 
+        print('Preview of SQL in %s:' % fname_sql)
+        print(sqlFile[:50])
+
+        df = self.query_from_sql(sql=sqlFile)
+
+        return df
+
+    def query_from_sql(
+            self,
+            *,
+            sql: str
+    ):
+        """Query Databricks from a SQL string
+
+        Args:
+            sql: A Spark SQL statement
+
+        Returns:
+            df: Pandas dataframe containing the results of the query
+
+        """
+
         cursor = self._client.cursor()
-        for i,query in enumerate(sqlFile.split(';')):
-            print(query[:50])
+        for i,query in enumerate(sql.split(';')):
             cursor.execute(query)
 
         # Gather column names from query
