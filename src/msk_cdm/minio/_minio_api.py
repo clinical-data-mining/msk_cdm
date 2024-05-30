@@ -35,11 +35,7 @@ class MinioAPI(object):
                     - SECRET_KEY: Minio secret key. Optional if `fname_minio_env` is passed, in which case it may be present in the env file picked up by .env
                     - ca_certs: optional filename pointer to ca_cert bundle for `urllib3`. Only specify if not passing `fname_minio_env`.
                     - fname_minio_env: A filename with KEY=value lines with values for keys `CA_CERTS`, `URL_PORT`, `BUCKET`.
-        <<<<<<< HEAD
-
-        =======
                     - bucket: optional default minio bucket to use for operations. Can also be specified as environment variable $BUCKET.
-        >>>>>>> 3ec82dfbcd3c73bea271fd6a2daedb4520763b9a
         """
         self._ACCESS_KEY = ACCESS_KEY
         self._SECRET_KEY = SECRET_KEY
@@ -54,7 +50,9 @@ class MinioAPI(object):
         self._connect()
 
     def load_obj(
-        self, path_object: str, bucket_name: Optional[str] = None
+            self,
+            path_object: str,
+            bucket_name: Optional[str] = None
     ) -> urllib3.response.HTTPResponse:
         """Read an object from minio
 

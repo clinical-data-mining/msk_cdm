@@ -20,7 +20,10 @@ dependencies = [
     "minio>=7.1, <8",
     "pydantic>=2.3, <3",
     "python-dotenv>=1.0, <2",
-    "pyarrow>=14.0.2"
+    "pyarrow>=14.0.2",
+    "databricks-connect",
+    "databricks-sql-connector",
+    "databricks-sdk"
 ]
 
 [project.optional-dependencies]
