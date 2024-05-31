@@ -235,6 +235,15 @@ class MinioAPI(object):
         if not self._bucket:
             self._bucket = dict_config.get("BUCKET", None)
 
+        # # Print out for QC
+        # print('Access Key: %s' % self._ACCESS_KEY)
+        # print('Secret Key: %s' % self._SECRET_KEY)
+        # print('CA Cert: %s' % self._ca_certs)
+        # print('URL Port: %s' % self._url_port)
+        # print('Bucket: %s' % self._bucket)
+
+        return None
+
     def _connect(self):
         # required for self-signed certs
         httpClient = urllib3.PoolManager(
