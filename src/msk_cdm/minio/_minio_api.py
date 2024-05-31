@@ -109,22 +109,28 @@ class MinioAPI(object):
 
         return None
         
-    def load_df(self, 
-                fname, 
-                sep: Optional[str] = "\t",
-                dtype: Optional[str] = object
-               ):
-      obj = self.load_obj(fname) 
-      df= pd.read_csv(obj, dtype=dtype, sep=sep)
-      return df
+    def load_df(
+            self,
+            fname,
+            sep: Optional[str] = "\t",
+            dtype: Optional[str] = object
+    ):
+        obj = self.load_obj(path_object=fname)
+        df= pd.read_csv(obj, dtype=dtype, sep=sep)
+        return df
 
-    def save_df(self, 
-                df, 
-                fname, 
-                sep: Optional[str] = "\t"
-               ):
-      obj = obj_minio.save_obj(df, fname, sep=sep)
-      print(f'Saved data to: {fname}')
+    def save_df(
+            self,
+            df,
+            fname,
+            sep: Optional[str] = "\t"
+    ):
+        self.save_obj(
+            df=df,
+            path_object=fname,
+            sep=sep
+        )
+        print(f'Saved data to: {fname}')
     
     def print_list_objects(
         self,
@@ -146,7 +152,9 @@ class MinioAPI(object):
             bucket_name = self._bucket
 
         objs = self._client.list_objects(
-            bucket_name=bucket_name, recursive=recursive, prefix=prefix
+            bucket_name=bucket_name,
+            recursive=recursive,
+            prefix=prefix
         )
         obj_list = []
         for obj in objs:
@@ -205,6 +213,7 @@ class MinioAPI(object):
         return output
 
     def _process_env(self, fname_minio_env):
+        print("Minio environment file: %s" % fname_minio_env)
         dict_config = dotenv_values(fname_minio_env)
 
         env_access_key = os.getenv("ACCESS_KEY")
