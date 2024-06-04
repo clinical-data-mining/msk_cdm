@@ -59,11 +59,14 @@ class DatabricksAPI(object):
             self._HTTP_PATH = dict_config.get("HTTP_PATH", None)
 
     def _connect_sql(self):
-        client = sql.connect(
-            server_hostname=self._HOSTNAME,
-            http_path=self._HTTP_PATH,
-            access_token=self._TOKEN
-        )
+        try:
+            client = sql.connect(
+                server_hostname=self._HOSTNAME,
+                http_path=self._HTTP_PATH,
+                access_token=self._TOKEN
+            )
+        except:
+            print('Client connection timed out!')
 
         self._client = client
 
