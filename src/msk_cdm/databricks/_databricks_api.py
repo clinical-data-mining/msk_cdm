@@ -93,12 +93,14 @@ class DatabricksAPI(object):
             # Re-raise the exception for further handling if necessary self._client = client
     def _connect_sql(self):
         try:
-            client = sql.connect(
-                server_hostname=self._HOSTNAME,
-                http_path=self._HTTP_PATH,
-                access_token=self._TOKEN
-            )
-            print("Connected successfully.")
+            with timeout(10):  # Timeout in 10 seconds
+                client = sql.connect(
+                    server_hostname=self._HOSTNAME,
+                    http_path=self._HTTP_PATH,
+                    token=self._TOKEN
+                )
+                print("Connected successfully.")
+                self._client = client
         except Exception as e:
             print('Client connection failed:', str(e))
             logger.error('Connection failed with exception: %s', str(e))
