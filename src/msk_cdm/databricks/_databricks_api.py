@@ -2,6 +2,9 @@ import logging
 from pathlib import Path
 from typing import Optional, Union
 
+import signal
+from contextlib import contextmanager
+
 from dotenv import dotenv_values
 import pandas as pd
 from databricks import sql
@@ -60,13 +63,46 @@ class DatabricksAPI(object):
 
     def _connect_sql(self):
         try:
+            with timeout(10):  # Timeout in 10 seconds
+                client = sql.connect(
+                    server_hostname=self._HOSTNAME,
+                    http_path=self._HTTP_PATH,
+                    access_token=self._TOKEN
+                )
+                print("Connected successfully.")
+                self._client = client
+        # except:
+        #     TimeoutException:
+        #         print('Failed to connect: Connection timed out')
+        except Exception as e:
+            print('Client connection failed:', str(e))
+
+    def _connect_sql(self):
+        try:
             client = sql.connect(
                 server_hostname=self._HOSTNAME,
                 http_path=self._HTTP_PATH,
                 access_token=self._TOKEN
             )
-        except:
-            print('Client connection timed out!')
+            print("Connected successfully.")
+        except Exception as e:
+
+            print('Client connection failed:', str(e))
+            logger.error('Connection failed with exception: %s', str(e))
+            raise e
+            # Re-raise the exception for further handling if necessary self._client = client
+    def _connect_sql(self):
+        try:
+            client = sql.connect(
+                server_hostname=self._HOSTNAME,
+                http_path=self._HTTP_PATH,
+                access_token=self._TOKEN
+            )
+            print("Connected successfully.")
+        except Exception as e:
+            print('Client connection failed:', str(e))
+            logger.error('Connection failed with exception: %s', str(e))
+            raise e  # Re-raise the exception for further handling if necessary
 
         self._client = client
 
@@ -148,5 +184,45 @@ class DatabricksAPI(object):
         )
 
         return df
+
+
+
+
+    # Define a timeout exception
+class TimeoutException(Exception):
+    pass
+
+        # Timeout handler
+def raise_timeout(signum, frame):
+    raise TimeoutException
+
+# Context manager to handle the timeout
+@contextmanager
+def timeout(time):
+    # Register a signal handler
+    signal.signal(signal.SIGALRM, raise_timeout)
+    signal.alarm(time)  # Set the alarm
+    try:
+        yield
+    except TimeoutException:
+        print('Connection attempt timed out!')
+    finally:
+        signal.alarm(0)  # Disable the alarm
+
+# def _connect_sql(self):
+#     try:
+#         with timeout(10):  # Timeout in 10 seconds
+#             client = sql.connect(
+#                 server_hostname=self._HOSTNAME,
+#                 http_path=self._HTTP_PATH,
+#                 access,
+#                 token=self._TOKEN
+#             )
+#             print("Connected successfully.")
+#         self._client = client
+#     except TimeoutException:
+#         print('Failed to connect: Connection timed out')
+#     except Exception as e:
+#         print('Client connection failed:', str(e))
 
 
