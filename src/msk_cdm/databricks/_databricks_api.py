@@ -1,9 +1,11 @@
+import os
 import logging
 from pathlib import Path
 from typing import Optional, Union
 
 import signal
 from contextlib import contextmanager
+import certifi
 
 from dotenv import dotenv_values
 import pandas as pd
@@ -62,6 +64,8 @@ class DatabricksAPI(object):
             self._HTTP_PATH = dict_config.get("HTTP_PATH", None)
 
     def _connect_sql(self):
+        os.environ['SSL_CERT_FILE'] = certifi.where()
+        os.environ['REQUESTS_CA_BUNDLE'] = certifi.where()
         try:
             with timeout(10):  # Timeout in 10 seconds
                 client = sql.connect(
