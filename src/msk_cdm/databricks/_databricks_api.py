@@ -66,6 +66,10 @@ class DatabricksAPI(object):
             self._HTTP_PATH = dict_config.get("HTTP_PATH", None)
 
     def _connect_sql(self):
+        print('Hostname: %s' % self._HOSTNAME)
+        print('URL: %s' % self._URL)
+        print('Token: %s' % self._TOKEN)
+
         client = sql.connect(
             server_hostname=self._HOSTNAME,
             http_path=self._HTTP_PATH,
@@ -155,29 +159,5 @@ class DatabricksAPI(object):
         )
 
         return df
-
-
-
-
-    # Define a timeout exception
-class TimeoutException(Exception):
-    pass
-
-        # Timeout handler
-def raise_timeout(signum, frame):
-    raise TimeoutException
-
-# Context manager to handle the timeout
-@contextmanager
-def timeout(time):
-    # Register a signal handler
-    signal.signal(signal.SIGALRM, raise_timeout)
-    signal.alarm(time)  # Set the alarm
-    try:
-        yield
-    except TimeoutException:
-        print('Connection attempt timed out!')
-    finally:
-        signal.alarm(0)  # Disable the alarm
 
 
