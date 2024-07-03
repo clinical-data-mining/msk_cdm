@@ -47,7 +47,9 @@ class DatabricksAPI(object):
 
         if fname_databricks_env is not None:
             self._process_env(fname_databricks_env)
-        self._connect_sql()
+        # self._connect_sql()
+
+        return None
 
     def _process_env(
             self,
