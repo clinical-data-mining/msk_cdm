@@ -14,6 +14,8 @@ from databricks.sdk import WorkspaceClient
 
 
 logger = logging.getLogger()
+os.environ['SSL_CERT_FILE'] = certifi.where()
+os.environ['REQUESTS_CA_BUNDLE'] = certifi.where()
 
 
 class DatabricksAPI(object):
@@ -64,21 +66,14 @@ class DatabricksAPI(object):
             self._HTTP_PATH = dict_config.get("HTTP_PATH", None)
 
     def _connect_sql(self):
-        os.environ['SSL_CERT_FILE'] = certifi.where()
-        os.environ['REQUESTS_CA_BUNDLE'] = certifi.where()
-        try:
-            with timeout(10):  # Timeout in 10 seconds
-                client = sql.connect(
-                    server_hostname=self._HOSTNAME,
-                    http_path=self._HTTP_PATH,
-                    token=self._TOKEN
-                )
-                print("Connected successfully.")
-                self._client = client
-        except Exception as e:
-            print('Client connection failed:', str(e))
-            logger.error('Connection failed with exception: %s', str(e))
-            raise e  # Re-raise the exception for further handling if necessary
+        client = sql.connect(
+            server_hostname=self._HOSTNAME,
+            http_path=self._HTTP_PATH,
+            token=self._TOKEN
+        )
+        print("Connected successfully.")
+        self._client = client
+
 
         self._client = client
 
