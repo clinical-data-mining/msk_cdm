@@ -1,19 +1,24 @@
-import os
-import logging
+import os, logging
+from databricks import sql
+import pandas as pd
+import certifi
+import pathlib
 from pathlib import Path
-from typing import Optional, Union
+from dotenv import dotenv_values
 
-import signal
-from contextlib import contextmanager
+from typing import Optional, Union
 import certifi
 
-from dotenv import dotenv_values
-import pandas as pd
-from databricks import sql
-from databricks.sdk import WorkspaceClient
 
+cwd = pathlib.Path(__file__).parent.resolve()
 
-logger = logging.getLogger()
+logging.getLogger("databricks.sql").setLevel(logging.DEBUG)
+# logging.getLogger(sql_path).setLevel(logging.DEBUG)
+logging.basicConfig(
+    filename = os.path.join(cwd, "results.log"),
+    level    = logging.DEBUG
+)
+
 os.environ['SSL_CERT_FILE'] = certifi.where()
 os.environ['REQUESTS_CA_BUNDLE'] = certifi.where()
 
@@ -94,28 +99,6 @@ class DatabricksAPI(object):
         )
         print("Connected successfully.")
         self._client = client
-
-    def create_workspace_client(self):
-        """Create a workspace client to explore the databricks dbfs and clusters
-
-        Returns:
-            w: A Databricks workspace client object
-
-        """
-        w = WorkspaceClient(
-            host=self._URL,
-            token=self._TOKEN
-        )
-        # Example use cases:
-        ## Print all available clusters
-        # for c in w.clusters.list():
-        #     print(c.cluster_name)
-        ## Print accessible paths in dbfs:/
-        # d = w.dbutils.fs.ls('/')
-        # for f in d:
-        #     print(f.path)
-
-        return w
 
     def query_from_file(
             self,
