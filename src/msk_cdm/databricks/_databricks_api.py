@@ -1,7 +1,6 @@
 import os, logging
 from databricks import sql
 import pandas as pd
-import certifi
 import pathlib
 from pathlib import Path
 from dotenv import dotenv_values
