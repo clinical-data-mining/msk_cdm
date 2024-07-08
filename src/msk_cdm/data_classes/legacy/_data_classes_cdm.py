@@ -7,7 +7,7 @@ import os
 from dataclasses import dataclass
 
 
-root_path: str = "/gpfs/mindphidata/cdm_repos/github"
+root_path: str = "/Users/cfong/Documents/github/cdm"
 
 
 @dataclass
@@ -34,7 +34,7 @@ class CDMProcessingVariables:
         root_path_cdm_utils, "redcap/redcap_api_report_pull.py "
     )
 
-    minio_env: str = "/gpfs/mindphidata/fongc2/minio_env.txt"
+    minio_env: str = "/Users/cfong/Documents/github/cdm/msk_cdm/minio_env.txt"
     venv: str = "/mind_data/cdm_repos/env_cdm/bin/python "
 
     xmap_met_sites_icd: str = os.path.join(
