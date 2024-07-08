@@ -48,31 +48,59 @@ class DatabricksAPI(object):
         return None
 
 
-    def query_from_file(self, sql_path):
-        connection = self._client
+    def query_from_file(
+            self,
+            *,
+            fname_sql
+    ):
+        """Query Databricks from a file containing Spark SQL
 
-        print('Loading query')
-        # query = "SELECT * FROM mode_clinical_test.dcmspt.patient_demographics_v LIMIT 2"
-        fd = open(sql_path, 'r')
+        Args:
+            fname_sql: The file name of the SQL
+
+        Returns:
+            df: Pandas dataframe containing the results of the query
+
+        """
+        # open SQL file
+        fd = open(fname_sql, 'r')
         sqlFile = fd.read()
         fd.close()
 
-        print('Querying data')
-        cursor = connection.cursor()
-        for i,query in enumerate(sqlFile.split(';')):
-            print(query[:50])
+        print('Preview of SQL in %s:' % fname_sql)
+        print(sqlFile[:50])
+
+        df = self.query_from_sql(sql=sqlFile)
+
+        return df
+
+    def query_from_sql(
+            self,
+            *,
+            sql: str
+    ):
+        """Query Databricks from a SQL string
+
+        Args:
+            sql: A Spark SQL statement
+
+        Returns:
+            df: Pandas dataframe containing the results of the query
+
+        """
+
+        cursor = self._client.cursor()
+        for i,query in enumerate(sql.split(';')):
             cursor.execute(query)
 
+        # Gather column names from query
         column_names = [desc[0] for desc in cursor.description]
-
-
         data = cursor.fetchall()
-        for row in data:
-            logging.debug(row)
 
-        cursor.close()
-        connection.close()
-
-        df = pd.DataFrame(data, columns=column_names)
+        # Convert to pandas dataframe
+        df = pd.DataFrame(
+            data,
+            columns=column_names
+        )
 
         return df
