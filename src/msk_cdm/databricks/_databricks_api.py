@@ -45,6 +45,14 @@ class DatabricksAPI(object):
         # self._URL = URL
         # self._HTTP_PATH = HTTP_PATH
         self._client = None
+        print(HOSTNAME)
+        client = sql.connect(
+            server_hostname=HOSTNAME,
+            http_path=HTTP_PATH,
+            token=TOKEN
+        )
+        print("Connected successfully.")
+        self._client = client
 
         # if fname_databricks_env is not None:
         #     self._process_env(fname_databricks_env)
