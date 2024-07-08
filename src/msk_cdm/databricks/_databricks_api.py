@@ -27,7 +27,7 @@ class DatabricksAPI(object):
         TOKEN: Optional[str] = None,
         URL: Optional[str] = None,
         HTTP_PATH: Optional[str] = None,
-        HOSTNAME: Optional[str] = "msk-mode-test.cloud.databricks.com",
+        HOSTNAME: Optional[str] = None,
         fname_databricks_env: Optional[Union[Path, str]] = None
     ):
         """Initialization to connect with Databricks
@@ -40,47 +40,51 @@ class DatabricksAPI(object):
                     - fname_databricks_env: A filename with KEY=value lines with values for keys `CA_CERTS`, `URL_PORT`, `BUCKET`.
 
         """
-        self._TOKEN = TOKEN
-        self._HOSTNAME = HOSTNAME
-        self._URL = URL
-        self._HTTP_PATH = HTTP_PATH
+        # self._TOKEN = TOKEN
+        # self._HOSTNAME = HOSTNAME
+        # self._URL = URL
+        # self._HTTP_PATH = HTTP_PATH
+        self._client = None
 
-        if fname_databricks_env is not None:
-            self._process_env(fname_databricks_env)
+        # if fname_databricks_env is not None:
+        #     self._process_env(fname_databricks_env)
         # self._connect_sql()
 
         return None
 
-    def _process_env(
+    # def _process_env(
+    #         self,
+    #         fname_databricks_env
+    # ):
+    #
+    #     dict_config = dotenv_values(fname_databricks_env)
+    #
+    #     if not self._TOKEN:
+    #         self._TOKEN = dict_config.get("TOKEN", None)
+    #     if not self._HOSTNAME:
+    #         self._HOSTNAME = dict_config.get("HOSTNAME", None)
+    #     if not self._URL:
+    #         self._URL = dict_config.get("URL", None)
+    #     if not self._HTTP_PATH:
+    #         self._HTTP_PATH = dict_config.get("HTTP_PATH", None)
+
+    def connect_sql(
             self,
-            fname_databricks_env
+            hostname,
+            http_path,
+            token
     ):
-
-        dict_config = dotenv_values(fname_databricks_env)
-
-        if not self._TOKEN:
-            self._TOKEN = dict_config.get("TOKEN", None)
-        if not self._HOSTNAME:
-            self._HOSTNAME = dict_config.get("HOSTNAME", None)
-        if not self._URL:
-            self._URL = dict_config.get("URL", None)
-        if not self._HTTP_PATH:
-            self._HTTP_PATH = dict_config.get("HTTP_PATH", None)
-
-    def _connect_sql(self):
-        print('Hostname: %s' % self._HOSTNAME)
-        print('URL: %s' % self._URL)
-        print('Token: %s' % self._TOKEN)
-
+        # hostname = self._HOSTNAME
+        # url = self._URL
+        # http_path = self._HTTP_PATH
+        # token = self._TOKEN
+        print(hostname)
         client = sql.connect(
-            server_hostname=self._HOSTNAME,
-            http_path=self._HTTP_PATH,
-            token=self._TOKEN
+            server_hostname=hostname,
+            http_path=http_path,
+            token=token
         )
         print("Connected successfully.")
-        self._client = client
-
-
         self._client = client
 
     def create_workspace_client(self):

@@ -21,9 +21,10 @@ dependencies = [
     "pydantic>=2.3, <3",
     "python-dotenv>=1.0, <2",
     "pyarrow>=14.0.2",
-    "databricks-connect",
-    "databricks-sql-connector",
-    "databricks-sdk"
+    "databricks-connect==14.3.2",
+    "databricks-sql-connector==3.1.2",
+    "databricks-sdk==0.28.0",
+    "certifi==2024.2.2"
 ]
 
 [project.optional-dependencies]
