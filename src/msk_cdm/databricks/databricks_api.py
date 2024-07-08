@@ -31,6 +31,7 @@ class DatabricksAPI(object):
         self._HOSTNAME = hostname
         self._HTTP_PATH = http_path
         self._client = None
+        self._URL = None
 
         if fname_databricks_env is not None:
             print('Parsing env file')
