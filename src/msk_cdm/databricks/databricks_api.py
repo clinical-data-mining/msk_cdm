@@ -34,7 +34,7 @@ class DatabricksAPI(object):
 
         if fname_databricks_env is not None:
             print('Parsing env file')
-            self._process_env()
+            self._process_env(fname_databricks_env=fname_databricks_env)
 
         self._connect(
             token=self._TOKEN,
