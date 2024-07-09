@@ -7,7 +7,7 @@ import os
 from dataclasses import dataclass
 
 
-root_path: str = "/Users/cfong/Documents/github/cdm"
+root_path: str = "/gpfs/mindphidata/cdm_repos/github"
 
 
 @dataclass
