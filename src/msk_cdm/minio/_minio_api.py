@@ -69,11 +69,21 @@ class MinioAPI(object):
         """
         if self._bucket is not None:
             bucket_name = self._bucket
-        obj = self._client.get_object(bucket_name, path_object)
-        # From here, the object can be read in pandas
-        # df = pd.read_csv(obj, sep=sep, low_memory=False)
 
-        return obj
+        try:
+            obj = self._client.get_object(bucket_name, path_object)
+            if obj.status != 200:
+                raise RuntimeError(
+                    f"Got non-OK HTTP status {obj.status} requesting " "{obj_name}."
+                )
+            return obj
+
+            # From here, the object can be read in pandas
+            # df = pd.read_csv(obj, sep=sep, low_memory=False)
+
+        finally:
+            obj.close()
+            obj.release_conn()
 
     def save_obj(
         self,
