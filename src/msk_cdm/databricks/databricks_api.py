@@ -130,14 +130,14 @@ class DatabricksAPI(object):
             columns=column_names
         )
 
-        cursor.close()
-
         return df
 
     def close_connection(self):
         """Close the connection to Databricks
 
         """
+        cursor = self._client.cursor()
+        cursor.close()
         self._client.close()
         print('Databricks connection closed')
 
