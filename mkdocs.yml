@@ -59,6 +59,7 @@ nav:
         - 'index.md'
     - 'API Reference': 
         - 'Directory': 'reference/index.md'
+        - 'Databricks API': 'reference/databricks.md'
         - 'Minio API': 'reference/minio.md'
         - 'Dremio API': 'reference/dremio.md'
     - 'Developer Guide':
