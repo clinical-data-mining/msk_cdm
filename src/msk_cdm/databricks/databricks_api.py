@@ -24,40 +24,6 @@ class DatabricksAPI(object):
     A class to interact with Databricks through its SQL API. This class allows
     connecting to a Databricks cluster, executing queries, and retrieving
     the results as pandas DataFrames.
-
-    Attributes:
-    -----------
-    _TOKEN : str
-        The access token for authentication with Databricks.
-    _HOSTNAME : str
-        The hostname of the Databricks server.
-    _HTTP_PATH : str
-        The HTTP path for the Databricks SQL endpoint.
-    _client : databricks.sql.Connection
-        The connection object for interacting with Databricks.
-    _URL : str
-        The URL for the Databricks instance.
-
-    Methods:
-    --------
-    _connect(token, hostname, http_path):
-        Establishes a connection to the Databricks cluster using the provided
-        token, hostname, and HTTP path.
-
-    _process_env(fname_databricks_env):
-        Processes the environment file to set up connection parameters such as
-        the access token, hostname, and HTTP path.
-
-    query_from_file(fname_sql):
-        Executes a Spark SQL query from a file and returns the result as a pandas
-        DataFrame.
-
-    query_from_sql(sql):
-        Executes a Spark SQL query from a string and returns the result as a pandas
-        DataFrame.
-
-    close_connection():
-        Closes the connection to the Databricks cluster.
     """
     def __init__(
             self,
