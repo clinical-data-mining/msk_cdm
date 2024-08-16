@@ -20,11 +20,9 @@ os.environ['REQUESTS_CA_BUNDLE'] = certifi.where()
 
 
 class DatabricksAPI(object):
-    """
-    A class to interact with Databricks through its SQL API. This class allows
+    """A class to interact with Databricks through its SQL API. This class allows
     connecting to a Databricks cluster, executing queries, and retrieving
-    the results as pandas DataFrames.
-    """
+    the results as pandas DataFrames."""
     def __init__(
             self,
             token=None,
