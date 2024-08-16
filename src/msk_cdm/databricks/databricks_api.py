@@ -20,6 +20,45 @@ os.environ['REQUESTS_CA_BUNDLE'] = certifi.where()
 
 
 class DatabricksAPI(object):
+    """
+    A class to interact with Databricks through its SQL API. This class allows
+    connecting to a Databricks cluster, executing queries, and retrieving
+    the results as pandas DataFrames.
+
+    Attributes:
+    -----------
+    _TOKEN : str
+        The access token for authentication with Databricks.
+    _HOSTNAME : str
+        The hostname of the Databricks server.
+    _HTTP_PATH : str
+        The HTTP path for the Databricks SQL endpoint.
+    _client : databricks.sql.Connection
+        The connection object for interacting with Databricks.
+    _URL : str
+        The URL for the Databricks instance.
+
+    Methods:
+    --------
+    _connect(token, hostname, http_path):
+        Establishes a connection to the Databricks cluster using the provided
+        token, hostname, and HTTP path.
+
+    _process_env(fname_databricks_env):
+        Processes the environment file to set up connection parameters such as
+        the access token, hostname, and HTTP path.
+
+    query_from_file(fname_sql):
+        Executes a Spark SQL query from a file and returns the result as a pandas
+        DataFrame.
+
+    query_from_sql(sql):
+        Executes a Spark SQL query from a string and returns the result as a pandas
+        DataFrame.
+
+    close_connection():
+        Closes the connection to the Databricks cluster.
+    """
     def __init__(
             self,
             token=None,
@@ -27,6 +66,22 @@ class DatabricksAPI(object):
             http_path=None,
             fname_databricks_env=None
     ):
+        """
+        Initializes the DatabricksAPI class and establishes a connection to the
+        Databricks cluster.
+
+        Parameters:
+        -----------
+        token : str, optional
+            The access token for authentication with Databricks (default is None).
+        hostname : str, optional
+            The hostname of the Databricks server (default is None).
+        http_path : str, optional
+            The HTTP path for the Databricks SQL endpoint (default is None).
+        fname_databricks_env : str, optional
+            The file name of the environment file containing connection parameters
+            (default is None).
+        """
         self._TOKEN = token
         self._HOSTNAME = hostname
         self._HTTP_PATH = http_path
@@ -43,7 +98,29 @@ class DatabricksAPI(object):
             http_path=self._HTTP_PATH
         )
 
-    def _connect(self, token, hostname, http_path):
+    def _connect(
+        self,
+        token,
+        hostname,
+        http_path
+    ):
+        """
+        Establishes a connection to the Databricks cluster using the provided
+        access token, hostname, and HTTP path.
+
+        Parameters:
+        -----------
+        token : str
+            The access token for authentication with Databricks.
+        hostname : str
+            The hostname of the Databricks server.
+        http_path : str
+            The HTTP path for the Databricks SQL endpoint.
+
+        Returns:
+        --------
+        None
+        """
         print('Making databricks connection')
         connection = sql.connect(
             server_hostname=hostname,
@@ -60,6 +137,19 @@ class DatabricksAPI(object):
             self,
             fname_databricks_env
     ):
+        """
+        Processes the environment file to extract connection parameters such as
+        the access token, hostname, HTTP path, and URL.
+
+        Parameters:
+        -----------
+        fname_databricks_env : str
+            The file name of the environment file containing connection parameters.
+
+        Returns:
+        --------
+        None
+        """
 
         dict_config = dotenv_values(fname_databricks_env)
 
@@ -80,14 +170,19 @@ class DatabricksAPI(object):
             *,
             fname_sql
     ):
-        """Query Databricks from a file containing Spark SQL
+        """
+        Executes a Spark SQL query from a file and returns the result as a pandas
+        DataFrame.
 
-        Args:
-            fname_sql: The file name of the SQL
+        Parameters:
+        -----------
+        fname_sql : str
+            The file name of the SQL file containing the query.
 
         Returns:
-            df: Pandas dataframe containing the results of the query
-
+        --------
+        df : pandas.DataFrame
+            A DataFrame containing the results of the query.
         """
         # open SQL file
         fd = open(fname_sql, 'r')
@@ -106,14 +201,19 @@ class DatabricksAPI(object):
             *,
             sql: str
     ):
-        """Query Databricks from a SQL string
+        """
+        Executes a Spark SQL query from a string and returns the result as a pandas
+        DataFrame.
 
-        Args:
-            sql: A Spark SQL statement
+        Parameters:
+        -----------
+        sql : str
+           The Spark SQL query string to be executed.
 
         Returns:
-            df: Pandas dataframe containing the results of the query
-
+        --------
+        df : pandas.DataFrame
+           A DataFrame containing the results of the query.
         """
 
         cursor = self._client.cursor()
@@ -133,8 +233,12 @@ class DatabricksAPI(object):
         return df
 
     def close_connection(self):
-        """Close the connection to Databricks
+        """
+        Closes the connection to the Databricks cluster.
 
+        Returns:
+        --------
+        None
         """
         cursor = self._client.cursor()
         cursor.close()
