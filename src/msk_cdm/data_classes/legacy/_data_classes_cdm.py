@@ -162,10 +162,7 @@ class CDMProcessingVariables:
     )
     fname_met_site_summary: str = "diagnosis/table_met_site_summary.tsv"
     fname_dx_timeline_prim: str = "diagnosis/table_dx_timeline_primary.tsv"
-    # fname_dx_timeline_met: str = 'diagnosis/table_dx_timeline_met.tsv'
-    # fname_dx_timeline_ln: str = 'diagnosis/table_dx_timeline_ln.tsv'
 
-    fname_demo: str = "demographics/ddp_demographics.tsv"
     fname_pid: str = "id-mapping/ddp_id_mapping_pathology.tsv"
     fname_path_summary: str = (
         "pathology/table_pathology_impact_sample_summary_dop_anno.tsv"
