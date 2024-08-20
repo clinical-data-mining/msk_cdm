@@ -99,7 +99,7 @@ class DatasetLoader(object):
         return self.load_from_object_path(path_object=c_var.fname_demo)
 
     def _ensure_authenticated(self):
-        if not self.authenticated:
+        if not self._authenticated:
             raise PermissionError("Authentication required. Please authenticate first.")
 
 
