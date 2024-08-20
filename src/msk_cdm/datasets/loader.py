@@ -50,6 +50,13 @@ fname_save_timeline_ecog_minio: str = os.path.join(path_minio_cbio, timeline_eco
 
 
 class DatasetLoader(object):
+    _instance = None
+    _authenticated = False
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(DatasetLoader, cls).__new__(cls)
+        return cls._instance
     def __init__(self):
         # self.datasets = {
         #     'impact': {
@@ -66,7 +73,6 @@ class DatasetLoader(object):
         #         # Add more "phi" datasets here
         #     }
         # }
-        self._authenticated = False
         self._obj_minio = None
 
     def authenticate(self, auth_file):
