@@ -6,6 +6,7 @@ from msk_cdm.data_classes.legacy import CDMProcessingVariables as c_var
 
 # Global variable to track authentication status
 _authenticated = False
+_obj_minio = None
 
 path_minio_cbio = "cbioportal"
 summary_p = "data_clinical_patient.txt"
@@ -74,13 +75,13 @@ class DatasetLoader(object):
 
     def authenticate(self, auth_file):
         """Authenticate using a file containing credentials."""
-        global _authenticated
+        global _authenticated, _obj_minio
         if not os.path.exists(auth_file):
             raise FileNotFoundError(f"Authentication file '{auth_file}' not found.")
 
         try:
             obj_minio = MinioAPI(fname_minio_env=auth_file)
-            self._obj_minio = obj_minio
+            _obj_minio = obj_minio
             _authenticated = True
         except:
             print("Cannot authenticate")
@@ -89,7 +90,7 @@ class DatasetLoader(object):
 
     def load_from_object_path(self, path_object, sep='\t'):
         self._ensure_authenticated()
-        obj = self._obj_minio.load_obj(path_object=path_object)
+        obj = _obj_minio.load_obj(path_object=path_object)
         df = pd.read_csv(obj, sep=sep, low_memory=False)
 
         return df
