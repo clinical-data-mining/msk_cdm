@@ -6,7 +6,6 @@ from .loader import DatasetLoader
 _loader = DatasetLoader()
 
 # Define functions to load datasets directly from the module
-def authenticate(auth_file):
-    _loader.authenticate(auth_file)
-    print()
+def connect_to_db(auth_file):
+    _loader.connect_to_db(auth_file=auth_file)
 
