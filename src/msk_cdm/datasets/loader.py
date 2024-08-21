@@ -105,6 +105,8 @@ class DatasetLoader(object):
         global _authenticated
         if not _authenticated:
             raise PermissionError("Authentication required. Please authenticate first.")
+        else:
+            print("Authenticated.")
 
 
 # Example usage:

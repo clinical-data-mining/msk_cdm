@@ -8,3 +8,5 @@ _loader = DatasetLoader()
 # Define functions to load datasets directly from the module
 def authenticate(auth_file):
     _loader.authenticate(auth_file)
+    print()
+
