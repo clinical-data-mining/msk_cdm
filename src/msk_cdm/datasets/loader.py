@@ -69,7 +69,7 @@ class DatasetLoader(object):
         #         # Add more "phi" datasets here
         #     }
         # }
-        self._obj_minio = None
+        # self._obj_minio = None
 
     def authenticate(self, auth_file):
         """Authenticate using a file containing credentials."""
