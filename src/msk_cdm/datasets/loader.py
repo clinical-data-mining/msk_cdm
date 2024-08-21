@@ -76,56 +76,56 @@ class DatasetLoader(object):
 
         return df
 
-        # Define each function corresponding to each file name (without .txt)
-    def _load_data_clinical_patient(self):
+    # Define each function corresponding to each file name (without .txt)
+    def _load_impact_data_clinical_patient(self):
         return self.load_from_object_path(path_object=fname_summary_patient_minio)
 
-    def _load_data_clinical_sample(self):
+    def _load_impact_data_clinical_sample(self):
         return self.load_from_object_path(path_object=fname_summary_sample_minio)
 
-    def _load_data_timeline_surgery(self):
+    def _load_impact_data_timeline_surgery(self):
         return self.load_from_object_path(path_object=fname_save_surg_timeline_minio)
 
-    def _load_data_timeline_radiation(self):
+    def _load_impact_data_timeline_radiation(self):
         return self.load_from_object_path(path_object=fname_save_rt_timeline_minio)
 
-    def _load_data_timeline_treatment(self):
+    def _load_impact_data_timeline_treatment(self):
         return self.load_from_object_path(path_object=fname_save_meds_timeline_minio)
 
-    def _load_data_timeline_diagnosis(self):
+    def _load_impact_data_timeline_diagnosis(self):
         return self.load_from_object_path(path_object=fname_save_dx_prim_timeline_minio)
 
-    def _load_data_timeline_specimen(self):
+    def _load_impact_data_timeline_specimen(self):
         return self.load_from_object_path(path_object=fname_save_spec_timeline_minio)
 
-    def _load_data_timeline_specimen_surgery(self):
+    def _load_impact_data_timeline_specimen_surgery(self):
         return self.load_from_object_path(path_object=fname_save_spec_surg_timeline_minio)
 
-    def _load_data_timeline_gleason(self):
+    def _load_impact_data_timeline_gleason(self):
         return self.load_from_object_path(path_object=fname_save_timeline_gleason_minio)
 
-    def _load_data_timeline_pdl1(self):
+    def _load_impact_data_timeline_pdl1(self):
         return self.load_from_object_path(path_object=fname_save_timeline_pdl1_minio)
 
-    def _load_data_timeline_mmr(self):
+    def _load_impact_data_timeline_mmr(self):
         return self.load_from_object_path(path_object=fname_save_timeline_pathology_mmr_minio)
 
-    def _load_data_timeline_prior_meds(self):
+    def _load_impact_data_timeline_prior_meds(self):
         return self.load_from_object_path(path_object=fname_save_timeline_prior_meds_minio)
 
-    def _load_data_timeline_tumor_sites(self):
+    def _load_impact_data_timeline_tumor_sites(self):
         return self.load_from_object_path(path_object=fname_save_timeline_tumor_sites_minio)
 
-    def _load_data_timeline_follow_up(self):
+    def _load_impact_data_timeline_follow_up(self):
         return self.load_from_object_path(path_object=fname_save_timeline_follow_up_minio)
 
-    def _load_data_timeline_progression(self):
+    def _load_impact_data_timeline_progression(self):
         return self.load_from_object_path(path_object=fname_save_timeline_progression_minio)
 
-    def _load_data_timeline_cancer_presence(self):
+    def _load_impact_data_timeline_cancer_presence(self):
         return self.load_from_object_path(path_object=fname_save_timeline_cancer_presence_minio)
 
-    def _load_data_timeline_ecog_kps(self):
+    def _load_impact_data_timeline_ecog_kps(self):
         return self.load_from_object_path(path_object=fname_save_timeline_ecog_minio)
 
     def _load_phi_demographics(self):
