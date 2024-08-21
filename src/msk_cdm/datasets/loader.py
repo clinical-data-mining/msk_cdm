@@ -54,25 +54,6 @@ fname_save_timeline_ecog_minio: str = os.path.join(path_minio_cbio, timeline_eco
 
 class DatasetLoader(object):
 
-    def __init__(self):
-        # self.datasets = {
-        #     'impact': {
-        #         'data_clinical_patient': ,
-        #         'data_clinical_sample': self.load_from_object_path(path_object=fname_summary_sample_minio),
-        #         'data_timeline_surgery': self.load_from_object_path(path_object=fname_save_surg_timeline_minio),
-        #         'data_timeline_radiation': self.load_from_object_path(path_object=fname_save_rt_timeline_minio),
-        #         # Add more "impact" datasets here
-        #     },
-        #     'phi': {
-        #         'demographics_idb': self.load_from_object_path(path_object=c_var.fname_demo),
-        #         'pathology_reports_idb': self.load_from_object_path(path_object=c_var.fname_pathology),
-        #         'radiology_reports_idb': self.load_from_object_path(path_object=c_var.fname_radiology)
-        #         # Add more "phi" datasets here
-        #     }
-        # }
-        # self._obj_minio = None
-        i = 0
-
     def authenticate(self, auth_file):
         """Authenticate using a file containing credentials."""
         global _authenticated, _obj_minio
@@ -95,24 +76,69 @@ class DatasetLoader(object):
 
         return df
 
-    def _load_impact_data_clinical_patient(self):
-        self._ensure_authenticated()
+    # Define each function corresponding to each file name (without .txt)
+    def data_clinical_patient(self):
         return self.load_from_object_path(path_object=fname_summary_patient_minio)
 
+    def data_clinical_sample(self):
+        return self.load_from_object_path(path_object=fname_summary_sample_minio)
+
+    def data_timeline_surgery(self):
+        return self.load_from_object_path(path_object=fname_save_surg_timeline_minio)
+
+    def data_timeline_radiation(self):
+        return self.load_from_object_path(path_object=fname_save_rt_timeline_minio)
+
+    def data_timeline_treatment(self):
+        return self.load_from_object_path(path_object=fname_save_meds_timeline_minio)
+
+    def data_timeline_diagnosis(self):
+        return self.load_from_object_path(path_object=fname_save_dx_prim_timeline_minio)
+
+    def data_timeline_specimen(self):
+        return self.load_from_object_path(path_object=fname_save_spec_timeline_minio)
+
+    def data_timeline_specimen_surgery(self):
+        return self.load_from_object_path(path_object=fname_save_spec_surg_timeline_minio)
+
+    def data_timeline_gleason(self):
+        return self.load_from_object_path(path_object=fname_save_timeline_gleason_minio)
+
+    def data_timeline_pdl1(self):
+        return self.load_from_object_path(path_object=fname_save_timeline_pdl1_minio)
+
+    def data_timeline_mmr(self):
+        return self.load_from_object_path(path_object=fname_save_timeline_pathology_mmr_minio)
+
+    def data_timeline_prior_meds(self):
+        return self.load_from_object_path(path_object=fname_save_timeline_prior_meds_minio)
+
+    def data_timeline_tumor_sites(self):
+        return self.load_from_object_path(path_object=fname_save_timeline_tumor_sites_minio)
+
+    def data_timeline_follow_up(self):
+        return self.load_from_object_path(path_object=fname_save_timeline_follow_up_minio)
+
+    def data_timeline_progression(self):
+        return self.load_from_object_path(path_object=fname_save_timeline_progression_minio)
+
+    def data_timeline_cancer_presence(self):
+        return self.load_from_object_path(path_object=fname_save_timeline_cancer_presence_minio)
+
+    def data_timeline_ecog_kps(self):
+        return self.load_from_object_path(path_object=fname_save_timeline_ecog_minio)
+
     def _load_phi_demographics(self):
-        self._ensure_authenticated()
         return self.load_from_object_path(path_object=c_var.fname_demo)
 
     def _ensure_authenticated(self):
         global _authenticated
         if not _authenticated:
             raise PermissionError("Authentication required. Please authenticate first.")
-        else:
-            print("Authenticated.")
 
 
 # Example usage:
 # loader = DatasetLoader()
 # loader.authenticate('path/to/auth_file.txt')
 # iris_df = loader.load('iris')
-# custom_df = loader.fetch_from_object_path('https://example.com/data.csv', 'data.csv')
+# custom_df = loader.load_from_object_path('https://example.com/data.csv', 'data.csv')

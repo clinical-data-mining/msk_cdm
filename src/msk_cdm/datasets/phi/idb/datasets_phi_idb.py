@@ -1,4 +1,4 @@
-from ..loader import DatasetLoader
+from ...loader import DatasetLoader
 
 _loader = DatasetLoader()
 
