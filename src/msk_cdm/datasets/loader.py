@@ -4,6 +4,8 @@ import pandas as pd
 from msk_cdm.minio import MinioAPI
 from msk_cdm.data_classes.legacy import CDMProcessingVariables as c_var
 
+# Global variable to track authentication status
+_authenticated = False
 
 path_minio_cbio = "cbioportal"
 summary_p = "data_clinical_patient.txt"
@@ -50,13 +52,7 @@ fname_save_timeline_ecog_minio: str = os.path.join(path_minio_cbio, timeline_eco
 
 
 class DatasetLoader(object):
-    _instance = None
-    _authenticated = False
 
-    def __new__(cls, *args, **kwargs):
-        if not cls._instance:
-            cls._instance = super(DatasetLoader, cls).__new__(cls)
-        return cls._instance
     def __init__(self):
         # self.datasets = {
         #     'impact': {
@@ -77,13 +73,14 @@ class DatasetLoader(object):
 
     def authenticate(self, auth_file):
         """Authenticate using a file containing credentials."""
+        global _authenticated
         if not os.path.exists(auth_file):
             raise FileNotFoundError(f"Authentication file '{auth_file}' not found.")
 
         try:
             obj_minio = MinioAPI(fname_minio_env=auth_file)
             self._obj_minio = obj_minio
-            self._authenticated = True
+            _authenticated = True
         except:
             print("Cannot authenticate")
 
@@ -92,7 +89,7 @@ class DatasetLoader(object):
     def load_from_object_path(self, path_object, sep='\t'):
         self._ensure_authenticated()
         obj = self._obj_minio.load_obj(path_object=path_object)
-        df = pd.read_csv(obj, sep=sep)
+        df = pd.read_csv(obj, sep=sep, low_memory=False)
 
         return df
 
@@ -105,7 +102,8 @@ class DatasetLoader(object):
         return self.load_from_object_path(path_object=c_var.fname_demo)
 
     def _ensure_authenticated(self):
-        if not self._authenticated:
+        global _authenticated
+        if not _authenticated:
             raise PermissionError("Authentication required. Please authenticate first.")
 
 
