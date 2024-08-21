@@ -70,6 +70,7 @@ class DatasetLoader(object):
         #     }
         # }
         # self._obj_minio = None
+        i = 0
 
     def authenticate(self, auth_file):
         """Authenticate using a file containing credentials."""
