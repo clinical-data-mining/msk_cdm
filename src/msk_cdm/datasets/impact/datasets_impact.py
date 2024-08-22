@@ -3,21 +3,21 @@ from sklearn.utils import Bunch
 
 _loader = DatasetLoader()
 
-def load_data_clinical_patient():
+def load_data_clinical_patient()  -> Bunch:
     """Load and return the MSK-IMPACT clinical patient dataset (deidentified).
 
     Returns
     -------
-    data : :class:`~sklearn.utils.Bunch`
+    data
         Dictionary-like object, with the following attributes.
 
-        data : pandas DataFrame
+        - data: pandas DataFrame
             The data matrix.
-        description_columns (Future release): list
+        - description_columns (Future release): list
             The names of the dataset columns.
-        description_dataset (Future release): str
+        - description_dataset (Future release): str
             The full description of the dataset.
-        filename (Future release): str
+        - filename (Future release): str
             The path to the location of the data.
 
     Examples
