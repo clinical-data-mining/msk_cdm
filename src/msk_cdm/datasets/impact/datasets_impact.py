@@ -9,14 +9,14 @@ def load_data_clinical_patient() -> Bunch:
     Returns:
         data : Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** : list
-            The names of the dataset columns. (Future release)
-        - **description_dataset** : str
-            The full description of the dataset. (Future release)
-        - **filename** : str
-            The path to the location of the data. (Future release)
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** : list
+                The names of the dataset columns. (Future release)
+            - **description_dataset** : str
+                The full description of the dataset. (Future release)
+            - **filename** : str
+                The path to the location of the data. (Future release)
 
     Examples
     --------
@@ -48,14 +48,14 @@ def load_data_clinical_sample() -> Bunch:
     Returns:
         data : Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     -
@@ -87,14 +87,14 @@ def load_data_timeline_surgery() -> Bunch:
     Returns:
         data : Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     --------
@@ -126,14 +126,14 @@ def load_data_timeline_radiation() -> Bunch:
     Returns:
         data : Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     --------
@@ -165,14 +165,14 @@ def load_data_timeline_treatment() -> Bunch:
     Returns:
         data : Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     --------
@@ -204,14 +204,14 @@ def load_data_timeline_diagnosis() -> Bunch:
     Returns:
         data : Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     --------
@@ -243,14 +243,14 @@ def load_data_timeline_specimen() -> Bunch:
     Returns:
         data : Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     --------
@@ -282,14 +282,14 @@ def load_data_timeline_specimen_surgery() -> Bunch:
     Returns:
         data : Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     --------
@@ -321,14 +321,14 @@ def load_data_timeline_radiation() -> Bunch:
     Returns:
         data: Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     --------
@@ -360,14 +360,14 @@ def load_data_timeline_treatment() -> Bunch:
     Returns:
         data: Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     --------
@@ -400,14 +400,14 @@ def load_data_timeline_specimen() -> Bunch:
     Returns:
         data: Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     --------
@@ -430,14 +430,14 @@ def load_data_timeline_specimen_surgery() -> Bunch:
     Returns:
         data: Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     --------
@@ -469,14 +469,14 @@ def load_data_timeline_gleason() -> Bunch:
     Returns:
         data: Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     --------
@@ -499,14 +499,14 @@ def load_data_timeline_pdl1() -> Bunch:
     Returns:
         data: Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     --------
@@ -529,14 +529,14 @@ def load_data_timeline_mmr() -> Bunch:
     Returns:
         data: Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     --------
@@ -559,14 +559,14 @@ def load_data_timeline_prior_meds() -> Bunch:
     Returns:
         data: Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     --------
@@ -589,14 +589,14 @@ def load_data_timeline_tumor_sites() -> Bunch:
     Returns:
         data: Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     --------
@@ -619,14 +619,14 @@ def load_data_timeline_follow_up() -> Bunch:
     Returns:
         data: Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     --------
@@ -649,14 +649,14 @@ def load_data_timeline_progression() -> Bunch:
     Returns:
         data: Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     --------
@@ -679,14 +679,14 @@ def load_data_timeline_cancer_presence() -> Bunch:
     Returns:
         data: Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     --------
@@ -717,14 +717,14 @@ def load_data_timeline_ecog_kps() -> Bunch:
     Returns:
         data: Dictionary-like object, with the following attributes.
 
-        - **data** : pandas DataFrame
-            The data matrix.
-        - **description_columns** (Future release) : list
-            The names of the dataset columns.
-        - **description_dataset** (Future release) : str
-            The full description of the dataset.
-        - **filename** (Future release) : str
-            The path to the location of the data.
+            - **data** : pandas DataFrame
+                The data matrix.
+            - **description_columns** (Future release) : list
+                The names of the dataset columns.
+            - **description_dataset** (Future release) : str
+                The full description of the dataset.
+            - **filename** (Future release) : str
+                The path to the location of the data.
 
     Examples
     --------
