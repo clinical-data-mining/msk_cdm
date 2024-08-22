@@ -6,19 +6,16 @@ _loader = DatasetLoader()
 def load_data_clinical_patient()  -> Bunch:
     """Load and return the MSK-IMPACT clinical patient dataset (deidentified).
 
-    Returns
-    -------
-    data
-        Dictionary-like object, with the following attributes.
-
-        - data: pandas DataFrame
-            The data matrix.
-        - description_columns (Future release): list
-            The names of the dataset columns.
-        - description_dataset (Future release): str
-            The full description of the dataset.
-        - filename (Future release): str
-            The path to the location of the data.
+    Returns:
+        data: Dictionary-like object, with the following attributes.
+            data: pandas DataFrame
+                The data matrix.
+            description_columns: list
+                The names of the dataset columns.  (Future release)
+            description_dataset: str
+                The full description of the dataset.  (Future release)
+            filename: str
+                The path to the location of the data.  (Future release)
 
     Examples
     --------
