@@ -6,30 +6,38 @@ _loader = DatasetLoader()
 def load_data_clinical_patient() -> Bunch:
     """Load and return the MSK-IMPACT clinical patient dataset (deidentified).
 
-    Returns:
-        data: Dictionary-like object, with the following attributes.
+    Returns
+    -------
+    data : Dictionary-like object, with the following attributes.
 
-            - **data** : pandas DataFrame
-                The data matrix.
-            - **description_columns** : list
-                The names of the dataset columns.  (Future release)
-            - **description_dataset** : str
-                The full description of the dataset.  (Future release)
-            - **filename** : str
-                The path to the location of the data.  (Future release)
+        - **data** : pandas DataFrame
+            The data matrix.
+        - **description_columns** : list
+            The names of the dataset columns. (Future release)
+        - **description_dataset** : str
+            The full description of the dataset. (Future release)
+        - **filename** : str
+            The path to the location of the data. (Future release)
 
     Examples
     --------
-    >>> from msk_cdm.datasets import connect_to_db
-    >>> from msk_cdm.datasets.impact import load_data_clinical_patient
-    >>>
-    >>> auth_file='path/to/config.txt'
-    >>> connect_to_db(auth_file=auth_file)
-    >>> df_clinical_patient = load_data_clinical_patient()
-    >>> df_clin_p = df_clinical_patient['data']
-    >>> df_clin_p.head()
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_clinical_patient
 
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
 
+    # Load the dataset
+    df_clinical_patient = load_data_clinical_patient()
+
+    # Access the data
+    df_clin_p = df_clinical_patient['data']
+
+    # Display the first few rows of the data
+    print(df_clin_p.head())
+    ```
     """
     df = _loader._load_impact_data_clinical_patient()
     output = Bunch(data=df)
@@ -40,8 +48,7 @@ def load_data_clinical_sample() -> Bunch:
 
     Returns
     -------
-    data : :class:`~sklearn.utils.Bunch`
-        Dictionary-like object with the following attributes:
+    data : Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
             The data matrix.
@@ -54,14 +61,23 @@ def load_data_clinical_sample() -> Bunch:
 
     Examples
     --------
-    >>> from msk_cdm.datasets import connect_to_db
-    >>> from msk_cdm.datasets.impact import load_data_clinical_sample
-    >>>
-    >>> auth_file='path/to/config.txt'
-    >>> connect_to_db(auth_file=auth_file)
-    >>> df_clinical_sample = load_data_clinical_sample()
-    >>> df_clin_s = df_clinical_sample['data']
-    >>> df_clin_s.head()
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_clinical_sample
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_clinical_sample = load_data_clinical_sample()
+
+    # Access the data
+    df_clin_s = df_clinical_sample['data']
+
+    # Display the first few rows of the data
+    print(df_clin_s.head())
+    ```
     """
     df = _loader._load_impact_data_clinical_sample()
     output = Bunch(data=df)
@@ -72,8 +88,7 @@ def load_data_timeline_surgery() -> Bunch:
 
     Returns
     -------
-    data : :class:`~sklearn.utils.Bunch`
-        Dictionary-like object with the following attributes:
+    data : Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
             The data matrix.
@@ -86,14 +101,23 @@ def load_data_timeline_surgery() -> Bunch:
 
     Examples
     --------
-    >>> from msk_cdm.datasets import connect_to_db
-    >>> from msk_cdm.datasets.impact import load_data_timeline_surgery
-    >>>
-    >>> auth_file='path/to/config.txt'
-    >>> connect_to_db(auth_file=auth_file)
-    >>> df_timeline_surgery = load_data_timeline_surgery()
-    >>> df_surg = df_timeline_surgery['data']
-    >>> df_surg.head()
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_timeline_surgery
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_timeline_surgery = load_data_timeline_surgery()
+
+    # Access the data
+    df_surg = df_timeline_surgery['data']
+
+    # Display the first few rows of the data
+    print(df_surg.head())
+    ```
     """
     df = _loader._load_impact_data_timeline_surgery()
     output = Bunch(data=df)
@@ -104,8 +128,7 @@ def load_data_timeline_radiation() -> Bunch:
 
     Returns
     -------
-    data : :class:`~sklearn.utils.Bunch`
-        Dictionary-like object with the following attributes:
+    data : Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
             The data matrix.
@@ -118,14 +141,23 @@ def load_data_timeline_radiation() -> Bunch:
 
     Examples
     --------
-    >>> from msk_cdm.datasets import connect_to_db
-    >>> from msk_cdm.datasets.impact import load_data_timeline_radiation
-    >>>
-    >>> auth_file='path/to/config.txt'
-    >>> connect_to_db(auth_file=auth_file)
-    >>> df_timeline_radiation = load_data_timeline_radiation()
-    >>> df_rad = df_timeline_radiation['data']
-    >>> df_rad.head()
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_timeline_radiation
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_timeline_radiation = load_data_timeline_radiation()
+
+    # Access the data
+    df_rad = df_timeline_radiation['data']
+
+    # Display the first few rows of the data
+    print(df_rad.head())
+    ```
     """
     df = _loader._load_impact_data_timeline_radiation()
     output = Bunch(data=df)
@@ -136,8 +168,7 @@ def load_data_timeline_treatment() -> Bunch:
 
     Returns
     -------
-    data : :class:`~sklearn.utils.Bunch`
-        Dictionary-like object with the following attributes:
+    data : Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
             The data matrix.
@@ -150,14 +181,23 @@ def load_data_timeline_treatment() -> Bunch:
 
     Examples
     --------
-    >>> from msk_cdm.datasets import connect_to_db
-    >>> from msk_cdm.datasets.impact import load_data_timeline_treatment
-    >>>
-    >>> auth_file='path/to/config.txt'
-    >>> connect_to_db(auth_file=auth_file)
-    >>> df_timeline_treatment = load_data_timeline_treatment()
-    >>> df_treat = df_timeline_treatment['data']
-    >>> df_treat.head()
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_timeline_treatment
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_timeline_treatment = load_data_timeline_treatment()
+
+    # Access the data
+    df_treat = df_timeline_treatment['data']
+
+    # Display the first few rows of the data
+    print(df_treat.head())
+    ```
     """
     df = _loader._load_impact_data_timeline_treatment()
     output = Bunch(data=df)
@@ -168,8 +208,7 @@ def load_data_timeline_diagnosis() -> Bunch:
 
     Returns
     -------
-    data : :class:`~sklearn.utils.Bunch`
-        Dictionary-like object with the following attributes:
+    data : Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
             The data matrix.
@@ -182,14 +221,23 @@ def load_data_timeline_diagnosis() -> Bunch:
 
     Examples
     --------
-    >>> from msk_cdm.datasets import connect_to_db
-    >>> from msk_cdm.datasets.impact import load_data_timeline_diagnosis
-    >>>
-    >>> auth_file='path/to/config.txt'
-    >>> connect_to_db(auth_file=auth_file)
-    >>> df_timeline_diagnosis = load_data_timeline_diagnosis()
-    >>> df_diag = df_timeline_diagnosis['data']
-    >>> df_diag.head()
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_timeline_diagnosis
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_timeline_diagnosis = load_data_timeline_diagnosis()
+
+    # Access the data
+    df_diag = df_timeline_diagnosis['data']
+
+    # Display the first few rows of the data
+    print(df_diag.head())
+    ```
     """
     df = _loader._load_impact_data_timeline_diagnosis()
     output = Bunch(data=df)
@@ -200,8 +248,168 @@ def load_data_timeline_specimen() -> Bunch:
 
     Returns
     -------
-    data : :class:`~sklearn.utils.Bunch`
-        Dictionary-like object with the following attributes:
+    data : Dictionary-like object, with the following attributes.
+
+        - **data** : pandas DataFrame
+            The data matrix.
+        - **description_columns** (Future release) : list
+            The names of the dataset columns.
+        - **description_dataset** (Future release) : str
+            The full description of the dataset.
+        - **filename** (Future release) : str
+            The path to the location of the data.
+
+    Examples
+    --------
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_timeline_specimen
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_timeline_specimen = load_data_timeline_specimen()
+
+    # Access the data
+    df_spec = df_timeline_specimen['data']
+
+    # Display the first few rows of the data
+    print(df_spec.head())
+    ```
+    """
+    df = _loader._load_impact_data_timeline_specimen()
+    output = Bunch(data=df)
+    return output
+
+def load_data_timeline_specimen_surgery() -> Bunch:
+    """Load and return the MSK-IMPACT specimen surgery timeline dataset (deidentified).
+
+    Returns
+    -------
+    data : Dictionary-like object, with the following attributes.
+
+        - **data** : pandas DataFrame
+            The data matrix.
+        - **description_columns** (Future release) : list
+            The names of the dataset columns.
+        - **description_dataset** (Future release) : str
+            The full description of the dataset.
+        - **filename** (Future release) : str
+            The path to the location of the data.
+
+    Examples
+    --------
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_timeline_specimen_surgery
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_timeline_specimen_surgery = load_data_timeline_specimen_surgery()
+
+    # Access the data
+    df_spec_surg = df_timeline_specimen_surgery['data']
+
+    # Display the first few rows of the data
+    print(df_spec_surg.head())
+    ```
+    """
+    df = _loader._load_impact_data_timeline_specimen_surgery()
+    output = Bunch(data=df)
+    return output
+
+def load_data_timeline_radiation() -> Bunch:
+    """Load and return the MSK-IMPACT radiation therapy timeline dataset (deidentified).
+
+    Returns
+    -------
+    data: Dictionary-like object, with the following attributes.
+
+        - **data** : pandas DataFrame
+            The data matrix.
+        - **description_columns** (Future release) : list
+            The names of the dataset columns.
+        - **description_dataset** (Future release) : str
+            The full description of the dataset.
+        - **filename** (Future release) : str
+            The path to the location of the data.
+
+    Examples
+    --------
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_timeline_radiation
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_timeline_radiation = load_data_timeline_radiation()
+
+    # Access the data
+    df_rad = df_timeline_radiation['data']
+
+    # Display the first few rows of the data
+    print(df_rad.head())
+    ```
+    """
+    df = _loader._load_impact_data_timeline_radiation()
+    output = Bunch(data=df)
+    return output
+
+def load_data_timeline_treatment() -> Bunch:
+    """Load and return the MSK-IMPACT treatment timeline dataset (deidentified).
+
+    Returns
+    -------
+    data: Dictionary-like object, with the following attributes.
+
+        - **data** : pandas DataFrame
+            The data matrix.
+        - **description_columns** (Future release) : list
+            The names of the dataset columns.
+        - **description_dataset** (Future release) : str
+            The full description of the dataset.
+        - **filename** (Future release) : str
+            The path to the location of the data.
+
+    Examples
+    --------
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_timeline_treatment
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_timeline_treatment = load_data_timeline_treatment()
+
+    # Access the data
+    df_treat = df_timeline_treatment['data']
+
+    # Display the first few rows of the data
+    print(df_treat.head())
+    ```
+    """
+    df = _loader._load_impact_data_timeline_treatment()
+    output = Bunch(data=df)
+    return output
+
+
+def load_data_timeline_specimen() -> Bunch:
+    """Load and return the MSK-IMPACT specimen timeline dataset (deidentified).
+
+    Returns
+    -------
+    data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
             The data matrix.
@@ -232,8 +440,7 @@ def load_data_timeline_specimen_surgery() -> Bunch:
 
     Returns
     -------
-    data : :class:`~sklearn.utils.Bunch`
-        Dictionary-like object with the following attributes:
+    data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
             The data matrix.
@@ -246,14 +453,23 @@ def load_data_timeline_specimen_surgery() -> Bunch:
 
     Examples
     --------
-    >>> from msk_cdm.datasets import connect_to_db
-    >>> from msk_cdm.datasets.impact import load_data_timeline_specimen_surgery
-    >>>
-    >>> auth_file='path/to/config.txt'
-    >>> connect_to_db(auth_file=auth_file)
-    >>> df_timeline_specimen_surgery = load_data_timeline_specimen_surgery()
-    >>> df_spec_surg = df_timeline_specimen_surgery['data']
-    >>> df_spec_surg.head()
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_timeline_specimen_surgery
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_timeline_specimen_surgery = load_data_timeline_specimen_surgery()
+
+    # Access the data
+    df_specimen_surgery = df_timeline_specimen_surgery['data']
+
+    # Display the first few rows of the data
+    print(df_specimen_surgery.head())
+    ```
     """
     df = _loader._load_impact_data_timeline_specimen_surgery()
     output = Bunch(data=df)
@@ -264,8 +480,7 @@ def load_data_timeline_gleason() -> Bunch:
 
     Returns
     -------
-    data : :class:`~sklearn.utils.Bunch`
-        Dictionary-like object with the following attributes:
+    data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
             The data matrix.
@@ -296,8 +511,7 @@ def load_data_timeline_pdl1() -> Bunch:
 
     Returns
     -------
-    data : :class:`~sklearn.utils.Bunch`
-        Dictionary-like object with the following attributes:
+    data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
             The data matrix.
@@ -328,8 +542,7 @@ def load_data_timeline_mmr() -> Bunch:
 
     Returns
     -------
-    data : :class:`~sklearn.utils.Bunch`
-        Dictionary-like object with the following attributes:
+    data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
             The data matrix.
@@ -360,8 +573,7 @@ def load_data_timeline_prior_meds() -> Bunch:
 
     Returns
     -------
-    data : :class:`~sklearn.utils.Bunch`
-        Dictionary-like object with the following attributes:
+    data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
             The data matrix.
@@ -392,8 +604,7 @@ def load_data_timeline_tumor_sites() -> Bunch:
 
     Returns
     -------
-    data : :class:`~sklearn.utils.Bunch`
-        Dictionary-like object with the following attributes:
+    data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
             The data matrix.
@@ -424,8 +635,7 @@ def load_data_timeline_follow_up() -> Bunch:
 
     Returns
     -------
-    data : :class:`~sklearn.utils.Bunch`
-        Dictionary-like object with the following attributes:
+    data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
             The data matrix.
@@ -456,8 +666,7 @@ def load_data_timeline_progression() -> Bunch:
 
     Returns
     -------
-    data : :class:`~sklearn.utils.Bunch`
-        Dictionary-like object with the following attributes:
+    data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
             The data matrix.
@@ -488,8 +697,7 @@ def load_data_timeline_cancer_presence() -> Bunch:
 
     Returns
     -------
-    data : :class:`~sklearn.utils.Bunch`
-        Dictionary-like object with the following attributes:
+    data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
             The data matrix.
@@ -502,14 +710,22 @@ def load_data_timeline_cancer_presence() -> Bunch:
 
     Examples
     --------
-    >>> from msk_cdm.datasets import connect_to_db
-    >>> from msk_cdm.datasets.impact import load_data_timeline_cancer_presence
-    >>>
-    >>> auth_file='path/to/config.txt'
-    >>> connect_to_db(auth_file=auth_file)
-    >>> df_timeline_cancer_presence = load_data_timeline_cancer_presence()
-    >>> df_cancer_presence = df_timeline_cancer_presence['data']
-    >>> df_cancer_presence.head()
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_timeline_cancer_presence
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_timeline_cancer_presence = load_data_timeline_cancer_presence()
+
+    # Access the data
+    df_cancer_presence = df_timeline_cancer_presence['data']
+
+    # Display the first few rows of the data
+    print(df_cancer_presence.head())
     """
     df = _loader._load_impact_data_timeline_cancer_presence()
     output = Bunch(data=df)
@@ -520,8 +736,7 @@ def load_data_timeline_ecog_kps() -> Bunch:
 
     Returns
     -------
-    data : :class:`~sklearn.utils.Bunch`
-        Dictionary-like object with the following attributes:
+    data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
             The data matrix.
