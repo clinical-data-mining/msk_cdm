@@ -6,7 +6,7 @@ _loader = DatasetLoader()
 def load_data_clinical_patient() -> Bunch:
     """Load and return the MSK-IMPACT clinical patient dataset (deidentified).
 
-    Returns
+    Returns:
         data : Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -45,7 +45,7 @@ def load_data_clinical_patient() -> Bunch:
 def load_data_clinical_sample() -> Bunch:
     """Load and return the MSK-IMPACT clinical sample dataset (deidentified).
 
-    Returns
+    Returns:
         data : Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -84,7 +84,7 @@ def load_data_clinical_sample() -> Bunch:
 def load_data_timeline_surgery() -> Bunch:
     """Load and return the MSK-IMPACT surgical timeline dataset (deidentified).
 
-    Returns
+    Returns:
         data : Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -123,7 +123,7 @@ def load_data_timeline_surgery() -> Bunch:
 def load_data_timeline_radiation() -> Bunch:
     """Load and return the MSK-IMPACT radiation therapy timeline dataset (deidentified).
 
-    Returns
+    Returns:
         data : Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -162,7 +162,7 @@ def load_data_timeline_radiation() -> Bunch:
 def load_data_timeline_treatment() -> Bunch:
     """Load and return the MSK-IMPACT treatment timeline dataset (deidentified).
 
-    Returns
+    Returns:
         data : Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -201,7 +201,7 @@ def load_data_timeline_treatment() -> Bunch:
 def load_data_timeline_diagnosis() -> Bunch:
     """Load and return the MSK-IMPACT diagnosis timeline dataset (deidentified).
 
-    Returns
+    Returns:
         data : Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -240,7 +240,7 @@ def load_data_timeline_diagnosis() -> Bunch:
 def load_data_timeline_specimen() -> Bunch:
     """Load and return the MSK-IMPACT specimen timeline dataset (deidentified).
 
-    Returns
+    Returns:
         data : Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -279,7 +279,7 @@ def load_data_timeline_specimen() -> Bunch:
 def load_data_timeline_specimen_surgery() -> Bunch:
     """Load and return the MSK-IMPACT specimen surgery timeline dataset (deidentified).
 
-    Returns
+    Returns:
         data : Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -318,7 +318,7 @@ def load_data_timeline_specimen_surgery() -> Bunch:
 def load_data_timeline_radiation() -> Bunch:
     """Load and return the MSK-IMPACT radiation therapy timeline dataset (deidentified).
 
-    Returns
+    Returns:
         data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -357,7 +357,7 @@ def load_data_timeline_radiation() -> Bunch:
 def load_data_timeline_treatment() -> Bunch:
     """Load and return the MSK-IMPACT treatment timeline dataset (deidentified).
 
-    Returns
+    Returns:
         data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -397,7 +397,7 @@ def load_data_timeline_treatment() -> Bunch:
 def load_data_timeline_specimen() -> Bunch:
     """Load and return the MSK-IMPACT specimen timeline dataset (deidentified).
 
-    Returns
+    Returns:
         data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -427,7 +427,7 @@ def load_data_timeline_specimen() -> Bunch:
 def load_data_timeline_specimen_surgery() -> Bunch:
     """Load and return the MSK-IMPACT specimen surgery timeline dataset (deidentified).
 
-    Returns
+    Returns:
         data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -466,7 +466,7 @@ def load_data_timeline_specimen_surgery() -> Bunch:
 def load_data_timeline_gleason() -> Bunch:
     """Load and return the MSK-IMPACT Gleason score timeline dataset (deidentified).
 
-    Returns
+    Returns:
         data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -496,7 +496,7 @@ def load_data_timeline_gleason() -> Bunch:
 def load_data_timeline_pdl1() -> Bunch:
     """Load and return the MSK-IMPACT PD-L1 timeline dataset (deidentified).
 
-    Returns
+    Returns:
         data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -526,7 +526,7 @@ def load_data_timeline_pdl1() -> Bunch:
 def load_data_timeline_mmr() -> Bunch:
     """Load and return the MSK-IMPACT MMR timeline dataset (deidentified).
 
-    Returns
+    Returns:
         data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -556,7 +556,7 @@ def load_data_timeline_mmr() -> Bunch:
 def load_data_timeline_prior_meds() -> Bunch:
     """Load and return the MSK-IMPACT prior medications timeline dataset (deidentified).
 
-    Returns
+    Returns:
         data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -586,7 +586,7 @@ def load_data_timeline_prior_meds() -> Bunch:
 def load_data_timeline_tumor_sites() -> Bunch:
     """Load and return the MSK-IMPACT tumor sites timeline dataset (deidentified).
 
-    Returns
+    Returns:
         data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -616,7 +616,7 @@ def load_data_timeline_tumor_sites() -> Bunch:
 def load_data_timeline_follow_up() -> Bunch:
     """Load and return the MSK-IMPACT follow-up timeline dataset (deidentified).
 
-    Returns
+    Returns:
         data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -646,7 +646,7 @@ def load_data_timeline_follow_up() -> Bunch:
 def load_data_timeline_progression() -> Bunch:
     """Load and return the MSK-IMPACT progression timeline dataset (deidentified).
 
-    Returns
+    Returns:
         data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -676,7 +676,7 @@ def load_data_timeline_progression() -> Bunch:
 def load_data_timeline_cancer_presence() -> Bunch:
     """Load and return the MSK-IMPACT cancer presence timeline dataset (deidentified).
 
-    Returns
+    Returns:
         data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
@@ -714,7 +714,7 @@ def load_data_timeline_cancer_presence() -> Bunch:
 def load_data_timeline_ecog_kps() -> Bunch:
     """Load and return the MSK-IMPACT ECOG-KPS timeline dataset (deidentified).
 
-    Returns
+    Returns:
         data: Dictionary-like object, with the following attributes.
 
         - **data** : pandas DataFrame
