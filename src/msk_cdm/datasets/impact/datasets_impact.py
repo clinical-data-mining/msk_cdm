@@ -8,13 +8,14 @@ def load_data_clinical_patient()  -> Bunch:
 
     Returns:
         data: Dictionary-like object, with the following attributes.
-            data: pandas DataFrame
+
+            - **data** : pandas DataFrame
                 The data matrix.
-            description_columns: list
+            - **description_columns** : list
                 The names of the dataset columns.  (Future release)
-            description_dataset: str
+            - **description_dataset** : str
                 The full description of the dataset.  (Future release)
-            filename: str
+            - **filename** : str
                 The path to the location of the data.  (Future release)
 
     Examples
