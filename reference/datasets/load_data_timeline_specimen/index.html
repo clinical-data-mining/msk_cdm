@@ -1350,19 +1350,82 @@
     <div class="doc doc-contents first">
 
       <p>Load and return the MSK-IMPACT specimen timeline dataset (deidentified).</p>
-<p>Returns
-    data: Dictionary-like object, with the following attributes.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">-</span> **data** : pandas DataFrame
-    The data matrix.
-<span class="k">-</span> **description_columns** (Future release) : list
-    The names of the dataset columns.
-<span class="k">-</span> **description_dataset** (Future release) : str
-    The full description of the dataset.
-<span class="k">-</span> **filename** (Future release) : str
-    The path to the location of the data.
-</code></pre></div>
 
-<h3 id="msk_cdm.datasets.impact.datasets_impact.load_data_timeline_specimen--examples">Examples<a class="headerlink" href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_specimen--examples" title="Permanent link">&para;</a></h3>
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>data</code></td>            <td>
+                  <code><span title="sklearn.utils.Bunch">Bunch</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Dictionary-like object, with the following attributes.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td></td>            <td>
+                  <code><span title="sklearn.utils.Bunch">Bunch</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <ul>
+<li><strong>data</strong> : pandas DataFrame
+The data matrix.</li>
+</ul>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td></td>            <td>
+                  <code><span title="sklearn.utils.Bunch">Bunch</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <ul>
+<li><strong>description_columns</strong> (Future release) : list
+The names of the dataset columns.</li>
+</ul>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td></td>            <td>
+                  <code><span title="sklearn.utils.Bunch">Bunch</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <ul>
+<li><strong>description_dataset</strong> (Future release) : str
+The full description of the dataset.</li>
+</ul>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td></td>            <td>
+                  <code><span title="sklearn.utils.Bunch">Bunch</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <ul>
+<li><strong>filename</strong> (Future release) : str
+The path to the location of the data.</li>
+</ul>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+      <h3 id="msk_cdm.datasets.impact.datasets_impact.load_data_timeline_specimen--examples">Examples<a class="headerlink" href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_specimen--examples" title="Permanent link">&para;</a></h3>
 <blockquote>
 <blockquote>
 <blockquote>
@@ -1410,7 +1473,7 @@ df_spec.head()</p>
 <span class="normal">425</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_data_timeline_specimen</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Bunch</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Load and return the MSK-IMPACT specimen timeline dataset (deidentified).</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    Returns:</span>
 <span class="sd">        data: Dictionary-like object, with the following attributes.</span>
 
 <span class="sd">        - **data** : pandas DataFrame</span>
