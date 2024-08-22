@@ -115,10 +115,6 @@ class DatasetLoader(object):
 
         return df
 
-    def close_connection(self):
-        global _obj_minio
-        return _obj_minio.close_connection()
-
     # Define each function corresponding to each file name (without .txt)
     def _load_impact_data_clinical_patient(self):
         return self.load_from_object_path(path_object=fname_summary_patient_minio)

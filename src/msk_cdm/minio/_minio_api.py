@@ -279,16 +279,5 @@ class MinioAPI(object):
 
         return None
 
-    def close_connection(self):
-        """Close minio connection
-
-        Closes connection to minio server that was established at initialization
-
-        Returns:
-            None
-        """
-        self._httpClient.clear()
-
-        return None
 
 
