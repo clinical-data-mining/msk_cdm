@@ -59,9 +59,12 @@ nav:
         - 'index.md'
     - 'API Reference': 
         - 'Directory': 'reference/index.md'
-        - 'Databricks API': 'reference/databricks.md'
-        - 'Minio API': 'reference/minio.md'
-        - 'Dremio API': 'reference/dremio.md'
+        - 'msk_cdm.databricks': 'reference/databricks.md'
+        - 'msk_cdm.minio': 'reference/minio.md'
+        - 'msk_cdm.dremio': 'reference/dremio.md'
+        - 'msk_cdm.datasets':
+            - 'Overview': 'reference/datasets/datasets.md'
+            - 'load_impact_data_clinical_patient': 'reference/datasets/load_impact_data_clinical_patient.md'
     - 'Developer Guide':
         - 'Required Training': 'reference/user-guide/training.md'
         - 'Python Environments': 'reference/user-guide/python-environment.md'

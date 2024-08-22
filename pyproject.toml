@@ -26,7 +26,8 @@ dependencies = [
     "databricks-sdk==0.28.0",
     "certifi==2024.2.2",
     "pandas>=2.1.4",
-    "mkdocstrings>=0.21.2"
+    "mkdocstrings>=0.21.2",
+    "scikit-learn>=1.5.1"
 ]
 
 [project.optional-dependencies]
