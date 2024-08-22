@@ -1369,8 +1369,7 @@
 
       <p>Load and return the MSK-IMPACT specimen timeline dataset (deidentified).</p>
 <h3 id="msk_cdm.datasets.impact.datasets_impact.load_data_timeline_specimen--returns">Returns<a class="headerlink" href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_specimen--returns" title="Permanent link">&para;</a></h3>
-<p>data : :class:<code>~sklearn.utils.Bunch</code>
-    Dictionary-like object with the following attributes:</p>
+<p>data: Dictionary-like object, with the following attributes.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">-</span> **data** : pandas DataFrame
     The data matrix.
 <span class="k">-</span> **description_columns** (Future release) : list
@@ -1398,43 +1397,41 @@ df_spec.head()</p>
 
             <details class="quote">
               <summary>Source code in <code>msk_cdm/datasets/impact/datasets_impact.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">198</span>
-<span class="normal">199</span>
-<span class="normal">200</span>
-<span class="normal">201</span>
-<span class="normal">202</span>
-<span class="normal">203</span>
-<span class="normal">204</span>
-<span class="normal">205</span>
-<span class="normal">206</span>
-<span class="normal">207</span>
-<span class="normal">208</span>
-<span class="normal">209</span>
-<span class="normal">210</span>
-<span class="normal">211</span>
-<span class="normal">212</span>
-<span class="normal">213</span>
-<span class="normal">214</span>
-<span class="normal">215</span>
-<span class="normal">216</span>
-<span class="normal">217</span>
-<span class="normal">218</span>
-<span class="normal">219</span>
-<span class="normal">220</span>
-<span class="normal">221</span>
-<span class="normal">222</span>
-<span class="normal">223</span>
-<span class="normal">224</span>
-<span class="normal">225</span>
-<span class="normal">226</span>
-<span class="normal">227</span>
-<span class="normal">228</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_data_timeline_specimen</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Bunch</span><span class="p">:</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span>
+<span class="normal">411</span>
+<span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span>
+<span class="normal">415</span>
+<span class="normal">416</span>
+<span class="normal">417</span>
+<span class="normal">418</span>
+<span class="normal">419</span>
+<span class="normal">420</span>
+<span class="normal">421</span>
+<span class="normal">422</span>
+<span class="normal">423</span>
+<span class="normal">424</span>
+<span class="normal">425</span>
+<span class="normal">426</span>
+<span class="normal">427</span>
+<span class="normal">428</span>
+<span class="normal">429</span>
+<span class="normal">430</span>
+<span class="normal">431</span>
+<span class="normal">432</span>
+<span class="normal">433</span>
+<span class="normal">434</span>
+<span class="normal">435</span>
+<span class="normal">436</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_data_timeline_specimen</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Bunch</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Load and return the MSK-IMPACT specimen timeline dataset (deidentified).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    data : :class:`~sklearn.utils.Bunch`</span>
-<span class="sd">        Dictionary-like object with the following attributes:</span>
+<span class="sd">    data: Dictionary-like object, with the following attributes.</span>
 
 <span class="sd">        - **data** : pandas DataFrame</span>
 <span class="sd">            The data matrix.</span>

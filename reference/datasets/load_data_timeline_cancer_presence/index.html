@@ -899,6 +899,42 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--connect-to-the-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect to the database
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--load-the-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load the dataset
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--access-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access the data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--display-the-first-few-rows-of-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Display the first few rows of the data
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1339,6 +1375,42 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--connect-to-the-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect to the database
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--load-the-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load the dataset
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--access-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access the data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--display-the-first-few-rows-of-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Display the first few rows of the data
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1369,8 +1441,7 @@
 
       <p>Load and return the MSK-IMPACT cancer presence timeline dataset (deidentified).</p>
 <h3 id="msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--returns">Returns<a class="headerlink" href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--returns" title="Permanent link">&para;</a></h3>
-<p>data : :class:<code>~sklearn.utils.Bunch</code>
-    Dictionary-like object with the following attributes:</p>
+<p>data: Dictionary-like object, with the following attributes.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">-</span> **data** : pandas DataFrame
     The data matrix.
 <span class="k">-</span> **description_columns** (Future release) : list
@@ -1382,59 +1453,64 @@
 </code></pre></div>
 
 <h3 id="msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--examples">Examples<a class="headerlink" href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--examples" title="Permanent link">&para;</a></h3>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>from msk_cdm.datasets import connect_to_db
+<p>```python
+from msk_cdm.datasets import connect_to_db
 from msk_cdm.datasets.impact import load_data_timeline_cancer_presence</p>
-<p>auth_file='path/to/config.txt'
-connect_to_db(auth_file=auth_file)
-df_timeline_cancer_presence = load_data_timeline_cancer_presence()
-df_cancer_presence = df_timeline_cancer_presence['data']
-df_cancer_presence.head()</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<h2 id="msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--connect-to-the-database">Connect to the database<a class="headerlink" href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--connect-to-the-database" title="Permanent link">&para;</a></h2>
+<p>auth_file = 'path/to/config.txt'
+connect_to_db(auth_file=auth_file)</p>
+<h2 id="msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--load-the-dataset">Load the dataset<a class="headerlink" href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--load-the-dataset" title="Permanent link">&para;</a></h2>
+<p>df_timeline_cancer_presence = load_data_timeline_cancer_presence()</p>
+<h2 id="msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--access-the-data">Access the data<a class="headerlink" href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--access-the-data" title="Permanent link">&para;</a></h2>
+<p>df_cancer_presence = df_timeline_cancer_presence['data']</p>
+<h2 id="msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--display-the-first-few-rows-of-the-data">Display the first few rows of the data<a class="headerlink" href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_cancer_presence--display-the-first-few-rows-of-the-data" title="Permanent link">&para;</a></h2>
+<p>print(df_cancer_presence.head())</p>
 
             <details class="quote">
               <summary>Source code in <code>msk_cdm/datasets/impact/datasets_impact.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">486</span>
-<span class="normal">487</span>
-<span class="normal">488</span>
-<span class="normal">489</span>
-<span class="normal">490</span>
-<span class="normal">491</span>
-<span class="normal">492</span>
-<span class="normal">493</span>
-<span class="normal">494</span>
-<span class="normal">495</span>
-<span class="normal">496</span>
-<span class="normal">497</span>
-<span class="normal">498</span>
-<span class="normal">499</span>
-<span class="normal">500</span>
-<span class="normal">501</span>
-<span class="normal">502</span>
-<span class="normal">503</span>
-<span class="normal">504</span>
-<span class="normal">505</span>
-<span class="normal">506</span>
-<span class="normal">507</span>
-<span class="normal">508</span>
-<span class="normal">509</span>
-<span class="normal">510</span>
-<span class="normal">511</span>
-<span class="normal">512</span>
-<span class="normal">513</span>
-<span class="normal">514</span>
-<span class="normal">515</span>
-<span class="normal">516</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_data_timeline_cancer_presence</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Bunch</span><span class="p">:</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">695</span>
+<span class="normal">696</span>
+<span class="normal">697</span>
+<span class="normal">698</span>
+<span class="normal">699</span>
+<span class="normal">700</span>
+<span class="normal">701</span>
+<span class="normal">702</span>
+<span class="normal">703</span>
+<span class="normal">704</span>
+<span class="normal">705</span>
+<span class="normal">706</span>
+<span class="normal">707</span>
+<span class="normal">708</span>
+<span class="normal">709</span>
+<span class="normal">710</span>
+<span class="normal">711</span>
+<span class="normal">712</span>
+<span class="normal">713</span>
+<span class="normal">714</span>
+<span class="normal">715</span>
+<span class="normal">716</span>
+<span class="normal">717</span>
+<span class="normal">718</span>
+<span class="normal">719</span>
+<span class="normal">720</span>
+<span class="normal">721</span>
+<span class="normal">722</span>
+<span class="normal">723</span>
+<span class="normal">724</span>
+<span class="normal">725</span>
+<span class="normal">726</span>
+<span class="normal">727</span>
+<span class="normal">728</span>
+<span class="normal">729</span>
+<span class="normal">730</span>
+<span class="normal">731</span>
+<span class="normal">732</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_data_timeline_cancer_presence</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Bunch</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Load and return the MSK-IMPACT cancer presence timeline dataset (deidentified).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    data : :class:`~sklearn.utils.Bunch`</span>
-<span class="sd">        Dictionary-like object with the following attributes:</span>
+<span class="sd">    data: Dictionary-like object, with the following attributes.</span>
 
 <span class="sd">        - **data** : pandas DataFrame</span>
 <span class="sd">            The data matrix.</span>
@@ -1447,14 +1523,22 @@ df_cancer_presence.head()</p>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; from msk_cdm.datasets import connect_to_db</span>
-<span class="sd">    &gt;&gt;&gt; from msk_cdm.datasets.impact import load_data_timeline_cancer_presence</span>
-<span class="sd">    &gt;&gt;&gt;</span>
-<span class="sd">    &gt;&gt;&gt; auth_file=&#39;path/to/config.txt&#39;</span>
-<span class="sd">    &gt;&gt;&gt; connect_to_db(auth_file=auth_file)</span>
-<span class="sd">    &gt;&gt;&gt; df_timeline_cancer_presence = load_data_timeline_cancer_presence()</span>
-<span class="sd">    &gt;&gt;&gt; df_cancer_presence = df_timeline_cancer_presence[&#39;data&#39;]</span>
-<span class="sd">    &gt;&gt;&gt; df_cancer_presence.head()</span>
+<span class="sd">    ```python</span>
+<span class="sd">    from msk_cdm.datasets import connect_to_db</span>
+<span class="sd">    from msk_cdm.datasets.impact import load_data_timeline_cancer_presence</span>
+
+<span class="sd">    # Connect to the database</span>
+<span class="sd">    auth_file = &#39;path/to/config.txt&#39;</span>
+<span class="sd">    connect_to_db(auth_file=auth_file)</span>
+
+<span class="sd">    # Load the dataset</span>
+<span class="sd">    df_timeline_cancer_presence = load_data_timeline_cancer_presence()</span>
+
+<span class="sd">    # Access the data</span>
+<span class="sd">    df_cancer_presence = df_timeline_cancer_presence[&#39;data&#39;]</span>
+
+<span class="sd">    # Display the first few rows of the data</span>
+<span class="sd">    print(df_cancer_presence.head())</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">_loader</span><span class="o">.</span><span class="n">_load_impact_data_timeline_cancer_presence</span><span class="p">()</span>
     <span class="n">output</span> <span class="o">=</span> <span class="n">Bunch</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>

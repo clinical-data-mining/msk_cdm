@@ -1369,8 +1369,7 @@
 
       <p>Load and return the MSK-IMPACT prior medications timeline dataset (deidentified).</p>
 <h3 id="msk_cdm.datasets.impact.datasets_impact.load_data_timeline_prior_meds--returns">Returns<a class="headerlink" href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_prior_meds--returns" title="Permanent link">&para;</a></h3>
-<p>data : :class:<code>~sklearn.utils.Bunch</code>
-    Dictionary-like object with the following attributes:</p>
+<p>data: Dictionary-like object, with the following attributes.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">-</span> **data** : pandas DataFrame
     The data matrix.
 <span class="k">-</span> **description_columns** (Future release) : list
@@ -1398,43 +1397,41 @@ df_prior_meds.head()</p>
 
             <details class="quote">
               <summary>Source code in <code>msk_cdm/datasets/impact/datasets_impact.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">358</span>
-<span class="normal">359</span>
-<span class="normal">360</span>
-<span class="normal">361</span>
-<span class="normal">362</span>
-<span class="normal">363</span>
-<span class="normal">364</span>
-<span class="normal">365</span>
-<span class="normal">366</span>
-<span class="normal">367</span>
-<span class="normal">368</span>
-<span class="normal">369</span>
-<span class="normal">370</span>
-<span class="normal">371</span>
-<span class="normal">372</span>
-<span class="normal">373</span>
-<span class="normal">374</span>
-<span class="normal">375</span>
-<span class="normal">376</span>
-<span class="normal">377</span>
-<span class="normal">378</span>
-<span class="normal">379</span>
-<span class="normal">380</span>
-<span class="normal">381</span>
-<span class="normal">382</span>
-<span class="normal">383</span>
-<span class="normal">384</span>
-<span class="normal">385</span>
-<span class="normal">386</span>
-<span class="normal">387</span>
-<span class="normal">388</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_data_timeline_prior_meds</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Bunch</span><span class="p">:</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">571</span>
+<span class="normal">572</span>
+<span class="normal">573</span>
+<span class="normal">574</span>
+<span class="normal">575</span>
+<span class="normal">576</span>
+<span class="normal">577</span>
+<span class="normal">578</span>
+<span class="normal">579</span>
+<span class="normal">580</span>
+<span class="normal">581</span>
+<span class="normal">582</span>
+<span class="normal">583</span>
+<span class="normal">584</span>
+<span class="normal">585</span>
+<span class="normal">586</span>
+<span class="normal">587</span>
+<span class="normal">588</span>
+<span class="normal">589</span>
+<span class="normal">590</span>
+<span class="normal">591</span>
+<span class="normal">592</span>
+<span class="normal">593</span>
+<span class="normal">594</span>
+<span class="normal">595</span>
+<span class="normal">596</span>
+<span class="normal">597</span>
+<span class="normal">598</span>
+<span class="normal">599</span>
+<span class="normal">600</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_data_timeline_prior_meds</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Bunch</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Load and return the MSK-IMPACT prior medications timeline dataset (deidentified).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    data : :class:`~sklearn.utils.Bunch`</span>
-<span class="sd">        Dictionary-like object with the following attributes:</span>
+<span class="sd">    data: Dictionary-like object, with the following attributes.</span>
 
 <span class="sd">        - **data** : pandas DataFrame</span>
 <span class="sd">            The data matrix.</span>

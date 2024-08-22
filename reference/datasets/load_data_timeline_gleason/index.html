@@ -1369,8 +1369,7 @@
 
       <p>Load and return the MSK-IMPACT Gleason score timeline dataset (deidentified).</p>
 <h3 id="msk_cdm.datasets.impact.datasets_impact.load_data_timeline_gleason--returns">Returns<a class="headerlink" href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_gleason--returns" title="Permanent link">&para;</a></h3>
-<p>data : :class:<code>~sklearn.utils.Bunch</code>
-    Dictionary-like object with the following attributes:</p>
+<p>data: Dictionary-like object, with the following attributes.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">-</span> **data** : pandas DataFrame
     The data matrix.
 <span class="k">-</span> **description_columns** (Future release) : list
@@ -1398,43 +1397,41 @@ df_gleason.head()</p>
 
             <details class="quote">
               <summary>Source code in <code>msk_cdm/datasets/impact/datasets_impact.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">262</span>
-<span class="normal">263</span>
-<span class="normal">264</span>
-<span class="normal">265</span>
-<span class="normal">266</span>
-<span class="normal">267</span>
-<span class="normal">268</span>
-<span class="normal">269</span>
-<span class="normal">270</span>
-<span class="normal">271</span>
-<span class="normal">272</span>
-<span class="normal">273</span>
-<span class="normal">274</span>
-<span class="normal">275</span>
-<span class="normal">276</span>
-<span class="normal">277</span>
-<span class="normal">278</span>
-<span class="normal">279</span>
-<span class="normal">280</span>
-<span class="normal">281</span>
-<span class="normal">282</span>
-<span class="normal">283</span>
-<span class="normal">284</span>
-<span class="normal">285</span>
-<span class="normal">286</span>
-<span class="normal">287</span>
-<span class="normal">288</span>
-<span class="normal">289</span>
-<span class="normal">290</span>
-<span class="normal">291</span>
-<span class="normal">292</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_data_timeline_gleason</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Bunch</span><span class="p">:</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">478</span>
+<span class="normal">479</span>
+<span class="normal">480</span>
+<span class="normal">481</span>
+<span class="normal">482</span>
+<span class="normal">483</span>
+<span class="normal">484</span>
+<span class="normal">485</span>
+<span class="normal">486</span>
+<span class="normal">487</span>
+<span class="normal">488</span>
+<span class="normal">489</span>
+<span class="normal">490</span>
+<span class="normal">491</span>
+<span class="normal">492</span>
+<span class="normal">493</span>
+<span class="normal">494</span>
+<span class="normal">495</span>
+<span class="normal">496</span>
+<span class="normal">497</span>
+<span class="normal">498</span>
+<span class="normal">499</span>
+<span class="normal">500</span>
+<span class="normal">501</span>
+<span class="normal">502</span>
+<span class="normal">503</span>
+<span class="normal">504</span>
+<span class="normal">505</span>
+<span class="normal">506</span>
+<span class="normal">507</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_data_timeline_gleason</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Bunch</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Load and return the MSK-IMPACT Gleason score timeline dataset (deidentified).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    data : :class:`~sklearn.utils.Bunch`</span>
-<span class="sd">        Dictionary-like object with the following attributes:</span>
+<span class="sd">    data: Dictionary-like object, with the following attributes.</span>
 
 <span class="sd">        - **data** : pandas DataFrame</span>
 <span class="sd">            The data matrix.</span>

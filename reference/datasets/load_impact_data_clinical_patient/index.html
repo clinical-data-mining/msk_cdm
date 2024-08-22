@@ -558,6 +558,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_clinical_patient--returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_clinical_patient--examples" class="md-nav__link">
     <span class="md-ellipsis">
       Examples
@@ -1302,6 +1311,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_clinical_patient--returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_clinical_patient--examples" class="md-nav__link">
     <span class="md-ellipsis">
       Examples
@@ -1343,53 +1361,49 @@
     <div class="doc doc-contents first">
 
       <p>Load and return the MSK-IMPACT clinical patient dataset (deidentified).</p>
+<h3 id="msk_cdm.datasets.impact.datasets_impact.load_data_clinical_patient--returns">Returns<a class="headerlink" href="#msk_cdm.datasets.impact.datasets_impact.load_data_clinical_patient--returns" title="Permanent link">&para;</a></h3>
+<p>data : Dictionary-like object, with the following attributes.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">-</span> **data** : pandas DataFrame
+    The data matrix.
+<span class="k">-</span> **description_columns** : list
+    The names of the dataset columns. (Future release)
+<span class="k">-</span> **description_dataset** : str
+    The full description of the dataset. (Future release)
+<span class="k">-</span> **filename** : str
+    The path to the location of the data. (Future release)
+</code></pre></div>
 
+<h3 id="msk_cdm.datasets.impact.datasets_impact.load_data_clinical_patient--examples">Examples<a class="headerlink" href="#msk_cdm.datasets.impact.datasets_impact.load_data_clinical_patient--examples" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">msk_cdm.datasets</span> <span class="kn">import</span> <span class="n">connect_to_db</span>
+<span class="kn">from</span> <span class="nn">msk_cdm.datasets.impact</span> <span class="kn">import</span> <span class="n">load_data_clinical_patient</span>
 
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
-      <thead>
-        <tr>
-<th>Name</th>          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-<td><code>data</code></td>            <td>
-                  <code><span title="sklearn.utils.Bunch">Bunch</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Dictionary-like object, with the following attributes.</p>
-<ul>
-<li><strong>data</strong> : pandas DataFrame
-    The data matrix.</li>
-<li><strong>description_columns</strong> : list
-    The names of the dataset columns.  (Future release)</li>
-<li><strong>description_dataset</strong> : str
-    The full description of the dataset.  (Future release)</li>
-<li><strong>filename</strong> : str
-    The path to the location of the data.  (Future release)</li>
-</ul>
-              </div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-      <h3 id="msk_cdm.datasets.impact.datasets_impact.load_data_clinical_patient--examples">Examples<a class="headerlink" href="#msk_cdm.datasets.impact.datasets_impact.load_data_clinical_patient--examples" title="Permanent link">&para;</a></h3>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>from msk_cdm.datasets import connect_to_db
-from msk_cdm.datasets.impact import load_data_clinical_patient</p>
-<p>auth_file='path/to/config.txt'
-connect_to_db(auth_file=auth_file)
-df_clinical_patient = load_data_clinical_patient()
-df_clin_p = df_clinical_patient['data']
-df_clin_p.head()</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<span class="c1"># Connect to the database</span>
+<span class="n">auth_file</span> <span class="o">=</span> <span class="s1">&#39;path/to/config.txt&#39;</span>
+<span class="n">connect_to_db</span><span class="p">(</span><span class="n">auth_file</span><span class="o">=</span><span class="n">auth_file</span><span class="p">)</span>
+
+<span class="c1"># Load the dataset</span>
+<span class="n">df_clinical_patient</span> <span class="o">=</span> <span class="n">load_data_clinical_patient</span><span class="p">()</span>
+
+<span class="c1"># Access the data</span>
+<span class="n">df_clin_p</span> <span class="o">=</span> <span class="n">df_clinical_patient</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+
+<span class="c1"># Display the first few rows of the data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_clin_p</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</code></pre></div></td></tr></table></div>
 
             <details class="quote">
               <summary>Source code in <code>msk_cdm/datasets/impact/datasets_impact.py</code></summary>
@@ -1423,33 +1437,49 @@ df_clin_p.head()</p>
 <span class="normal">33</span>
 <span class="normal">34</span>
 <span class="normal">35</span>
-<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_data_clinical_patient</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Bunch</span><span class="p">:</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_data_clinical_patient</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Bunch</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Load and return the MSK-IMPACT clinical patient dataset (deidentified).</span>
 
-<span class="sd">    Returns:</span>
-<span class="sd">        data: Dictionary-like object, with the following attributes.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    data : Dictionary-like object, with the following attributes.</span>
 
-<span class="sd">            - **data** : pandas DataFrame</span>
-<span class="sd">                The data matrix.</span>
-<span class="sd">            - **description_columns** : list</span>
-<span class="sd">                The names of the dataset columns.  (Future release)</span>
-<span class="sd">            - **description_dataset** : str</span>
-<span class="sd">                The full description of the dataset.  (Future release)</span>
-<span class="sd">            - **filename** : str</span>
-<span class="sd">                The path to the location of the data.  (Future release)</span>
+<span class="sd">        - **data** : pandas DataFrame</span>
+<span class="sd">            The data matrix.</span>
+<span class="sd">        - **description_columns** : list</span>
+<span class="sd">            The names of the dataset columns. (Future release)</span>
+<span class="sd">        - **description_dataset** : str</span>
+<span class="sd">            The full description of the dataset. (Future release)</span>
+<span class="sd">        - **filename** : str</span>
+<span class="sd">            The path to the location of the data. (Future release)</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; from msk_cdm.datasets import connect_to_db</span>
-<span class="sd">    &gt;&gt;&gt; from msk_cdm.datasets.impact import load_data_clinical_patient</span>
-<span class="sd">    &gt;&gt;&gt;</span>
-<span class="sd">    &gt;&gt;&gt; auth_file=&#39;path/to/config.txt&#39;</span>
-<span class="sd">    &gt;&gt;&gt; connect_to_db(auth_file=auth_file)</span>
-<span class="sd">    &gt;&gt;&gt; df_clinical_patient = load_data_clinical_patient()</span>
-<span class="sd">    &gt;&gt;&gt; df_clin_p = df_clinical_patient[&#39;data&#39;]</span>
-<span class="sd">    &gt;&gt;&gt; df_clin_p.head()</span>
+<span class="sd">    ```python</span>
+<span class="sd">    from msk_cdm.datasets import connect_to_db</span>
+<span class="sd">    from msk_cdm.datasets.impact import load_data_clinical_patient</span>
 
+<span class="sd">    # Connect to the database</span>
+<span class="sd">    auth_file = &#39;path/to/config.txt&#39;</span>
+<span class="sd">    connect_to_db(auth_file=auth_file)</span>
 
+<span class="sd">    # Load the dataset</span>
+<span class="sd">    df_clinical_patient = load_data_clinical_patient()</span>
+
+<span class="sd">    # Access the data</span>
+<span class="sd">    df_clin_p = df_clinical_patient[&#39;data&#39;]</span>
+
+<span class="sd">    # Display the first few rows of the data</span>
+<span class="sd">    print(df_clin_p.head())</span>
+<span class="sd">    ```</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">_loader</span><span class="o">.</span><span class="n">_load_impact_data_clinical_patient</span><span class="p">()</span>
     <span class="n">output</span> <span class="o">=</span> <span class="n">Bunch</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
