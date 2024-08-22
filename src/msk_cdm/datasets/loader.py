@@ -75,6 +75,13 @@ fname_impact_anchor_dates = c_path.fname_anchor_dates_reid
 
 ## Datasets from queries directly from IDB
 fname_idb_demo = c_path.fname_demo
+fname_idb_radiology_reports = c_path.fname_radiology
+fname_idb_pathology_reports = c_path.fname_pathology
+fname_idb_surgeries = c_path.fname_surg
+fname_idb_diagnosis = c_path.fname_dx
+fname_idb_medications = c_path.fname_meds
+fname_idb_radiation = c_path.fname_rt
+fname_idb_interventional_radiology = c_path.fname_ir
 
 
 class DatasetLoader(object):
@@ -223,6 +230,28 @@ class DatasetLoader(object):
     ###### Datasets directly from IDB queries
     def _load_phi_idb_demographics(self):
         return self.load_from_object_path(path_object=fname_idb_demo)
+
+    def _load_phi_idb_radiology_reports(self):
+        return self.load_from_object_path(path_object=fname_idb_radiology_reports)
+
+    def _load_phi_idb_pathology_reports(self):
+        return self.load_from_object_path(path_object=fname_idb_pathology_reports)
+
+    def _load_phi_idb_surgeries(self):
+        return self.load_from_object_path(path_object=fname_idb_surgeries)
+
+    def _load_phi_idb_diagnosis(self):
+        return self.load_from_object_path(path_object=fname_idb_diagnosis)
+
+    def _load_phi_idb_medications(self):
+        return self.load_from_object_path(path_object=fname_idb_medications)
+
+    def _load_phi_idb_radiation(self):
+        return self.load_from_object_path(path_object=fname_idb_radiation)
+
+    def _load_phi_idb_interventional_radiology(self):
+        return self.load_from_object_path(path_object=fname_idb_interventional_radiology)
+
 
     def _ensure_connnected(self):
         global _connnected
