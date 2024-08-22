@@ -287,7 +287,7 @@ class MinioAPI(object):
         Returns:
             None
         """
-        self._httpClient.close()
+        self._httpClient.clear()
 
         return None
 

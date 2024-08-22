@@ -1,7 +1,7 @@
 # phi/idb/__init__.py
 
-from .datasets_phi_idb import demographics_idb
+from .datasets_phi_idb import load_demographics_idb
 
 __all__ = [
-    "demographics_idb"
+    "load_demographics_idb"
 ]
