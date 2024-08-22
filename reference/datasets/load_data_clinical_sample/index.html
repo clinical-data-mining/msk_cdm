@@ -583,15 +583,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_clinical_sample--returns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Returns
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_clinical_sample--examples" class="md-nav__link">
     <span class="md-ellipsis">
       Examples
@@ -1317,15 +1308,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_clinical_sample--returns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Returns
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_clinical_sample--examples" class="md-nav__link">
     <span class="md-ellipsis">
       Examples
@@ -1368,8 +1350,8 @@
     <div class="doc doc-contents first">
 
       <p>Load and return the MSK-IMPACT clinical sample dataset (deidentified).</p>
-<h3 id="msk_cdm.datasets.impact.datasets_impact.load_data_clinical_sample--returns">Returns<a class="headerlink" href="#msk_cdm.datasets.impact.datasets_impact.load_data_clinical_sample--returns" title="Permanent link">&para;</a></h3>
-<p>data : Dictionary-like object, with the following attributes.</p>
+<p>Returns
+    data : Dictionary-like object, with the following attributes.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">-</span> **data** : pandas DataFrame
     The data matrix.
 <span class="k">-</span> **description_columns** (Future release) : list
@@ -1414,7 +1396,8 @@
 
             <details class="quote">
               <summary>Source code in <code>msk_cdm/datasets/impact/datasets_impact.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">46</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">45</span>
+<span class="normal">46</span>
 <span class="normal">47</span>
 <span class="normal">48</span>
 <span class="normal">49</span>
@@ -1450,14 +1433,11 @@
 <span class="normal">79</span>
 <span class="normal">80</span>
 <span class="normal">81</span>
-<span class="normal">82</span>
-<span class="normal">83</span>
-<span class="normal">84</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_data_clinical_sample</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Bunch</span><span class="p">:</span>
+<span class="normal">82</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_data_clinical_sample</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Bunch</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Load and return the MSK-IMPACT clinical sample dataset (deidentified).</span>
 
 <span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    data : Dictionary-like object, with the following attributes.</span>
+<span class="sd">        data : Dictionary-like object, with the following attributes.</span>
 
 <span class="sd">        - **data** : pandas DataFrame</span>
 <span class="sd">            The data matrix.</span>
@@ -1469,7 +1449,7 @@
 <span class="sd">            The path to the location of the data.</span>
 
 <span class="sd">    Examples</span>
-<span class="sd">    --------</span>
+<span class="sd">    -</span>
 <span class="sd">    ```python</span>
 <span class="sd">    from msk_cdm.datasets import connect_to_db</span>
 <span class="sd">    from msk_cdm.datasets.impact import load_data_clinical_sample</span>

@@ -793,15 +793,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_prior_meds--returns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Returns
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_prior_meds--examples" class="md-nav__link">
     <span class="md-ellipsis">
       Examples
@@ -1317,15 +1308,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_prior_meds--returns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Returns
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_prior_meds--examples" class="md-nav__link">
     <span class="md-ellipsis">
       Examples
@@ -1368,8 +1350,8 @@
     <div class="doc doc-contents first">
 
       <p>Load and return the MSK-IMPACT prior medications timeline dataset (deidentified).</p>
-<h3 id="msk_cdm.datasets.impact.datasets_impact.load_data_timeline_prior_meds--returns">Returns<a class="headerlink" href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_prior_meds--returns" title="Permanent link">&para;</a></h3>
-<p>data: Dictionary-like object, with the following attributes.</p>
+<p>Returns
+    data: Dictionary-like object, with the following attributes.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">-</span> **data** : pandas DataFrame
     The data matrix.
 <span class="k">-</span> **description_columns** (Future release) : list
@@ -1397,7 +1379,22 @@ df_prior_meds.head()</p>
 
             <details class="quote">
               <summary>Source code in <code>msk_cdm/datasets/impact/datasets_impact.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">571</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">556</span>
+<span class="normal">557</span>
+<span class="normal">558</span>
+<span class="normal">559</span>
+<span class="normal">560</span>
+<span class="normal">561</span>
+<span class="normal">562</span>
+<span class="normal">563</span>
+<span class="normal">564</span>
+<span class="normal">565</span>
+<span class="normal">566</span>
+<span class="normal">567</span>
+<span class="normal">568</span>
+<span class="normal">569</span>
+<span class="normal">570</span>
+<span class="normal">571</span>
 <span class="normal">572</span>
 <span class="normal">573</span>
 <span class="normal">574</span>
@@ -1410,28 +1407,11 @@ df_prior_meds.head()</p>
 <span class="normal">581</span>
 <span class="normal">582</span>
 <span class="normal">583</span>
-<span class="normal">584</span>
-<span class="normal">585</span>
-<span class="normal">586</span>
-<span class="normal">587</span>
-<span class="normal">588</span>
-<span class="normal">589</span>
-<span class="normal">590</span>
-<span class="normal">591</span>
-<span class="normal">592</span>
-<span class="normal">593</span>
-<span class="normal">594</span>
-<span class="normal">595</span>
-<span class="normal">596</span>
-<span class="normal">597</span>
-<span class="normal">598</span>
-<span class="normal">599</span>
-<span class="normal">600</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_data_timeline_prior_meds</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Bunch</span><span class="p">:</span>
+<span class="normal">584</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_data_timeline_prior_meds</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Bunch</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Load and return the MSK-IMPACT prior medications timeline dataset (deidentified).</span>
 
 <span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    data: Dictionary-like object, with the following attributes.</span>
+<span class="sd">        data: Dictionary-like object, with the following attributes.</span>
 
 <span class="sd">        - **data** : pandas DataFrame</span>
 <span class="sd">            The data matrix.</span>

@@ -625,15 +625,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_radiation--returns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Returns
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_radiation--examples" class="md-nav__link">
     <span class="md-ellipsis">
       Examples
@@ -1317,15 +1308,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_radiation--returns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Returns
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_radiation--examples" class="md-nav__link">
     <span class="md-ellipsis">
       Examples
@@ -1368,8 +1350,8 @@
     <div class="doc doc-contents first">
 
       <p>Load and return the MSK-IMPACT radiation therapy timeline dataset (deidentified).</p>
-<h3 id="msk_cdm.datasets.impact.datasets_impact.load_data_timeline_radiation--returns">Returns<a class="headerlink" href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_radiation--returns" title="Permanent link">&para;</a></h3>
-<p>data: Dictionary-like object, with the following attributes.</p>
+<p>Returns
+    data: Dictionary-like object, with the following attributes.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">-</span> **data** : pandas DataFrame
     The data matrix.
 <span class="k">-</span> **description_columns** (Future release) : list
@@ -1414,7 +1396,15 @@
 
             <details class="quote">
               <summary>Source code in <code>msk_cdm/datasets/impact/datasets_impact.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">326</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
 <span class="normal">327</span>
 <span class="normal">328</span>
 <span class="normal">329</span>
@@ -1443,21 +1433,11 @@
 <span class="normal">352</span>
 <span class="normal">353</span>
 <span class="normal">354</span>
-<span class="normal">355</span>
-<span class="normal">356</span>
-<span class="normal">357</span>
-<span class="normal">358</span>
-<span class="normal">359</span>
-<span class="normal">360</span>
-<span class="normal">361</span>
-<span class="normal">362</span>
-<span class="normal">363</span>
-<span class="normal">364</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_data_timeline_radiation</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Bunch</span><span class="p">:</span>
+<span class="normal">355</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_data_timeline_radiation</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Bunch</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Load and return the MSK-IMPACT radiation therapy timeline dataset (deidentified).</span>
 
 <span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    data: Dictionary-like object, with the following attributes.</span>
+<span class="sd">        data: Dictionary-like object, with the following attributes.</span>
 
 <span class="sd">        - **data** : pandas DataFrame</span>
 <span class="sd">            The data matrix.</span>
