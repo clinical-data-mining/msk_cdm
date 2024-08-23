@@ -13,25 +13,25 @@
       
       
       
-        <link rel="prev" href="../htcondor/">
+        <link rel="prev" href="../load_data_timeline_diagnosis/">
       
       
-        <link rel="next" href="../airflow/">
+        <link rel="next" href="../load_data_timeline_specimen_surgery/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.32">
     
     
       
-        <title>Data Querying Through Dremio - Clinical Data Mining @ MSKCC</title>
+        <title>load_data_timeline_specimen - Clinical Data Mining @ MSKCC</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,11 +50,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cdm-data-query-quick-start-guide" class="md-skip">
+        <a href="#load_data_timeline_specimen" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Clinical Data Mining @ MSKCC" class="md-header__button md-logo" aria-label="Clinical Data Mining @ MSKCC" data-md-component="logo">
+    <a href="../../../.." title="Clinical Data Mining @ MSKCC" class="md-header__button md-logo" aria-label="Clinical Data Mining @ MSKCC" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Data Querying Through Dremio
+              load_data_timeline_specimen
             
           </span>
         </div>
@@ -234,7 +234,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Clinical Data Mining @ MSKCC" class="md-nav__button md-logo" aria-label="Clinical Data Mining @ MSKCC" data-md-component="logo">
+    <a href="../../../.." title="Clinical Data Mining @ MSKCC" class="md-nav__button md-logo" aria-label="Clinical Data Mining @ MSKCC" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -299,7 +299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -324,17 +324,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -348,7 +350,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             API Reference
@@ -362,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
+      <a href="../../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -383,7 +385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../databricks/" class="md-nav__link">
+      <a href="../../../databricks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -404,7 +406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../minio/" class="md-nav__link">
+      <a href="../../../minio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -425,7 +427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dremio/" class="md-nav__link">
+      <a href="../../../dremio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -443,17 +445,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
         
           
           <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
@@ -467,7 +471,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_5">
             <span class="md-nav__icon md-icon"></span>
             msk_cdm.datasets
@@ -481,7 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasets/datasets/" class="md-nav__link">
+      <a href="../../datasets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -502,7 +506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasets/impact/load_impact_data_clinical_patient/" class="md-nav__link">
+      <a href="../load_impact_data_clinical_patient/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -523,7 +527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasets/impact/load_data_clinical_sample/" class="md-nav__link">
+      <a href="../load_data_clinical_sample/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -544,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasets/impact/load_data_timeline_surgery/" class="md-nav__link">
+      <a href="../load_data_timeline_surgery/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -565,7 +569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasets/impact/load_data_timeline_radiation/" class="md-nav__link">
+      <a href="../load_data_timeline_radiation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -586,7 +590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasets/impact/load_data_timeline_treatment/" class="md-nav__link">
+      <a href="../load_data_timeline_treatment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -607,7 +611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasets/impact/load_data_timeline_diagnosis/" class="md-nav__link">
+      <a href="../load_data_timeline_diagnosis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -625,10 +629,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../datasets/impact/load_data_timeline_specimen/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    load_data_timeline_specimen
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -637,6 +661,50 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_specimen" class="md-nav__link">
+    <span class="md-ellipsis">
+      load_data_timeline_specimen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="load_data_timeline_specimen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_specimen--examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -649,7 +717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasets/impact/load_data_timeline_specimen_surgery/" class="md-nav__link">
+      <a href="../load_data_timeline_specimen_surgery/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -670,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasets/impact/load_data_timeline_gleason/" class="md-nav__link">
+      <a href="../load_data_timeline_gleason/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -691,7 +759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasets/impact/load_data_timeline_pdl1/" class="md-nav__link">
+      <a href="../load_data_timeline_pdl1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -712,7 +780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasets/impact/load_data_timeline_mmr/" class="md-nav__link">
+      <a href="../load_data_timeline_mmr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -733,7 +801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasets/impact/load_data_timeline_prior_meds/" class="md-nav__link">
+      <a href="../load_data_timeline_prior_meds/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -754,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasets/impact/load_data_timeline_tumor_sites/" class="md-nav__link">
+      <a href="../load_data_timeline_tumor_sites/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -775,7 +843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasets/impact/load_data_timeline_follow_up/" class="md-nav__link">
+      <a href="../load_data_timeline_follow_up/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -796,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasets/impact/load_data_timeline_progression/" class="md-nav__link">
+      <a href="../load_data_timeline_progression/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -817,7 +885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasets/impact/load_data_timeline_cancer_presence/" class="md-nav__link">
+      <a href="../load_data_timeline_cancer_presence/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -838,7 +906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasets/impact/load_data_timeline_ecog_kps/" class="md-nav__link">
+      <a href="../load_data_timeline_ecog_kps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -871,19 +939,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -897,7 +963,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Developer Guide
@@ -911,7 +977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../training/" class="md-nav__link">
+      <a href="../../../user-guide/training/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -932,7 +998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../python-environment/" class="md-nav__link">
+      <a href="../../../user-guide/python-environment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -953,7 +1019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../r-guide/" class="md-nav__link">
+      <a href="../../../user-guide/r-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -974,7 +1040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../jupyterhub/" class="md-nav__link">
+      <a href="../../../user-guide/jupyterhub/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -995,7 +1061,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../minio/" class="md-nav__link">
+      <a href="../../../user-guide/minio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1016,7 +1082,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../htcondor/" class="md-nav__link">
+      <a href="../../../user-guide/htcondor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1034,30 +1100,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Data Querying Through Dremio
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../user-guide/data-query-quick-start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1066,44 +1112,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#create-virtual-environment-from-requirementstxt-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create virtual environment from requirements.txt file
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#query-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      Query Data
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1116,7 +1124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../airflow/" class="md-nav__link">
+      <a href="../../../user-guide/airflow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1137,7 +1145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../conda-cheatsheet/" class="md-nav__link">
+      <a href="../../../user-guide/conda-cheatsheet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1158,7 +1166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../git-branch-management/" class="md-nav__link">
+      <a href="../../../user-guide/git-branch-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1179,7 +1187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../redcap_etl/" class="md-nav__link">
+      <a href="../../../user-guide/redcap_etl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1242,7 +1250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../About-Us/" class="md-nav__link">
+      <a href="../../../About-Us/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1290,20 +1298,26 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-virtual-environment-from-requirementstxt-file" class="md-nav__link">
+  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_specimen" class="md-nav__link">
     <span class="md-ellipsis">
-      Create virtual environment from requirements.txt file
+      load_data_timeline_specimen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="load_data_timeline_specimen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_specimen--examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#query-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      Query Data
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1325,25 +1339,164 @@
   
 
 
-<h1 id="cdm-data-query-quick-start-guide">CDM Data Query Quick Start Guide<a class="headerlink" href="#cdm-data-query-quick-start-guide" title="Permanent link">&para;</a></h1>
-<p>This repo offers several Jupyter Notebooks that will help query and transform data. Here's how to get started!</p>
-<h2 id="create-virtual-environment-from-requirementstxt-file">Create virtual environment from requirements.txt file<a class="headerlink" href="#create-virtual-environment-from-requirementstxt-file" title="Permanent link">&para;</a></h2>
-<p>At the command line, create a virtual envirnoment called <code>env</code>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>python3 -m venv env
-</code></pre></div></td></tr></table></div></p>
-<p>Then, activate the virtual env:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>source env/bin/activate
-</code></pre></div></td></tr></table></div></p>
-<p>If it's been awhile (or the first time), update pip:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;path-to-repo&gt;/cdm-utilities/env/bin/python3 -m pip install --upgrade pip
-</code></pre></div></td></tr></table></div></p>
-<p>Once activated, install the packages listed in the <code>requirements.txt</code> file
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>python3 -m pip install -r requirements.txt
-</code></pre></div></td></tr></table></div></p>
-<p>After packages have been installed, run <code>jupyter-lab</code> (make sure a web browser is open) and start prototyping!</p>
-<h2 id="query-data">Query Data<a class="headerlink" href="#query-data" title="Permanent link">&para;</a></h2>
-<p>With your environment set up, this <a href="https://github.com/clinical-data-mining/cdm-utilities/blob/main/dremio_api/dremio_connection_test.ipynb">Jupyter Notebook</a> will show you how to query data from our Dremio instance.</p>
-<p>To understand how to use our data (better), check out the <a href="https://clinical-data-mining.github.io/cdm-utilities/data-dictionary/">data dictionary</a>.</p>
+<h1 id="load_data_timeline_specimen"><code>load_data_timeline_specimen</code><a class="headerlink" href="#load_data_timeline_specimen" title="Permanent link">&para;</a></h1>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="msk_cdm.datasets.impact.datasets_impact.load_data_timeline_specimen"></a>
+    <div class="doc doc-contents first">
+
+      <p>Load and return the MSK-IMPACT specimen timeline dataset (deidentified).</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>data</code></td>            <td>
+                  <code><span title="sklearn.utils.Bunch">Bunch</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Dictionary-like object, with the following attributes.</p>
+<ul>
+<li><strong>data</strong> : pandas DataFrame
+    The data matrix.</li>
+<li><strong>description_columns</strong> : list
+    The names of the dataset columns. (Future release)</li>
+<li><strong>description_dataset</strong> : str
+    The full description of the dataset. (Future release)</li>
+<li><strong>filename</strong> : str
+    The path to the location of the data. (Future release)</li>
+</ul>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+      <h3 id="msk_cdm.datasets.impact.datasets_impact.load_data_timeline_specimen--examples">Examples<a class="headerlink" href="#msk_cdm.datasets.impact.datasets_impact.load_data_timeline_specimen--examples" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">msk_cdm.datasets</span> <span class="kn">import</span> <span class="n">connect_to_db</span>
+<span class="kn">from</span> <span class="nn">msk_cdm.datasets.impact</span> <span class="kn">import</span> <span class="n">load_data_timeline_specimen</span>
+
+<span class="c1"># Connect to the database</span>
+<span class="n">auth_file</span> <span class="o">=</span> <span class="s1">&#39;path/to/config.txt&#39;</span>
+<span class="n">connect_to_db</span><span class="p">(</span><span class="n">auth_file</span><span class="o">=</span><span class="n">auth_file</span><span class="p">)</span>
+
+<span class="c1"># Load the dataset</span>
+<span class="n">df_timeline_specimen</span> <span class="o">=</span> <span class="n">load_data_timeline_specimen</span><span class="p">()</span>
+
+<span class="c1"># Access the data</span>
+<span class="n">df_spec</span> <span class="o">=</span> <span class="n">df_timeline_specimen</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+
+<span class="c1"># Display the first few rows of the data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_spec</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</code></pre></div></td></tr></table></div>
+
+            <details class="quote">
+              <summary>Source code in <code>msk_cdm/datasets/impact/datasets_impact.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span>
+<span class="normal">411</span>
+<span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span>
+<span class="normal">415</span>
+<span class="normal">416</span>
+<span class="normal">417</span>
+<span class="normal">418</span>
+<span class="normal">419</span>
+<span class="normal">420</span>
+<span class="normal">421</span>
+<span class="normal">422</span>
+<span class="normal">423</span>
+<span class="normal">424</span>
+<span class="normal">425</span>
+<span class="normal">426</span>
+<span class="normal">427</span>
+<span class="normal">428</span>
+<span class="normal">429</span>
+<span class="normal">430</span>
+<span class="normal">431</span>
+<span class="normal">432</span>
+<span class="normal">433</span>
+<span class="normal">434</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_data_timeline_specimen</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Bunch</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load and return the MSK-IMPACT specimen timeline dataset (deidentified).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        data: Dictionary-like object, with the following attributes.</span>
+
+<span class="sd">            - **data** : pandas DataFrame</span>
+<span class="sd">                The data matrix.</span>
+<span class="sd">            - **description_columns** : list</span>
+<span class="sd">                The names of the dataset columns. (Future release)</span>
+<span class="sd">            - **description_dataset** : str</span>
+<span class="sd">                The full description of the dataset. (Future release)</span>
+<span class="sd">            - **filename** : str</span>
+<span class="sd">                The path to the location of the data. (Future release)</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    ```python</span>
+<span class="sd">    from msk_cdm.datasets import connect_to_db</span>
+<span class="sd">    from msk_cdm.datasets.impact import load_data_timeline_specimen</span>
+
+<span class="sd">    # Connect to the database</span>
+<span class="sd">    auth_file = &#39;path/to/config.txt&#39;</span>
+<span class="sd">    connect_to_db(auth_file=auth_file)</span>
+
+<span class="sd">    # Load the dataset</span>
+<span class="sd">    df_timeline_specimen = load_data_timeline_specimen()</span>
+
+<span class="sd">    # Access the data</span>
+<span class="sd">    df_spec = df_timeline_specimen[&#39;data&#39;]</span>
+
+<span class="sd">    # Display the first few rows of the data</span>
+<span class="sd">    print(df_spec.head())</span>
+<span class="sd">    ```</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">_loader</span><span class="o">.</span><span class="n">_load_impact_data_timeline_specimen</span><span class="p">()</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">Bunch</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
 
 
 
@@ -1400,10 +1553,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.top", "toc.follow", "search.suggestions", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "toc.follow", "search.suggestions", "search.highlight", "search.share"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.471ce7a9.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.471ce7a9.min.js"></script>
       
     
   </body>
