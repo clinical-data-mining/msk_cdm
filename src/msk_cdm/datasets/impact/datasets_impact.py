@@ -402,23 +402,32 @@ def load_data_timeline_specimen() -> Bunch:
 
             - **data** : pandas DataFrame
                 The data matrix.
-            - **description_columns** (Future release) : list
-                The names of the dataset columns.
-            - **description_dataset** (Future release) : str
-                The full description of the dataset.
-            - **filename** (Future release) : str
-                The path to the location of the data.
+            - **description_columns** : list
+                The names of the dataset columns. (Future release)
+            - **description_dataset** : str
+                The full description of the dataset. (Future release)
+            - **filename** : str
+                The path to the location of the data. (Future release)
 
     Examples
     --------
-    >>> from msk_cdm.datasets import connect_to_db
-    >>> from msk_cdm.datasets.impact import load_data_timeline_specimen
-    >>>
-    >>> auth_file='path/to/config.txt'
-    >>> connect_to_db(auth_file=auth_file)
-    >>> df_timeline_specimen = load_data_timeline_specimen()
-    >>> df_spec = df_timeline_specimen['data']
-    >>> df_spec.head()
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_timeline_specimen
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_timeline_specimen = load_data_timeline_specimen()
+
+    # Access the data
+    df_spec = df_timeline_specimen['data']
+
+    # Display the first few rows of the data
+    print(df_spec.head())
+    ```
     """
     df = _loader._load_impact_data_timeline_specimen()
     output = Bunch(data=df)
@@ -432,12 +441,12 @@ def load_data_timeline_specimen_surgery() -> Bunch:
 
             - **data** : pandas DataFrame
                 The data matrix.
-            - **description_columns** (Future release) : list
-                The names of the dataset columns.
-            - **description_dataset** (Future release) : str
-                The full description of the dataset.
-            - **filename** (Future release) : str
-                The path to the location of the data.
+            - **description_columns** : list
+                The names of the dataset columns. (Future release)
+            - **description_dataset** : str
+                The full description of the dataset. (Future release)
+            - **filename** : str
+                The path to the location of the data. (Future release)
 
     Examples
     --------
@@ -453,10 +462,10 @@ def load_data_timeline_specimen_surgery() -> Bunch:
     df_timeline_specimen_surgery = load_data_timeline_specimen_surgery()
 
     # Access the data
-    df_specimen_surgery = df_timeline_specimen_surgery['data']
+    df_spec_surg = df_timeline_specimen_surgery['data']
 
     # Display the first few rows of the data
-    print(df_specimen_surgery.head())
+    print(df_spec_surg.head())
     ```
     """
     df = _loader._load_impact_data_timeline_specimen_surgery()
@@ -471,23 +480,32 @@ def load_data_timeline_gleason() -> Bunch:
 
             - **data** : pandas DataFrame
                 The data matrix.
-            - **description_columns** (Future release) : list
-                The names of the dataset columns.
-            - **description_dataset** (Future release) : str
-                The full description of the dataset.
-            - **filename** (Future release) : str
-                The path to the location of the data.
+            - **description_columns** : list
+                The names of the dataset columns. (Future release)
+            - **description_dataset** : str
+                The full description of the dataset. (Future release)
+            - **filename** : str
+                The path to the location of the data. (Future release)
 
     Examples
     --------
-    >>> from msk_cdm.datasets import connect_to_db
-    >>> from msk_cdm.datasets.impact import load_data_timeline_gleason
-    >>>
-    >>> auth_file='path/to/config.txt'
-    >>> connect_to_db(auth_file=auth_file)
-    >>> df_timeline_gleason = load_data_timeline_gleason()
-    >>> df_gleason = df_timeline_gleason['data']
-    >>> df_gleason.head()
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_timeline_gleason
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_timeline_gleason = load_data_timeline_gleason()
+
+    # Access the data
+    df_gleason = df_timeline_gleason['data']
+
+    # Display the first few rows of the data
+    print(df_gleason.head())
+    ```
     """
     df = _loader._load_impact_data_timeline_gleason()
     output = Bunch(data=df)
@@ -501,23 +519,32 @@ def load_data_timeline_pdl1() -> Bunch:
 
             - **data** : pandas DataFrame
                 The data matrix.
-            - **description_columns** (Future release) : list
-                The names of the dataset columns.
-            - **description_dataset** (Future release) : str
-                The full description of the dataset.
-            - **filename** (Future release) : str
-                The path to the location of the data.
+            - **description_columns** : list
+                The names of the dataset columns. (Future release)
+            - **description_dataset** : str
+                The full description of the dataset. (Future release)
+            - **filename** : str
+                The path to the location of the data. (Future release)
 
     Examples
     --------
-    >>> from msk_cdm.datasets import connect_to_db
-    >>> from msk_cdm.datasets.impact import load_data_timeline_pdl1
-    >>>
-    >>> auth_file='path/to/config.txt'
-    >>> connect_to_db(auth_file=auth_file)
-    >>> df_timeline_pdl1 = load_data_timeline_pdl1()
-    >>> df_pdl1 = df_timeline_pdl1['data']
-    >>> df_pdl1.head()
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_timeline_pdl1
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_timeline_pdl1 = load_data_timeline_pdl1()
+
+    # Access the data
+    df_pdl1 = df_timeline_pdl1['data']
+
+    # Display the first few rows of the data
+    print(df_pdl1.head())
+    ```
     """
     df = _loader._load_impact_data_timeline_pdl1()
     output = Bunch(data=df)
@@ -531,23 +558,32 @@ def load_data_timeline_mmr() -> Bunch:
 
             - **data** : pandas DataFrame
                 The data matrix.
-            - **description_columns** (Future release) : list
-                The names of the dataset columns.
-            - **description_dataset** (Future release) : str
-                The full description of the dataset.
-            - **filename** (Future release) : str
-                The path to the location of the data.
+            - **description_columns** : list
+                The names of the dataset columns. (Future release)
+            - **description_dataset** : str
+                The full description of the dataset. (Future release)
+            - **filename** : str
+                The path to the location of the data. (Future release)
 
     Examples
     --------
-    >>> from msk_cdm.datasets import connect_to_db
-    >>> from msk_cdm.datasets.impact import load_data_timeline_mmr
-    >>>
-    >>> auth_file='path/to/config.txt'
-    >>> connect_to_db(auth_file=auth_file)
-    >>> df_timeline_mmr = load_data_timeline_mmr()
-    >>> df_mmr = df_timeline_mmr['data']
-    >>> df_mmr.head()
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_timeline_mmr
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_timeline_mmr = load_data_timeline_mmr()
+
+    # Access the data
+    df_mmr = df_timeline_mmr['data']
+
+    # Display the first few rows of the data
+    print(df_mmr.head())
+    ```
     """
     df = _loader._load_impact_data_timeline_mmr()
     output = Bunch(data=df)
@@ -561,23 +597,32 @@ def load_data_timeline_prior_meds() -> Bunch:
 
             - **data** : pandas DataFrame
                 The data matrix.
-            - **description_columns** (Future release) : list
-                The names of the dataset columns.
-            - **description_dataset** (Future release) : str
-                The full description of the dataset.
-            - **filename** (Future release) : str
-                The path to the location of the data.
+            - **description_columns** : list
+                The names of the dataset columns. (Future release)
+            - **description_dataset** : str
+                The full description of the dataset. (Future release)
+            - **filename** : str
+                The path to the location of the data. (Future release)
 
     Examples
     --------
-    >>> from msk_cdm.datasets import connect_to_db
-    >>> from msk_cdm.datasets.impact import load_data_timeline_prior_meds
-    >>>
-    >>> auth_file='path/to/config.txt'
-    >>> connect_to_db(auth_file=auth_file)
-    >>> df_timeline_prior_meds = load_data_timeline_prior_meds()
-    >>> df_prior_meds = df_timeline_prior_meds['data']
-    >>> df_prior_meds.head()
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_timeline_prior_meds
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_timeline_prior_meds = load_data_timeline_prior_meds()
+
+    # Access the data
+    df_prior_meds = df_timeline_prior_meds['data']
+
+    # Display the first few rows of the data
+    print(df_prior_meds.head())
+    ```
     """
     df = _loader._load_impact_data_timeline_prior_meds()
     output = Bunch(data=df)
@@ -591,23 +636,32 @@ def load_data_timeline_tumor_sites() -> Bunch:
 
             - **data** : pandas DataFrame
                 The data matrix.
-            - **description_columns** (Future release) : list
-                The names of the dataset columns.
-            - **description_dataset** (Future release) : str
-                The full description of the dataset.
-            - **filename** (Future release) : str
-                The path to the location of the data.
+            - **description_columns** : list
+                The names of the dataset columns. (Future release)
+            - **description_dataset** : str
+                The full description of the dataset. (Future release)
+            - **filename** : str
+                The path to the location of the data. (Future release)
 
     Examples
     --------
-    >>> from msk_cdm.datasets import connect_to_db
-    >>> from msk_cdm.datasets.impact import load_data_timeline_tumor_sites
-    >>>
-    >>> auth_file='path/to/config.txt'
-    >>> connect_to_db(auth_file=auth_file)
-    >>> df_timeline_tumor_sites = load_data_timeline_tumor_sites()
-    >>> df_tumor_sites = df_timeline_tumor_sites['data']
-    >>> df_tumor_sites.head()
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_timeline_tumor_sites
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_timeline_tumor_sites = load_data_timeline_tumor_sites()
+
+    # Access the data
+    df_tumor_sites = df_timeline_tumor_sites['data']
+
+    # Display the first few rows of the data
+    print(df_tumor_sites.head())
+    ```
     """
     df = _loader._load_impact_data_timeline_tumor_sites()
     output = Bunch(data=df)
@@ -621,23 +675,32 @@ def load_data_timeline_follow_up() -> Bunch:
 
             - **data** : pandas DataFrame
                 The data matrix.
-            - **description_columns** (Future release) : list
-                The names of the dataset columns.
-            - **description_dataset** (Future release) : str
-                The full description of the dataset.
-            - **filename** (Future release) : str
-                The path to the location of the data.
+            - **description_columns** : list
+                The names of the dataset columns. (Future release)
+            - **description_dataset** : str
+                The full description of the dataset. (Future release)
+            - **filename** : str
+                The path to the location of the data. (Future release)
 
     Examples
     --------
-    >>> from msk_cdm.datasets import connect_to_db
-    >>> from msk_cdm.datasets.impact import load_data_timeline_follow_up
-    >>>
-    >>> auth_file='path/to/config.txt'
-    >>> connect_to_db(auth_file=auth_file)
-    >>> df_timeline_follow_up = load_data_timeline_follow_up()
-    >>> df_follow_up = df_timeline_follow_up['data']
-    >>> df_follow_up.head()
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_timeline_follow_up
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_timeline_follow_up = load_data_timeline_follow_up()
+
+    # Access the data
+    df_follow_up = df_timeline_follow_up['data']
+
+    # Display the first few rows of the data
+    print(df_follow_up.head())
+    ```
     """
     df = _loader._load_impact_data_timeline_follow_up()
     output = Bunch(data=df)
@@ -651,23 +714,32 @@ def load_data_timeline_progression() -> Bunch:
 
             - **data** : pandas DataFrame
                 The data matrix.
-            - **description_columns** (Future release) : list
-                The names of the dataset columns.
-            - **description_dataset** (Future release) : str
-                The full description of the dataset.
-            - **filename** (Future release) : str
-                The path to the location of the data.
+            - **description_columns** : list
+                The names of the dataset columns. (Future release)
+            - **description_dataset** : str
+                The full description of the dataset. (Future release)
+            - **filename** : str
+                The path to the location of the data. (Future release)
 
     Examples
     --------
-    >>> from msk_cdm.datasets import connect_to_db
-    >>> from msk_cdm.datasets.impact import load_data_timeline_progression
-    >>>
-    >>> auth_file='path/to/config.txt'
-    >>> connect_to_db(auth_file=auth_file)
-    >>> df_timeline_progression = load_data_timeline_progression()
-    >>> df_progression = df_timeline_progression['data']
-    >>> df_progression.head()
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_timeline_progression
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_timeline_progression = load_data_timeline_progression()
+
+    # Access the data
+    df_progression = df_timeline_progression['data']
+
+    # Display the first few rows of the data
+    print(df_progression.head())
+    ```
     """
     df = _loader._load_impact_data_timeline_progression()
     output = Bunch(data=df)
@@ -728,14 +800,23 @@ def load_data_timeline_ecog_kps() -> Bunch:
 
     Examples
     --------
-    >>> from msk_cdm.datasets import connect_to_db
-    >>> from msk_cdm.datasets.impact import load_data_timeline_ecog_kps
-    >>>
-    >>> auth_file='path/to/config.txt'
-    >>> connect_to_db(auth_file=auth_file)
-    >>> df_timeline_ecog_kps = load_data_timeline_ecog_kps()
-    >>> df_ecog_kps = df_timeline_ecog_kps['data']
-    >>> df_ecog_kps.head()
+    ```python
+    from msk_cdm.datasets import connect_to_db
+    from msk_cdm.datasets.impact import load_data_timeline_ecog_kps
+
+    # Connect to the database
+    auth_file = 'path/to/config.txt'
+    connect_to_db(auth_file=auth_file)
+
+    # Load the dataset
+    df_timeline_ecog_kps = load_data_timeline_ecog_kps()
+
+    # Access the data
+    df_ecog_kps = df_timeline_ecog_kps['data']
+
+    # Display the first few rows of the data
+    print(df_ecog_kps.head())
+    ```
     """
     df = _loader._load_impact_data_timeline_ecog_kps()
     output = Bunch(data=df)
