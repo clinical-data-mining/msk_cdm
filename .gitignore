@@ -21,3 +21,7 @@ __pycache__/
 # OSX finder files
 .DS_Store
 .DS_store
+/credentials.json
+/databricks_env.txt
+/certificate_sparky.crt
+/minio_env.txt

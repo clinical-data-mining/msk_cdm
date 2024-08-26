@@ -99,7 +99,6 @@ nav:
                 - 'load_data_timeline_cancer_presence_phi': 'reference/datasets/phi_impact/load_data_timeline_cancer_presence_phi.md'
                 - 'load_data_timeline_ecog_kps_phi': 'reference/datasets/phi_impact/load_data_timeline_ecog_kps_phi.md'
                 - 'load_data_id_mapping_phi': 'reference/datasets/phi_impact/load_data_id_mapping_phi.md'
-#                - 'load_data_anchor_dates_phi': 'reference/datasets/phi_impact/load_data_anchor_dates_phi.md'
     - 'Developer Guide':
         - 'Required Training': 'reference/user-guide/training.md'
         - 'Python Environments': 'reference/user-guide/python-environment.md'
