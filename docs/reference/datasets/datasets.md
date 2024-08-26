@@ -6,23 +6,23 @@ Utilities to load various clinical datasets related to the MSK-IMPACT cohort (de
 
 | Function Name | Description |
 |---|---|
-| [`load_impact_data_clinical_patient`](reference/datasets/impact/load_impact_data_clinical_patient.md) | Load the clinical patient summary data from the IMPACT dataset. |
-| [`load_impact_data_clinical_sample`](reference/datasets/impact/load_data_clinical_sample.md) | Load the clinical sample summary data from the IMPACT dataset. |
-| [`load_impact_data_timeline_surgery`](reference/datasets/impact/load_data_timeline_surgery.md) | Load the surgical timeline data from the IMPACT dataset. |
-| [`load_impact_data_timeline_radiation`](reference/datasets/impact/load_data_timeline_radiation.md) | Load the radiation therapy timeline data from the IMPACT dataset. |
-| [`load_impact_data_timeline_treatment`](reference/datasets/impact/load_data_timeline_treatment.md) | Load the treatment timeline data from the IMPACT dataset. |
-| [`load_impact_data_timeline_diagnosis`](reference/datasets/impact/load_data_timeline_diagnosis.md) | Load the diagnosis timeline data from the IMPACT dataset. |
-| [`load_impact_data_timeline_specimen`](reference/datasets/impact/load_data_timeline_specimen.md) | Load the specimen timeline data from the IMPACT dataset. |
-| [`load_impact_data_timeline_specimen_surgery`](reference/datasets/impact/load_data_timeline_specimen_surgery.md) | Load the specimen surgery timeline data from the IMPACT dataset. |
-| [`load_impact_data_timeline_gleason`](reference/datasets/impact/load_data_timeline_gleason.md) | Load the Gleason score timeline data from the IMPACT dataset. |
-| [`load_impact_data_timeline_pdl1`](reference/datasets/impact/load_data_timeline_pdl1.md) | Load the PD-L1 timeline data from the IMPACT dataset. |
-| [`load_impact_data_timeline_mmr`](reference/datasets/impact/load_data_timeline_mmr.md) | Load the MMR timeline data from the IMPACT dataset. |
-| [`load_impact_data_timeline_prior_meds`](reference/datasets/impact/load_data_timeline_prior_meds.md) | Load the prior medications timeline data from the IMPACT dataset. |
-| [`load_impact_data_timeline_tumor_sites`](reference/datasets/impact/load_data_timeline_tumor_sites.md) | Load the tumor sites timeline data from the IMPACT dataset. |
-| [`load_impact_data_timeline_follow_up`](reference/datasets/impact/load_data_timeline_follow_up.md) | Load the follow-up timeline data from the IMPACT dataset. |
-| [`load_impact_data_timeline_progression`](reference/datasets/impact/load_data_timeline_progression.md) | Load the progression timeline data from the IMPACT dataset. |
-| [`load_impact_data_timeline_cancer_presence`](reference/datasets/impact/load_data_timeline_cancer_presence.md) | Load the cancer presence timeline data from the IMPACT dataset. |
-| [`load_impact_data_timeline_ecog_kps`](reference/datasets/impact/load_data_timeline_ecog_kps.md) | Load the ECOG-KPS timeline data from the IMPACT dataset. |
+| [`load_impact_data_clinical_patient`](impact/load_impact_data_clinical_patient.md) | Load the clinical patient summary data from the IMPACT dataset. |
+| [`load_impact_data_clinical_sample`](impact/load_data_clinical_sample.md) | Load the clinical sample summary data from the IMPACT dataset. |
+| [`load_impact_data_timeline_surgery`](impact/load_data_timeline_surgery.md) | Load the surgical timeline data from the IMPACT dataset. |
+| [`load_impact_data_timeline_radiation`](impact/load_data_timeline_radiation.md) | Load the radiation therapy timeline data from the IMPACT dataset. |
+| [`load_impact_data_timeline_treatment`](impact/load_data_timeline_treatment.md) | Load the treatment timeline data from the IMPACT dataset. |
+| [`load_impact_data_timeline_diagnosis`](impact/load_data_timeline_diagnosis.md) | Load the diagnosis timeline data from the IMPACT dataset. |
+| [`load_impact_data_timeline_specimen`](impact/load_data_timeline_specimen.md) | Load the specimen timeline data from the IMPACT dataset. |
+| [`load_impact_data_timeline_specimen_surgery`](impact/load_data_timeline_specimen_surgery.md) | Load the specimen surgery timeline data from the IMPACT dataset. |
+| [`load_impact_data_timeline_gleason`](impact/load_data_timeline_gleason.md) | Load the Gleason score timeline data from the IMPACT dataset. |
+| [`load_impact_data_timeline_pdl1`](impact/load_data_timeline_pdl1.md) | Load the PD-L1 timeline data from the IMPACT dataset. |
+| [`load_impact_data_timeline_mmr`](impact/load_data_timeline_mmr.md) | Load the MMR timeline data from the IMPACT dataset. |
+| [`load_impact_data_timeline_prior_meds`](impact/load_data_timeline_prior_meds.md) | Load the prior medications timeline data from the IMPACT dataset. |
+| [`load_impact_data_timeline_tumor_sites`](impact/load_data_timeline_tumor_sites.md) | Load the tumor sites timeline data from the IMPACT dataset. |
+| [`load_impact_data_timeline_follow_up`](impact/load_data_timeline_follow_up.md) | Load the follow-up timeline data from the IMPACT dataset. |
+| [`load_impact_data_timeline_progression`](impact/load_data_timeline_progression.md) | Load the progression timeline data from the IMPACT dataset. |
+| [`load_impact_data_timeline_cancer_presence`](impact/load_data_timeline_cancer_presence.md) | Load the cancer presence timeline data from the IMPACT dataset. |
+| [`load_impact_data_timeline_ecog_kps`](impact/load_data_timeline_ecog_kps.md) | Load the ECOG-KPS timeline data from the IMPACT dataset. |
 
 ## MSK-IMPACT Datasets (Contains PHI)
 
