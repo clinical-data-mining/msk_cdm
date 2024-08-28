@@ -44,6 +44,7 @@ class MinioAPI(object):
 
         self._bucket = bucket
         self._client = None
+        self._httpClient = None
 
         if fname_minio_env is not None:
             self._process_env(fname_minio_env)
@@ -274,3 +275,9 @@ class MinioAPI(object):
         )
 
         self._client = client
+        self._httpClient = httpClient
+
+        return None
+
+
+
