@@ -156,8 +156,8 @@ class MinioAPI(object):
         """Create a Python list of objects in a specified minio bucket
 
         Args:
-            - bucket_name: Optional bucket name, otherwise defaults to  BUCKET passed via minio env fname to constructor
-            - prefix: Optional string used to find an object starting with <prefix>
+            bucket_name: Optional bucket name, otherwise defaults to  BUCKET passed via minio env fname to constructor
+            prefix: Optional string used to find an object starting with <prefix>
 
         Returns:
             obj_list: List of strings containing path locations in minio bucket.
