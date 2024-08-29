@@ -261,10 +261,7 @@ class DatabricksAPI(object):
                 dict_database_table_info['sep'] = sep
                 print("Conflict with separator in dict; setting to value object was saved as.")
 
-            self.create_table_from_volume(
-                connection=self._workspace_client,
-                dict_database_table_info=dict_database_table_info
-            )
+            self.create_table_from_volume(dict_database_table_info=dict_database_table_info)
 
         return None
 
