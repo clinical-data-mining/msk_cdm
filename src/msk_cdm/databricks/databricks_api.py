@@ -265,6 +265,7 @@ class DatabricksAPI(object):
             overwrite: Whether to overwrite the existing file.
             dict_database_table_info: A dictionary containing information about the
                                       database table. If `dict_database_table_info` is used, it must contain these keys
+
                                         - catalog: Databricks catalog used
                                         - schema: Schema within the catalog
                                         - table: Table in the schema that will contain the dataframe information
