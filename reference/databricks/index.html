@@ -1991,7 +1991,8 @@ the results as pandas DataFrames.</p>
 <span class="normal">391</span>
 <span class="normal">392</span>
 <span class="normal">393</span>
-<span class="normal">394</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DatabricksAPI</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="normal">394</span>
+<span class="normal">395</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DatabricksAPI</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A class to interact with Databricks through its SQL API. This class allows</span>
 <span class="sd">    connecting to a Databricks cluster, executing queries, and retrieving</span>
 <span class="sd">    the results as pandas DataFrames.&quot;&quot;&quot;</span>
@@ -2228,6 +2229,7 @@ the results as pandas DataFrames.</p>
 <span class="sd">            overwrite: Whether to overwrite the existing file.</span>
 <span class="sd">            dict_database_table_info: A dictionary containing information about the</span>
 <span class="sd">                                      database table. If `dict_database_table_info` is used, it must contain these keys</span>
+
 <span class="sd">                                        - catalog: Databricks catalog used</span>
 <span class="sd">                                        - schema: Schema within the catalog</span>
 <span class="sd">                                        - table: Table in the schema that will contain the dataframe information</span>
@@ -2569,8 +2571,7 @@ Databricks cluster.</p>
 
             <details class="quote">
               <summary>Source code in <code>msk_cdm/databricks/databricks_api.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">382</span>
-<span class="normal">383</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">383</span>
 <span class="normal">384</span>
 <span class="normal">385</span>
 <span class="normal">386</span>
@@ -2581,7 +2582,8 @@ Databricks cluster.</p>
 <span class="normal">391</span>
 <span class="normal">392</span>
 <span class="normal">393</span>
-<span class="normal">394</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">close_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">394</span>
+<span class="normal">395</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">close_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Closes the connection to the Databricks cluster.</span>
 
@@ -2776,8 +2778,7 @@ Databricks cluster.</p>
 
             <details class="quote">
               <summary>Source code in <code>msk_cdm/databricks/databricks_api.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">338</span>
-<span class="normal">339</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">339</span>
 <span class="normal">340</span>
 <span class="normal">341</span>
 <span class="normal">342</span>
@@ -2817,7 +2818,8 @@ Databricks cluster.</p>
 <span class="normal">376</span>
 <span class="normal">377</span>
 <span class="normal">378</span>
-<span class="normal">379</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">create_table_from_volume</span><span class="p">(</span>
+<span class="normal">379</span>
+<span class="normal">380</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">create_table_from_volume</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">dict_database_table_info</span><span class="p">:</span> <span class="nb">dict</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -3372,12 +3374,13 @@ creates a table in Databricks from the CSV file.</p>
             <td>
               <div class="doc-md-description">
                 <p>A dictionary containing information about the
-                      database table. If <code>dict_database_table_info</code> is used, it must contain these keys
-                        - catalog: Databricks catalog used
-                        - schema: Schema within the catalog
-                        - table: Table in the schema that will contain the dataframe information
-                        - volume_path: Path location on the volume of the object. A csv file for use of this
-                        - sep: File separator used for the object. Typically, comma or tab separated</p>
+                      database table. If <code>dict_database_table_info</code> is used, it must contain these keys</p>
+<div class="codehilite"><pre><span></span><code>                    <span class="k">-</span> catalog: Databricks catalog used
+                    <span class="k">-</span> schema: Schema within the catalog
+                    <span class="k">-</span> table: Table in the schema that will contain the dataframe information
+                    <span class="k">-</span> volume_path: Path location on the volume of the object. A csv file for use of this
+                    <span class="k">-</span> sep: File separator used for the object. Typically, comma or tab separated
+</code></pre></div>
               </div>
             </td>
             <td>
@@ -3463,7 +3466,8 @@ creates a table in Databricks from the CSV file.</p>
 <span class="normal">298</span>
 <span class="normal">299</span>
 <span class="normal">300</span>
-<span class="normal">301</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">write_db_obj</span><span class="p">(</span>
+<span class="normal">301</span>
+<span class="normal">302</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">write_db_obj</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
         <span class="n">volume_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -3482,6 +3486,7 @@ creates a table in Databricks from the CSV file.</p>
 <span class="sd">        overwrite: Whether to overwrite the existing file.</span>
 <span class="sd">        dict_database_table_info: A dictionary containing information about the</span>
 <span class="sd">                                  database table. If `dict_database_table_info` is used, it must contain these keys</span>
+
 <span class="sd">                                    - catalog: Databricks catalog used</span>
 <span class="sd">                                    - schema: Schema within the catalog</span>
 <span class="sd">                                    - table: Table in the schema that will contain the dataframe information</span>
