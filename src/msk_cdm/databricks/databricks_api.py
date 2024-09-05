@@ -345,7 +345,13 @@ class DatabricksAPI(object):
 
         Args:
             dict_database_table_info: A dictionary containing information about the
-                                      database table.
+                                      database table. If `dict_database_table_info` is used, it must contain these keys
+
+                                        - catalog: Databricks catalog used
+                                        - schema: Schema within the catalog
+                                        - table: Table in the schema that will contain the dataframe information
+                                        - volume_path: Path location on the volume of the object. A csv file for use of this
+                                        - sep: File separator used for the object. Typically, comma or tab separated
 
         Returns:
             None
