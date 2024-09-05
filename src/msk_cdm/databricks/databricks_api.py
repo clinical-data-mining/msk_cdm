@@ -278,8 +278,8 @@ class DatabricksAPI(object):
 
         """
         # Create directory on volume for data to be uploaded. If directory, exists, nothing will happen to existing data
-
-        self.create_directory_on_volume(path=volume_path)
+        dir_volume_path = os.path.dirname(volume_path)
+        self.create_directory_on_volume(path=dir_volume_path)
 
         csv_bytes = df.to_csv(index=False, sep=sep).encode("utf-8")
         csv_buffer = BytesIO(csv_bytes)
