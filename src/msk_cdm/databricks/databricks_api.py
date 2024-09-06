@@ -37,6 +37,7 @@ class DatabricksAPI(object):
             self,
             client_id: Optional[str] = None,  # Client ID for Service Principal
             client_secret: Optional[str] = None,  # Client Secret for Service Principal
+            token: Optional[str] = None,
             hostname: Optional[str] = None,
             http_path: Optional[str] = None,
             fname_databricks_env: Optional[str] = None
@@ -53,27 +54,36 @@ class DatabricksAPI(object):
         """
         self._client_id = client_id
         self._client_secret = client_secret
+        self._TOKEN = token
         self._HOSTNAME = hostname
         self._HTTP_PATH = http_path
         self._sql_client = None
+        self._URL = None
         self._workspace_client = None
 
         if fname_databricks_env is not None:
             print('Parsing env file')
-            self._process_env(fname_databricks_env)
-        
+            self._process_env(fname_databricks_env=fname_databricks_env)
 
-        self._connect(
-            client_id=self._client_id,
-            client_secret=self._client_secret,
-            hostname=self._HOSTNAME,
-            http_path=self._HTTP_PATH
-        )
+        if self._client_id is not None:
+            self._connect_with_oauth(
+                client_id=self._client_id,
+                client_secret=self._client_secret,
+                hostname=self._HOSTNAME,
+                http_path=self._HTTP_PATH
+            )
+
+        if self._TOKEN is not None:
+            self._connect_with_token(
+                token=self._TOKEN,
+                hostname=self._HOSTNAME,
+                http_path=self._HTTP_PATH
+            )
 
         return None
     
     
-    def _connect(
+    def _connect_with_oauth(
         self,
         client_id: str,
         client_secret: str,
@@ -118,6 +128,43 @@ class DatabricksAPI(object):
 
         return None
 
+    def _connect_with_token(
+            self,
+            token: str,
+            hostname: str,
+            http_path: str
+    ) -> None:
+        """
+        Establishes a connection to the Databricks cluster using the provided
+        access token, hostname, and HTTP path.
+
+        Args:
+            token: The access token for authentication with Databricks.
+            hostname: The hostname of the Databricks server.
+            http_path: The HTTP path for the Databricks SQL endpoint.
+
+        Returns:
+            None
+        """
+        print('Making databricks connection')
+        connection = sql.connect(
+            server_hostname=hostname,
+            http_path=http_path,
+            access_token=token
+        )
+
+        workspace_client = WorkspaceClient(
+            host=hostname,
+            token=token
+        )
+
+        print('Connected.')
+
+        self._sql_client = connection
+        self._workspace_client = workspace_client
+
+        return None
+
     def _process_env(
             self,
             fname_databricks_env: str
@@ -139,6 +186,8 @@ class DatabricksAPI(object):
             self._client_id = dict_config.get("CLIENT_ID", None)  # Retrieve client_id from the environment
         if not self._client_secret:
             self._client_secret = dict_config.get("CLIENT_SECRET", None)  # Retrieve client_secret from the environment
+        if not self._TOKEN:
+            self._TOKEN = dict_config.get("TOKEN", None)
         if not self._HOSTNAME:
             self._HOSTNAME = dict_config.get("HOSTNAME", None)
         if not self._URL:
@@ -292,8 +341,8 @@ class DatabricksAPI(object):
 
         """
         # Create directory on volume for data to be uploaded. If directory, exists, nothing will happen to existing data
-
-        self.create_directory_on_volume(path=volume_path)
+        dir_volume_path = os.path.dirname(volume_path)
+        self.create_directory_on_volume(path=dir_volume_path)
 
         csv_bytes = df.to_csv(index=False, sep=sep).encode("utf-8")
         csv_buffer = BytesIO(csv_bytes)
@@ -359,7 +408,13 @@ class DatabricksAPI(object):
 
         Args:
             dict_database_table_info: A dictionary containing information about the
-                                      database table.
+                                      database table. If `dict_database_table_info` is used, it must contain these keys
+
+                                        - catalog: Databricks catalog used
+                                        - schema: Schema within the catalog
+                                        - table: Table in the schema that will contain the dataframe information
+                                        - volume_path: Path location on the volume of the object. A csv file for use of this
+                                        - sep: File separator used for the object. Typically, comma or tab separated
 
         Returns:
             None
@@ -407,6 +462,3 @@ class DatabricksAPI(object):
         print('Databricks connection closed')
 
         return None
-
-
-
