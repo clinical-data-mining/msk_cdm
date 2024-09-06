@@ -22,6 +22,8 @@ __pycache__/
 .DS_Store
 .DS_store
 /credentials.json
+/databricks_env_test.txt
 /databricks_env.txt
 /certificate_sparky.crt
 /minio_env.txt
+/sandbox/

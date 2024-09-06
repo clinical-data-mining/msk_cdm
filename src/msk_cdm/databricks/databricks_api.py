@@ -13,6 +13,7 @@ from sqlalchemy import (
 import pandas as pd
 import certifi
 
+from databricks.sdk.core import Config, oauth_service_principal 
 
 cwd = pathlib.Path(__file__).parent.resolve()
 
@@ -34,21 +35,26 @@ class DatabricksAPI(object):
     the results as pandas DataFrames."""
     def __init__(
             self,
+            client_id: Optional[str] = None,  # Client ID for Service Principal
+            client_secret: Optional[str] = None,  # Client Secret for Service Principal
             token: Optional[str] = None,
             hostname: Optional[str] = None,
             http_path: Optional[str] = None,
             fname_databricks_env: Optional[str] = None
     ) -> None:
-        """
-        Initializes the DatabricksAPI class and establishes a connection to the
-        Databricks cluster.
-
+        """Initializes the DatabricksAPI class with minimal changes for OAuth.
+        
+        
         Args:
+            client_id: Client ID for Service Principal.
+            client_secret: Client Secret for Service Principal.
             token: The access token for authentication with Databricks (default is None).
             hostname: The hostname of the Databricks server (default is None).
             http_path: The HTTP path for the Databricks SQL endpoint (default is None).
             fname_databricks_env: The file name of the environment file containing connection parameters (default is None).
         """
+        self._client_id = client_id
+        self._client_secret = client_secret
         self._TOKEN = token
         self._HOSTNAME = hostname
         self._HTTP_PATH = http_path
@@ -60,21 +66,78 @@ class DatabricksAPI(object):
             print('Parsing env file')
             self._process_env(fname_databricks_env=fname_databricks_env)
 
-        self._connect(
-            token=self._TOKEN,
-            hostname=self._HOSTNAME,
-            http_path=self._HTTP_PATH
+        if self._client_secret is not None:
+            self._connect_with_oauth(
+                client_id=self._client_id,
+                client_secret=self._client_secret,
+                hostname=self._HOSTNAME,
+                http_path=self._HTTP_PATH
+            )
+
+        if self._TOKEN is not None:
+            self._connect_with_token(
+                token=self._TOKEN,
+                hostname=self._HOSTNAME,
+                http_path=self._HTTP_PATH
+            )
+
+        return None
+    
+    
+    def _connect_with_oauth(
+        self,
+        client_id: str,
+        client_secret: str,
+        hostname: str,
+        http_path: str
+    ) -> None:
+        """ Connect with Service Principle credentials.
+        Establishes a connection to the Databricks cluster using OAuth authentication.
+
+        Args:
+            client_id: The client ID of the service principal for OAuth authentication.
+            client_secret: The client secret of the service principal for OAuth authentication.
+            hostname: The hostname of the Databricks server.
+            http_path: The HTTP path for the Databricks SQL endpoint.
+
+        Returns:
+            None
+        """
+        print('Making databricks connection')
+
+        def credential_provider():
+            config = Config(
+                host          = hostname,
+                client_id     = client_id,
+                client_secret = client_secret)
+            return oauth_service_principal(config)
+
+        connection = sql.connect(
+            server_hostname=hostname,
+            http_path=http_path,
+            credentials_provider=credential_provider
         )
+
+        workspace_client = WorkspaceClient(
+            host=hostname,
+            client_id=client_id,
+            client_secret=client_secret
+        )
+
+        print('Connected.')
+
+        self._sql_client = connection
+        self._workspace_client = workspace_client
 
         return None
 
-    def _connect(
+    def _connect_with_token(
             self,
             token: str,
             hostname: str,
             http_path: str
     ) -> None:
-        """
+        """ Connection with personal token
         Establishes a connection to the Databricks cluster using the provided
         access token, hostname, and HTTP path.
 
@@ -122,6 +185,10 @@ class DatabricksAPI(object):
 
         dict_config = dotenv_values(fname_databricks_env)
 
+        if not self._client_id:
+            self._client_id = dict_config.get("CLIENT_ID", None)  # Retrieve client_id from the environment
+        if not self._client_secret:
+            self._client_secret = dict_config.get("CLIENT_SECRET", None)  # Retrieve client_secret from the environment
         if not self._TOKEN:
             self._TOKEN = dict_config.get("TOKEN", None)
         if not self._HOSTNAME:
@@ -132,7 +199,6 @@ class DatabricksAPI(object):
             self._HTTP_PATH = dict_config.get("HTTP_PATH", None)
 
         return None
-
 
     def query_from_file(
             self,
@@ -399,5 +465,3 @@ class DatabricksAPI(object):
         print('Databricks connection closed')
 
         return None
-
-
