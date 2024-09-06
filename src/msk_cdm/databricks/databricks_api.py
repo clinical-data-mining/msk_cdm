@@ -119,7 +119,11 @@ class DatabricksAPI(object):
         )
 
 
-        workspace_client = WorkspaceClient()
+        workspace_client = WorkspaceClient(
+            host=hostname,
+            client_id=client_id,
+            client_secret=client_secret
+        )
 
         print('Connected.')
 
