@@ -47,7 +47,8 @@ class DatabricksAPI(object):
         
         Args:
             client_id: Client ID for Service Principal.
-            client_secret: lient Secret for Service Principal.
+            client_secret: Client Secret for Service Principal.
+            token: The access token for authentication with Databricks (default is None).
             hostname: The hostname of the Databricks server (default is None).
             http_path: The HTTP path for the Databricks SQL endpoint (default is None).
             fname_databricks_env: The file name of the environment file containing connection parameters (default is None).
@@ -65,7 +66,7 @@ class DatabricksAPI(object):
             print('Parsing env file')
             self._process_env(fname_databricks_env=fname_databricks_env)
 
-        if self._client_id is not None:
+        if self._client_secret is not None:
             self._connect_with_oauth(
                 client_id=self._client_id,
                 client_secret=self._client_secret,
@@ -90,9 +91,8 @@ class DatabricksAPI(object):
         hostname: str,
         http_path: str
     ) -> None:
-        """
-        Establishes a connection to the Databricks cluster using the provided
-        access token, hostname, and HTTP path.
+        """ Connect with Service Principle credentials.
+        Establishes a connection to the Databricks cluster using OAuth authentication.
 
         Args:
             client_id: The client ID of the service principal for OAuth authentication.
@@ -118,7 +118,6 @@ class DatabricksAPI(object):
             credentials_provider=credential_provider
         )
 
-
         workspace_client = WorkspaceClient(
             host=hostname,
             client_id=client_id,
@@ -138,7 +137,7 @@ class DatabricksAPI(object):
             hostname: str,
             http_path: str
     ) -> None:
-        """
+        """ Connection with personal token
         Establishes a connection to the Databricks cluster using the provided
         access token, hostname, and HTTP path.
 
