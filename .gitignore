@@ -26,3 +26,4 @@ __pycache__/
 /databricks_env.txt
 /certificate_sparky.crt
 /minio_env.txt
+/sandbox/
