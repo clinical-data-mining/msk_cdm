@@ -61,7 +61,7 @@ openssl s_client -showcerts -verify 5 -connect tllihpcmind6:9000 > certificate.c
 
 
 ### 7) Demo
-[Try our Jupyter notebook demonstrating how download and upload data to MinIO](https://github.com/clinical-data-mining/msk_cdm/blob/main/examples/minio_demo.ipynb)** 
+[Try our Jupyter notebook demonstrating how download and upload data to MinIO](https://github.com/clinical-data-mining/msk_cdm/blob/main/examples/minio_demo.ipynb)
 
 
 
