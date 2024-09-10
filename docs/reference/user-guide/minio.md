@@ -35,7 +35,7 @@ drwxr-xr-x  121 xxx  xxx  3872 May 26 13:50 ..
 ### 4) Change permissions to the dotenv file so only you can read and write to it.
 #### Permissions
 ```
-$ chmod 600 .env
+$ chmod 600 env.txt
 $ ls -la-rw------- 1 xxx xxx 42 Jun 1 11:20 env.txt
 ```
 ### 5) Install the `msk_cdm` python package 
