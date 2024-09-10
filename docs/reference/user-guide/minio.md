@@ -46,69 +46,17 @@ example:
 openssl s_client -showcerts -verify 5 -connect tllihpcmind6:9000 > certificate.crt
 ```
 
-
-
 | URL                                | HOST           | PORT |
 |------------------------------------|----------------|------|
-| https://tllihpcmind6/minio         | tllihpcmind6   | 9000 |
-| https://pllimsksparky3/minio/large | pllimsksparky3 | 9006 |
-| https://pllimsksparky3/minio/lake  | pllimsksparky3 | 9007 |
-| https://pllimsksparky3/minio/small | pllimsksparky3 | 9008 |
-| https://pllimsksparky3/minio/user  | pllimsksparky3 | 9009 |
-
-7. Set up python boiler-plate code for creating a minio client object. 
-```
-from minio import Minio
-import urllib3
-import os
-from dotenv import load_dotenv
-from pathlib import Path
-
-env_path = Path('.')/'.env'
-load_dotenv(dotenv_path=env_path)
-
-ACCESS_KEY = os.getenv('ACCESS_KEY')
-SECRET_KEY = os.getenv('SECRET_KEY')
-
-# required for self-signed certs
-httpClient = urllib3.PoolManager(
-cert_reqs='CERT_REQUIRED',
-ca_certs='certificate.crt'
-)
-
-# Create secure client with access key and secret key
-client = Minio(
-"tllihpcmind6:9000",
-access_key=ACCESS_KEY,
-secret_key=SECRET_KEY,
-secure=True,
-http_client=httpClient
-)
+| https://pllimsksparky3:9001/       | pllimsksparky3 | 9000 |
 
 
-# list objects in a bucket
-for ii in client.list_objects("test"):
-print(ii.__dict__)
-```
 
-8. Try other commands like get_object and put_object from the Minio API.
-```
-import pandas as pd
 
-obj = client.get_object(<BUCKET>,<CSV_FILE_PATH>)
+7. Try our Jupyter notebook demonstrating how download and upload data to MinIO
 
-df = pd.read_csv(obj)
-df
 
-# for parquet files
-from io import BytesIO
-obj = client.get_object(<BUCKET>,<PARQUET_FILE_PATH>)
 
-df = pd.read_parquet(BytesIO(obj.data))
-
-pq_obj = df.to_parquet()
-client.put_object(<BUCKET>, <PARQUET_FILE_PATH>, data=BytesIO(pq_obj), length=len(pq_obj))
-```
 
 
 
