@@ -1701,6 +1701,75 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Python API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-log-into-minio" class="md-nav__link">
+    <span class="md-ellipsis">
+      1) Log into Minio.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-service-account-with-a-simple-access-key-and-the-recommended-secret-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      2) Create a "Service Account" with a simple access key and the recommended secret key.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-store-your-credentials-in-an-env-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      3) Store your credentials in an env file.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-change-permissions-to-the-dotenv-file-so-only-you-can-read-and-write-to-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      4) Change permissions to the dotenv file so only you can read and write to it.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-install-the-msk_cdm-python-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      5) Install the msk_cdm python package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-get-the-full-ssl-certifcate-chain-for-the-minio-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      6) Get the full SSL certifcate chain for the Minio instance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      7) Demo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1959,6 +2028,75 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Python API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-log-into-minio" class="md-nav__link">
+    <span class="md-ellipsis">
+      1) Log into Minio.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-service-account-with-a-simple-access-key-and-the-recommended-secret-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      2) Create a "Service Account" with a simple access key and the recommended secret key.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-store-your-credentials-in-an-env-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      3) Store your credentials in an env file.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-change-permissions-to-the-dotenv-file-so-only-you-can-read-and-write-to-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      4) Change permissions to the dotenv file so only you can read and write to it.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-install-the-msk_cdm-python-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      5) Install the msk_cdm python package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-get-the-full-ssl-certifcate-chain-for-the-minio-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      6) Get the full SSL certifcate chain for the Minio instance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      7) Demo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2001,14 +2139,12 @@
 <p>Minio is an object store very similar to AWS S3. It allows your data to be remotely accessible via the S3 protocol.</p>
 <h2 id="python-api">Python API<a class="headerlink" href="#python-api" title="Permanent link">&para;</a></h2>
 <p>Steps to access data using Python Minio client API</p>
-<ol>
-<li>Log into Minio. If you get an error "Expecting a policy to be set for user <code>X</code> or one of their groups", contact Pasha, Arfath or Kohli, Armaan with the 'X' String and the names of the buckets you need access to so we can give you access to these buckets. </li>
-<li>Create a "Service Account" with a simple access key and the recommended secret key. Copy the secret key to clipboard on creation.</li>
-</ol>
+<h3 id="1-log-into-minio">1) Log into Minio.<a class="headerlink" href="#1-log-into-minio" title="Permanent link">&para;</a></h3>
+<p>If you get an error "Expecting a policy to be set for user <code>X</code> or one of their groups", contact Pasha, Arfath or Kohli, Armaan with the 'X' String and the names of the buckets you need access to so we can give you access to these buckets.</p>
+<h3 id="2-create-a-service-account-with-a-simple-access-key-and-the-recommended-secret-key">2) Create a "Service Account" with a simple access key and the recommended secret key.<a class="headerlink" href="#2-create-a-service-account-with-a-simple-access-key-and-the-recommended-secret-key" title="Permanent link">&para;</a></h3>
+<p>Copy the secret key to clipboard on creation.</p>
 <p><img alt="" src="../images/minio-account.png" /></p>
-<ol>
-<li>Store your access key and secret key in a python-dotenv file.</li>
-</ol>
+<h3 id="3-store-your-credentials-in-an-env-file">3) Store your credentials in an env file.<a class="headerlink" href="#3-store-your-credentials-in-an-env-file" title="Permanent link">&para;</a></h3>
 <h4 id="create-env">Create .env<a class="headerlink" href="#create-env" title="Permanent link">&para;</a></h4>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2021,33 +2157,35 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code># create and populate .env file
-$ echo &quot;SECRET_KEY=YOUR_SECRET_KEY&quot; &gt;&gt; .env
-$ echo &quot;ACCESS_KEY=YOUR_ACCESS_KEY&quot; &gt;&gt; .env
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code># create and populate `env.txt` file
+ACCESS_KEY=&lt;ACCESS_KEY&gt;
+SECRET_KEY=&lt;SECRET_KEY&gt;
+CA_CERTS=&lt;PATH_TO&gt;/certificate.crt
+URL_PORT=pllimsksparky3:9000
+BUCKET=cdm-data
 
-
-# verify .env file
-$ cat .env
-SECRET_KEY=YOUR_SECRET_KEY
-ACCESS_KEY=YOUR_ACCESS_KEY
 
 $ ls -la
 drwxr-xr-x    4 xxx  xxx   128 Jun  1 11:20 .
 drwxr-xr-x  121 xxx  xxx  3872 May 26 13:50 ..
--rw-r--r--    1 xxx  xxx    42 Jun  1 11:20 .env
+-rw-r--r--    1 xxx  xxx    42 Jun  1 11:20 env.txt
 </code></pre></div></td></tr></table></div>
-<ol>
-<li>Change permissions to the dotenv file so only you can read and write to it. </li>
-</ol>
+<h3 id="4-change-permissions-to-the-dotenv-file-so-only-you-can-read-and-write-to-it">4) Change permissions to the dotenv file so only you can read and write to it.<a class="headerlink" href="#4-change-permissions-to-the-dotenv-file-so-only-you-can-read-and-write-to-it" title="Permanent link">&para;</a></h3>
 <h4 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Permanent link">&para;</a></h4>
-<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$ chmod 600 .env
-$ ls -la-rw------- 1 xxx xxx 42 Jun 1 11:20 .env
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$ chmod 600 env.txt
+$ ls -la-rw------- 1 xxx xxx 42 Jun 1 11:20 env.txt
 </code></pre></div></td></tr></table></div>
-5. <code>pip install python-dotenv minio</code>
-6. Get the full SSL certifcate chain for the Minio instance</p>
+<h3 id="5-install-the-msk_cdm-python-package">5) Install the <code>msk_cdm</code> python package<a class="headerlink" href="#5-install-the-msk_cdm-python-package" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>$ conda activate &lt;YOUR_CONDA_ENV&gt;
+$ git clone https://github.com/clinical-data-mining/msk_cdm.git
+$ cd msk_cdm
+$ pip install .
+</code></pre></div></td></tr></table></div>
+<h3 id="6-get-the-full-ssl-certifcate-chain-for-the-minio-instance">6) Get the full SSL certifcate chain for the Minio instance<a class="headerlink" href="#6-get-the-full-ssl-certifcate-chain-for-the-minio-instance" title="Permanent link">&para;</a></h3>
 <h4 id="ssl-cert">SSL Cert<a class="headerlink" href="#ssl-cert" title="Permanent link">&para;</a></h4>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2073,9 +2211,8 @@ openssl s_client -showcerts -verify 5 -connect tllihpcmind6:9000 &gt; certificat
 </tr>
 </tbody>
 </table>
-<ol>
-<li><a href="https://github.com/clinical-data-mining/msk_cdm/blob/main/examples/minio_demo.ipynb">Try our Jupyter notebook demonstrating how download and upload data to MinIO</a></li>
-</ol>
+<h3 id="7-demo">7) Demo<a class="headerlink" href="#7-demo" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/clinical-data-mining/msk_cdm/blob/main/examples/minio_demo.ipynb">Try our Jupyter notebook demonstrating how download and upload data to MinIO</a></p>
 <h2 id="access-via-r">Access via R<a class="headerlink" href="#access-via-r" title="Permanent link">&para;</a></h2>
 <p>Data stored in minio can be accessed in R in the following fashion:
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
