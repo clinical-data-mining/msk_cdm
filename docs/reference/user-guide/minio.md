@@ -6,38 +6,47 @@ Minio is an object store very similar to AWS S3. It allows your data to be remot
 
 Steps to access data using Python Minio client API
 
-1. Log into Minio. If you get an error "Expecting a policy to be set for user `X` or one of their groups", contact Pasha, Arfath or Kohli, Armaan with the 'X' String and the names of the buckets you need access to so we can give you access to these buckets. 
-2. Create a "Service Account" with a simple access key and the recommended secret key. Copy the secret key to clipboard on creation.
+### 1) Log into Minio. 
+If you get an error "Expecting a policy to be set for user `X` or one of their groups", contact Pasha, Arfath or Kohli, Armaan with the 'X' String and the names of the buckets you need access to so we can give you access to these buckets.
+
+### 2) Create a "Service Account" with a simple access key and the recommended secret key. 
+
+Copy the secret key to clipboard on creation.
 
 ![](images/minio-account.png)
 
-3. Store your access key and secret key in a python-dotenv file.
+### 3) Store your credentials in an env file.
 #### Create .env
 ```
-# create and populate .env file
-$ echo "SECRET_KEY=YOUR_SECRET_KEY" >> .env
-$ echo "ACCESS_KEY=YOUR_ACCESS_KEY" >> .env
+# create and populate `env.txt` file
+ACCESS_KEY=<ACCESS_KEY>
+SECRET_KEY=<SECRET_KEY>
+CA_CERTS=<PATH_TO>/certificate.crt
+URL_PORT=pllimsksparky3:9000
+BUCKET=cdm-data
 
-
-# verify .env file
-$ cat .env
-SECRET_KEY=YOUR_SECRET_KEY
-ACCESS_KEY=YOUR_ACCESS_KEY
 
 $ ls -la
 drwxr-xr-x    4 xxx  xxx   128 Jun  1 11:20 .
 drwxr-xr-x  121 xxx  xxx  3872 May 26 13:50 ..
--rw-r--r--    1 xxx  xxx    42 Jun  1 11:20 .env
+-rw-r--r--    1 xxx  xxx    42 Jun  1 11:20 env.txt
 ```
 
-4. Change permissions to the dotenv file so only you can read and write to it. 
+### 4) Change permissions to the dotenv file so only you can read and write to it.
 #### Permissions
 ```
 $ chmod 600 .env
-$ ls -la-rw------- 1 xxx xxx 42 Jun 1 11:20 .env
+$ ls -la-rw------- 1 xxx xxx 42 Jun 1 11:20 env.txt
 ```
-5. `pip install python-dotenv minio`
-6. Get the full SSL certifcate chain for the Minio instance
+### 5) Install the `msk_cdm` python package 
+```
+$ conda activate <YOUR_CONDA_ENV>
+$ git clone https://github.com/clinical-data-mining/msk_cdm.git
+$ cd msk_cdm
+$ pip install .
+```
+
+### 6) Get the full SSL certifcate chain for the Minio instance
 #### SSL Cert
 ```
 openssl s_client -showcerts -verify 5 -connect HOST:PORT > certificate.crt
@@ -51,12 +60,8 @@ openssl s_client -showcerts -verify 5 -connect tllihpcmind6:9000 > certificate.c
 | https://pllimsksparky3:9001/       | pllimsksparky3 | 9000 |
 
 
-
-
-7. [Try our Jupyter notebook demonstrating how download and upload data to MinIO](https://github.com/clinical-data-mining/msk_cdm/blob/main/examples/minio_demo.ipynb)
-
-
-
+### 7) Demo
+[Try our Jupyter notebook demonstrating how download and upload data to MinIO](https://github.com/clinical-data-mining/msk_cdm/blob/main/examples/minio_demo.ipynb)** 
 
 
 
