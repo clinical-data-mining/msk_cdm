@@ -32,6 +32,7 @@ class CDMProcessingVariables:
     fname_cbio_sample_summary_clean: str = "cbioportal/mskimpact_ids_summary.tsv"
 
     fname_anchor_dates_reid: str = "cbioportal/timeline_anchor_dates.tsv"
+    fname_overall_survival: str = 'demographics/overall_survival_cbioportal.tsv'
 
     ##############################################################################
     # Queried data from IDB
