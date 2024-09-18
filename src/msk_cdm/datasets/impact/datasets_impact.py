@@ -39,7 +39,12 @@ def load_data_clinical_patient() -> Bunch:
     ```
     """
     df = _loader._load_impact_data_clinical_patient()
-    output = Bunch(data=df)
+    output = Bunch(
+        data=df,
+        description_columns="https://github.mskcc.org/pages/cdsi/docs/cdsi-data/data-dictionary/cdm_md_project_patient_summary_data/",
+        description_dataset='Patient-level Clinical Attributes',
+        filename='cbioportal/data_clinical_patient.txt'
+    )
     return output
 
 def load_data_clinical_sample() -> Bunch:
