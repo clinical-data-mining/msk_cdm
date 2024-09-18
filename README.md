@@ -25,6 +25,8 @@ pip install .
 ```
 
 ### Building a Conda environment from a environment.yml file
+First, [install miniconda](https://docs.anaconda.com/miniconda/miniconda-install/) if you haven't done so already.  
+
 A virtual environment can be defined and created through an environment.yml file. For example, the Conda environment conda-env-cdm can be created with this snippet included in environment.yml
 
 ```
@@ -44,6 +46,11 @@ dependencies:
    - pip
    - pip: 
        - git+https://github.com/clinical-data-mining/msk_cdm.git
+```
+
+Then, run
+```
+conda env create -f environment.yml
 ```
 
 
