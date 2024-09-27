@@ -71,21 +71,15 @@ is to the core functionality (i.e. modifies the core code in this repo possibly 
 by other projects/peple) please request a code review.
 
 
-## How to run the documentation page
-This repo uses mkdocs. One can install all dependencies using pip:
-
-```
-pip install -r requirements.txt
-```
-
-Then to run locally:
+## Deploying the Documentation Page
+### How to run the documentation page locally
+Run:
 ```
 mkdocs serve --dev-addr <Default 127.0.0.1:8000>
 ```
 
-## How to deploy the documentation
+### How to deploy the documentation
 Run:
-
 ```
 mkdocs gh-deploy
 ```
