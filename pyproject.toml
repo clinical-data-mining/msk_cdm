@@ -31,7 +31,8 @@ dependencies = [
     "mkdocstrings>=0.21.2",
 	"mkdocs>=1.6.0",
 	"mkdocs-material>=9.1.7",
-    "sqlalchemy>=2.0.32"
+    "sqlalchemy>=2.0.32",
+#    "ibm_db==3.2.3"  ## Removing db2 features. ibm_db does not install on Mac Silicon processing machines.
 ]
 
 [project.optional-dependencies]
