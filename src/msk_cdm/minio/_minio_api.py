@@ -68,7 +68,7 @@ class MinioAPI(object):
             urllib3.response.HTTPResponse
 
         """
-        if self._bucket is not None:
+        if (self._bucket is not None) & (bucket_name is None):
             bucket_name = self._bucket
 
         obj = self._client.get_object(bucket_name, path_object)
@@ -108,7 +108,7 @@ class MinioAPI(object):
 
         """
 
-        if self._bucket is not None:
+        if (self._bucket is not None) & (bucket_name is None):
             bucket_name = self._bucket
 
         csv_bytes = df.to_csv(index=False, sep=sep).encode("utf-8")
