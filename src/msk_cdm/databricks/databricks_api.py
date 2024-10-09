@@ -16,6 +16,8 @@ import certifi
 from databricks.sdk.core import Config, oauth_service_principal 
 
 cwd = pathlib.Path(__file__).parent.resolve()
+TIMEOUT_TIME = 1800             # 30 min timeout in seconds
+CHUNK_SIZE = 50 * 1024 * 1024   # 50MB upload chunks
 
 
 logging.getLogger("databricks.sql").setLevel(logging.DEBUG)
@@ -121,7 +123,8 @@ class DatabricksAPI(object):
         workspace_client = WorkspaceClient(
             host=hostname,
             client_id=client_id,
-            client_secret=client_secret
+            client_secret=client_secret,
+            retry_timeout_seconds=TIMEOUT_TIME
         )
 
         print('Connected.')
@@ -158,7 +161,8 @@ class DatabricksAPI(object):
 
         workspace_client = WorkspaceClient(
             host=hostname,
-            token=token
+            token=token,
+            retry_timeout_seconds=TIMEOUT_TIME
         )
 
         print('Connected.')
@@ -354,7 +358,8 @@ class DatabricksAPI(object):
         self._workspace_client.files.upload(
             volume_path,
             csv_buffer,
-            overwrite=overwrite
+            overwrite=overwrite,
+            chunk_size=CHUNK_SIZE
         )
         print('Write to volume complete')
 
