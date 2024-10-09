@@ -163,7 +163,7 @@ class MinioAPI(object):
             obj_list: List of strings containing path locations in minio bucket.
 
         """
-        if self._bucket is not None:
+        if (self._bucket is not None) & (bucket_name is None):
             bucket_name = self._bucket
 
         objs = self._client.list_objects(
@@ -213,8 +213,10 @@ class MinioAPI(object):
         Returns:
             output: Object name and version ID of object
         """
-        if self._bucket is not None:
+        if (self._bucket is not None) & (source_bucket is None):
             source_bucket = self._bucket
+
+        if (self._bucket is not None) & (dest_bucket is None):
             dest_bucket = self._bucket
 
         result = self._client.copy_object(
