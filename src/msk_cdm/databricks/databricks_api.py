@@ -123,8 +123,7 @@ class DatabricksAPI(object):
         workspace_client = WorkspaceClient(
             host=hostname,
             client_id=client_id,
-            client_secret=client_secret,
-            retry_timeout_seconds=TIMEOUT_TIME
+            client_secret=client_secret
         )
 
         print('Connected.')
@@ -161,8 +160,7 @@ class DatabricksAPI(object):
 
         workspace_client = WorkspaceClient(
             host=hostname,
-            token=token,
-            retry_timeout_seconds=TIMEOUT_TIME
+            token=token
         )
 
         print('Connected.')
