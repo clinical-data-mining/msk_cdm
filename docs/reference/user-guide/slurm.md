@@ -55,21 +55,22 @@ Below is a simple example of a SLURM job script.
 
 ```bash
 #!/bin/bash
-#SBATCH --job-name=my_analysis       # Job name
-#SBATCH --output=my_analysis_%j.out  # Output file (%j is replaced by job ID)
-#SBATCH --error=my_analysis_%j.err   # Error file
-#SBATCH --ntasks=1                   # Run a single task (1 CPU core)
-#SBATCH --mem=8G                     # Memory request
-#SBATCH --time=02:00:00              # Time limit (2 hours)
-#SBATCH --partition=short            # Partition to submit the job to
+#SBATCH --job-name=train_RoBERTa_infer  # Job name
+#SBATCH --output=/gpfs/mindphidata/cdm_repos/github/progression-predict/slurm/logs/log.infer.%j.out  # Output file
+#SBATCH --error=/gpfs/mindphidata/cdm_repos/github/progression-predict/slurm/logs/log.infer.%j.err   # Error file
+#SBATCH --ntasks=1                      # Run on a single CPU
+#SBATCH --mem=10G                       # Memory request
+#SBATCH --gpus=1                        # Number of GPUs
 
-# Your executable or command goes here
-srun python my_script.py --input data/input_file.csv --output results/output_file.csv
+# Run the executable with the provided arguments (you may need to adapt this if different arguments are required)
+srun ./run_infer_mlflow.sh $SLURM_ARRAY_TASK_ID
 ```
 
 In this script:
 - The `#SBATCH` directives configure the job's resources.
 - The `srun` command launches the program, which in this case runs a Python script.
+
+
 
 ---
 
