@@ -1,4 +1,4 @@
-# SLURM Job Scheduling: A Guide
+# Slurm GPU Job Scheduler
 
 ## Introduction
 
