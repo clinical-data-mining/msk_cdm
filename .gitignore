@@ -8,6 +8,7 @@ docs/source/msk_cdm*.rst
 build
 dist
 *.egg-info
+site/*
 
 # python runtime
 __pycache__/
