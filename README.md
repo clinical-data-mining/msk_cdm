@@ -78,7 +78,7 @@ Run:
 mkdocs serve --dev-addr <Default 127.0.0.1:8000>
 ```
 
-### How to deploy the documentation
+### How to deploy the documentation 
 Run:
 ```
 mkdocs gh-deploy

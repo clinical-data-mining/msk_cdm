@@ -8,6 +8,8 @@ docs/source/msk_cdm*.rst
 build
 dist
 *.egg-info
+site/*
+configs/*
 
 # python runtime
 __pycache__/
@@ -22,8 +24,8 @@ __pycache__/
 .DS_Store
 .DS_store
 /credentials.json
-/databricks_env_test.txt
+/configs/databricks_env_test.txt
 /databricks_env.txt
-/certificate_sparky.crt
-/minio_env.txt
+/configs/certificate_sparky.crt
+/configs/minio_env.txt
 /sandbox/

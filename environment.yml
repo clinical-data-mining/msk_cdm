@@ -1,0 +1,16 @@
+name: <your-conda-env-example>
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+   - python == 3.10
+   - pandas
+   - pyyaml
+   - minio
+   - requests
+   - ipykernel
+   - conda-build
+   - pip
+   - pip: 
+       - git+https://github.com/clinical-data-mining/msk_cdm.git
