@@ -23,6 +23,7 @@ class MinioAPI(object):
         *,
         ACCESS_KEY: Optional[str] = None,
         SECRET_KEY: Optional[str] = None,
+        ca_certs: Optional[str] = None,
         url_port: Optional[str] = "pllimsksparky3:9000", 
         fname_minio_env: Optional[Union[Path, str]] = None,
         bucket: Optional[str] = None,
@@ -38,10 +39,12 @@ class MinioAPI(object):
         """
         self._ACCESS_KEY = ACCESS_KEY
         self._SECRET_KEY = SECRET_KEY
+        self._ca_certs = ca_certs
         self._url_port = url_port
 
         self._bucket = bucket
         self._client = None
+        self._httpClient = None
 
         if fname_minio_env is not None:
             self._process_env(fname_minio_env)
@@ -242,6 +245,8 @@ class MinioAPI(object):
             self._ACCESS_KEY = dict_config.get("ACCESS_KEY", None)
         if not self._SECRET_KEY:
             self._SECRET_KEY = dict_config.get("SECRET_KEY", None)
+        if not self._ca_certs:
+            self._ca_certs = dict_config.get("CA_CERTS", None)
         if not self._url_port:
             self._url_port = dict_config.get("URL_PORT", None)
         if not self._bucket:
@@ -251,6 +256,10 @@ class MinioAPI(object):
 
     def _connect(self):
         # required for self-signed certs
+        httpClient = urllib3.PoolManager(
+            cert_reqs="CERT_REQUIRED",
+            ca_certs=self._ca_certs
+        )
 
         # Create secure client with access key and secret key
         client = Minio(
@@ -258,9 +267,11 @@ class MinioAPI(object):
             access_key=self._ACCESS_KEY,
             secret_key=self._SECRET_KEY,
             secure=True,
+            http_client=httpClient,
         )
 
         self._client = client
+        self._httpClient = httpClient
 
         return None
 
