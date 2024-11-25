@@ -70,7 +70,7 @@ nav:
         - 'JupyterHub Setup': 'reference/user-guide/jupyterhub.md'
         - 'Minio': 'reference/user-guide/minio.md'
         - 'Slurm GPU Job Scheduler': 'reference/user-guide/slurm.md'
-        - 'HTCondor (Deprecated)': 'reference/user-guide/htcondor.md'
+        - 'HTCondor': 'reference/user-guide/htcondor.md'
         - 'Data Querying Through Dremio': 'reference/user-guide/data-query-quick-start.md'
         - 'Airflow': 'reference/user-guide/airflow.md'
         - 'Conda Cheatsheet': 'reference/user-guide/conda-cheatsheet.md'
