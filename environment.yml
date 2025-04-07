@@ -1,13 +1,13 @@
-name: <your-conda-env-example>
+name: conda-env-cdm-fongc2
 channels:
-  - pytorch
-  - nvidia
   - conda-forge
 dependencies:
-   - python == 3.10
+   - python == 3.12
    - pandas==2.1.4
    - pyyaml==6.0
    - minio==7.2.7
+   - mlflow==2.15.1
+   - mlflow-skinny==2.15.1
    - requests==2.32.3
    - ipykernel==6.12.0
    - conda-build==3.21.6
@@ -18,11 +18,9 @@ dependencies:
    - seaborn==0.11.2
    - plotly==5.9.0
    - scikit-learn==1.5.1
-   - tensorflow==2.11.0
    - pytorch==1.13.1
    - transformers==4.48.1
    - huggingface-hub==0.24.6
-   - tensorboard==2.16.2
    - datasets==2.7.1
    - accelerate==0.16.0
    - boto3==1.35.5
@@ -30,13 +28,8 @@ dependencies:
    - delta-spark==2.0.0
    - databricks-sdk==0.28.0
    - databricks-sql-connector==3.1.2
-   - fsspec==2023.3.0
-   - gcsfs==2023.2.0
    - flask==2.2.2
    - fastapi==0.90.1
-   - graphene==3.1.1
-   - graphql-core==3.2.0
-   - graphql-relay==3.0.0
    - httpx==0.24.0
    - gunicorn==20.1.0
    - sqlalchemy==2.0.32
@@ -48,31 +41,25 @@ dependencies:
    - beautifulsoup4==4.11.1
    - nltk==3.7
    - spacy==3.7.4
-   - autograd==1.3
-   - autograd-gamma==1.0
    - pytest==7.2.2
    - tox==3.26.0
    - black==22.6.0
-   - mypy==0.961
    - dataclasses==0.8
-   - pylint==2.15.0
-   - pre-commit==2.20.0
-   - gitpython==3.1.31
    - pip:
        - git+https://github.com/clinical-data-mining/msk_cdm.git
-       - cdm-adverse-events==0.1.0
-       - cdm-cbioportal-etl==0.1.0
-       - cdm-comorbidities-disparities==0.1.0
-       - cdm-diagnosis==0.1.0
-       - cdm-metbert==0.1.0
-       - cdm-performance-status==0.1.0
-       - cdm-treatments==0.1.0
+       - git+https://github.com/clinical-data-mining/cdm-cbioportal-etl.git
+       - git+https://github.com/clinical-data-mining/cdm-comorbidities-disparities.git
+       - git+https://github.com/clinical-data-mining/cdm-diagnosis.git
+       - git+https://github.com/clinical-data-mining/cdm-metbert.git
+       - git+https://github.com/clinical-data-mining/cdm-performance-status.git
+       - git+https://github.com/clinical-data-mining/cdm-treatments.git
+       - git+https://github.com/clinical-data-mining/radiology-report-segmentation.git
+       - git+https://github.com/clinical-data-mining/pathology-report-segmentation.git
        - certifi==2024.2.2
        - databricks-connect==14.3.2
        - mkdocs==1.6.0
        - mkdocs-material==9.5.33
        - mkdocs-material-extensions==1.3.1
        - mkdocstrings==0.25.2
-       - msk-cdm==0.1.4
        - pyarrow==14.0.2
        - pydantic==2.7.2
