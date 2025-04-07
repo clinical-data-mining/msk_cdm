@@ -1,0 +1,16 @@
+name: <your-conda-env-example>
+channels:
+  - conda-forge
+dependencies:
+   - python == 3.12
+   - pip==24.0
+   - pip:
+       - git+https://github.com/clinical-data-mining/msk_cdm.git
+       - git+https://github.com/clinical-data-mining/cdm-cbioportal-etl.git
+       - git+https://github.com/clinical-data-mining/cdm-comorbidities-disparities.git
+       - git+https://github.com/clinical-data-mining/cdm-diagnosis.git
+       - git+https://github.com/clinical-data-mining/cdm-metbert.git
+       - git+https://github.com/clinical-data-mining/cdm-performance-status.git
+       - git+https://github.com/clinical-data-mining/cdm-treatments.git
+       - git+https://github.com/clinical-data-mining/radiology-report-segmentation.git
+       - git+https://github.com/clinical-data-mining/pathology-report-segmentation.git
