@@ -19,6 +19,7 @@ classifiers = [
 dependencies = [
     "minio>=7.2.7, <8",
     "pydantic>=2.3, <3",
+    "conda-build==3.21.6",
 	"boto3==1.35.5",
     "python-dotenv>=1.0, <2",
     "pyarrow>=14.0.2",
@@ -44,6 +45,7 @@ dependencies = [
     "plotly==5.9.0",
     "poetry==1.6.0",
     "seaborn==0.13.2",
+    "mlflow==2.15.1",
     "spacy==3.7.4",
     "pytorch==1.13.1",
     "transformers==4.44.1"
