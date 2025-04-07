@@ -1,4 +1,4 @@
-name: <your-conda-env-example>
+name: conda_env_cdm_test
 channels:
   - conda-forge
 dependencies:
