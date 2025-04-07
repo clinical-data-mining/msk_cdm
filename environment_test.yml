@@ -12,5 +12,5 @@ dependencies:
        - git+https://github.com/clinical-data-mining/cdm_metbert.git
        - git+https://github.com/clinical-data-mining/cdm-performance-status.git
        - git+https://github.com/clinical-data-mining/cdm-treatments.git
-       - git+https://github.com/clinical-data-mining/radiology-report-segmentation.git
-       - git+https://github.com/clinical-data-mining/pathology-report-segmentation.git
+       - git+https://github.com/clinical-data-mining/radiology_report_segmentation.git
+       - git+https://github.com/clinical-data-mining/pathology_report_segmentation.git
