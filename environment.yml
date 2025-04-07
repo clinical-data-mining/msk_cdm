@@ -1,4 +1,4 @@
-name: <your-conda-env-example>
+name: conda-env-cdm-fongc2
 channels:
   - conda-forge
 dependencies:
