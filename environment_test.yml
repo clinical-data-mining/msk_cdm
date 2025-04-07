@@ -9,7 +9,7 @@ dependencies:
        - git+https://github.com/clinical-data-mining/cdm-cbioportal-etl.git
        - git+https://github.com/clinical-data-mining/cdm-comorbidities-disparities.git
        - git+https://github.com/clinical-data-mining/diagnosis_event_abstraction_icd.git
-       - git+https://github.com/clinical-data-mining/cdm-metbert.git
+       - git+https://github.com/clinical-data-mining/cdm_metbert.git
        - git+https://github.com/clinical-data-mining/cdm-performance-status.git
        - git+https://github.com/clinical-data-mining/cdm-treatments.git
        - git+https://github.com/clinical-data-mining/radiology-report-segmentation.git
