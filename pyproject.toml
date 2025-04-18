@@ -47,7 +47,7 @@ dependencies = [
     "seaborn==0.13.2",
     "mlflow==2.15.1",
     "spacy==3.7.4",
-    "pytorch==1.13.1",
+    "pytorch",
     "transformers==4.44.1"
 ]
 
