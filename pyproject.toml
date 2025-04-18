@@ -23,7 +23,6 @@ classifiers = [
 dependencies = [
     "minio>=7.2.7, <8",
     "pydantic>=2.3, <3",
-    "conda-build==3.21.6",
 	"boto3==1.35.5",
     "python-dotenv>=1.0, <2",
     "pyarrow>=14.0.2",
