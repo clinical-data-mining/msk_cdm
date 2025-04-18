@@ -36,7 +36,6 @@ dependencies = [
 	"mkdocs>=1.6.0",
 	"mkdocs-material>=9.1.7",
     "sqlalchemy>=2.0.32",
-    "sqlite==3.45.3",
     "accelerate==0.27.2",
     "black==24.8.0",
     "cudatoolkit==11.1.74",
