@@ -61,14 +61,10 @@ class CDMProcessingVariables:
     fname_dx_clean: str = "epic_ddp_concat/diagnosis/table_diagnosis_clean.tsv"
 
     ### Patient level summary table
-    fname_dx_summary: str = (
-        "epic_ddp_concat/diagnosis/table_dx_impact_summary.tsv"  # Table of impact sample processed
-    )
+    fname_dx_summary: str = "epic_ddp_concat/diagnosis/table_dx_impact_summary.tsv"  # Table of impact sample processed
     fname_met_site_summary: str = "epic_ddp_concat/diagnosis/table_met_site_summary.tsv"
     fname_dx_timeline_prim: str = "epic_ddp_concat/diagnosis/table_dx_timeline_primary.tsv"
-    fname_path_summary: str = (
-        "epic_ddp_concat/pathology/table_pathology_impact_sample_summary_dop_anno.tsv"
-    )
+    fname_path_summary: str = "epic_ddp_concat/pathology/table_pathology_impact_sample_summary_dop_anno.tsv"
 
     fname_timeline_fu: str = "epic_ddp_concat/demographics/table_timeline_follow_up.tsv"
 
@@ -78,16 +74,12 @@ class CDMProcessingVariables:
     # Pathology Segmentation tasks
     ### IDB table
     fname_pathology: str = "epic_ddp_concat/pathology/ddp_pathology_reports.tsv"
-    fname_pathology_update: str = (
-        "epic_ddp_concat/pathology/intermediate_files/ddp_pathology_reports_update.tsv"
-    )
-    fname_pathology_bkup: str = (
-        "epic_ddp_concat/pathology/intermediate_files/ddp_pathology_reports_bkup.tsv"
-    )
+    fname_pathology_update: str = "epic_ddp_concat/pathology/intermediate_files/ddp_pathology_reports_update.tsv"
+    fname_pathology_bkup: str = "epic_ddp_concat/pathology/intermediate_files/ddp_pathology_reports_bkup.tsv"
 
     ### Clean path table
     fname_path_clean: str = "epic_ddp_concat/pathology/table_pathology_clean.tsv"
-    fname_id_map: str = "epic_ddp_concat/id-mapping/ddp_id_mapping_pathology.tsv"
+    fname_id_map: str = "epic_ddp_concat/id-mapping/epic_ddp_id_mapping_pathology.tsv"
 
     ## Parsed Pathology data
     ### Main Pathology sections
