@@ -1,19 +1,17 @@
 import pandas as pd
 import importlib.resources
+from msk_cdm.data_classes.epic_ddp_concat import CDMProcessingVariables
 
-def _load_csv(filename: str) -> pd.DataFrame:
-    # Load CSV using importlib.resources to make it work with installed packages
+_vars = CDMProcessingVariables()
+
+
+def load_codebook(name: str) -> pd.DataFrame:
+    """
+    Load a codebook CSV by short name.
+    """
+    if name not in _vars.codebook_file_map:
+        raise ValueError(f"Unknown codebook name: '{name}'. Must be one of {list(_vars.codebook_file_map)}")
+
+    filename = _vars.codebook_file_map[name]
     with importlib.resources.files("msk_cdm.data.codebook").joinpath(filename).open("r", encoding="utf-8") as f:
         return pd.read_csv(f)
-
-def load_metadata_tab() -> pd.DataFrame:
-    return _load_csv("CDM-Codebook - metadata.csv")
-
-def load_tables_tab() -> pd.DataFrame:
-    return _load_csv("CDM-Codebook - tables.csv")
-
-def load_project_tab() -> pd.DataFrame:
-    return _load_csv("CDM-Codebook - project.csv")
-
-def load_nlp_performance_tab() -> pd.DataFrame:
-    return _load_csv("CDM-Codebook - project.csv")

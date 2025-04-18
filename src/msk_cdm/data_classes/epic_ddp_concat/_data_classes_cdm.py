@@ -4,7 +4,7 @@ data_classes_cdm.py
 """
 
 import os
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
 @dataclass
@@ -13,6 +13,16 @@ class CDMProcessingVariables:
     # Utilities
     ##############################################################################
     minio_env: str = "/gpfs/mindphidata/fongc2/minio_env.txt"
+
+    ##############################################################################
+    # Codebook CSV file map
+    ##############################################################################
+    codebook_file_map: dict = field(default_factory=lambda: {
+        "metadata": "CDM-Codebook - metadata.csv",
+        "tables": "CDM-Codebook - tables.csv",
+        "project": "CDM-Codebook - project.csv",
+        "nlp_performance": "CDM Model Performance - Summary Results (CDSI).csv",
+    })
 
     ##############################################################################
     # Column names of interest
