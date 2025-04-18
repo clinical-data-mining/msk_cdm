@@ -3,7 +3,7 @@ import importlib.resources
 
 def _load_csv(filename: str) -> pd.DataFrame:
     # Load CSV using importlib.resources to make it work with installed packages
-    with importlib.resources.files("msk_cdm.docs.codebook").joinpath(filename).open("r", encoding="utf-8") as f:
+    with importlib.resources.files("msk_cdm.data.codebook").joinpath(filename).open("r", encoding="utf-8") as f:
         return pd.read_csv(f)
 
 def load_metadata_tab() -> pd.DataFrame:
