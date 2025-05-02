@@ -44,15 +44,15 @@ class CDMProcessingVariables:
     # Queried data from IDB
     ##############################################################################
     fname_demo: str = "epic_ddp_concat/demographics/t01_epic_ddp_demographics.tsv"
-    fname_surg: str = "epic_ddp_concat/surgery/ddp_surgery.tsv"
-    fname_dx: str = "epic_ddp_concat/diagnosis/ddp_dx.tsv"
-    fname_meds: str = "epic_ddp_concat/medications/ddp_chemo.tsv"
-    fname_rt: str = "epic_ddp_concat/radonc/ddp_radonc.tsv"
-    fname_ir: str = "epic_ddp_concat/interventional-radiology/ddp_ir.tsv"
-    fname_clindoc_fu_initial: str = "epic_ddp_concat/clindoc/ddp_clindoc_initial_and_fu_notes.tsv"
-    fname_comorbidities: str = "epic_ddp_concat/comorbidities/ddp_comorbidities.tsv"
-    fname_insurance: str = "epic_ddp_concat/insurance/ddp_insurance.tsv"
-    col_mrn_sql_clindoc: str = "CDD_MRN"
+    # fname_surg: str = "epic_ddp_concat/surgery/ddp_surgery.tsv"
+    # fname_dx: str = "epic_ddp_concat/diagnosis/ddp_dx.tsv"
+    # fname_meds: str = "epic_ddp_concat/medications/ddp_chemo.tsv"
+    # fname_rt: str = "epic_ddp_concat/radonc/ddp_radonc.tsv"
+    # fname_ir: str = "epic_ddp_concat/interventional-radiology/ddp_ir.tsv"
+    # fname_clindoc_fu_initial: str = "epic_ddp_concat/clindoc/ddp_clindoc_initial_and_fu_notes.tsv"
+    fname_comorbidities: str = "epic_ddp_concat/comorbidities/t09_epic_ddp_comorbidities.tsv"
+    # fname_insurance: str = "epic_ddp_concat/insurance/ddp_insurance.tsv"
+    # col_mrn_sql_clindoc: str = "CDD_MRN"
 
     ##############################################################################
     # DIAGNOSIS TABLE derived files
@@ -227,23 +227,23 @@ class CDMProcessingVariables:
     ##############################################################################
     # PRIOR MEDICATIONS PREDICTIONS
     ##############################################################################
-    fname_prior_meds_predictions_prefix: str = "medications/prior_tx_inferences/prior_tx_inferences_impact"
-    fname_prior_meds_predictions_comb: str = "medications/prior_tx_inferences/prior_tx_inferences_impact_combined.tsv"
-    fname_prior_meds_predictions_comb_bkup: str = "medications/prior_tx_inferences/prior_tx_inferences_impact_combined.tsv.bkup"
-    fname_prior_meds_predictions_timeline: str = "medications/prior_tx_inferences/prior_tx_inferences_impact_cbio_timeline.tsv"
+    fname_prior_meds_predictions_prefix: str = "epic_ddp_concat/medications/prior_tx_inferences/prior_tx_inferences_impact"
+    fname_prior_meds_predictions_comb: str = "epic_ddp_concat/medications/prior_tx_inferences/prior_tx_inferences_impact_combined.tsv"
+    fname_prior_meds_predictions_comb_bkup: str = "epic_ddp_concat/medications/prior_tx_inferences/prior_tx_inferences_impact_combined.tsv.bkup"
+    fname_prior_meds_predictions_timeline: str = "epic_ddp_concat/medications/prior_tx_inferences/prior_tx_inferences_impact_cbio_timeline.tsv"
 
     ##############################################################################
     # SDoH derived files
     ##############################################################################
-    fname_comorbidities_index: str = "epic_ddp_concat/comorbidities/ddp_comorbidities_index_summary.tsv"
-    fname_clindoc_smoking: str = "epic_ddp_concat/comorbidities/ddp_smoking_history.tsv"
-    fname_smoking_status: str = "epic_ddp_concat/comorbidities/smoking_status_predictions.tsv"
-
-    fname_insurance_clean: str = "epic_ddp_concat/insurance/ddp_insurance_clean.tsv"
-    fname_insurance_summary: str = "epic_ddp_concat/insurance/ddp_insurance_summary.tsv"
-    fname_yost: str = "epic_ddp_concat/comorbidities/yost_index_results.tsv"
-
-    fname_ecog_predictions: str = "epic_ddp_concat/clindoc/ecog/impact/ecog_kps_predictions.tsv"
-    fname_ecog_timeline_cbio: str = "epic_ddp_concat/clindoc/ecog/impact/table_timeline_ecog_kps.tsv"
-    fname_ecog_summary_cbio: str = "epic_ddp_concat/clindoc/ecog/impact/table_summary_ecog_patient.tsv"
+    fname_comorbidities_index: str = "epic_ddp_concat/comorbidities/epic_ddp_comorbidities_index_summary.tsv"
+    # fname_clindoc_smoking: str = "epic_ddp_concat/comorbidities/ddp_smoking_history.tsv"
+    # fname_smoking_status: str = "epic_ddp_concat/comorbidities/smoking_status_predictions.tsv"
+    #
+    # fname_insurance_clean: str = "epic_ddp_concat/insurance/ddp_insurance_clean.tsv"
+    # fname_insurance_summary: str = "epic_ddp_concat/insurance/ddp_insurance_summary.tsv"
+    # fname_yost: str = "epic_ddp_concat/comorbidities/yost_index_results.tsv"
+    #
+    # fname_ecog_predictions: str = "epic_ddp_concat/clindoc/ecog/impact/ecog_kps_predictions.tsv"
+    # fname_ecog_timeline_cbio: str = "epic_ddp_concat/clindoc/ecog/impact/table_timeline_ecog_kps.tsv"
+    # fname_ecog_summary_cbio: str = "epic_ddp_concat/clindoc/ecog/impact/table_summary_ecog_patient.tsv"
 
