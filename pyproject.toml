@@ -35,7 +35,6 @@ dependencies = [
     "mkdocstrings>=0.21.2",
 	"mkdocs>=1.6.0",
 	"mkdocs-material>=9.1.7",
-    "accelerate==0.27.2",
     "black==24.8.0",
     "delta-spark==3.0.0",
     "ipykernel==6.29.3",
