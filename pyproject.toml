@@ -29,6 +29,7 @@ dependencies = [
     "databricks-connect==16.1.2",
     "databricks-sql-connector==3.7.2",
     "databricks-sdk==0.43.0",
+    "sqlalchemy==2.0.32",
     "certifi==2024.2.2",
     "pandas==2.2.3",
 	"scikit-learn>=1.5.1",
