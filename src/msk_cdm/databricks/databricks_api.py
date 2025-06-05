@@ -61,7 +61,7 @@ class DatabricksAPI(object):
         self._TOKEN = token
         self._HOSTNAME = hostname
         self._HTTP_PATH = http_path
-        self._CLIENT_ID = cluster_id
+        self._CLUSTER_ID = cluster_id
         self._sql_client = None
         self._URL = None
         self._workspace_client = None
