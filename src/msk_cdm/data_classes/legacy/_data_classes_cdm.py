@@ -12,7 +12,7 @@ class CDMProcessingVariables:
     ##############################################################################
     # Utilities
     ##############################################################################
-    minio_env: str = "/gpfs/mindphidata/fongc2/minio_env.txt"
+    #minio_env: str = "/gpfs/mindphidata/fongc2/minio_env.txt"
 
     ##############################################################################
     # Column names of interest
@@ -26,7 +26,7 @@ class CDMProcessingVariables:
     # Queried data from the cBioPortal API
     ##############################################################################
     fname_cbio_sid_api: str = "cbioportal/mskimpact_ids.tsv"
-    fname_cbio_sid: str = "/gpfs/mindphidata/cdm_repos/datahub/msk-impact/msk_solid_heme/data_clinical_sample.txt"
+    #fname_cbio_sid: str = "/gpfs/mindphidata/cdm_repos/datahub/msk-impact/msk_solid_heme/data_clinical_sample.txt"
     study_id: str = "mskimpact"
     fname_cbio_samples_clean: str = "cbioportal/mskimpact_ids_clean.tsv"
     fname_cbio_sample_summary_clean: str = "cbioportal/mskimpact_ids_summary.tsv"
@@ -185,9 +185,9 @@ class CDMProcessingVariables:
     fname_rad_tumor_prediction_update: str = "/radiology/tumor_sites/impact/intermediate_files/radiology_tumor_site_predictions_updated.tsv"
     fname_radiology_tumor_site_pred_combined: str = "/radiology/tumor_sites/impact/intermediate_files/radiology_tumor_site_predictions_combined.tsv"
     fname_rad_rpts_for_prediction_tumor_sites: str = "/radiology/tumor_sites/impact/intermediate_files/ddp_radiology_reports_for_prediction.tsv"
-    log_fname_template_tumor_sites: str = (
-        "/gpfs/mindphidata/fongc2/github/radiology_met_prediction/condor/logs/log_infer.txt"
-    )
+    #log_fname_template_tumor_sites: str = (
+    #    "/gpfs/mindphidata/fongc2/github/radiology_met_prediction/condor/logs/log_infer.txt"
+    #)
     fname_tumor_sites_timeline_cbio: str = (
         "/radiology/tumor_sites/impact/table_timeline_tumor_sites.tsv"
     )
@@ -204,9 +204,9 @@ class CDMProcessingVariables:
     fname_rad_prog_prediction_update: str = "/radiology/progression/impact/intermediate_files/radiology_progression_predictions_updated.tsv"
     fname_rad_prog_prediction_combined: str = "/radiology/progression/impact/intermediate_files/radiology_cancer_progression_predictions_combined.tsv"
     fname_rad_rpts_for_prediction_progression: str = "/radiology/progression/impact/intermediate_files/ddp_radiology_reports_for_prediction_progression.tsv"
-    log_fname_template_progression: str = (
-        "/gpfs/mindphidata/fongc2/github/progression-predict/condor/logs/log_infer.txt"
-    )
+    #log_fname_template_progression: str = (
+    #    "/gpfs/mindphidata/fongc2/github/progression-predict/condor/logs/log_infer.txt"
+    #)
 
     ## Training Labels
     ### Metastatic sites (GENIE)
