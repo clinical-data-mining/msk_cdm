@@ -473,8 +473,7 @@ class DatabricksAPI(object):
         return None
 
     def init_spark_session(
-            self,
-            env: dict
+            self
     ) -> Any:
         """
         Initializes a Databricks Spark session using environment configuration.
@@ -491,7 +490,7 @@ class DatabricksAPI(object):
         import os
         os.environ["DATABRICKS_HOST"] = self._URL
         os.environ["DATABRICKS_TOKEN"] = self._TOKEN
-        os.environ["DATABRICKS_CLUSTER_ID"] = self._CLIENT_ID
+        os.environ["DATABRICKS_CLUSTER_ID"] = self._CLUSTER_ID
         return DatabricksSession.builder.getOrCreate()
 
     def load_csv_from_volume(
