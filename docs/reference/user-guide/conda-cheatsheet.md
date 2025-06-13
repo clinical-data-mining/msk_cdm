@@ -7,7 +7,7 @@ Learn to use conda in 30 minutes at bit.ly/tryconda
 ### Setting up Conda on your machine
 When using `tllihpcmind6`, initialize Conda by `source ~/.bashrc`
 ```
-$ source ~/.bashrc
+$ source /path/to/miniconda3/etc/profile.d/conda.sh
 
 $ which conda
 /gpfs/mskmind_ess/<YOUR_USER_NAME>/miniconda/bin/conda
