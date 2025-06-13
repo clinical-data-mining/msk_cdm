@@ -38,7 +38,6 @@ channels:
 dependencies:
    - python == 3.10
    - pandas
-   - pyyaml
    - minio
    - requests
    - ipykernel

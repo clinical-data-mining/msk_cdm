@@ -1,0 +1,33 @@
+record_id,redcap_repeat_instrument,redcap_repeat_instance,project_name,project_display_name,project_description
+1,,,demographics,Demographics,IDB pull of patient demographics
+2,,,diagnosis,Diagnosis,"Processing of patient diagnosis, with an emphasis on Disease events"
+3,,,id_mapping,ID Mapping,ID mapping
+4,,,insurance,Insurance,Patient insurance history
+5,,,interventional_radiology,Interventional Radiology,IDB pull of interventional radiology events
+6,,,surgery,Surgery,IDB pull of patient surgeries performed at MSKCC
+7,,,radonc,Radiation Oncology,IDB pull of radiation oncology events
+8,,,medications,Anti-Cancer Medications,Processing of anti-cancer mediations administered at MSKCC. Inferred treatment intervals and regimens.
+9,,,comorbidities,Cancer Comorbidities,"Patient comorbidities derived from ICD billing codes, including Charlson Comorbidity and NCI Index calculations"
+10,,,radiology_report_segmentation,Radiology Report Segmentation,Processing of radiology reports to break down into sections and create metadata
+11,,,disease_site_predictions,Disease Site Predictions,Identify Disease sites from Radiology reports using NLP
+12,,,disease_progression,Cancer Progression Predictions,"Identify disease progression (stable, worsening, progression)"
+13,,,smoking_status,Smoking History Extraction,"Identify Smoking History of Genie BPC primary Lung Cancer patients (i.e. Current/Previous smoker, Never, or Unknown) using NLP and/or regex solution."
+14,,,pathology_report_segmentation,Pathology Report Segmentation,Processing of pathology reports to break down into sections and create metadata. Includes Regex of IHC and other histopathologic markers
+15,,,prior_medications,Prior Treatments,"Identify medications given outside of MSK, using NLP"
+16,,,yost_socioeconomic_status,Yost Index (SES) Estimation,"Approximate the yost index (a measure of socioeconomic status) for all IMPACT patients, based on the patient address (census tract)"
+17,,,breast_disease_status,breast_disease_status,Identify primary breast cancer patients with local recurrence and/or metastatic disease using NLP/Medical Oncology notes. Approximate the local and/or metastatic recurrence date based on the first predicted metastatic note.
+18,,,breast_biopsy_v_resection,breast_biopsy_v_resection,Identify biopsy vs. resection pathology reports using NLP and/or regex
+19,,,breast_invasive_biopsy,breast_invasive_biopsy,Identify invasive vs. benign biopsy using NLP/pathology reports
+20,,,breast_resection_histology,breast_resection_histology,Identify histology for resections
+21,,,breast_biopsy_histology,breast_biopsy_histology,Identify histology for cancerous biopsies
+22,,,breast_ihc,breast_ihc,"Identify Her2, PDL1, ER, PR status of primary breast cancer patient samples (regex/python-based solution) on pathology notes."
+23,,,gi_disease_status,gi_disease_status,Identify primary gi cancer patients with metastatic disease. Approximate the metastatic recurrence date for patients predicted metastatic.
+24,,,stone_soup_survival,stone_soup_survival,Model overall survival using diverse set of clinicogenomic features
+25,,,smoking_pack_year,Smoking Pack Year Extraction,Extract/impute pack year smoking history value from medical oncology (Clindoc) notes
+26,,,labs,Labs,IDB pull of patient lab results
+27,,,genomic_ancestry,Genomic Ancestry,Ancestry profiling using genomic (MSK-IMPACT) sequencing
+28,,,cbioportal_etl,cBioPortal ETL Process,Data transformations required for pushing data to cbioportal
+29,,,allostatic_load,Allostatic Load,"Data containing frequently acquired markers for calculating allostatic load, a measurement of biologic stress that can affect cancer outcomes. "
+30,,,cbioportal_impact_genomics,cBioPortal IMPACT Genomics,Patient and sample summary data hosted on cBioPortal containing genomic information. Sourced from MPath and CVR.
+31,,,adverse_events,Adverse Events,Infomation on patient adverse events or toxicities related to anti-cancer medications
+32,,,cancer_presence,Cancer Presence,Identify disease-free status from radiology reports

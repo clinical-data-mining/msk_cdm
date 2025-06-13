@@ -2,9 +2,11 @@ import os, logging
 import pathlib
 from dotenv import dotenv_values
 from io import BytesIO, StringIO
+from typing import Any
 
 from databricks import sql
 from databricks.sdk import WorkspaceClient
+from databricks.connect import DatabricksSession
 from mkdocs.config.config_options import Optional
 from sqlalchemy import (
     create_engine,
@@ -40,6 +42,7 @@ class DatabricksAPI(object):
             token: Optional[str] = None,
             hostname: Optional[str] = None,
             http_path: Optional[str] = None,
+            cluster_id: Optional[str] = None,
             fname_databricks_env: Optional[str] = None
     ) -> None:
         """Initializes the DatabricksAPI class with minimal changes for OAuth.
@@ -58,6 +61,7 @@ class DatabricksAPI(object):
         self._TOKEN = token
         self._HOSTNAME = hostname
         self._HTTP_PATH = http_path
+        self._CLUSTER_ID = cluster_id
         self._sql_client = None
         self._URL = None
         self._workspace_client = None
@@ -197,6 +201,8 @@ class DatabricksAPI(object):
             self._URL = dict_config.get("URL", None)
         if not self._HTTP_PATH:
             self._HTTP_PATH = dict_config.get("HTTP_PATH", None)
+        if not self._CLUSTER_ID:
+            self._CLUSTER_ID = dict_config.get("DATABRICKS_CLUSTER_ID", None)
 
         return None
 
@@ -465,3 +471,64 @@ class DatabricksAPI(object):
         print('Databricks connection closed')
 
         return None
+
+    def init_spark_session(
+            self
+    ) -> Any:
+        """
+        Initializes a Databricks Spark session using environment configuration.
+
+        This function sets necessary environment variables for Databricks Connect and
+        creates a Spark session using DatabricksSession.builder.getOrCreate().
+
+        Args:
+            env (dict): Environment variables dictionary containing URL, TOKEN, and DATABRICKS_CLUSTER_ID.
+
+        Returns:
+            SparkSession: A Spark session connected to the specified Databricks cluster.
+        """
+        import os
+        os.environ["DATABRICKS_HOST"] = self._URL
+        os.environ["DATABRICKS_TOKEN"] = self._TOKEN
+        os.environ["DATABRICKS_CLUSTER_ID"] = self._CLUSTER_ID
+        return DatabricksSession.builder.getOrCreate()
+
+    def load_csv_from_volume(
+            self,
+            spark: Any,
+            fname_idb: str
+    ) -> Any:
+        """
+        Loads a CSV file from a Databricks volume into a Spark DataFrame.
+
+        Args:
+            spark (SparkSession): An active Spark session.
+            fname_idb (str): Path to the CSV file in the volume.
+
+        Returns:
+            DataFrame: A Spark DataFrame containing the CSV contents.
+        """
+        return spark.read.format("csv").load(
+            fname_idb,
+            sep="\t",
+            header=True,
+            escape='"',
+            multiLine=True
+        )
+
+    def load_table(
+            self,
+            spark: Any,
+            table_name: str
+    ) -> Any:
+        """
+        Loads a Delta table into a Spark DataFrame.
+
+        Args:
+            spark (SparkSession): An active Spark session.
+            table_name (str): Fully qualified name of the Delta table.
+
+        Returns:
+            DataFrame: A Spark DataFrame with the table contents.
+        """
+        return spark.read.format("delta").table(table_name)
