@@ -10,11 +10,6 @@ from dataclasses import dataclass
 @dataclass
 class CDMProcessingVariables:
     ##############################################################################
-    # Utilities
-    ##############################################################################
-    #minio_env: str = "/gpfs/mindphidata/fongc2/minio_env.txt"
-
-    ##############################################################################
     # Column names of interest
     ##############################################################################
     col_id: str = "ACCESSION_NUMBER"
