@@ -8,46 +8,41 @@ from databricks import sql
 from databricks.sdk import WorkspaceClient
 from databricks.connect import DatabricksSession
 from mkdocs.config.config_options import Optional
-from sqlalchemy import (
-    create_engine,
-    URL
-)
+from sqlalchemy import create_engine, URL
 import pandas as pd
 import certifi
 
-from databricks.sdk.core import Config, oauth_service_principal 
+from databricks.sdk.core import Config, oauth_service_principal
 
 cwd = pathlib.Path(__file__).parent.resolve()
 
 
 logging.getLogger("databricks.sql").setLevel(logging.DEBUG)
 # logging.getLogger(sql_path).setLevel(logging.DEBUG)
-logging.basicConfig(
-    filename = os.path.join(cwd, "results.log"),
-    level    = logging.DEBUG
-)
+logging.basicConfig(filename=os.path.join(cwd, "results.log"), level=logging.DEBUG)
 
-os.environ['SSL_CERT_FILE'] = certifi.where()
-os.environ['REQUESTS_CA_BUNDLE'] = certifi.where()
+os.environ["SSL_CERT_FILE"] = certifi.where()
+os.environ["REQUESTS_CA_BUNDLE"] = certifi.where()
 
 
 class DatabricksAPI(object):
     """A class to interact with Databricks through its SQL API. This class allows
     connecting to a Databricks cluster, executing queries, and retrieving
     the results as pandas DataFrames."""
+
     def __init__(
-            self,
-            client_id: Optional[str] = None,  # Client ID for Service Principal
-            client_secret: Optional[str] = None,  # Client Secret for Service Principal
-            token: Optional[str] = None,
-            hostname: Optional[str] = None,
-            http_path: Optional[str] = None,
-            cluster_id: Optional[str] = None,
-            fname_databricks_env: Optional[str] = None
+        self,
+        client_id: Optional[str] = None,  # Client ID for Service Principal
+        client_secret: Optional[str] = None,  # Client Secret for Service Principal
+        token: Optional[str] = None,
+        hostname: Optional[str] = None,
+        http_path: Optional[str] = None,
+        cluster_id: Optional[str] = None,
+        fname_databricks_env: Optional[str] = None,
     ) -> None:
         """Initializes the DatabricksAPI class with minimal changes for OAuth.
-        
-        
+
+
         Args:
             client_id: Client ID for Service Principal.
             client_secret: Client Secret for Service Principal.
@@ -67,7 +62,7 @@ class DatabricksAPI(object):
         self._workspace_client = None
 
         if fname_databricks_env is not None:
-            print('Parsing env file')
+            print("Parsing env file")
             self._process_env(fname_databricks_env=fname_databricks_env)
 
         if self._client_secret is not None:
@@ -75,27 +70,20 @@ class DatabricksAPI(object):
                 client_id=self._client_id,
                 client_secret=self._client_secret,
                 hostname=self._HOSTNAME,
-                http_path=self._HTTP_PATH
+                http_path=self._HTTP_PATH,
             )
 
         if self._TOKEN is not None:
             self._connect_with_token(
-                token=self._TOKEN,
-                hostname=self._HOSTNAME,
-                http_path=self._HTTP_PATH
+                token=self._TOKEN, hostname=self._HOSTNAME, http_path=self._HTTP_PATH
             )
 
         return None
-    
-    
+
     def _connect_with_oauth(
-        self,
-        client_id: str,
-        client_secret: str,
-        hostname: str,
-        http_path: str
+        self, client_id: str, client_secret: str, hostname: str, http_path: str
     ) -> None:
-        """ Connect with Service Principle credentials.
+        """Connect with Service Principle credentials.
         Establishes a connection to the Databricks cluster using OAuth authentication.
 
         Args:
@@ -107,41 +95,33 @@ class DatabricksAPI(object):
         Returns:
             None
         """
-        print('Making databricks connection')
+        print("Making databricks connection")
 
         def credential_provider():
             config = Config(
-                host          = hostname,
-                client_id     = client_id,
-                client_secret = client_secret)
+                host=hostname, client_id=client_id, client_secret=client_secret
+            )
             return oauth_service_principal(config)
 
         connection = sql.connect(
             server_hostname=hostname,
             http_path=http_path,
-            credentials_provider=credential_provider
+            credentials_provider=credential_provider,
         )
 
         workspace_client = WorkspaceClient(
-            host=hostname,
-            client_id=client_id,
-            client_secret=client_secret
+            host=hostname, client_id=client_id, client_secret=client_secret
         )
 
-        print('Connected.')
+        print("Connected.")
 
         self._sql_client = connection
         self._workspace_client = workspace_client
 
         return None
 
-    def _connect_with_token(
-            self,
-            token: str,
-            hostname: str,
-            http_path: str
-    ) -> None:
-        """ Connection with personal token
+    def _connect_with_token(self, token: str, hostname: str, http_path: str) -> None:
+        """Connection with personal token
         Establishes a connection to the Databricks cluster using the provided
         access token, hostname, and HTTP path.
 
@@ -153,29 +133,21 @@ class DatabricksAPI(object):
         Returns:
             None
         """
-        print('Making databricks connection')
+        print("Making databricks connection")
         connection = sql.connect(
-            server_hostname=hostname,
-            http_path=http_path,
-            access_token=token
+            server_hostname=hostname, http_path=http_path, access_token=token
         )
 
-        workspace_client = WorkspaceClient(
-            host=hostname,
-            token=token
-        )
+        workspace_client = WorkspaceClient(host=hostname, token=token)
 
-        print('Connected.')
+        print("Connected.")
 
         self._sql_client = connection
         self._workspace_client = workspace_client
 
         return None
 
-    def _process_env(
-            self,
-            fname_databricks_env: str
-    ) -> None:
+    def _process_env(self, fname_databricks_env: str) -> None:
         """
         Processes the environment file to extract connection parameters such as
         the access token, hostname, HTTP path, and URL.
@@ -190,9 +162,13 @@ class DatabricksAPI(object):
         dict_config = dotenv_values(fname_databricks_env)
 
         if not self._client_id:
-            self._client_id = dict_config.get("CLIENT_ID", None)  # Retrieve client_id from the environment
+            self._client_id = dict_config.get(
+                "CLIENT_ID", None
+            )  # Retrieve client_id from the environment
         if not self._client_secret:
-            self._client_secret = dict_config.get("CLIENT_SECRET", None)  # Retrieve client_secret from the environment
+            self._client_secret = dict_config.get(
+                "CLIENT_SECRET", None
+            )  # Retrieve client_secret from the environment
         if not self._TOKEN:
             self._TOKEN = dict_config.get("TOKEN", None)
         if not self._HOSTNAME:
@@ -206,11 +182,7 @@ class DatabricksAPI(object):
 
         return None
 
-    def query_from_file(
-            self,
-            *,
-            fname_sql: str
-    ) -> pd.DataFrame:
+    def query_from_file(self, *, fname_sql: str) -> pd.DataFrame:
         """Query Databricks from a SQL file
         Executes a Spark SQL query from a file and returns the result as a pandas
         DataFrame.
@@ -222,22 +194,18 @@ class DatabricksAPI(object):
             df: A DataFrame containing the results of the query.
         """
         # open SQL file
-        fd = open(fname_sql, 'r')
+        fd = open(fname_sql, "r")
         sqlFile = fd.read()
         fd.close()
 
-        print('Preview of SQL in %s:' % fname_sql)
+        print("Preview of SQL in %s:" % fname_sql)
         print(sqlFile[:50])
 
         df = self.query_from_sql(sql=sqlFile)
 
         return df
 
-    def query_from_sql(
-            self,
-            *,
-            sql: str
-    ) -> pd.DataFrame:
+    def query_from_sql(self, *, sql: str) -> pd.DataFrame:
         """Query Databricks from a SQL string
         Executes a Spark SQL query from a string and returns the result as a pandas
         DataFrame.
@@ -250,7 +218,7 @@ class DatabricksAPI(object):
         """
 
         cursor = self._sql_client.cursor()
-        for i,query in enumerate(sql.split(';')):
+        for i, query in enumerate(sql.split(";")):
             cursor.execute(query)
 
         ### Another way to do the query above is through SQLalchemy
@@ -263,24 +231,16 @@ class DatabricksAPI(object):
         #     # This will read the contents of `main.test.some_table`
         #     df_sql = pd.read_sql(f"SELECT *, _metadata FROM {catalog}.{schema}.{table}", conn)
 
-
         # Gather column names from query
         column_names = [desc[0] for desc in cursor.description]
         data = cursor.fetchall()
 
         # Convert to pandas dataframe
-        df = pd.DataFrame(
-            data,
-            columns=column_names
-        )
+        df = pd.DataFrame(data, columns=column_names)
 
         return df
 
-    def read_db_obj(
-            self,
-            volume_path: str,
-            sep: Optional[str] ='\t'
-    ) -> pd.DataFrame:
+    def read_db_obj(self, volume_path: str, sep: Optional[str] = "\t") -> pd.DataFrame:
         """Read object from Databricks volume
         Reads a CSV/TSV file from the Databricks volume and converts it into a
         pandas DataFrame.
@@ -299,10 +259,7 @@ class DatabricksAPI(object):
 
         return df
 
-    def create_directory_on_volume(
-            self,
-            path: str
-    ) -> None:
+    def create_directory_on_volume(self, path: str) -> None:
         """
         Creates a directory on the Databricks volume at the specified path.
 
@@ -313,18 +270,18 @@ class DatabricksAPI(object):
             None
         """
         # Create a directory for file to be uploaded
-        print('Creating directory on volume: %s' % path)
+        print("Creating directory on volume: %s" % path)
         self._workspace_client.files.create_directory(path)
 
-        print('Created')
+        print("Created")
 
     def write_db_obj(
-            self,
-            df: pd.DataFrame,
-            volume_path: str,
-            sep: Optional[str] = '\t',
-            overwrite: Optional[bool] = True,
-            dict_database_table_info: Optional[dict] = None
+        self,
+        df: pd.DataFrame,
+        volume_path: str,
+        sep: Optional[str] = "\t",
+        overwrite: Optional[bool] = True,
+        dict_database_table_info: Optional[dict] = None,
     ):
         """Write data to Databricks volume
         Writes a pandas DataFrame to a CSV file on the Databricks volume. Optionally,
@@ -356,30 +313,32 @@ class DatabricksAPI(object):
         csv_bytes = df.to_csv(index=False, sep=sep).encode("utf-8")
         csv_buffer = BytesIO(csv_bytes)
 
-        print('Writing to %s' % volume_path)
+        print("Writing to %s" % volume_path)
         self._workspace_client.files.upload(
-            volume_path,
-            csv_buffer,
-            overwrite=overwrite
+            volume_path, csv_buffer, overwrite=overwrite
         )
-        print('Write to volume complete')
+        print("Write to volume complete")
 
         if dict_database_table_info is not None:
-            if sep != dict_database_table_info.get('sep'):
-                dict_database_table_info['sep'] = sep
-                print("Conflict with separator in dict; setting to value object was saved as.")
+            if sep != dict_database_table_info.get("sep"):
+                dict_database_table_info["sep"] = sep
+                print(
+                    "Conflict with separator in dict; setting to value object was saved as."
+                )
 
-            self.create_table_from_volume(dict_database_table_info=dict_database_table_info)
+            self.create_table_from_volume(
+                dict_database_table_info=dict_database_table_info
+            )
 
         return None
 
     def _sql_write_creator(
-            self,
-            catalog: str,
-            schema: str,
-            table: str,
-            volume_path: str,
-            sep: Optional[str] = '\t'
+        self,
+        catalog: str,
+        schema: str,
+        table: str,
+        volume_path: str,
+        sep: Optional[str] = "\t",
     ) -> str:
         """
         Generates a SQL query string to create a table in Databricks from a file
@@ -408,10 +367,7 @@ class DatabricksAPI(object):
 
         return sql_write
 
-    def create_table_from_volume(
-            self,
-            dict_database_table_info: dict
-    ) -> None:
+    def create_table_from_volume(self, dict_database_table_info: dict) -> None:
         """
         Creates a SQL table in Databricks from a file located on the Databricks volume.
 
@@ -428,35 +384,34 @@ class DatabricksAPI(object):
         Returns:
             None
         """
-        catalog = dict_database_table_info.get('catalog')
-        schema = dict_database_table_info.get('schema')
-        table = dict_database_table_info.get('table')
-        volume_path = dict_database_table_info.get('volume_path')
-        sep_of_volume_obj = dict_database_table_info.get('sep')
-        print('Creating SQL table from volume:')
-        print('Catalog: %s' % catalog)
-        print('Schema: %s' % schema)
-        print('Table: %s' % table)
-        print('Volume path: %s' % volume_path)
-        print('Separator: %s' % sep_of_volume_obj)
+        catalog = dict_database_table_info.get("catalog")
+        schema = dict_database_table_info.get("schema")
+        table = dict_database_table_info.get("table")
+        volume_path = dict_database_table_info.get("volume_path")
+        sep_of_volume_obj = dict_database_table_info.get("sep")
+        print("Creating SQL table from volume:")
+        print("Catalog: %s" % catalog)
+        print("Schema: %s" % schema)
+        print("Table: %s" % table)
+        print("Volume path: %s" % volume_path)
+        print("Separator: %s" % sep_of_volume_obj)
 
         sql_write = self._sql_write_creator(
             catalog=catalog,
             schema=schema,
             table=table,
             volume_path=volume_path,
-            sep=sep_of_volume_obj
+            sep=sep_of_volume_obj,
         )
 
         cursor = self._sql_client.cursor()
-        for i,query in enumerate(sql_write.split(';')[:-1]):
+        for i, query in enumerate(sql_write.split(";")[:-1]):
             print(query)
             cursor.execute(query)
 
-        print('Table created')
+        print("Table created")
 
         return None
-
 
     def close_connection(self):
         """
@@ -468,13 +423,11 @@ class DatabricksAPI(object):
         cursor = self._sql_client.cursor()
         cursor.close()
         self._sql_client.close()
-        print('Databricks connection closed')
+        print("Databricks connection closed")
 
         return None
 
-    def init_spark_session(
-            self
-    ) -> Any:
+    def init_spark_session(self) -> Any:
         """
         Initializes a Databricks Spark session using environment configuration.
 
@@ -488,16 +441,13 @@ class DatabricksAPI(object):
             SparkSession: A Spark session connected to the specified Databricks cluster.
         """
         import os
+
         os.environ["DATABRICKS_HOST"] = self._URL
         os.environ["DATABRICKS_TOKEN"] = self._TOKEN
         os.environ["DATABRICKS_CLUSTER_ID"] = self._CLUSTER_ID
         return DatabricksSession.builder.getOrCreate()
 
-    def load_csv_from_volume(
-            self,
-            spark: Any,
-            fname_idb: str
-    ) -> Any:
+    def load_csv_from_volume(self, spark: Any, fname_idb: str) -> Any:
         """
         Loads a CSV file from a Databricks volume into a Spark DataFrame.
 
@@ -509,18 +459,10 @@ class DatabricksAPI(object):
             DataFrame: A Spark DataFrame containing the CSV contents.
         """
         return spark.read.format("csv").load(
-            fname_idb,
-            sep="\t",
-            header=True,
-            escape='"',
-            multiLine=True
+            fname_idb, sep="\t", header=True, escape='"', multiLine=True
         )
 
-    def load_table(
-            self,
-            spark: Any,
-            table_name: str
-    ) -> Any:
+    def load_table(self, spark: Any, table_name: str) -> Any:
         """
         Loads a Delta table into a Spark DataFrame.
 

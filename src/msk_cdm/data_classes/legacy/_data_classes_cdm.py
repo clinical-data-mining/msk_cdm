@@ -26,7 +26,7 @@ class CDMProcessingVariables:
     fname_cbio_sample_summary_clean: str = "cbioportal/mskimpact_ids_summary.tsv"
 
     fname_anchor_dates_reid: str = "cbioportal/timeline_anchor_dates.tsv"
-    fname_overall_survival: str = 'demographics/overall_survival_cbioportal.tsv'
+    fname_overall_survival: str = "demographics/overall_survival_cbioportal.tsv"
 
     ##############################################################################
     # Queried data from IDB
@@ -104,8 +104,12 @@ class CDMProcessingVariables:
     )
 
     fname_darwin_path_dmp: str = "pathology/table_pathology_impact_dmp_extraction.tsv"
-    fname_darwin_path_clean_parsed: str = "pathology/table_pathology_surgical_samples_parsed.tsv"  # Filename of processed pathology table (variable: fname_darwin_path)
-    fname_darwin_path_clean_parsed_specimen: str = "pathology/table_pathology_surgical_samples_parsed_specimen.tsv"  # Filename of parsed specimen pathology
+    fname_darwin_path_clean_parsed: str = (
+        "pathology/table_pathology_surgical_samples_parsed.tsv"  # Filename of processed pathology table (variable: fname_darwin_path)
+    )
+    fname_darwin_path_clean_parsed_specimen: str = (
+        "pathology/table_pathology_surgical_samples_parsed_specimen.tsv"  # Filename of parsed specimen pathology
+    )
     fname_darwin_path_clean_parsed_specimen_impact_only: str = (
         "pathology/table_pathology_impact_only_parsed_specimen.tsv"
     )
@@ -138,9 +142,7 @@ class CDMProcessingVariables:
     fname_path_gleason_cbio_timeline: str = (
         "pathology/table_timeline_gleason_scores.tsv"
     )
-    fname_path_mmr_cbio_timeline: str = (
-        "pathology/table_timeline_mmr_calls.tsv"
-    )
+    fname_path_mmr_cbio_timeline: str = "pathology/table_timeline_mmr_calls.tsv"
     fname_path_pdl1_cbio_timeline: str = "pathology/table_timeline_pdl1_calls.tsv"
     fname_path_gleason_summary_patient: str = (
         "pathology/table_summary_gleason_patient.tsv"
@@ -160,46 +162,84 @@ class CDMProcessingVariables:
     fname_radiology: str = (
         "/radiology/radiology_report_segmentation/impact/ddp_radiology_reports.tsv"
     )
-    fname_radiology_bkup: str = "/radiology/radiology_report_segmentation/impact/intermediate_files_for_qc/ddp_radiology_reports_bkup.tsv"
-    fname_radiology_update: str = "/radiology/radiology_report_segmentation/impact/intermediate_files_for_qc/ddp_radiology_reports_update.tsv"
-    fname_radiology_to_segment: str = "/radiology/radiology_report_segmentation/impact/intermediate_files_for_qc/ddp_radiology_reports_for_segmentation.tsv"
-    fname_radiology_metadata: str = "/radiology/radiology_report_segmentation/impact/intermediate_files_for_qc/radiology_clean_annotations.tsv"
-    fname_radiology_impression: str = "/radiology/radiology_report_segmentation/impact/intermediate_files_for_qc/radiology_parse_impression.tsv"
-    fname_radiology_findings: str = "/radiology/radiology_report_segmentation/impact/intermediate_files_for_qc/radiology_parse_findings.tsv"
-    fname_radiology_findings_long: str = "/radiology/radiology_report_segmentation/impact/intermediate_files_for_qc/radiology_parse_findings_long.tsv"
+    fname_radiology_bkup: str = (
+        "/radiology/radiology_report_segmentation/impact/intermediate_files_for_qc/ddp_radiology_reports_bkup.tsv"
+    )
+    fname_radiology_update: str = (
+        "/radiology/radiology_report_segmentation/impact/intermediate_files_for_qc/ddp_radiology_reports_update.tsv"
+    )
+    fname_radiology_to_segment: str = (
+        "/radiology/radiology_report_segmentation/impact/intermediate_files_for_qc/ddp_radiology_reports_for_segmentation.tsv"
+    )
+    fname_radiology_metadata: str = (
+        "/radiology/radiology_report_segmentation/impact/intermediate_files_for_qc/radiology_clean_annotations.tsv"
+    )
+    fname_radiology_impression: str = (
+        "/radiology/radiology_report_segmentation/impact/intermediate_files_for_qc/radiology_parse_impression.tsv"
+    )
+    fname_radiology_findings: str = (
+        "/radiology/radiology_report_segmentation/impact/intermediate_files_for_qc/radiology_parse_findings.tsv"
+    )
+    fname_radiology_findings_long: str = (
+        "/radiology/radiology_report_segmentation/impact/intermediate_files_for_qc/radiology_parse_findings_long.tsv"
+    )
     fname_radiology_headers = "/radiology/radiology_report_segmentation/impact/intermediate_files_for_qc/radiology_parse_headers.tsv"
-    fname_radiology_full_parsed: str = "/radiology/radiology_report_segmentation/impact/ddp_radiology_reports_full_parsed.tsv"
+    fname_radiology_full_parsed: str = (
+        "/radiology/radiology_report_segmentation/impact/ddp_radiology_reports_full_parsed.tsv"
+    )
 
     ## Tumor sites (ClinicalBERT-based method)
-    fname_rad_prediction_all_accessions: str = "/radiology/tumor_sites/impact/intermediate_files/radiology_accessions_for_pred_all.tsv"
+    fname_rad_prediction_all_accessions: str = (
+        "/radiology/tumor_sites/impact/intermediate_files/radiology_accessions_for_pred_all.tsv"
+    )
     fname_radiology_tumor_site_pred: str = (
         "/radiology/tumor_sites/impact/radiology_tumor_site_predictions_full.tsv"
     )
-    fname_radiology_tumor_site_pred_summary: str = "/radiology/tumor_sites/impact/radiology_tumor_site_predictions_full_summary.tsv"
-    fname_rad_tumor_prediction_update: str = "/radiology/tumor_sites/impact/intermediate_files/radiology_tumor_site_predictions_updated.tsv"
-    fname_radiology_tumor_site_pred_combined: str = "/radiology/tumor_sites/impact/intermediate_files/radiology_tumor_site_predictions_combined.tsv"
-    fname_rad_rpts_for_prediction_tumor_sites: str = "/radiology/tumor_sites/impact/intermediate_files/ddp_radiology_reports_for_prediction.tsv"
+    fname_radiology_tumor_site_pred_summary: str = (
+        "/radiology/tumor_sites/impact/radiology_tumor_site_predictions_full_summary.tsv"
+    )
+    fname_rad_tumor_prediction_update: str = (
+        "/radiology/tumor_sites/impact/intermediate_files/radiology_tumor_site_predictions_updated.tsv"
+    )
+    fname_radiology_tumor_site_pred_combined: str = (
+        "/radiology/tumor_sites/impact/intermediate_files/radiology_tumor_site_predictions_combined.tsv"
+    )
+    fname_rad_rpts_for_prediction_tumor_sites: str = (
+        "/radiology/tumor_sites/impact/intermediate_files/ddp_radiology_reports_for_prediction.tsv"
+    )
     fname_tumor_sites_timeline_cbio: str = (
         "/radiology/tumor_sites/impact/table_timeline_tumor_sites.tsv"
     )
 
     ## Progression (RoBERTa-based method)
-    fname_progression_prediction_all_accessions: str = "/radiology/progression/impact/intermediate_files/radiology_accessions_for_pred_all.tsv"
-    fname_radiology_progression_pred_bkup: str = "/radiology/progression/impact/intermediate_files/radiology_cancer_progression_predictions.tsv.bkup"
+    fname_progression_prediction_all_accessions: str = (
+        "/radiology/progression/impact/intermediate_files/radiology_accessions_for_pred_all.tsv"
+    )
+    fname_radiology_progression_pred_bkup: str = (
+        "/radiology/progression/impact/intermediate_files/radiology_cancer_progression_predictions.tsv.bkup"
+    )
     fname_radiology_progression_pred: str = (
         "/radiology/progression/impact/radiology_cancer_progression_predictions.tsv"
     )
     fname_progression_timeline_cbio: str = (
         "radiology/progression/impact/table_timeline_radiology_cancer_progression_predictions.tsv"
     )
-    fname_rad_prog_prediction_update: str = "/radiology/progression/impact/intermediate_files/radiology_progression_predictions_updated.tsv"
-    fname_rad_prog_prediction_combined: str = "/radiology/progression/impact/intermediate_files/radiology_cancer_progression_predictions_combined.tsv"
-    fname_rad_rpts_for_prediction_progression: str = "/radiology/progression/impact/intermediate_files/ddp_radiology_reports_for_prediction_progression.tsv"
+    fname_rad_prog_prediction_update: str = (
+        "/radiology/progression/impact/intermediate_files/radiology_progression_predictions_updated.tsv"
+    )
+    fname_rad_prog_prediction_combined: str = (
+        "/radiology/progression/impact/intermediate_files/radiology_cancer_progression_predictions_combined.tsv"
+    )
+    fname_rad_rpts_for_prediction_progression: str = (
+        "/radiology/progression/impact/intermediate_files/ddp_radiology_reports_for_prediction_progression.tsv"
+    )
 
     ## Training Labels
     ### Metastatic sites (GENIE)
     ### Progression (GENIE)
-    fname_labels_genie_progression: str = "labels/progression/genie_lung_crc_breast_prostate_pancreas_progression_labels_20200923.tsv"
+    fname_labels_genie_progression: str = (
+        "labels/progression/genie_lung_crc_breast_prostate_pancreas_progression_labels_20200923.tsv"
+    )
 
     # Column names of interest
     col_radiology_id: str = "ACCESSION_NUMBER"
@@ -213,8 +253,12 @@ class CDMProcessingVariables:
     col_radiology_date: str = "RADIOLOGY_PERFORMED_DATE"
 
     ## Cancer Presence inference
-    fname_radiology_cancer_presence_predictions = "radiology/cancer_presence/impact/radiology_cancer_presence_prediction.tsv"
-    fname_radiology_cancer_presence_timeline = "radiology/cancer_presence/impact/table_timeline_cancer_presence.tsv"
+    fname_radiology_cancer_presence_predictions = (
+        "radiology/cancer_presence/impact/radiology_cancer_presence_prediction.tsv"
+    )
+    fname_radiology_cancer_presence_timeline = (
+        "radiology/cancer_presence/impact/table_timeline_cancer_presence.tsv"
+    )
 
     ##############################################################################
     # TREATMENT (Medications, surgeries, RT) derived files
@@ -274,9 +318,21 @@ class CDMRedcapConfig:
     ##############################################################################
     # GENIE Redcap Reports
     ##############################################################################
-    fname_genie_rc_met_sites_breast: str = "redcap_exports/genie_bpc_breast/19-368__GENIE_BPC_-_BREAST_Cohort_Imaging_Metastatic_Events.tsv"
-    fname_genie_rc_met_sites_crc: str = "redcap_exports/genie_bpc_crc/19-368__GENIE_BPC_-_CRC_Production_Cohort_Imaging_Metastatic_Events.tsv"
-    fname_genie_rc_met_sites_lung: str = "redcap_exports/genie_bpc_lung/MED19-213__Genie_BPC_Lung_Production_Imaging_Metastatic_Events.tsv"
-    fname_genie_rc_met_sites_lung2: str = "redcap_exports/genie_bpc_lung_additional/19-368__Genie_BPC_Lung_Cohort_Additional_Data_Imaging_Metastatic_Events.tsv"
-    fname_genie_rc_met_sites_pancreas: str = "redcap_exports/genie_bpc_pancreas/19-368__GENIE_BPC_-_Pancreas_Cohort_Imaging_Metastatic_Events.tsv"
-    fname_genie_rc_met_sites_prostate: str = "redcap_exports/genie_bpc_prostate/19-368__GENIE_BPC_-_Prostate_Cohort_Imaging_Metastatic_Events.tsv"
+    fname_genie_rc_met_sites_breast: str = (
+        "redcap_exports/genie_bpc_breast/19-368__GENIE_BPC_-_BREAST_Cohort_Imaging_Metastatic_Events.tsv"
+    )
+    fname_genie_rc_met_sites_crc: str = (
+        "redcap_exports/genie_bpc_crc/19-368__GENIE_BPC_-_CRC_Production_Cohort_Imaging_Metastatic_Events.tsv"
+    )
+    fname_genie_rc_met_sites_lung: str = (
+        "redcap_exports/genie_bpc_lung/MED19-213__Genie_BPC_Lung_Production_Imaging_Metastatic_Events.tsv"
+    )
+    fname_genie_rc_met_sites_lung2: str = (
+        "redcap_exports/genie_bpc_lung_additional/19-368__Genie_BPC_Lung_Cohort_Additional_Data_Imaging_Metastatic_Events.tsv"
+    )
+    fname_genie_rc_met_sites_pancreas: str = (
+        "redcap_exports/genie_bpc_pancreas/19-368__GENIE_BPC_-_Pancreas_Cohort_Imaging_Metastatic_Events.tsv"
+    )
+    fname_genie_rc_met_sites_prostate: str = (
+        "redcap_exports/genie_bpc_prostate/19-368__GENIE_BPC_-_Prostate_Cohort_Imaging_Metastatic_Events.tsv"
+    )
