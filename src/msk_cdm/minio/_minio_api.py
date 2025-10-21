@@ -24,18 +24,18 @@ class MinioAPI(object):
         ACCESS_KEY: Optional[str] = None,
         SECRET_KEY: Optional[str] = None,
         ca_certs: Optional[str] = None,
-        url_port: Optional[str] = "pllimsksparky3:9000", 
+        url_port: Optional[str] = "pllimsksparky3:9000",
         fname_minio_env: Optional[Union[Path, str]] = None,
         bucket: Optional[str] = None,
     ):
         """Initialization
 
-                Args:
-                    - ACCESS_KEY: Minio access key. Optional if `fname_minio_env` is passed, in which case it may be present in the env file picked up by .env
-                    - SECRET_KEY: Minio secret key. Optional if `fname_minio_env` is passed, in which case it may be present in the env file picked up by .env
-                    - ca_certs: optional filename pointer to ca_cert bundle for `urllib3`. Only specify if not passing `fname_minio_env`.
-                    - fname_minio_env: A filename with KEY=value lines with values for keys `CA_CERTS`, `URL_PORT`, `BUCKET`.
-                    - bucket: optional default minio bucket to use for operations. Can also be specified as environment variable $BUCKET.
+        Args:
+            - ACCESS_KEY: Minio access key. Optional if `fname_minio_env` is passed, in which case it may be present in the env file picked up by .env
+            - SECRET_KEY: Minio secret key. Optional if `fname_minio_env` is passed, in which case it may be present in the env file picked up by .env
+            - ca_certs: optional filename pointer to ca_cert bundle for `urllib3`. Only specify if not passing `fname_minio_env`.
+            - fname_minio_env: A filename with KEY=value lines with values for keys `CA_CERTS`, `URL_PORT`, `BUCKET`.
+            - bucket: optional default minio bucket to use for operations. Can also be specified as environment variable $BUCKET.
         """
         self._ACCESS_KEY = ACCESS_KEY
         self._SECRET_KEY = SECRET_KEY
@@ -51,9 +51,7 @@ class MinioAPI(object):
         self._connect()
 
     def load_obj(
-            self,
-            path_object: str,
-            bucket_name: Optional[str] = None
+        self, path_object: str, bucket_name: Optional[str] = None
     ) -> urllib3.response.HTTPResponse:
         """Read an object from minio
 
@@ -123,30 +121,16 @@ class MinioAPI(object):
         )
 
         return None
-        
-    def load_df(
-            self,
-            fname,
-            sep: Optional[str] = "\t",
-            dtype: Optional[str] = object
-    ):
+
+    def load_df(self, fname, sep: Optional[str] = "\t", dtype: Optional[str] = object):
         obj = self.load_obj(path_object=fname)
-        df= pd.read_csv(obj, dtype=dtype, sep=sep)
+        df = pd.read_csv(obj, dtype=dtype, sep=sep)
         return df
 
-    def save_df(
-            self,
-            df,
-            fname,
-            sep: Optional[str] = "\t"
-    ):
-        self.save_obj(
-            df=df,
-            path_object=fname,
-            sep=sep
-        )
-        print(f'Saved data to: {fname}')
-    
+    def save_df(self, df, fname, sep: Optional[str] = "\t"):
+        self.save_obj(df=df, path_object=fname, sep=sep)
+        print(f"Saved data to: {fname}")
+
     def print_list_objects(
         self,
         bucket_name: Optional[str] = None,
@@ -167,9 +151,7 @@ class MinioAPI(object):
             bucket_name = self._bucket
 
         objs = self._client.list_objects(
-            bucket_name=bucket_name,
-            recursive=recursive,
-            prefix=prefix
+            bucket_name=bucket_name, recursive=recursive, prefix=prefix
         )
         obj_list = []
         for obj in objs:
@@ -257,8 +239,7 @@ class MinioAPI(object):
     def _connect(self):
         # required for self-signed certs
         httpClient = urllib3.PoolManager(
-            cert_reqs="CERT_REQUIRED",
-            ca_certs=self._ca_certs
+            cert_reqs="CERT_REQUIRED", ca_certs=self._ca_certs
         )
 
         # Create secure client with access key and secret key
@@ -274,6 +255,3 @@ class MinioAPI(object):
         self._httpClient = httpClient
 
         return None
-
-
-

@@ -4,9 +4,11 @@ db2_python_connector.py
 This object leverages the ibm_db_dbi module to connect to the MSK Darwin database and perform SQL queries,
 as well as save the results to Minio object storage.
 """
+
 import pandas as pd
 import ibm_db_dbi as db
 from msk_cdm.minio import MinioAPI
+
 
 class db2connection(object):
     """
@@ -53,13 +55,7 @@ class db2connection(object):
     """
 
     def __init__(
-            self,
-            database: str,
-            host: str,
-            port: str,
-            protocol: str,
-            uid: str,
-            pwd: str
+        self, database: str, host: str, port: str, protocol: str, uid: str, pwd: str
     ) -> None:
         """
         Initializes the db2connection object by setting up the connection parameters
@@ -91,13 +87,7 @@ class db2connection(object):
         self._connect(pwd=pwd)
 
     def _connection_string(
-            self,
-            database: str,
-            host: str,
-            port: str,
-            protocol: str,
-            uid: str,
-            pwd: str
+        self, database: str, host: str, port: str, protocol: str, uid: str, pwd: str
     ) -> str:
         """
         Constructs a connection string from the given parameters for IBM DB2.
@@ -122,13 +112,10 @@ class db2connection(object):
         str
             The connection string required for IBM DB2.
         """
-        conn_str = f'DATABASE={database};HOSTNAME={host};PORT={port};PROTOCOL={protocol};UID={uid};PWD={pwd};'
+        conn_str = f"DATABASE={database};HOSTNAME={host};PORT={port};PROTOCOL={protocol};UID={uid};PWD={pwd};"
         return conn_str
 
-    def _connect(
-            self,
-            pwd: str
-    ) -> None:
+    def _connect(self, pwd: str) -> None:
         """
         Establishes a connection to the database using the connection string.
 
@@ -142,17 +129,15 @@ class db2connection(object):
             host=self._host,
             port=self._port,
             protocol=self._protocol,
-            uid=self._uid, pwd=pwd
+            uid=self._uid,
+            pwd=pwd,
         )
 
         # Establish connection
-        conn = db.connect(conn_str, '', '')
+        conn = db.connect(conn_str, "", "")
         self._conn = conn
 
-    def query_ddp(
-            self,
-            fname_sql: str
-    ) -> pd.DataFrame:
+    def query_ddp(self, fname_sql: str) -> pd.DataFrame:
         """
         Executes a SQL query from a file and returns the result as a DataFrame.
 
@@ -166,17 +151,14 @@ class db2connection(object):
         pd.DataFrame
             DataFrame containing the query results.
         """
-        with open(fname_sql, 'r') as fd:
+        with open(fname_sql, "r") as fd:
             sqlFile = fd.read()
 
         # Query data
         df = self.query_ddp_sql(sql=sqlFile)
         return df
 
-    def query_ddp_sql(
-            self,
-            sql: str
-    ) -> pd.DataFrame:
+    def query_ddp_sql(self, sql: str) -> pd.DataFrame:
         """
         Executes a raw SQL query and returns the result as a DataFrame.
 
@@ -194,11 +176,11 @@ class db2connection(object):
         return df
 
     def query_ddp_and_save(
-            self,
-            fname_sql: str,
-            fname_minio_config: str,
-            fname_output: str,
-            fname_backup: str = None
+        self,
+        fname_sql: str,
+        fname_minio_config: str,
+        fname_output: str,
+        fname_backup: str = None,
     ) -> pd.DataFrame:
         """
         Executes a SQL query from a file, saves the result to Minio, and optionally creates a backup.
@@ -231,25 +213,21 @@ class db2connection(object):
                 obj_minio=obj_minio,
                 minio_bucket=obj_minio.bucket_name,
                 fname_output=fname_output,
-                fname_backup=fname_backup
+                fname_backup=fname_backup,
             )
 
         # Save dataframe
         if fname_output is not None:
-            obj_minio.save_obj(
-                df=df,
-                path_object=fname_output,
-                sep='\t'
-            )
+            obj_minio.save_obj(df=df, path_object=fname_output, sep="\t")
 
         return df
 
     def _backup_copy(
-            self,
-            obj_minio: MinioAPI,
-            minio_bucket: str,
-            fname_output: str,
-            fname_backup: str
+        self,
+        obj_minio: MinioAPI,
+        minio_bucket: str,
+        fname_output: str,
+        fname_backup: str,
     ) -> str:
         """
         Copies an existing file from Minio to a backup location.
@@ -271,7 +249,9 @@ class db2connection(object):
             The result of the copy operation.
         """
         # Check if file exists in Minio
-        list_ = obj_minio.print_list_objects(bucket_name=minio_bucket, recursive=True, prefix=fname_output)
+        list_ = obj_minio.print_list_objects(
+            bucket_name=minio_bucket, recursive=True, prefix=fname_output
+        )
 
         if any(ext in fname_output for ext in list_):
             # Copy object to backup location
@@ -279,7 +259,7 @@ class db2connection(object):
                 source_bucket=minio_bucket,
                 source_path_object=fname_output,
                 dest_bucket=minio_bucket,
-                dest_path_object=fname_backup
+                dest_path_object=fname_backup,
             )
 
         return result
