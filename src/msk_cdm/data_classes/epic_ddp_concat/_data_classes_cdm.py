@@ -179,11 +179,6 @@ class CDMProcessingVariables:
     fname_rad_prog_prediction_combined: str = "epic_ddp_concat/radiology/progression/impact/intermediate_files/radiology_cancer_progression_predictions_combined.tsv"
     fname_rad_rpts_for_prediction_progression: str = "epic_ddp_concat/radiology/progression/impact/intermediate_files/ddp_radiology_reports_for_prediction_progression.tsv"
 
-    ## Training Labels
-    ### Metastatic sites (GENIE)
-    ### Progression (GENIE)
-    fname_labels_genie_progression: str = "epic_ddp_concat/labels/progression/genie_lung_crc_breast_prostate_pancreas_progression_labels_20200923.tsv"
-
     # Column names of interest
     col_radiology_id: str = "ACCESSION_NUMBER"
     col_radiology_findings_label: str = "FINDINGS_LABEL_OR_ORGAN"
