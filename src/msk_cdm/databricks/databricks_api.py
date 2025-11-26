@@ -3,6 +3,7 @@ import pathlib
 from dotenv import dotenv_values
 from io import BytesIO, StringIO
 from typing import Any
+import json
 
 from databricks import sql
 from databricks.sdk import WorkspaceClient
@@ -259,6 +260,79 @@ class DatabricksAPI(object):
 
         return df
 
+    def read_json_obj(
+        self, volume_path: str, return_format: Optional[str] = "dict"
+    ) -> dict | list | pd.DataFrame:
+        """Read JSON object from Databricks volume
+
+        Reads a JSON file from the Databricks volume and returns it in the
+        specified format.
+
+        Args:
+            volume_path: The path to the JSON file on the Databricks volume.
+            return_format: The format to return the data in:
+                          - "dict": Return as dict or list (default)
+                          - "dataframe": Convert to pandas DataFrame
+                          - "raw": Return as JSON string
+
+        Returns:
+            The JSON data in the specified format:
+            - dict/list: Python objects parsed from JSON
+            - DataFrame: pandas DataFrame (if data is tabular)
+            - str: Raw JSON string
+
+        Examples:
+            # Read as dict
+            data = obj.read_json_obj("/Volumes/catalog/schema/volume/data.json")
+
+            # Read as DataFrame
+            df = obj.read_json_obj("/Volumes/catalog/schema/volume/data.json",
+                                  return_format="dataframe")
+
+            # Read as raw JSON string
+            json_str = obj.read_json_obj("/Volumes/catalog/schema/volume/data.json",
+                                        return_format="raw")
+        """
+        # Download JSON file from volume
+        response = self._workspace_client.files.download(volume_path)
+        json_bytes = response.contents.read()
+
+        # Return raw JSON string if requested
+        if return_format == "raw":
+            return json_bytes.decode('utf-8')
+
+        # Parse JSON
+        try:
+            data = json.loads(json_bytes)
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Invalid JSON file at {volume_path}: {e}")
+
+        # Return as dict/list if requested
+        if return_format == "dict":
+            return data
+
+        # Convert to DataFrame if requested
+        elif return_format == "dataframe":
+            try:
+                if isinstance(data, dict):
+                    # Single dict: treat as single row
+                    df = pd.DataFrame([data])
+                elif isinstance(data, list):
+                    # List of dicts: standard DataFrame creation
+                    df = pd.DataFrame(data)
+                else:
+                    raise ValueError(
+                        "JSON data must be dict or list of dicts for DataFrame conversion"
+                    )
+                return df
+            except Exception as e:
+                raise ValueError(f"Could not convert JSON to DataFrame: {e}")
+
+        else:
+            raise ValueError(
+                f"return_format must be 'dict', 'dataframe', or 'raw', not '{return_format}'"
+            )
+
     def create_directory_on_volume(self, path: str) -> None:
         """
         Creates a directory on the Databricks volume at the specified path.
@@ -325,6 +399,174 @@ class DatabricksAPI(object):
                 print(
                     "Conflict with separator in dict; setting to value object was saved as."
                 )
+
+            self.create_table_from_volume(
+                dict_database_table_info=dict_database_table_info
+            )
+
+        return None
+
+    def write_json_obj(
+        self,
+        data: dict | list | str,
+        volume_path: str,
+        save_format: Optional[str] = "json",
+        csv_sep: Optional[str] = "\t",
+        overwrite: Optional[bool] = True,
+        dict_database_table_info: Optional[dict] = None,
+    ):
+        """Write JSON data to Databricks volume with optional format conversion
+
+        Accepts JSON data in multiple formats and saves it to Databricks volume.
+        Can save as JSON file, convert to CSV, or save both formats.
+
+        Args:
+            data: JSON data as dict, list of dicts, or JSON string
+                  - dict: Single JSON object {"key": "value"}
+                  - list: List of JSON objects [{"col1": "val1"}, {"col2": "val2"}]
+                  - str: JSON string to be parsed
+            volume_path: The path where the file should be saved on the Databricks volume.
+                        For save_format="both", this will be used as the base path
+            save_format: Output format options:
+                        - "json": Save as JSON file (default)
+                        - "csv": Convert to CSV and save
+                        - "both": Save both JSON and CSV versions
+            csv_sep: The separator used when saving as CSV (default: "\t")
+            overwrite: Whether to overwrite existing files (default: True)
+            dict_database_table_info: A dictionary containing information about the
+                                      database table. If provided, a table will be created.
+                                      Must contain these keys:
+                                        - catalog: Databricks catalog used
+                                        - schema: Schema within the catalog
+                                        - table: Table name in the schema
+                                        - volume_path: Path location on the volume
+                                        - sep: File separator used for the object
+
+        Returns:
+            None
+
+        Examples:
+            # Save dict as JSON
+            data = {"name": "John", "age": 30}
+            obj.write_json_obj(data, "/Volumes/catalog/schema/volume/data.json")
+
+            # Save list of dicts as CSV
+            data = [{"name": "John", "age": 30}, {"name": "Jane", "age": 25}]
+            obj.write_json_obj(data, "/Volumes/catalog/schema/volume/data.csv",
+                              save_format="csv")
+
+            # Save both formats and create table
+            obj.write_json_obj(data, "/Volumes/catalog/schema/volume/data",
+                              save_format="both",
+                              dict_database_table_info={...})
+        """
+        # Parse input data into a consistent format
+        if isinstance(data, str):
+            try:
+                parsed_data = json.loads(data)
+            except json.JSONDecodeError as e:
+                raise ValueError(f"Invalid JSON string: {e}")
+        elif isinstance(data, (dict, list)):
+            parsed_data = data
+        else:
+            raise TypeError(
+                f"data must be dict, list, or JSON string, not {type(data).__name__}"
+            )
+
+        # Initialize variables to avoid unbound warnings
+        df = None
+        json_path = None
+        csv_path = None
+
+        # Convert to DataFrame for CSV operations
+        if save_format in ["csv", "both"] or dict_database_table_info is not None:
+            try:
+                if isinstance(parsed_data, dict):
+                    # Single dict: treat as single row
+                    df = pd.DataFrame([parsed_data])
+                elif isinstance(parsed_data, list):
+                    # List of dicts: standard DataFrame creation
+                    df = pd.DataFrame(parsed_data)
+                else:
+                    raise ValueError("Data must be dict or list of dicts for CSV conversion")
+            except Exception as e:
+                raise ValueError(f"Could not convert JSON to DataFrame: {e}")
+
+        # Determine file paths based on save_format
+        if save_format == "json":
+            json_path = volume_path if volume_path.endswith('.json') else f"{volume_path}.json"
+        elif save_format == "csv":
+            csv_path = volume_path if volume_path.endswith('.csv') else f"{volume_path}.csv"
+        elif save_format == "both":
+            base_path = volume_path.rsplit('.', 1)[0]  # Remove extension if present
+            json_path = f"{base_path}.json"
+            csv_path = f"{base_path}.csv"
+        else:
+            raise ValueError(f"save_format must be 'json', 'csv', or 'both', not '{save_format}'")
+
+        # Save as JSON
+        if save_format in ["json", "both"]:
+            if json_path is None:
+                raise ValueError("Internal error: json_path not initialized")
+
+            print(f"Saving JSON to {json_path}")
+
+            # Create directory on volume
+            dir_volume_path = os.path.dirname(json_path)
+            self.create_directory_on_volume(path=dir_volume_path)
+
+            # Convert to JSON bytes
+            json_bytes = json.dumps(parsed_data, indent=2).encode('utf-8')
+            json_buffer = BytesIO(json_bytes)
+
+            # Upload to volume
+            print(f"Writing JSON to {json_path}")
+            self._workspace_client.files.upload(
+                json_path, json_buffer, overwrite=overwrite
+            )
+            print("JSON write to volume complete")
+
+        # Save as CSV
+        if save_format in ["csv", "both"]:
+            if csv_path is None or df is None:
+                raise ValueError("Internal error: csv_path or df not initialized")
+
+            print(f"Saving CSV to {csv_path}")
+
+            # Create directory on volume
+            dir_volume_path = os.path.dirname(csv_path)
+            self.create_directory_on_volume(path=dir_volume_path)
+
+            # Convert DataFrame to CSV bytes
+            csv_bytes = df.to_csv(index=False, sep=csv_sep).encode('utf-8')
+            csv_buffer = BytesIO(csv_bytes)
+
+            # Upload to volume
+            print(f"Writing CSV to {csv_path}")
+            self._workspace_client.files.upload(
+                csv_path, csv_buffer, overwrite=overwrite
+            )
+            print("CSV write to volume complete")
+
+        # Create table if requested (uses CSV format)
+        if dict_database_table_info is not None:
+            if save_format == "json":
+                raise ValueError(
+                    "Cannot create table from JSON format alone. "
+                    "Use save_format='csv' or 'both' when creating tables."
+                )
+
+            if csv_path is None:
+                raise ValueError("Internal error: csv_path not initialized for table creation")
+
+            # Update volume_path in dict to point to CSV file
+            if "volume_path" not in dict_database_table_info:
+                dict_database_table_info["volume_path"] = csv_path
+
+            # Ensure separator matches
+            if csv_sep != dict_database_table_info.get("sep"):
+                dict_database_table_info["sep"] = csv_sep
+                print("Updating separator in dict to match CSV format")
 
             self.create_table_from_volume(
                 dict_database_table_info=dict_database_table_info

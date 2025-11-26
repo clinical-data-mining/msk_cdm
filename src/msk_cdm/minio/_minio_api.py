@@ -27,6 +27,7 @@ class MinioAPI(object):
         url_port: Optional[str] = "pllimsksparky3:9000",
         fname_minio_env: Optional[Union[Path, str]] = None,
         bucket: Optional[str] = None,
+        verify_ssl: Optional[bool] = False,
     ):
         """Initialization
 
@@ -36,11 +37,13 @@ class MinioAPI(object):
             - ca_certs: optional filename pointer to ca_cert bundle for `urllib3`. Only specify if not passing `fname_minio_env`.
             - fname_minio_env: A filename with KEY=value lines with values for keys `CA_CERTS`, `URL_PORT`, `BUCKET`.
             - bucket: optional default minio bucket to use for operations. Can also be specified as environment variable $BUCKET.
+            - verify_ssl: Whether to verify SSL certificates. Set to False to disable certificate verification (not recommended for production).
         """
         self._ACCESS_KEY = ACCESS_KEY
         self._SECRET_KEY = SECRET_KEY
         self._ca_certs = ca_certs
         self._url_port = url_port
+        self._verify_ssl = verify_ssl
 
         self._bucket = bucket
         self._client = None
@@ -238,9 +241,16 @@ class MinioAPI(object):
 
     def _connect(self):
         # required for self-signed certs
-        httpClient = urllib3.PoolManager(
-            cert_reqs="CERT_REQUIRED", ca_certs=self._ca_certs
-        )
+        if self._verify_ssl:
+            httpClient = urllib3.PoolManager(
+                cert_reqs="CERT_REQUIRED", ca_certs=self._ca_certs
+            )
+        else:
+            # Disable SSL warnings when verification is disabled
+            urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+            httpClient = urllib3.PoolManager(
+                cert_reqs="CERT_NONE"
+            )
 
         # Create secure client with access key and secret key
         client = Minio(
